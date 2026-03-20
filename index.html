@@ -1,2164 +1,844 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quantum Branding - Turn Your Inner Truth Into a Market Signal</title>
-    <meta name="description" content="A diagnosis-first brand system for founders who want clarity, restraint, and authority. Start with a scan. Build the asset." />
-
-    <script>
-        document.documentElement.classList.remove('no-js');
-        document.documentElement.classList.add('js');
-    </script>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        quantum: {
-                            bg: '#000000',
-                            surface: '#050505',
-                            border: '#161616',
-                            accent: '#4ade80',
-                            muted: '#71717a'
-                        }
-                    },
-                    fontFamily: {
-                        mono: ['JetBrains Mono', 'Courier New', 'monospace'],
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        };
-    </script>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700;900&display=swap');
-
-        *, *::before, *::after { box-sizing: border-box; }
-        html, body { margin: 0; padding: 0; }
-
-        html.lenis,
-        html.lenis body {
-            height: auto;
-        }
-
-        .lenis.lenis-smooth {
-            scroll-behavior: auto !important;
-        }
-
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-
-        .lenis.lenis-stopped {
-            overflow: hidden;
-        }
-
-        body {
-            background: #000;
-            color: #e4e4e7;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            cursor: auto !important;
-        }
-
-        a, button, input, select, textarea {
-            cursor: pointer;
-        }
-
-        input, textarea {
-            cursor: text;
-        }
-
-        .gradient-text-animated {
-            background: linear-gradient(90deg, #fff, #4ade80, #fff, #4ade80);
-            background-size: 300% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient-shift 8s linear infinite;
-            padding-bottom: 0.15em;
-            margin-bottom: -0.15em;
-        }
-
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .glass-card {
-            background: rgba(10, 10, 10, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            transform-style: preserve-3d;
-        }
-
-        .glass-card-3d {
-            transform-style: preserve-3d;
-            transition: transform 0.1s ease-out;
-        }
-
-        .glass-card-3d .card-content { transform: translateZ(30px); }
-        .glass-card-3d .card-icon { transform: translateZ(50px); }
-
-        .glass-card-3d .card-glow {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(74, 222, 128, 0.15), transparent 50%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-            border-radius: inherit;
-        }
-
-        .glass-card-3d:hover .card-glow { opacity: 1; }
-
-        @media (hover: hover) {
-            .glass-card:hover {
-                border-color: rgba(74, 222, 128, 0.5) !important;
-                box-shadow: 0 10px 40px -10px rgba(74, 222, 128, 0.2), 0 0 20px -5px rgba(74, 222, 128, 0.1);
-                transform: translateY(-3px);
-            }
-        }
-
-        .magnetic-btn {
-            position: relative;
-            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        #particle-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            pointer-events: none;
-        }
-
-        .grid-bg-container {
-            position: fixed;
-            inset: -50px;
-            z-index: -1;
-            pointer-events: none;
-            transition: transform 0.1s ease-out;
-        }
-
-        .grid-bg {
-            background-image:
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-            width: 100%;
-            height: 100%;
-        }
-
-        .glitch-text {
-            position: relative;
-        }
-
-        .glitch-text::before,
-        .glitch-text::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-        }
-
-        .glitch-text:hover::before {
-            animation: glitch-1 0.3s linear;
-            color: #4ade80;
-            opacity: 0.8;
-        }
-
-        .glitch-text:hover::after {
-            animation: glitch-2 0.3s linear;
-            color: #ff0040;
-            opacity: 0.8;
-        }
-
-        @keyframes glitch-1 {
-            0%, 100% { transform: translate(0); opacity: 0; }
-            20% { transform: translate(-3px, 3px); opacity: 0.8; }
-            40% { transform: translate(3px, -3px); opacity: 0.8; }
-            60% { transform: translate(-3px, -3px); opacity: 0.8; }
-            80% { transform: translate(3px, 3px); opacity: 0.8; }
-        }
-
-        @keyframes glitch-2 {
-            0%, 100% { transform: translate(0); opacity: 0; }
-            20% { transform: translate(3px, -3px); opacity: 0.8; }
-            40% { transform: translate(-3px, 3px); opacity: 0.8; }
-            60% { transform: translate(3px, 3px); opacity: 0.8; }
-            80% { transform: translate(-3px, -3px); opacity: 0.8; }
-        }
-
-        .pulse-ring {
-            position: relative;
-        }
-
-        .pulse-ring::before,
-        .pulse-ring::after {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            border: 1px solid rgba(74, 222, 128, 0.3);
-            border-radius: inherit;
-            animation: pulse-ring 2s ease-out infinite;
-        }
-
-        .pulse-ring::after {
-            animation-delay: 1s;
-        }
-
-        @keyframes pulse-ring {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(1.2); opacity: 0; }
-        }
-
-        .float-animation {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .scan-line {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .scan-line::after {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, #4ade80, transparent);
-            animation: scan 3s ease-in-out infinite;
-        }
-
-        @keyframes scan {
-            0% { top: -100%; }
-            50% { top: 100%; }
-            100% { top: 100%; }
-        }
-
-        .page {
-            display: none;
-            opacity: 1;
-            transform: none;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        .no-js .page {
-            display: block !important;
-            opacity: 1 !important;
-            transform: none !important;
-        }
-
-        .stagger {
-            opacity: 1;
-            transform: none;
-        }
-
-        .js .stagger {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .js .stagger.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .noise {
-            position: fixed;
-            inset: -50px;
-            background: url('https://grainy-gradients.vercel.app/noise.svg');
-            opacity: 0.02;
-            pointer-events: none;
-            z-index: 50;
-            transition: transform 0.1s ease-out;
-        }
-
-        @media (max-width: 1024px) {
-            .page { padding-top: 7rem !important; padding-bottom: 4rem !important; }
-            .mb-32 { margin-bottom: 4rem !important; }
-            .mb-24 { margin-bottom: 3rem !important; }
-            .gap-24 { gap: 3rem !important; }
-            .gap-16 { gap: 2rem !important; }
-            .p-12 { padding: 2rem !important; }
-            .p-20 { padding: 2.5rem !important; }
-        }
-
-        .email-input {
-            width: 100%;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px;
-            padding: 18px 24px;
-            color: #fff;
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .email-input:focus {
-            border-color: rgba(74, 222, 128, 0.5);
-            box-shadow: 0 0 20px rgba(74, 222, 128, 0.1);
-        }
-
-        .email-input::placeholder {
-            color: #3f3f46;
-        }
-
-        input[type=range] {
-            -webkit-appearance: none;
-            background: rgba(255,255,255,0.1);
-            height: 4px;
-            border-radius: 2px;
-            outline: none;
-        }
-
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: #4ade80;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(74,222,128,0.6);
-            transition: transform 0.1s;
-        }
-
-        input[type=range]::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-        }
-
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #4ade80; }
-
-        .ripple {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .ripple::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 50%;
-            left: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
-            transform: translate(-50%, -50%) scale(0);
-            opacity: 0;
-            transition: transform 0.6s, opacity 0.6s;
-        }
-
-        .ripple:active::after {
-            transform: translate(-50%, -50%) scale(2);
-            opacity: 1;
-            transition: 0s;
-        }
-
-        .hover-underline {
-            position: relative;
-        }
-
-        .hover-underline::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: #4ade80;
-            transition: width 0.3s ease;
-        }
-
-        .hover-underline:hover::after {
-            width: 100%;
-        }
-
-        .counter {
-            font-variant-numeric: tabular-nums;
-        }
-
-        .spinner {
-            width: 24px;
-            height: 24px;
-            border: 2px solid rgba(74, 222, 128, 0.2);
-            border-top-color: #4ade80;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        ::selection {
-            background: #4ade80;
-            color: #000;
-        }
-
-        *:focus-visible {
-            outline: 2px solid #4ade80;
-            outline-offset: 2px;
-        }
-
-        .meter-bar {
-            height: 100%;
-            border-radius: 99px;
-            transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .path-card-active {
-            border: 1px solid rgba(74, 222, 128, 0.2);
-            background: linear-gradient(to bottom right, rgba(74,222,128,0.05), transparent);
-        }
-    </style>
-</head>
-<body class="selection:bg-green-500 selection:text-black">
-    <noscript>
-        <style>
-            .page { display: block !important; }
-            #quantum-preloader { display: none !important; }
-        </style>
-    </noscript>
-
-    <div id="quantum-preloader" class="fixed inset-0 z-[99999] bg-[#050505] flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out pointer-events-none">
-        <div class="relative w-32 h-32 flex items-center justify-center mb-8">
-            <div class="absolute inset-0 rounded-full border-t-2 border-l-2 border-[#4ade80] animate-spin opacity-50"></div>
-            <div class="absolute inset-2 rounded-full border-r-2 border-b-2 border-white animate-[spin_1.5s_linear_reverse] opacity-30"></div>
-            <div class="font-mono text-2xl font-bold text-[#4ade80]" id="loader-percent">0%</div>
-        </div>
-        <div class="font-mono text-[10px] tracking-[0.5em] text-white/50 uppercase h-[14px] overflow-hidden">
-            <div id="loader-text">INITIALIZING NEURAL NET</div>
-        </div>
+<!-- ═══ CHAT PANEL ═══ -->
+<div id="chat-panel" class="fixed top-0 right-0 h-full w-full max-w-xl z-[200] bg-[#050505] border-l border-white/5 shadow-[-20px_0_80px_rgba(0,0,0,0.8)]" style="transform:translateX(100%);">
+  <div class="flex flex-col h-full">
+    <div class="flex items-center justify-between p-6 border-b border-white/5">
+      <div>
+        <div class="font-mono text-[10px] tracking-[0.4em] uppercase text-[#4ade80]">SIGNAL SCAN</div>
+        <div class="text-xs text-quantum-muted mt-1">Find your pricing gap — free</div>
+      </div>
+      <button onclick="window.closeChat()" class="text-white/50 hover:text-white transition-colors magnetic-btn"><i data-lucide="x" class="w-5 h-5"></i></button>
     </div>
-
-    <canvas id="particle-canvas"></canvas>
-
-    <div class="grid-bg-container" id="parallax-bg">
-        <div class="grid-bg"></div>
+    <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-4" data-lenis-prevent>
+      <div class="flex gap-3">
+        <div class="w-8 h-8 rounded-full bg-[#4ade80]/20 border border-[#4ade80]/30 flex items-center justify-center flex-shrink-0 text-xs text-[#4ade80]">Q</div>
+        <div class="glass-card rounded-2xl rounded-tl-none p-4 max-w-[85%]">
+          <p class="text-sm text-white/90 leading-relaxed">Tell me about your work — what do you do and who do you do it for? I'll identify where your brand signal is creating a pricing ceiling.</p>
+        </div>
+      </div>
     </div>
-
-    <div class="noise" id="parallax-noise"></div>
-
-    <nav class="fixed top-0 w-full z-[100] border-b border-white/5 bg-black/80 backdrop-blur-xl transition-all duration-300" id="main-nav">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3 cursor-pointer group magnetic-btn" onclick="window.navigate('home')">
-                <div class="w-1.5 h-1.5 bg-white rounded-full transition-all duration-300 group-hover:scale-150 group-hover:bg-green-400"></div>
-                <span class="font-mono text-[10px] font-bold tracking-[0.4em] uppercase text-white group-hover:text-green-400 transition-all glitch-text" data-text="[Q_BRANDING]">[Q_BRANDING]</span>
-            </div>
-
-            <div class="hidden lg:flex items-center gap-8">
-                <button onclick="window.navigate('vault')" data-page="vault" class="nav-btn text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors hover-underline magnetic-btn">The Vault</button>
-                <button onclick="window.navigate('method')" data-page="method" class="nav-btn text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors hover-underline magnetic-btn">The Method</button>
-                <button onclick="window.navigate('kit')" data-page="kit" class="nav-btn text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors hover-underline magnetic-btn">The Kit</button>
-                <button onclick="window.navigate('lab')" data-page="lab" class="nav-btn text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors hover-underline magnetic-btn">The Lab</button>
-                <button onclick="window.navigate('mri')" data-page="mri" class="nav-btn text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors hover-underline magnetic-btn">Brand MRI</button>
-                <button onclick="window.navigate('about')" data-page="about" class="nav-btn text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors hover-underline magnetic-btn">About</button>
-                <button onclick="window.navigate('start')" data-page="start" class="nav-btn text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors hover-underline magnetic-btn">Start Here</button>
-                <button onclick="window.openChat()" class="magnetic-btn px-6 py-2.5 bg-white text-black text-[11px] font-bold tracking-widest uppercase rounded-full hover:bg-[#4ade80] transition-all active:scale-95 flex items-center gap-2 pulse-ring shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-                    Signal Scan <span class="animate-pulse">✨</span>
-                </button>
-            </div>
-
-            <button class="lg:hidden text-white magnetic-btn" onclick="window.toggleMenu()">
-                <i data-lucide="menu"></i>
-            </button>
-        </div>
-    </nav>
-
-    <div id="mobile-action-bar" class="lg:hidden fixed bottom-0 left-0 w-full z-[90] p-4 transition-transform duration-500 translate-y-full">
-        <div style="background: rgba(10,10,10,0.85); backdrop-filter: blur(24px); border: 1px solid rgba(74,222,128,0.2);" class="rounded-2xl p-4 flex justify-between items-center shadow-[0_-10px_40px_rgba(74,222,128,0.1)]">
-            <div class="font-mono text-[9px] uppercase tracking-widest text-white/70 hidden sm:block">Fix your pricing gap</div>
-            <button onclick="window.openChat()" class="magnetic-btn w-full sm:w-auto px-6 py-3 bg-[#4ade80] text-black font-black uppercase tracking-widest text-[10px] rounded-xl hover:bg-white transition-all flex items-center justify-center gap-2">
-                Find My Gap ✨
-            </button>
-        </div>
+    <div class="p-6 border-t border-white/5">
+      <div class="flex gap-3">
+        <input id="chat-input" type="text" placeholder="Describe what you do..." class="email-input flex-1 py-3 px-4 text-sm rounded-xl" style="border-radius:12px;" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();window.sendChat();}" />
+        <button onclick="window.sendChat()" class="magnetic-btn px-5 py-3 bg-[#4ade80] text-black font-bold rounded-xl hover:bg-white transition-all flex-shrink-0"><i data-lucide="send" class="w-4 h-4"></i></button>
+      </div>
+      <div class="mt-4 text-center">
+        <span class="font-mono text-[9px] uppercase tracking-widest text-quantum-muted">Powered by Gemini AI</span>
+      </div>
     </div>
+  </div>
+</div>
+<div id="chat-overlay" class="fixed inset-0 z-[199] bg-black/60 backdrop-blur-sm hidden" onclick="window.closeChat()"></div>
 
-    <div id="mobile-nav" class="fixed inset-0 z-[110] bg-black hidden flex-col p-6 md:p-12 overflow-y-auto">
-        <div class="flex justify-between items-center mb-12">
-            <span class="font-mono text-[10px] tracking-[0.4em] text-white">SYSTEM_NAVIGATION</span>
-            <button class="text-white magnetic-btn" onclick="window.toggleMenu()"><i data-lucide="x" class="w-8 h-8"></i></button>
-        </div>
-        <div class="flex flex-col gap-6">
-            <button onclick="window.navigate('home')" class="text-3xl md:text-4xl font-bold tracking-tighter text-left hover:text-green-400 transition-colors magnetic-btn">Home</button>
-            <button onclick="window.navigate('vault')" class="text-3xl md:text-4xl font-bold tracking-tighter text-left hover:text-green-400 transition-colors magnetic-btn">The Vault</button>
-            <button onclick="window.navigate('method')" class="text-3xl md:text-4xl font-bold tracking-tighter text-left hover:text-green-400 transition-colors magnetic-btn">The Method</button>
-            <button onclick="window.navigate('kit')" class="text-3xl md:text-4xl font-bold tracking-tighter text-left hover:text-green-400 transition-colors magnetic-btn">The Kit</button>
-            <button onclick="window.navigate('lab')" class="text-3xl md:text-4xl font-bold tracking-tighter text-left hover:text-green-400 transition-colors magnetic-btn">The Lab</button>
-            <button onclick="window.navigate('mri')" class="text-3xl md:text-4xl font-bold tracking-tighter text-left hover:text-green-400 transition-colors magnetic-btn">Brand MRI</button>
-            <button onclick="window.navigate('about')" class="text-3xl md:text-4xl font-bold tracking-tighter text-left hover:text-green-400 transition-colors magnetic-btn">About</button>
-            <button onclick="window.navigate('start')" class="text-3xl md:text-4xl font-bold tracking-tighter text-left hover:text-green-400 transition-colors magnetic-btn">Start Here</button>
-        </div>
+<!-- Video Modal -->
+<div id="video-modal" class="fixed inset-0 z-[300] bg-black/90 backdrop-blur-xl hidden items-center justify-center p-6">
+  <div class="relative w-full max-w-4xl">
+    <button onclick="document.getElementById('video-modal').classList.add('hidden');document.getElementById('video-modal').classList.remove('flex');const v=document.getElementById('vault-video');if(v)v.pause();" class="absolute -top-12 right-0 text-white/50 hover:text-white transition-colors magnetic-btn flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest"><i data-lucide="x" class="w-4 h-4"></i> Close</button>
+    <div class="aspect-video rounded-[24px] overflow-hidden bg-black">
+      <video id="vault-video" controls class="w-full h-full object-cover" poster="/assets/vault-masterclass-thumbnail.jpg">
+        <source src="/assets/vault-masterclass.mp4" type="video/mp4">
+        <p class="text-center text-quantum-muted p-8">Video not available yet — check back soon.</p>
+      </video>
     </div>
+  </div>
+</div>
 
-    <main>
-        <div id="page-home" class="page active px-6 pt-32 lg:pt-48 pb-32">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid lg:grid-cols-12 gap-16 items-start mb-32">
-                    <div class="lg:col-span-8">
-                        <div class="max-w-4xl mb-12 stagger">
-                            <span class="inline-block px-4 py-2 border border-[#4ade80]/30 bg-[#4ade80]/10 rounded-full font-mono text-[10px] tracking-[0.3em] uppercase text-[#4ade80] mb-8 scan-line">
-                                for founders undercharging by $10K to $20K per deal
-                            </span>
-                            <h1 class="text-5xl md:text-6xl lg:text-[80px] font-black leading-[1.1] tracking-tighter text-white mb-8 gradient-text-animated pb-2 pr-2">
-                                Founders who should be charging $25K <br class="hidden lg:block"><span class="italic font-light tracking-normal text-white/90">but are quoting $5K. This is a brand problem.</span>
-                            </h1>
-                            <p class="text-xl lg:text-2xl text-quantum-muted leading-relaxed max-w-3xl">
-                                Your work is strong. Your brand is making you look mid-market. We find the exact gap between what you charge and what you could charge, and close it in 30 days.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-6 stagger">
-                            <button onclick="window.openChat()" class="magnetic-btn ripple px-10 py-5 bg-white text-black font-bold tracking-widest uppercase text-[10px] rounded-xl hover:bg-green-400 transition-all flex items-center gap-2 group">
-                                <span>Find My Pricing Gap (Free)</span>
-                                <span class="group-hover:rotate-12 transition-transform">✨</span>
-                            </button>
-                            <button onclick="window.navigate('kit')" class="magnetic-btn ripple px-10 py-5 border border-white/20 text-white font-bold tracking-widest uppercase text-[10px] rounded-xl hover:bg-white/5 hover:border-green-400/50 transition-all">
-                                Get The System That Fixes It • $297
-                            </button>
-                        </div>
-                    </div>
+<!-- ═══════════════════════════════════════════ JAVASCRIPT ═══════════════════════════════════════════ -->
 
-                    <div class="lg:col-span-4 space-y-10 pt-10 stagger">
-                        <div class="glass-card glass-card-3d p-8 rounded-2xl border-l-2 border-l-green-400/50" data-tilt>
-                            <div class="card-glow"></div>
-                            <div class="card-content">
-                                <div class="text-4xl font-bold text-white mb-1"><span class="counter" data-target="30" data-suffix="%">0</span></div>
-                                <div class="text-[9px] tracking-widest uppercase text-quantum-muted">Average revenue increase. Kit users. First 90 days.</div>
-                            </div>
-                        </div>
-                        <div class="glass-card glass-card-3d p-8 rounded-2xl border-l-2 border-l-white/20" data-tilt>
-                            <div class="card-glow"></div>
-                            <div class="card-content">
-                                <div class="text-4xl font-bold text-white mb-1"><span class="counter" data-target="1.5" data-prefix="$" data-suffix="M">0</span></div>
-                                <div class="text-[9px] tracking-widest uppercase text-quantum-muted">Revenue Stan Wawrinka attributed directly to his brand repositioning.</div>
-                            </div>
-                        </div>
-                        <div class="glass-card glass-card-3d p-8 rounded-2xl border-l-2 border-l-white/20" data-tilt>
-                            <div class="card-glow"></div>
-                            <div class="card-content">
-                                <div class="text-4xl font-bold text-white mb-1"><span class="counter" data-target="500" data-suffix="+">0</span></div>
-                                <div class="text-[9px] tracking-widest uppercase text-quantum-muted">Founders who stopped undercharging.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="border-y border-white/5 py-12 mb-32 stagger flex flex-wrap justify-between gap-10 grayscale opacity-40 hover:opacity-70 transition-opacity">
-                    <span class="font-mono text-[9px] tracking-widest uppercase hover-underline cursor-pointer">New York Times</span>
-                    <span class="font-mono text-[9px] tracking-widest uppercase hover-underline cursor-pointer">Time Magazine</span>
-                    <span class="font-mono text-[9px] tracking-widest uppercase hover-underline cursor-pointer">Google Arts & Culture</span>
-                    <span class="font-mono text-[9px] tracking-widest uppercase hover-underline cursor-pointer">The UN</span>
-                    <span class="font-mono text-[9px] tracking-widest uppercase hover-underline cursor-pointer">USAID</span>
-                </div>
+<!-- Script 1: Navigation, forms, utilities -->
+<script>
+// ─── NAVIGATION (unified .active class, scroll-to-top) ───
+window.navigate = function(id) {
+  const pages = document.querySelectorAll('.page');
+  const target = document.getElementById('page-' + id);
+  if (!target) { console.warn('Page not found: page-' + id); return; }
+  pages.forEach(p => {
+    p.classList.remove('active');
+    p.style.display = 'none';
+    p.style.opacity = '0';
+  });
+  target.style.display = 'block';
+  // Force reflow, then fade in
+  void target.offsetHeight;
+  target.style.opacity = '1';
+  target.classList.add('active');
+  // Nav active state
+  document.querySelectorAll('.nav-btn').forEach(btn => {
+    const isActive = btn.dataset.page === id;
+    btn.classList.toggle('text-[#4ade80]', isActive);
+    btn.classList.toggle('text-white/70', !isActive);
+    btn.style.textShadow = isActive ? '0 0 10px rgba(74,222,128,0.5)' : 'none';
+  });
+  // Close mobile menu if open
+  const menu = document.getElementById('mobile-nav');
+  if (menu && !menu.classList.contains('hidden') && typeof window.toggleMenu === 'function') {
+    window.toggleMenu();
+  }
+  // Scroll to top
+  requestAnimationFrame(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    if (window.lenis) { window.lenis.scrollTo(0, { immediate: true }); }
+    // Trigger stagger animations on new page
+    setTimeout(() => window.triggerStagger && window.triggerStagger(), 50);
+  });
+};
 
-                <div class="mb-32">
-                    <div class="mb-16 stagger">
-                        <span class="font-mono text-[10px] tracking-[0.4em] uppercase text-quantum-muted mb-4 block">trusted by founders who were leaving money on the table.</span>
-                        <h2 class="text-4xl lg:text-6xl font-bold text-white tracking-tighter">They fixed the brand. The revenue followed.</h2>
-                    </div>
+// ─── NAVIGATE + SCROLL TO SECTION (AI Tools deep-link) ───
+window.navigateAndScroll = function(pageId, sectionId) {
+  window.navigate(pageId);
+  setTimeout(() => {
+    const el = document.getElementById(sectionId);
+    if (!el) return;
+    const offset = el.getBoundingClientRect().top + window.scrollY - 100;
+    if (window.lenis) {
+      window.lenis.scrollTo(offset, { duration: 1.2 });
+    } else {
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
+  }, 120);
+};
 
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger" data-tilt>
-                            <div class="card-glow"></div>
-                            <div class="card-content flex flex-col h-full">
-                                <img src="/assets/voice-keith-grossman.jpg" alt="Keith Grossman" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-white/10 card-icon">
-                                <p class="italic text-lg text-white mb-10 flex-grow">"Nizzar consistently uplifted me and helped me think."</p>
-                                <div>
-                                    <div class="text-sm font-bold text-white">Keith Grossman</div>
-                                    <div class="text-[9px] uppercase tracking-widest text-quantum-muted mb-6">President of Time Magazine</div>
-                                    <a href="https://www.youtube.com/watch?v=hwOZG5TR-r8" target="_blank" class="text-[9px] font-mono tracking-widest uppercase text-[#4ade80] hover:text-white transition-colors flex items-center gap-1 group">
-                                        Watch at TIME's 100 <span class="group-hover:translate-x-1 transition-transform">→</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+// ─── MOBILE MENU ───
+window.toggleMenu = function() {
+  const menu = document.getElementById('mobile-nav');
+  if (!menu) return;
+  if (menu.classList.contains('hidden')) {
+    menu.classList.remove('hidden');
+    menu.classList.add('flex');
+    gsap.fromTo(menu, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.35 });
+  } else {
+    gsap.to(menu, { opacity: 0, y: -20, duration: 0.25, onComplete: () => {
+      menu.classList.add('hidden');
+      menu.classList.remove('flex');
+      menu.style.opacity = '';
+      menu.style.transform = '';
+    }});
+  }
+};
 
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger border-[#4ade80]/20 bg-[#4ade80]/5" data-tilt>
-                            <div class="card-glow"></div>
-                            <div class="card-content flex flex-col h-full">
-                                <img src="/assets/voice-gary-vee.jpg" alt="Gary Vee" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-[#4ade80]/30 card-icon">
-                                <p class="italic text-lg text-white mb-10 flex-grow">"It got me goosebumps. Please keep sharing love."</p>
-                                <div>
-                                    <div class="text-sm font-bold text-white">Gary Vee</div>
-                                    <div class="text-[9px] uppercase tracking-widest text-quantum-muted mb-6">Media Mogul & Veefriends Creator</div>
-                                    <a href="https://www.instagram.com/reel/CY34hGhAiAc/" target="_blank" class="text-[9px] font-mono tracking-widest uppercase text-[#4ade80] hover:text-white transition-colors flex items-center gap-1 group">
-                                        Watch on Instagram (+10M) <span class="group-hover:translate-x-1 transition-transform">→</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+// ─── CHAT PANEL ───
+window.openChat = function() {
+  const panel = document.getElementById('chat-panel');
+  const overlay = document.getElementById('chat-overlay');
+  if (!panel) return;
+  if (overlay) overlay.classList.remove('hidden');
+  gsap.to(panel, { x: 0, duration: 0.8, ease: 'expo.out' });
+};
+window.closeChat = function() {
+  const panel = document.getElementById('chat-panel');
+  const overlay = document.getElementById('chat-overlay');
+  if (!panel) return;
+  if (overlay) overlay.classList.add('hidden');
+  gsap.to(panel, { x: '100%', duration: 0.8, ease: 'expo.inOut' });
+};
 
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger" data-tilt>
-                            <div class="card-glow"></div>
-                            <div class="card-content flex flex-col h-full">
-                                <img src="/assets/voice-charly-palmer.jpg" alt="Charly Palmer" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-white/10 card-icon">
-                                <p class="italic text-lg text-white mb-10 flex-grow">"Nizzar elevated the digital art conversation at LA Lakers' In The Paint event for 3 straight years."</p>
-                                <div>
-                                    <div class="text-sm font-bold text-white">Charly Palmer</div>
-                                    <div class="text-[9px] uppercase tracking-widest text-quantum-muted mb-6">Contemporary Artist (Guggenheim, LACMA)</div>
-                                    <a href="https://www.instagram.com/thenizzar/p/DLnC8uLspBA/" target="_blank" class="text-[9px] font-mono tracking-widest uppercase text-[#4ade80] hover:text-white transition-colors flex items-center gap-1 group">
-                                        Watch LA Lakers Journey <span class="group-hover:translate-x-1 transition-transform">→</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+// ─── EMAIL VALIDATION ───
+window.checkEmail = function(input) {
+  if (!input) return;
+  const icon = input.parentElement ? input.parentElement.querySelector('.email-check-icon') : null;
+  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+  input.style.borderColor = isValid ? '#4ade80' : '';
+  input.style.boxShadow = isValid ? '0 0 18px rgba(74,222,128,0.12)' : '';
+  if (icon) icon.style.opacity = isValid ? '1' : '0';
+};
 
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger" data-tilt>
-                            <div class="card-glow"></div>
-                            <div class="card-content flex flex-col h-full">
-                                <img src="/assets/voice-mike-mongo.jpg" alt="Mike Mongo" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-white/10 card-icon">
-                                <p class="italic text-lg text-white mb-10 flex-grow">"Brother I know you see the world through my eyes."</p>
-                                <div>
-                                    <div class="text-sm font-bold text-white">Mike Mongo</div>
-                                    <div class="text-[9px] uppercase tracking-widest text-quantum-muted mb-6">Artist & Community Builder (NASA, Obey Giant)</div>
-                                </div>
-                            </div>
-                        </div>
+// ─── EMAIL FORM SUBMIT ───
+window.handleEmailCapture = async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const success = document.getElementById('email-success');
+  const btn = form.querySelector('button[type="submit"]');
+  if (!btn) return;
+  const original = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spinner mx-auto"></div>';
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    });
+    if (!res.ok) throw new Error('Failed');
+    form.style.display = 'none';
+    if (success) {
+      success.classList.remove('hidden');
+      gsap.fromTo(success, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.45 });
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.innerHTML = original;
+    alert('There was a problem — please try again.');
+  }
+};
 
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger border-[#4ade80]/20" data-tilt>
-                            <div class="card-glow"></div>
-                            <div class="card-content flex flex-col h-full">
-                                <img src="/assets/voice-stan-wawrinka.jpg" alt="Stan Wawrinka" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-white/10 card-icon">
-                                <p class="italic text-lg text-white mb-10 flex-grow">"Nizzar is ahead of his time. I learned and earned <strong class="text-[#4ade80]">+$1.5M</strong> thanks to him."</p>
-                                <div>
-                                    <div class="text-sm font-bold text-white">Stan Wawrinka</div>
-                                    <div class="text-[9px] uppercase tracking-widest text-quantum-muted mb-6">3× Grand Slam Champion (Former ATP World No. 3)</div>
-                                </div>
-                            </div>
-                        </div>
+// ─── LAB APPLICATION SUBMIT ───
+window.handleLabApplication = async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById('lab-submit');
+  if (!btn) return;
+  const original = btn.innerText;
+  btn.disabled = true;
+  btn.innerText = 'TRANSMITTING...';
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    });
+    if (!res.ok) throw new Error('Failed');
+    btn.innerText = 'APPLICATION RECEIVED ✓';
+    btn.style.background = '#4ade80';
+  } catch (err) {
+    btn.disabled = false;
+    btn.innerText = original;
+    alert('Submission failed — please try again.');
+  }
+};
 
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger" data-tilt>
-                            <div class="card-glow"></div>
-                            <div class="card-content flex flex-col h-full">
-                                <img src="/assets/voice-christian-cordella.jpg" alt="Christian Cordella" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-white/10 card-icon">
-                                <p class="italic text-lg text-white mb-10 flex-grow">"Nizzar built a brilliant branding method."</p>
-                                <div>
-                                    <div class="text-sm font-bold text-white">Christian Cordella</div>
-                                    <div class="text-[9px] uppercase tracking-widest text-quantum-muted mb-6">Academy Award winning costume designer</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+// ─── LAB REVENUE QUALIFIER (OpenAI feature — protects fit) ───
+window.handleRevenue = function(value) {
+  const warning = document.getElementById('lab-warning');
+  const submit = document.getElementById('lab-submit');
+  if (!warning || !submit) return;
+  if (value === 'aspirant') {
+    warning.classList.remove('hidden');
+    submit.style.opacity = '0.35';
+    submit.style.pointerEvents = 'none';
+    submit.innerText = 'KIT RECOMMENDED';
+  } else {
+    warning.classList.add('hidden');
+    submit.style.opacity = '1';
+    submit.style.pointerEvents = 'auto';
+    submit.innerText = 'SUBMIT APPLICATION • $500 DEPOSIT';
+  }
+};
 
-                <div class="grid lg:grid-cols-2 gap-24 items-center pb-40">
-                    <div class="stagger">
-                        <span class="font-mono text-[9px] tracking-[0.4em] uppercase text-quantum-muted mb-6 block">the high-speed manufacturing protocol</span>
-                        <h2 class="text-5xl font-bold text-white mb-8 tracking-tighter">You already know what you're worth. <br><span class="italic font-light tracking-normal text-white/90">The market doesn't see it yet.</span></h2>
-                        <p class="text-lg text-quantum-muted mb-8 leading-relaxed">
-                            Most founders we work with are already doing premium work. They're losing premium clients, not because of their skills, but because their brand is positioned in the middle of the market. Mid-market positioning means mid-market rates. It means longer sales cycles. It means convincing people instead of attracting them. We fix the positioning. The revenue adjusts upward. Average: 30% in 90 days.
-                        </p>
-                        <p class="text-sm text-quantum-muted mb-10 leading-relaxed">
-                            We've done this with 500+ founders across 30 countries. The pattern is always the same: the work is strong, the brand is misfiring, the pricing is a symptom. We treat the cause.
-                        </p>
-                        <button onclick="window.openChat()" class="magnetic-btn ripple px-10 py-5 bg-white text-black font-bold uppercase text-[10px] rounded-xl hover:bg-green-400 transition-all flex items-center gap-2">
-                            <span>Find My Pricing Gap (Free)</span> <span class="animate-pulse">✨</span>
-                        </button>
-                    </div>
+// ─── ROI CALCULATOR (OpenAI concrete framing) ───
+window.updateROI = function(value) {
+  const mrr = parseInt(value || '0', 10);
+  const lift = Math.round(mrr * 0.3);
+  const cost = 4997;
+  const days = lift > 0 ? Math.round((cost / lift) * 30) : 0;
+  const mrrEl = document.getElementById('roi-mrr-val');
+  const liftEl = document.getElementById('roi-lift-val');
+  const daysEl = document.getElementById('roi-days-val');
+  if (mrrEl) mrrEl.innerText = '$' + mrr.toLocaleString();
+  if (liftEl) liftEl.innerText = '+$' + lift.toLocaleString() + '/mo';
+  if (daysEl) daysEl.innerText = days + ' Days';
+};
 
-                    <div class="glass-card glass-card-3d p-12 rounded-[40px] stagger overflow-hidden relative" data-tilt>
-                        <div class="card-glow"></div>
-                        <div class="absolute -top-20 -right-20 w-48 h-48 bg-green-500/5 rounded-full blur-3xl float-animation"></div>
-                        <div class="card-content">
-                            <div class="font-mono text-[10px] font-bold tracking-[.15em] uppercase text-white mb-10 pb-4 border-b border-white/5">Capability Matrix:</div>
-                            <div class="grid grid-cols-2 gap-8">
-                                <div class="space-y-4 font-diagnostic text-[11px] leading-relaxed">
-                                    <div class="flex gap-3 text-white/90 hover:text-green-400 transition-colors cursor-default"><span class="text-green-400">✓</span> Identifies why premium clients are saying no</div>
-                                    <div class="flex gap-3 text-white/90 hover:text-green-400 transition-colors cursor-default"><span class="text-green-400">✓</span> Finds the exact pricing gap you're leaving open</div>
-                                    <div class="flex gap-3 text-white/90 hover:text-green-400 transition-colors cursor-default"><span class="text-green-400">✓</span> Repositions your offer for $10K+ buyers</div>
-                                    <div class="flex gap-3 text-white/90 hover:text-green-400 transition-colors cursor-default"><span class="text-green-400">✓</span> Closes the gap between your work and your rate</div>
-                                </div>
-                                <div class="space-y-4 font-diagnostic text-[11px] opacity-30 leading-relaxed">
-                                    <div class="flex gap-3">✕ No Agency Retainer Bloat</div>
-                                    <div class="flex gap-3">✕ No 6-Month Circular Meetings</div>
-                                    <div class="flex gap-3">✕ No Guesswork Content</div>
-                                    <div class="flex gap-3">✕ No Generic AI Fluff</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+// ─── VIDEO MODAL ───
+window.QuantumPlatform = {
+  openVideoModal: function() {
+    const modal = document.getElementById('video-modal');
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    const v = document.getElementById('vault-video');
+    if (v) { v.currentTime = 0; v.play().catch(() => {}); }
+  }
+};
+</script>
 
-                <div id="qs-scanner" class="pb-32 stagger">
-                    <span style="display:block; margin-bottom:24px; font-family:'Courier New', Courier, monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.4em; color:#71717a;">live diagnostic instrument // signal frequency analysis</span>
-                    <h2 style="font-weight:900; font-size:clamp(48px, 6vw, 96px); letter-spacing:-0.03em; line-height:1.1; background:linear-gradient(180deg, #FFF 20%, #555 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; padding-bottom:0.15em; margin-bottom:20px; font-family:'Inter', sans-serif;">THE SIGNAL SCANNER.</h2>
-                    <p style="font-size:18px; color:#71717a; line-height:1.7; max-width:560px; margin-bottom:56px; font-family:'Inter', sans-serif;">Paste your current homepage headline or how you describe what you do. The scanner tells you exactly why it's attracting the wrong buyers, or the right ones at the wrong price.</p>
+<!-- Script 2: Signal Scanner (OpenAI live-scoring logic) -->
+<script>
+window.qs_scores = { clarity: 0, authority: 0, desire: 0 };
 
-                    <div style="background:rgba(10,10,10,0.6); backdrop-filter:blur(24px); border:1px solid rgba(255,255,255,0.05); border-radius:40px;" class="p-[28px] md:p-[48px] relative overflow-hidden transition-all duration-500">
-                        <div id="qs-phase1">
-                            <div style="position:relative; margin-bottom:40px;">
-                                <textarea id="qs-input" rows="3" placeholder="Type your current tagline or homepage headline..." style="width:100%; min-height:72px; font-family:'Courier New', Courier, monospace; color:#ffffff; background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.08); outline:none; padding-bottom:16px; transition:border-color 0.3s ease; resize:none;" class="text-[16px] md:text-[22px] focus:border-[#4ade80]/40 placeholder-[#3f3f46]" oninput="window.qs_scoreInput(this)"></textarea>
-                                <div id="qs-word-count" style="position:absolute; bottom:8px; right:0; font-family:'Courier New', Courier, monospace; font-size:10px; color:rgba(255,255,255,0.2); pointer-events:none;">0 words</div>
-                            </div>
+window.qs_scoreLive = function(text) {
+  const words = text.trim().split(/\s+/).filter(Boolean);
+  const wc = words.length;
+  // Update word count
+  const wcEl = document.getElementById('qs-wordcount');
+  if (wcEl) wcEl.textContent = wc + ' word' + (wc !== 1 ? 's' : '');
 
-                            <div style="display:flex; flex-direction:column; gap:28px;">
-                                <div>
-                                    <div style="display:flex; justify-content:space-between; font-family:'Courier New', Courier, monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.3em; margin-bottom:8px; color:#fff;">
-                                        <span>Clarity</span><span id="qs-score-clarity">--</span>
-                                    </div>
-                                    <div style="position:relative; width:100%; height:5px; background:rgba(255,255,255,0.06); border-radius:99px;">
-                                        <div style="position:absolute; left:70%; top:-14px; width:1px; height:14px; background:rgba(255,255,255,0.2); z-index:10;">
-                                            <span style="position:absolute; bottom:100%; left:50%; transform:translateX(-50%); font-family:'Courier New', Courier, monospace; font-size:8px; color:rgba(255,255,255,0.2); white-space:nowrap; margin-bottom:4px;">PREMIUM THRESHOLD</span>
-                                        </div>
-                                        <div id="qs-meter-clarity-bar" class="meter-bar bg-[#4ade80] w-0 absolute left-0 top-0"></div>
-                                    </div>
-                                </div>
+  if (wc < 3) {
+    ['clarity','authority','desire'].forEach(k => {
+      const bar = document.getElementById('qs-meter-' + k + '-bar');
+      const score = document.getElementById('qs-score-' + k);
+      if (bar) bar.style.width = '0%';
+      if (score) score.textContent = '--';
+    });
+    const fl = document.getElementById('qs-frequency-line');
+    if (fl) fl.textContent = 'FREQUENCY: AWAITING INPUT. SYSTEM READY.';
+    const btn = document.getElementById('qs-cta-phase1');
+    if (btn) { btn.style.opacity = '0'; btn.style.pointerEvents = 'none'; }
+    return;
+  }
 
-                                <div>
-                                    <div style="display:flex; justify-content:space-between; font-family:'Courier New', Courier, monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.3em; margin-bottom:8px; color:#fff;">
-                                        <span>Authority</span><span id="qs-score-authority">--</span>
-                                    </div>
-                                    <div style="position:relative; width:100%; height:5px; background:rgba(255,255,255,0.06); border-radius:99px;">
-                                        <div style="position:absolute; left:70%; top:-14px; width:1px; height:14px; background:rgba(255,255,255,0.2); z-index:10;">
-                                            <span style="position:absolute; bottom:100%; left:50%; transform:translateX(-50%); font-family:'Courier New', Courier, monospace; font-size:8px; color:rgba(255,255,255,0.2); white-space:nowrap; margin-bottom:4px;">PREMIUM THRESHOLD</span>
-                                        </div>
-                                        <div id="qs-meter-authority-bar" class="meter-bar bg-[#4ade80] w-0 absolute left-0 top-0"></div>
-                                    </div>
-                                </div>
+  const t = text.toLowerCase();
+  // Clarity — specificity signals
+  const claritySignals = ['founder','ceo','consultant','agency','$','revenue','clients','results','increase','grow','scale','b2b','saas','ecommerce','coach','service'];
+  const clarityHits = claritySignals.filter(s => t.includes(s)).length;
+  const clarityScore = Math.min(95, 20 + (clarityHits * 12) + Math.min(wc * 1.5, 25));
 
-                                <div>
-                                    <div style="display:flex; justify-content:space-between; font-family:'Courier New', Courier, monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.3em; margin-bottom:8px; color:#fff;">
-                                        <span>Desire</span><span id="qs-score-desire">--</span>
-                                    </div>
-                                    <div style="position:relative; width:100%; height:5px; background:rgba(255,255,255,0.06); border-radius:99px;">
-                                        <div style="position:absolute; left:70%; top:-14px; width:1px; height:14px; background:rgba(255,255,255,0.2); z-index:10;">
-                                            <span style="position:absolute; bottom:100%; left:50%; transform:translateX(-50%); font-family:'Courier New', Courier, monospace; font-size:8px; color:rgba(255,255,255,0.2); white-space:nowrap; margin-bottom:4px;">PREMIUM THRESHOLD</span>
-                                        </div>
-                                        <div id="qs-meter-desire-bar" class="meter-bar bg-[#4ade80] w-0 absolute left-0 top-0"></div>
-                                    </div>
-                                </div>
-                            </div>
+  // Authority — power/confidence language
+  const authoritySignals = ['only','best','proven','guaranteed','expert','authority','premium','elite','senior','decade','years','award','featured','ranked'];
+  const authorityNeg = ['try','maybe','sort of','kind of','help with','assist','support','affordable','cheap','flexible','budget'];
+  const authHits = authoritySignals.filter(s => t.includes(s)).length;
+  const authNeg = authorityNeg.filter(s => t.includes(s)).length;
+  const authorityScore = Math.min(95, Math.max(10, 30 + (authHits * 15) - (authNeg * 18) + Math.min(wc * 0.8, 20)));
 
-                            <div id="qs-frequency-line" style="margin-top:32px; font-family:'Courier New', Courier, monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.4em; color:#4ade80; transition:opacity 0.3s ease;">
-                                FREQUENCY: AWAITING INPUT. SYSTEM READY.
-                            </div>
+  // Desire — outcome/transformation language
+  const desireSignals = ['result','outcome','transform','grow','scale','revenue','profit','roi','close','convert','attract','dream','want','need','deserve'];
+  const desireHits = desireSignals.filter(s => t.includes(s)).length;
+  const desireScore = Math.min(95, 20 + (desireHits * 14) + Math.min(wc * 1.2, 22));
 
-                            <div style="margin-top:40px; text-align:center;">
-                                <button id="qs-cta-phase1" onclick="window.qs_advanceToPhase2()" class="w-full md:w-auto magnetic-btn hover:bg-[#4ade80]" style="background:#fff; color:#000; font-family:'Inter', sans-serif; font-weight:900; text-transform:uppercase; letter-spacing:0.4em; font-size:11px; border-radius:12px; padding:18px 40px; border:none; cursor:pointer; opacity:0; pointer-events:none; transition:all 0.5s ease;">DETECT CONTRADICTIONS →</button>
-                            </div>
-                        </div>
+  window.qs_scores = { clarity: clarityScore, authority: authorityScore, desire: desireScore };
 
-                        <div id="qs-phase2" style="display:none; opacity:0;">
-                            <div>
-                                <div style="font-family:'Courier New', Courier, monospace; font-size:9px; letter-spacing:0.4em; text-transform:uppercase; color:#71717a;">YOUR CURRENT SIGNAL:</div>
-                                <div id="qs-signal-display" style="background:rgba(255,255,255,0.03); border-left:3px solid #4ade80; border-radius:0 8px 8px 0; padding:20px 24px; font-family:'Courier New', Courier, monospace; font-size:15px; color:#ffffff; margin-top:12px; font-style:italic;"></div>
-                            </div>
+  // Update meters
+  const bars = { clarity: clarityScore, authority: authorityScore, desire: desireScore };
+  Object.entries(bars).forEach(([k, v]) => {
+    const bar = document.getElementById('qs-meter-' + k + '-bar');
+    const scoreEl = document.getElementById('qs-score-' + k);
+    if (bar) bar.style.width = v + '%';
+    if (scoreEl) {
+      const pct = Math.round(v);
+      scoreEl.textContent = pct + '%';
+      scoreEl.style.color = pct >= 70 ? '#4ade80' : pct >= 45 ? '#facc15' : '#ef4444';
+    }
+  });
 
-                            <div style="margin-top:40px; padding-top:40px; border-top:1px solid rgba(255,255,255,0.05);">
-                                <div class="grid md:grid-cols-2 gap-10 relative">
-                                    <div class="hidden md:block absolute left-1/2 top-0 h-full w-[1px] bg-white/5 -translate-x-1/2"></div>
+  // Frequency line
+  const avg = (clarityScore + authorityScore + desireScore) / 3;
+  const fl = document.getElementById('qs-frequency-line');
+  if (fl) {
+    if (avg < 35) fl.textContent = 'FREQUENCY: MID-MARKET SIGNAL DETECTED. REPOSITIONING REQUIRED.';
+    else if (avg < 55) fl.textContent = 'FREQUENCY: SIGNAL EMERGING. CONTRADICTIONS PRESENT.';
+    else if (avg < 70) fl.textContent = 'FREQUENCY: AUTHORITY SIGNAL BUILDING. CLOSE TO THRESHOLD.';
+    else fl.textContent = 'FREQUENCY: PREMIUM SIGNAL DETECTED. ABOVE THRESHOLD.';
+    fl.style.color = avg >= 70 ? '#4ade80' : avg >= 45 ? '#facc15' : '#ef4444';
+  }
 
-                                    <div>
-                                        <div style="font-family:'Courier New', Courier, monospace; font-size:9px; text-transform:uppercase; letter-spacing:0.4em; color:#71717a; margin-bottom:16px;">WHO THIS ATTRACTS</div>
-                                        <h4 id="qs-col-attracts-headline" style="font-family:'Inter', sans-serif; font-size:20px; font-weight:700; color:#ffffff; margin-bottom:8px; text-transform:uppercase;">...</h4>
-                                        <p id="qs-col-attracts-body" style="font-family:'Inter', sans-serif; font-size:14px; color:#71717a; line-height:1.7;">...</p>
-                                    </div>
+  // Show CTA when enough words
+  if (wc >= 12) {
+    const btn = document.getElementById('qs-cta-phase1');
+    if (btn) { btn.style.opacity = '1'; btn.style.pointerEvents = 'auto'; }
+  }
+};
 
-                                    <div>
-                                        <div style="font-family:'Courier New', Courier, monospace; font-size:9px; text-transform:uppercase; letter-spacing:0.4em; color:#71717a; margin-bottom:16px;">THE CONTRADICTION</div>
-                                        <h4 id="qs-col-contradiction-headline" style="font-family:'Inter', sans-serif; font-size:20px; font-weight:700; color:#ef4444; margin-bottom:8px; text-transform:uppercase;">...</h4>
-                                        <p id="qs-col-contradiction-body" style="font-family:'Inter', sans-serif; font-size:14px; color:#71717a; line-height:1.7;">...</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="qs-ai-upgrade-section" style="margin-top:40px; padding-top:40px; border-top:1px solid rgba(255,255,255,0.05); text-align:center;">
-                                <div style="font-family:'Courier New', Courier, monospace; font-size:12px; color:#71717a; text-transform:uppercase; letter-spacing:0.2em; margin-bottom:20px;">Want to see what a $25K signal looks like?</div>
-                                <button id="qs-rewrite-btn" onclick="window.generatePremiumSignal()" class="magnetic-btn hover:bg-[#4ade80] hover:text-black" style="background:rgba(74, 222, 128, 0.1); border:1px solid rgba(74, 222, 128, 0.3); color:#4ade80; font-family:'Inter', sans-serif; font-weight:900; text-transform:uppercase; letter-spacing:0.2em; font-size:11px; border-radius:12px; padding:18px 40px; cursor:pointer; transition:all 0.3s;">
-                                    UPGRADE MY SIGNAL ✨
-                                </button>
-                                <div id="qs-rewrite-result" style="display:none; margin-top:24px; text-align:left; background:rgba(74, 222, 128, 0.05); border:1px solid rgba(74, 222, 128, 0.2); border-radius:16px; padding:24px;"></div>
-                            </div>
+window.qs_advanceToPhase2 = function() {
+  const input = document.getElementById('qs-input');
+  const p1 = document.getElementById('qs-phase1');
+  const p2 = document.getElementById('qs-phase2');
+  const sig = document.getElementById('qs-signal-display');
+  if (!input || !p1 || !p2) return;
 
-                            <div style="margin-top:48px; padding-top:48px; border-top:1px solid rgba(255,255,255,0.05); text-align:center;">
-                                <div style="font-family:'Courier New', Courier, monospace; font-size:12px; color:#71717a; text-transform:uppercase; letter-spacing:0.2em; margin-bottom:20px;">One question to give you the right next step.</div>
-                                <div style="position:relative; max-width:400px; margin:0 auto;">
-                                    <select id="qs-revenue-select" onchange="window.qs_routeCTA(this.value)" style="width:100%; background:rgba(5,5,5,1); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:12px; padding:16px 24px; font-family:'Courier New', Courier, monospace; font-size:13px; appearance:none; outline:none; cursor:pointer; transition:border-color 0.3s;" onfocus="this.style.borderColor='rgba(74,222,128,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
-                                        <option value="" disabled selected>What is your current monthly revenue?</option>
-                                        <option value="under-10k">Under $10K/month</option>
-                                        <option value="10k-50k">$10K to $50K/month</option>
-                                        <option value="above-50k">Above $50K/month</option>
-                                    </select>
-                                    <div style="position:absolute; right:24px; top:50%; transform:translateY(-50%); pointer-events:none; opacity:0.3;">
-                                        <i data-lucide="chevron-down" style="width:16px; height:16px; color:#fff;"></i>
-                                    </div>
-                                </div>
+  const text = input.value.trim();
+  if (!text) return;
 
-                                <div id="qs-routed-cta" style="opacity:0; display:none; margin-top:32px; transition:opacity 0.4s ease;"></div>
+  // Display signal
+  if (sig) sig.textContent = '"' + text + '"';
 
-                                <div id="qs-reset" onclick="window.qs_reset()" style="margin-top:32px; font-family:'Courier New', Courier, monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.3em; color:#3f3f46; cursor:pointer; transition:color 0.3s; display:inline-block;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#3f3f46'">
-                                    ← Run another scan
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  // Generate contradiction analysis based on scores
+  const { clarity, authority, desire } = window.qs_scores;
+  const attracts = document.getElementById('qs-col-attracts-headline');
+  const attractsBody = document.getElementById('qs-col-attracts-body');
+  const contradiction = document.getElementById('qs-col-contradiction-headline');
+  const contradictionBody = document.getElementById('qs-col-contradiction-body');
 
-                <div class="pb-32 stagger" id="email-capture">
-                    <div class="max-w-5xl mx-auto glass-card rounded-[50px] border border-white/8 overflow-hidden relative">
-                        <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-full h-96 bg-green-400/5 rounded-full blur-[120px] pointer-events-none float-animation"></div>
-                        <div class="grid lg:grid-cols-2 gap-0">
-                            <div class="p-12 lg:p-20 border-b lg:border-b-0 lg:border-r border-white/5">
-                                <span class="font-mono text-[9px] tracking-[0.4em] uppercase text-green-400 mb-6 block">free resource</span>
-                                <h2 class="text-3xl lg:text-4xl font-black text-white mb-4 tracking-tighter leading-tight">Why Your Brand<br>Is Costing You $20K Per Deal.</h2>
-                                <p class="text-quantum-muted text-sm leading-relaxed mb-10">The exact 3 reasons premium clients look at your brand and choose someone else, even when your work is better. Fix takes under 20 minutes.</p>
+  if (authority < 50) {
+    if (attracts) attracts.textContent = 'MID-MARKET BUYERS';
+    if (attractsBody) attractsBody.textContent = 'Your current signal reads as capable but approachable. It attracts founders who are price-sensitive and need convincing — not premium buyers who self-select at your rate.';
+    if (contradiction) contradiction.textContent = 'YOUR RATE IS BEING CHALLENGED';
+    if (contradictionBody) contradictionBody.textContent = 'The work suggests premium capability. The positioning language signals mid-market willingness. Every negotiation you\'re having is a symptom of this contradiction.';
+  } else if (clarity < 50) {
+    if (attracts) attracts.textContent = 'GENERALIST SEEKERS';
+    if (attractsBody) attractsBody.textContent = 'Your signal is authoritative but vague. It attracts people who like your energy but aren\'t sure if you\'re the right specialist for their specific problem.';
+    if (contradiction) contradiction.textContent = 'TOO BROAD TO COMMAND A PREMIUM';
+    if (contradictionBody) contradictionBody.textContent = 'Authority without specificity creates interest without commitment. Premium buyers need to see exactly who you serve and what outcome they get — or they keep looking.';
+  } else {
+    if (attracts) attracts.textContent = 'ALIGNED BUYERS';
+    if (attractsBody) attractsBody.textContent = 'Your signal is above threshold. You\'re attracting the right attention — but the offer architecture may need to convert that attention into premium deals.';
+    if (contradiction) contradiction.textContent = 'OFFER LADDER NEEDS WORK';
+    if (contradictionBody) contradictionBody.textContent = 'Strong signal, potentially weak conversion architecture. The gap may be in how you structure your offers, not in how you communicate.';
+  }
 
-                                <div class="space-y-5">
-                                    <div class="flex gap-5 items-start group">
-                                        <div class="w-8 h-8 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20 shrink-0 mt-0.5 group-hover:scale-110 group-hover:bg-[#4ade80]/20 transition-all">
-                                            <i data-lucide="check" class="w-4 h-4 text-[#4ade80]"></i>
-                                        </div>
-                                        <div>
-                                            <div class="text-[11px] font-bold text-white uppercase tracking-widest mb-1">The Positioning Gap</div>
-                                            <div class="text-[11px] text-quantum-muted">where your brand is misfiring and who it's actually attracting right now.</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex gap-5 items-start group">
-                                        <div class="w-8 h-8 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20 shrink-0 mt-0.5 group-hover:scale-110 group-hover:bg-[#4ade80]/20 transition-all">
-                                            <i data-lucide="check" class="w-4 h-4 text-[#4ade80]"></i>
-                                        </div>
-                                        <div>
-                                            <div class="text-[11px] font-bold text-white uppercase tracking-widest mb-1">The Pricing Leak</div>
-                                            <div class="text-[11px] text-quantum-muted">the specific language and signals telling high-ticket buyers to go elsewhere.</div>
-                                        </div>
-                                    </div>
-                                    <div class="flex gap-5 items-start group">
-                                        <div class="w-8 h-8 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20 shrink-0 mt-0.5 group-hover:scale-110 group-hover:bg-[#4ade80]/20 transition-all">
-                                            <i data-lucide="check" class="w-4 h-4 text-[#4ade80]"></i>
-                                        </div>
-                                        <div>
-                                            <div class="text-[11px] font-bold text-white uppercase tracking-widest mb-1">The Rate Fix</div>
-                                            <div class="text-[11px] text-quantum-muted">what to change, what to kill, and what to reprice this week.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+  // Animate phase transition
+  gsap.to(p1, { opacity: 0, y: -20, duration: 0.4, onComplete: () => {
+    p1.style.display = 'none';
+    p2.style.display = 'block';
+    void p2.offsetHeight;
+    gsap.fromTo(p2, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
+  }});
+};
 
-                            <div class="p-12 lg:p-20 flex flex-col justify-center">
-                                <div class="font-mono text-[9px] tracking-[0.4em] uppercase text-quantum-muted mb-10">send me the guide</div>
-                                <form action="https://formspree.io/f/YOUR_EMAIL_FORM_ID" method="POST" onsubmit="window.handleEmailCapture(event)" class="space-y-5" id="email-form">
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <div class="relative group">
-                                            <label class="font-mono text-[8px] uppercase tracking-[0.3em] text-white/30 block mb-2 group-focus-within:text-green-400 transition-colors">First Name</label>
-                                            <input type="text" name="first_name" required placeholder="John" class="email-input">
-                                        </div>
-                                        <div class="relative group">
-                                            <label class="font-mono text-[8px] uppercase tracking-[0.3em] text-white/30 block mb-2 group-focus-within:text-green-400 transition-colors">Last Name</label>
-                                            <input type="text" name="last_name" required placeholder="Doe" class="email-input">
-                                        </div>
-                                    </div>
+window.qs_routeCTA = function(value) {
+  const routed = document.getElementById('qs-cta-routed');
+  if (!routed) return;
+  if (value === 'under-10k') {
+    routed.innerHTML = `
+      <p class="text-sm text-quantum-muted mb-4">The Kit is your entry point. Start with the diagnostic system, implement independently.</p>
+      <button onclick="window.navigate('kit')" class="magnetic-btn px-6 py-3 bg-[#4ade80] text-black font-bold uppercase rounded-xl flex items-center justify-center gap-2 mx-auto hover:bg-white transition-all">
+        GET THE KIT — $297 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </button>`;
+  } else if (value === '10k-50k') {
+    routed.innerHTML = `
+      <p class="text-sm text-quantum-muted mb-4">You're in the gap zone. Start with The Kit — most founders at this revenue close the gap in 30 days.</p>
+      <button onclick="window.navigate('kit')" class="magnetic-btn px-6 py-3 bg-white text-black font-bold uppercase rounded-xl flex items-center justify-center gap-2 mx-auto hover:bg-[#4ade80] transition-all">
+        GET THE KIT — $297 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </button>`;
+  } else if (value === 'above-50k') {
+    routed.innerHTML = `
+      <p class="text-sm text-quantum-muted mb-4">At your revenue level, The Lab is the right move. Done-with-you repositioning, 30 days.</p>
+      <button onclick="window.navigate('lab')" class="magnetic-btn px-6 py-3 bg-[#4ade80] text-black font-bold uppercase rounded-xl flex items-center justify-center gap-2 mx-auto hover:bg-white transition-all">
+        APPLY FOR THE LAB <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </button>`;
+  }
+  if (window.lucide) lucide.createIcons();
+};
+</script>
 
-                                    <div class="relative group">
-                                        <label class="font-mono text-[8px] uppercase tracking-[0.3em] text-white/30 block mb-2 group-focus-within:text-green-400 transition-colors">Email Address</label>
-                                        <input type="email" name="email" required placeholder="founder@company.com" class="email-input" oninput="window.checkEmail(this)">
-                                        <div class="absolute right-4 top-1/2 translate-y-1 text-[#4ade80] opacity-0 transition-opacity duration-300 pointer-events-none email-check-icon">
-                                            <i data-lucide="check-circle" class="w-5 h-5"></i>
-                                        </div>
-                                    </div>
+<!-- Script 3: Gemini AI (Signal rewrite, Script Calibrator, Visual MRI, Chat) -->
+<!-- ⚠️  SECURITY NOTE: Move API key to a backend proxy before going live -->
+<script>
+window.GeminiAPI = {
+  apiKey: 'AIzaSyBSqH_YOUR_ACTUAL_KEY_GOES_HERE', // ← paste real key here (from AI Studio file)
+  endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent',
 
-                                    <button type="submit" class="magnetic-btn ripple w-full py-6 bg-white text-black font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-green-400 transition-all shadow-2xl active:scale-95 mt-4 group">
-                                        <span class="group-hover:tracking-[0.4em] transition-all">Send Me The Guide</span>
-                                    </button>
-                                </form>
+  async call(prompt) {
+    const res = await fetch(this.endpoint + '?key=' + this.apiKey, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: { temperature: 0.7, maxOutputTokens: 800 }
+      })
+    });
+    if (!res.ok) throw new Error('Gemini API error: ' + res.status);
+    const data = await res.json();
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  }
+};
 
-                                <div id="email-success" class="hidden text-center py-10">
-                                    <div class="w-12 h-12 rounded-full border border-green-400/30 flex items-center justify-center mx-auto mb-6 animate-pulse">
-                                        <span class="text-green-400 text-xl">✓</span>
-                                    </div>
-                                    <div class="font-mono text-[10px] uppercase tracking-widest text-green-400 mb-3">Guide Dispatched</div>
-                                    <p class="text-quantum-muted text-sm">Check your inbox. If you don't see it, check spam, then move it to primary.</p>
-                                    <button onclick="window.navigate('kit')" class="magnetic-btn mt-8 px-8 py-4 border border-white/10 text-white font-mono text-[9px] uppercase tracking-widest rounded-full hover:bg-white/5 hover:border-green-400/50 transition-all group">
-                                        Ready for the Kit? <span class="group-hover:translate-x-1 inline-block transition-transform">→</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+// ─── UPGRADE MY SIGNAL ───
+window.generatePremiumSignal = async function() {
+  const input = document.getElementById('qs-input');
+  const btn = document.getElementById('qs-rewrite-btn');
+  const result = document.getElementById('qs-rewrite-result');
+  if (!input || !btn || !result) return;
+  const text = input.value.trim();
+  if (!text) return;
+  const orig = btn.innerHTML;
+  btn.innerHTML = '<div class="spinner mx-auto"></div>';
+  btn.disabled = true;
+  try {
+    const out = await window.GeminiAPI.call(
+      `You are a premium brand positioning expert. A founder describes their work as: "${text}"\n\nRewrite this as a $25K-signal brand statement. Requirements:\n- Speaks to outcome, not process\n- Authoritative, never needy\n- Specific target client\n- No fluff or buzzwords\n- Max 3 sentences\n\nReturn ONLY the rewritten statement, no preamble.`
+    );
+    result.style.display = 'block';
+    result.innerHTML = `
+      <div style="font-family:'Courier New',monospace;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:#4ade80;margin-bottom:12px;">$25K SIGNAL VERSION:</div>
+      <p style="font-family:'Inter',sans-serif;font-size:15px;color:#ffffff;line-height:1.7;font-style:italic;">"${out.trim()}"</p>
+      <button onclick="window.navigate('kit')" style="margin-top:20px;width:100%;padding:14px;background:#4ade80;color:#000;font-weight:900;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.2em;font-size:10px;border:none;border-radius:10px;cursor:pointer;" class="magnetic-btn hover:bg-white transition-all">GET THE FULL SYSTEM — $297 →</button>`;
+    gsap.fromTo(result, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 });
+  } catch(err) {
+    result.style.display = 'block';
+    result.innerHTML = '<p style="color:#ef4444;font-family:monospace;font-size:12px;">AI temporarily unavailable. Please try again shortly.</p>';
+  }
+  btn.innerHTML = orig;
+  btn.disabled = false;
+};
 
-                <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto stagger pt-10 border-t border-white/5">
-                    <div class="glass-card glass-card-3d p-10 lg:p-12 rounded-[32px]" data-tilt>
-                        <div class="card-glow"></div>
-                        <div class="card-content flex flex-col h-full">
-                            <div class="font-mono text-[8px] tracking-[0.3em] uppercase text-white/30 mb-6">OPTION A</div>
-                            <h3 class="text-2xl font-bold text-white mb-4">Talk to Me First</h3>
-                            <p class="text-sm text-quantum-muted leading-relaxed mb-10 flex-1">
-                                30 minutes. I'll tell you exactly what your brand is costing you per deal and what to change first. No pitch. Just a number and a fix.
-                            </p>
-                            <a href="https://calendly.com/qtmbg/strategy-call-lab" target="_blank" class="magnetic-btn ripple w-full text-center py-5 border border-white/20 text-white font-bold uppercase text-[9px] tracking-widest rounded-2xl hover:bg-white/5 hover:border-green-400/50 transition-all">BOOK FREE STRATEGY CALL</a>
-                        </div>
-                    </div>
+// ─── SCRIPT CALIBRATOR (Anti-Needy Scripting) ───
+window.runScriptCalibrator = async function() {
+  const input = document.getElementById('script-input');
+  const result = document.getElementById('script-result');
+  if (!input || !result) return;
+  const text = input.value.trim();
+  if (!text || text.length < 20) { alert('Please paste your full pricing pitch or email first.'); return; }
+  const btn = input.nextElementSibling;
+  const orig = btn ? btn.innerHTML : '';
+  if (btn) { btn.innerHTML = '<div class="spinner mx-auto"></div>'; btn.disabled = true; }
+  try {
+    const out = await window.GeminiAPI.call(
+      `You are a premium pricing consultant. Analyze this founder's pricing pitch or email:\n\n"${text}"\n\nIdentify all weak, needy, or price-apologetic language. Then rewrite it with authority and restraint.\n\nReturn in this exact format:\n\nWEAK PHRASES FOUND:\n[list each one]\n\nREWRITTEN WITH AUTHORITY:\n[the full rewrite]\n\nKEY SHIFTS:\n[2-3 bullet points explaining the changes]`
+    );
+    result.classList.remove('hidden');
+    result.innerHTML = `<div style="font-family:'Courier New',monospace;font-size:11px;color:#4ade80;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.3em;">CALIBRATION COMPLETE</div><div style="font-family:'Inter',sans-serif;font-size:13px;color:#e4e4e7;line-height:1.8;white-space:pre-wrap;">${out.trim()}</div>`;
+    gsap.fromTo(result, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.4 });
+  } catch(err) {
+    result.classList.remove('hidden');
+    result.innerHTML = '<p style="color:#ef4444;font-family:monospace;font-size:12px;">AI temporarily unavailable.</p>';
+  }
+  if (btn) { btn.innerHTML = orig; btn.disabled = false; }
+};
 
-                    <div class="glass-card glass-card-3d p-10 lg:p-12 rounded-[32px] border-[#4ade80]/10 bg-gradient-to-br from-[#4ade80]/5 to-transparent" data-tilt>
-                        <div class="card-glow"></div>
-                        <div class="card-content flex flex-col h-full">
-                            <div class="font-mono text-[8px] tracking-[0.3em] uppercase text-[#4ade80] mb-6">OPTION B</div>
-                            <h3 class="text-2xl font-bold text-white mb-4">Run the Signal Scan</h3>
-                            <p class="text-sm text-quantum-muted leading-relaxed mb-10 flex-1">
-                                Free. Takes 2 minutes. You'll know exactly why your brand is attracting $5K buyers when you should be closing $25K deals, and the single thing to change.
-                            </p>
-                            <button onclick="window.openChat()" class="magnetic-btn ripple w-full py-5 bg-white text-black font-bold uppercase text-[9px] tracking-widest rounded-2xl hover:bg-green-400 transition-all">FIND MY PRICING GAP (FREE)</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+// ─── VISUAL SIGNAL MRI ───
+window.handleMRIFile = function(file) {
+  if (!file) return;
+  const preview = document.getElementById('mri-preview');
+  const img = document.getElementById('mri-preview-img');
+  if (!preview || !img) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    img.src = e.target.result;
+    preview.classList.remove('hidden');
+    window._mriImageData = e.target.result.split(',')[1]; // base64
+    window._mriMimeType = file.type;
+  };
+  reader.readAsDataURL(file);
+};
+
+window.runVisualMRI = async function() {
+  const result = document.getElementById('mri-result');
+  if (!result) return;
+  const btn = document.querySelector('#mri-preview button');
+  const orig = btn ? btn.innerHTML : '';
+  if (btn) { btn.innerHTML = '<div class="spinner mx-auto"></div>'; btn.disabled = true; }
+  try {
+    const res = await fetch(window.GeminiAPI.endpoint + '?key=' + window.GeminiAPI.apiKey, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{
+          parts: [
+            { inline_data: { mime_type: window._mriMimeType || 'image/png', data: window._mriImageData }},
+            { text: `You are a premium brand positioning expert analyzing a founder's visual assets. Evaluate this image for:\n1. AUTHORITY SIGNALS — what communicates premium/expert positioning\n2. MID-MARKET READS — what signals lower price point or generic positioning\n3. PREMIUM BUYER REACTION — how a $25K/month client would perceive this\n4. TOP 3 FIXES — specific, actionable visual changes to elevate positioning\n\nBe direct, specific, and financially grounded. No generic advice.` }
+          ]
+        }],
+        generationConfig: { temperature: 0.6, maxOutputTokens: 900 }
+      })
+    });
+    if (!res.ok) throw new Error('Vision API error');
+    const data = await res.json();
+    const out = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    result.classList.remove('hidden');
+    result.innerHTML = `
+      <div style="font-family:'Courier New',monospace;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:#4ade80;margin-bottom:16px;">MRI ANALYSIS COMPLETE</div>
+      <div style="font-family:'Inter',sans-serif;font-size:13px;color:#e4e4e7;line-height:1.8;white-space:pre-wrap;">${out.trim()}</div>
+      <button onclick="window.navigate('kit')" style="margin-top:24px;width:100%;padding:14px;background:#4ade80;color:#000;font-weight:900;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:0.2em;font-size:10px;border:none;border-radius:10px;cursor:pointer;" class="magnetic-btn hover:bg-white transition-all">FIX IT WITH THE KIT — $297 →</button>`;
+    gsap.fromTo(result, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 });
+  } catch(err) {
+    result.classList.remove('hidden');
+    result.innerHTML = '<p style="color:#ef4444;font-family:monospace;font-size:12px;">Vision MRI temporarily unavailable. Please try again.</p>';
+  }
+  if (btn) { btn.innerHTML = orig; btn.disabled = false; }
+};
+
+// ─── CHAT (Signal Scan) ───
+window.sendChat = async function() {
+  const input = document.getElementById('chat-input');
+  const messages = document.getElementById('chat-messages');
+  if (!input || !messages) return;
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  // User bubble
+  messages.innerHTML += `
+    <div class="flex gap-3 justify-end">
+      <div class="glass-card rounded-2xl rounded-tr-none p-4 max-w-[85%] bg-white/5">
+        <p class="text-sm text-white/90 leading-relaxed">${text}</p>
+      </div>
+    </div>`;
+  messages.scrollTop = messages.scrollHeight;
+  // Typing indicator
+  const typingId = 'typing-' + Date.now();
+  messages.innerHTML += `
+    <div id="${typingId}" class="flex gap-3">
+      <div class="w-8 h-8 rounded-full bg-[#4ade80]/20 border border-[#4ade80]/30 flex items-center justify-center flex-shrink-0 text-xs text-[#4ade80]">Q</div>
+      <div class="glass-card rounded-2xl rounded-tl-none p-4"><div class="flex gap-1">${[0,1,2].map(i=>`<div style="width:6px;height:6px;background:rgba(74,222,128,0.6);border-radius:50%;animation:bounce 1s ease-in-out ${i*0.2}s infinite;"></div>`).join('')}</div></div>
+    </div>`;
+  messages.scrollTop = messages.scrollHeight;
+
+  if (!document.getElementById('bounce-style')) {
+    const s = document.createElement('style');
+    s.id = 'bounce-style';
+    s.textContent = '@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}';
+    document.head.appendChild(s);
+  }
+
+  try {
+    const reply = await window.GeminiAPI.call(
+      `You are the Quantum Branding AI advisor — direct, financially grounded, and expert. A founder is describing their work. Your job is to identify their likely pricing gap and give them 1 concrete observation + 1 clear next step.\n\nFounder says: "${text}"\n\nRespond in 2-3 sentences max. Be specific, not generic. Speak directly about their pricing power.`
+    );
+    document.getElementById(typingId)?.remove();
+    messages.innerHTML += `
+      <div class="flex gap-3">
+        <div class="w-8 h-8 rounded-full bg-[#4ade80]/20 border border-[#4ade80]/30 flex items-center justify-center flex-shrink-0 text-xs text-[#4ade80]">Q</div>
+        <div class="glass-card rounded-2xl rounded-tl-none p-4 max-w-[85%]">
+          <p class="text-sm text-white/90 leading-relaxed">${reply.trim()}</p>
         </div>
-
-        <div id="page-vault" class="page px-6 pt-40 pb-32">
-            <div class="max-w-7xl mx-auto">
-                <div class="max-w-4xl mb-24 stagger">
-                    <span class="inline-block px-4 py-2 border border-[#4ade80]/30 bg-[#4ade80]/10 rounded-full font-mono text-[10px] tracking-[0.3em] uppercase text-[#4ade80] mb-8 scan-line">
-                        the 28-minute video that explains why your rate is wrong
-                    </span>
-                    <h1 class="text-5xl md:text-6xl lg:text-[80px] font-black leading-[1.1] tracking-tighter text-white mb-8 gradient-text-animated pb-2 pr-2">
-                        There are 3 reasons founders undercharge. <br class="hidden lg:block"><span class="italic font-light tracking-normal text-white/90">You're living inside one of them right now.</span>
-                    </h1>
-                    <p class="text-xl lg:text-2xl text-quantum-muted leading-relaxed max-w-3xl">
-                        Most founders blame their sales process, their pricing, or their market. The actual problem is almost always the same: their brand is positioning them mid-market while they're trying to close premium deals. This 28-minute breakdown shows you exactly how that happens, and what the founders who fixed it did differently.
-                    </p>
-                </div>
-
-                <div class="glass-card glass-card-3d aspect-video rounded-[40px] overflow-hidden mb-32 stagger relative group cursor-pointer" onclick="window.QuantumPlatform.openVideoModal()" data-tilt>
-                    <div class="card-glow"></div>
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all z-10"></div>
-                    <div class="absolute inset-0 flex flex-col items-center justify-center z-20">
-                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl magnetic-btn">
-                            <div class="w-0 h-0 border-y-[12px] border-y-transparent border-l-[20px] border-l-black ml-1"></div>
-                        </div>
-                        <span class="text-[10px] font-mono tracking-widest text-white uppercase mt-6 group-hover:text-green-400 transition-colors text-center px-4">Watch: Why Your Brand Is Attracting $5K Clients When You Should Be Closing $25K (28:40)</span>
-                    </div>
-                    <div class="w-full h-full bg-[#0a0a0a] opacity-50 flex items-center justify-center">
-                        <span class="font-mono text-[9px] uppercase tracking-widest text-quantum-muted">[ CINEMATIC MASTERCLASS THUMBNAIL ]</span>
-                    </div>
-                </div>
-                <div class="grid lg:grid-cols-3 gap-8 mb-16">
-                    <div class="glass-card glass-card-3d p-12 rounded-3xl stagger" data-tilt>
-                        <div class="card-glow"></div>
-                        <div class="card-content">
-                            <div class="font-mono text-[10px] text-quantum-muted mb-8 uppercase tracking-widest">01 / The Void</div>
-                            <h3 class="text-2xl font-bold text-white mb-6">You're getting ignored by the clients you actually want.</h3>
-                            <p class="text-sm text-quantum-muted leading-relaxed">You're producing content, sending proposals, showing up, and the right clients aren't responding. Not because your work is weak. Because your brand isn't visible to buyers operating at the level you want to reach. They scroll past you for someone who looks the part.</p>
-                        </div>
-                    </div>
-                    <div class="glass-card glass-card-3d p-12 rounded-3xl stagger" data-tilt>
-                        <div class="card-glow"></div>
-                        <div class="card-content">
-                            <div class="font-mono text-[10px] text-quantum-muted mb-8 uppercase tracking-widest">02 / The Echo</div>
-                            <h3 class="text-2xl font-bold text-white mb-6">You're winning deals, but only by dropping your rate.</h3>
-                            <p class="text-sm text-quantum-muted leading-relaxed">Clients like your work but push back on price. You discount to close. You're booked but not profitable. This is what mid-market positioning looks like in practice: you sound enough like everyone else that buyers feel entitled to negotiate. The work is premium. The brand signal isn't.</p>
-                        </div>
-                    </div>
-                    <div class="glass-card glass-card-3d p-12 rounded-3xl stagger border-green-500/30" data-tilt>
-                        <div class="card-glow"></div>
-                        <div class="card-content">
-                            <div class="font-mono text-[10px] text-green-400 mb-8 uppercase tracking-widest font-bold">03 / The Signal</div>
-                            <h3 class="text-2xl font-bold text-white mb-6">Clients find you, pre-sold, and don't ask about price.</h3>
-                            <p class="text-sm text-quantum-muted leading-relaxed">When your brand is positioned correctly, the sales conversation changes entirely. Buyers arrive already convinced. They don't negotiate, they ask about availability. This is what $25K deals look like when the brand is doing its job. The work didn't change. The positioning did.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pb-32 stagger border-t border-white/5 pt-16">
-                    <p class="font-mono text-[9px] tracking-[0.4em] uppercase text-quantum-muted mb-10 text-center">If you recognized yourself in any of those three, here's how to fix it.</p>
-                    <div class="flex flex-wrap gap-6 justify-center">
-                        <button onclick="window.navigate('kit')" class="magnetic-btn ripple px-10 py-5 bg-white text-black font-bold tracking-widest uppercase text-[10px] rounded-xl hover:bg-green-400 transition-all">Get The Kit • $297</button>
-                        <button onclick="window.navigate('lab')" class="magnetic-btn ripple px-10 py-5 border border-white/20 text-white font-bold tracking-widest uppercase text-[10px] rounded-xl hover:bg-white/5 hover:border-green-400/50 transition-all">Apply to the Lab</button>
-                    </div>
-                </div>
-            </div>
+      </div>`;
+    messages.scrollTop = messages.scrollHeight;
+  } catch(err) {
+    document.getElementById(typingId)?.remove();
+    messages.innerHTML += `
+      <div class="flex gap-3">
+        <div class="w-8 h-8 rounded-full bg-[#4ade80]/20 border border-[#4ade80]/30 flex items-center justify-center flex-shrink-0 text-xs text-[#4ade80]">Q</div>
+        <div class="glass-card rounded-2xl rounded-tl-none p-4 max-w-[85%]">
+          <p class="text-sm text-quantum-muted">AI temporarily offline. <button onclick="window.navigate('vault')" class="text-[#4ade80] hover:text-white transition-colors">Watch The Vault →</button></p>
         </div>
-
-        <div id="page-method" class="page px-6 pt-40 pb-32">
-            <div class="max-w-7xl mx-auto">
-                <div class="max-w-4xl mb-24 stagger">
-                    <span class="inline-block px-4 py-2 border border-[#4ade80]/30 bg-[#4ade80]/10 rounded-full font-mono text-[10px] tracking-[0.3em] uppercase text-[#4ade80] mb-8 scan-line">
-                        how we close the gap between what you charge and what you should
-                    </span>
-                    <h1 class="text-5xl md:text-6xl lg:text-[80px] font-black leading-[1.1] tracking-tighter text-white mb-8 gradient-text-animated pb-2 pr-2">
-                        We don't guess what's wrong with your brand. <br class="hidden lg:block"><span class="italic font-light tracking-normal text-white/90">We measure it, fix it, and price it correctly in 30 days.</span>
-                    </h1>
-                    <p class="text-xl lg:text-2xl text-quantum-muted leading-relaxed max-w-3xl">
-                        Most branding agencies hand you a visual identity and call it done. We hand you a pricing increase. The difference is that we start by diagnosing why premium clients aren't choosing you, not by designing logos. Once we know the specific gap, we close it. The average result is 30% more revenue in 90 days.
-                    </p>
-                </div>
-
-                <div class="grid lg:grid-cols-3 gap-8 mb-32">
-                    <div class="glass-card glass-card-3d p-12 rounded-[40px] flex flex-col min-h-[400px] stagger" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-7xl font-black text-white/5 mb-auto">01</div><h3 class="text-3xl font-bold text-white mb-4">We Find Out Why You're Undercharging</h3><p class="text-sm text-quantum-muted leading-relaxed">Before we change anything, we diagnose the specific gap. We look at your current positioning, your offer language, and your pricing, and identify exactly why the buyers you want are saying no or negotiating down.</p></div></div>
-                    <div class="glass-card glass-card-3d p-12 rounded-[40px] flex flex-col min-h-[400px] stagger" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-7xl font-black text-white/5 mb-auto">02</div><h3 class="text-3xl font-bold text-white mb-4">We Reposition You Off The Mid-Market</h3><p class="text-sm text-quantum-muted leading-relaxed">We rebuild how your brand is read by high-ticket buyers. This isn't a rebrand. It's a repositioning, the difference between a client seeing your rate and thinking "that's a lot" versus thinking "that's the right investment."</p></div></div>
-                    <div class="glass-card glass-card-3d p-12 rounded-[40px] flex flex-col min-h-[400px] stagger" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-7xl font-black text-white/5 mb-auto">03</div><h3 class="text-3xl font-bold text-white mb-4">We Build The Offer Ladder That Justifies Your New Rate</h3><p class="text-sm text-quantum-muted leading-relaxed">We design the exact product structure that makes your $25K offer make sense to buyers, what sits below it, what sits above it, and how each tier makes the next one feel obvious. Most founders are undercharging because their offer structure doesn't support a premium price.</p></div></div>
-                    <div class="glass-card glass-card-3d p-12 rounded-[40px] flex flex-col min-h-[400px] stagger" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-7xl font-black text-white/5 mb-auto">04</div><h3 class="text-3xl font-bold text-white mb-4">We Remove Everything Between Your Brand And The Sale</h3><p class="text-sm text-quantum-muted leading-relaxed">We audit and fix every point where a premium buyer could get confused, lose trust, or decide you're not worth the rate. Funnel, website copy, proposal language, onboarding. Every friction point costs you deals.</p></div></div>
-                    <div class="glass-card glass-card-3d p-12 rounded-[40px] flex flex-col min-h-[400px] stagger" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-7xl font-black text-white/5 mb-auto">05</div><h3 class="text-3xl font-bold text-white mb-4">We Measure The Revenue Impact And Compound It</h3><p class="text-sm text-quantum-muted leading-relaxed">We track the specific number that matters: the gap between what you were charging and what you close at now. Then we identify which positioning moves drove the biggest shifts, and double down on those. This is how a 30% lift in 90 days becomes 60% by month six.</p></div></div>
-                    <div class="glass-card glass-card-3d p-12 rounded-[40px] flex flex-col items-center justify-center text-center bg-white group cursor-pointer stagger magnetic-btn" onclick="window.openChat()" data-tilt><div class="card-glow"></div><span class="text-[9px] font-mono tracking-widest text-black uppercase mb-8">Ready to find your pricing gap?</span><h3 class="text-4xl font-black text-black mb-10">Run Free Diagnostic</h3><div class="w-16 h-16 rounded-full border border-black/10 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all magnetic-btn"><i data-lucide="arrow-right"></i></div></div>
-                </div>
-
-                <div class="max-w-4xl mx-auto p-10 md:p-16 rounded-[40px] stagger mb-32 relative border border-[#4ade80]/20 bg-[#0a0a0a]">
-                    <div class="absolute -top-6 left-1/4 w-12 h-12 rounded-full border border-[#4ade80]/40 bg-[#000] z-10 flex items-center justify-center">
-                        <img src="/assets/voice-patsita-vharty.jpg" alt="Patsita Vharty" class="w-10 h-10 rounded-full object-cover grayscale opacity-80 border border-[#4ade80]/20">
-                    </div>
-                    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(74,222,128,0.05),transparent_70%)] pointer-events-none rounded-[40px]"></div>
-                    <p class="text-2xl lg:text-3xl font-light italic text-white/90 mb-12 leading-relaxed relative z-10">
-                        "Working with Nizzar has been an exceptional experience. He deeply understood my vision from the start and brought fresh, innovative ideas exceeding my expectations."
-                    </p>
-                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
-                        <div>
-                            <div class="text-xl font-bold text-white mb-2">Patsita Vharty</div>
-                            <div class="text-[9px] uppercase tracking-widest text-quantum-muted font-mono">FOUNDER & CREATIVE DIRECTOR AT VERNE</div>
-                        </div>
-                        <div class="px-6 py-3 border border-[#4ade80]/20 bg-[#4ade80]/5 rounded-full text-[9px] font-mono tracking-widest uppercase text-[#4ade80] max-w-[280px] text-center md:text-right">
-                            OUTCOME: Clear premium positioning. First $15K proposal closed within 30 days of completion.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="page-kit" class="page px-6 pt-40 pb-32">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
-                    <div class="lg:col-span-7">
-                        <div class="max-w-4xl mb-16 stagger">
-                            <span class="inline-block px-4 py-2 border border-[#4ade80]/30 bg-[#4ade80]/10 rounded-full font-mono text-[10px] tracking-[0.3em] uppercase text-[#4ade80] mb-8 scan-line">
-                                for founders who want to fix their pricing gap without hiring an agency
-                            </span>
-                            <h1 class="text-5xl md:text-6xl lg:text-[80px] font-black leading-[1.1] tracking-tighter text-white mb-8 gradient-text-animated pb-2 pr-2">
-                                The complete system for closing the gap <br class="hidden lg:block"><span class="italic font-light tracking-normal text-white/90">between what you charge and what your work is worth.</span>
-                            </h1>
-                            <p class="text-xl lg:text-2xl text-quantum-muted leading-relaxed max-w-3xl">
-                                Everything we use in the Lab packaged so you can run it yourself. The average founder who completes it closes their first $10K+ deal within 90 days.
-                            </p>
-                        </div>
-
-                        <div class="mb-16 stagger">
-                            <h3 class="font-mono text-[11px] tracking-[0.3em] uppercase text-[#4ade80] mb-8 flex items-center gap-4"><span class="w-12 h-[1px] bg-[#4ade80]/50"></span> Phase 1: Diagnose the gap</h3>
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div class="glass-card glass-card-3d p-8 rounded-[32px] group hover:bg-white/[0.03]" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-[#4ade80] mb-5 card-icon w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20"><i data-lucide="map" class="w-5 h-5"></i></div><h3 class="text-lg font-bold text-white mb-2">Brand DNA Map</h3><p class="text-sm text-quantum-muted leading-relaxed">The single document that tells you and anyone you work with exactly what you stand for, who you're for, and why a premium buyer should choose you over someone cheaper.</p></div></div>
-                                <div class="glass-card glass-card-3d p-8 rounded-[32px] group hover:bg-white/[0.03]" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-[#4ade80] mb-5 card-icon w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20"><i data-lucide="phone" class="w-5 h-5"></i></div><h3 class="text-lg font-bold text-white mb-2">1:1 Pricing Strategy Call</h3><p class="text-sm text-quantum-muted leading-relaxed">One 30-minute call with Nizzar. You bring your completed DNA Map and your current rate. He tells you exactly what to charge, what to change, and what to do first.</p></div></div>
-                                <div class="glass-card glass-card-3d p-8 rounded-[32px] group hover:bg-white/[0.03] md:col-span-2" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-[#4ade80] mb-5 card-icon w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20"><i data-lucide="bot" class="w-5 h-5"></i></div><h3 class="text-lg font-bold text-white mb-2">AI Pricing Advisor</h3><p class="text-sm text-quantum-muted leading-relaxed">A custom AI model trained on 500+ real founder repositioning cases. You feed it your current positioning, your offer, and your target rate, and it tells you exactly what to change and why.</p></div></div>
-                            </div>
-                        </div>
-
-                        <div class="mb-16 stagger">
-                            <h3 class="font-mono text-[11px] tracking-[0.3em] uppercase text-[#4ade80] mb-8 flex items-center gap-4"><span class="w-12 h-[1px] bg-[#4ade80]/50"></span> Phase 2: Close the gap</h3>
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div class="glass-card glass-card-3d p-8 rounded-[32px] group hover:bg-white/[0.03]" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-[#4ade80] mb-5 card-icon w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20"><i data-lucide="layers" class="w-5 h-5"></i></div><h3 class="text-lg font-bold text-white mb-2">Offer Ladder</h3><p class="text-sm text-quantum-muted leading-relaxed">Most founders underprice because their offer structure doesn't support a premium rate. This gives you the exact three-tier architecture where each level makes the next one feel logical to the buyer.</p></div></div>
-                                <div class="glass-card glass-card-3d p-8 rounded-[32px] group hover:bg-white/[0.03]" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-[#4ade80] mb-5 card-icon w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20"><i data-lucide="message-square-text" class="w-5 h-5"></i></div><h3 class="text-lg font-bold text-white mb-2">Premium Pricing Scripts</h3><p class="text-sm text-quantum-muted leading-relaxed">The exact language that positions you at $10K to $25K in website copy, email sequences, social content, and sales conversations.</p></div></div>
-                                <div class="glass-card glass-card-3d p-8 rounded-[32px] group hover:bg-white/[0.03] md:col-span-2" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-[#4ade80] mb-5 card-icon w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20"><i data-lucide="calendar-check" class="w-5 h-5"></i></div><h3 class="text-lg font-bold text-white mb-2">30-Day Implementation Roadmap</h3><p class="text-sm text-quantum-muted leading-relaxed">Week 1: Diagnose. Week 2: Rebuild your offer ladder. Week 3: Rewrite your core messaging. Week 4: Relaunch at the new rate.</p></div></div>
-                            </div>
-                        </div>
-                        <div class="mb-16 stagger">
-                            <h3 class="font-mono text-[11px] tracking-[0.3em] uppercase text-[#4ade80] mb-8 flex items-center gap-4"><span class="w-12 h-[1px] bg-[#4ade80]/50"></span> Phase 3: Hold the gain</h3>
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div class="glass-card glass-card-3d p-8 rounded-[32px] group hover:bg-white/[0.03]" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-[#4ade80] mb-5 card-icon w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20"><i data-lucide="palette" class="w-5 h-5"></i></div><h3 class="text-lg font-bold text-white mb-2">Visual Identity Assets</h3><p class="text-sm text-quantum-muted leading-relaxed">The visual layer that makes your brand look the part for premium buyers.</p></div></div>
-                                <div class="glass-card glass-card-3d p-8 rounded-[32px] group hover:bg-white/[0.03]" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-[#4ade80] mb-5 card-icon w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20"><i data-lucide="layout-dashboard" class="w-5 h-5"></i></div><h3 class="text-lg font-bold text-white mb-2">Notion Dashboard</h3><p class="text-sm text-quantum-muted leading-relaxed">20+ templates covering brand mapping, offer architecture, messaging, content, and launch tracking.</p></div></div>
-                                <div class="glass-card glass-card-3d p-8 rounded-[32px] group hover:bg-white/[0.03]" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-[#4ade80] mb-5 card-icon w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20"><i data-lucide="cpu" class="w-5 h-5"></i></div><h3 class="text-lg font-bold text-white mb-2">90-Day Strategy Support</h3><p class="text-sm text-quantum-muted leading-relaxed">Unlimited brand and positioning questions for 90 days, answered by AI trained on this methodology.</p></div></div>
-                                <div class="glass-card glass-card-3d p-8 rounded-[32px] group hover:bg-white/[0.03]" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-[#4ade80] mb-5 card-icon w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20"><i data-lucide="refresh-cw" class="w-5 h-5"></i></div><h3 class="text-lg font-bold text-white mb-2">Lifetime Updates</h3><p class="text-sm text-quantum-muted leading-relaxed">Every framework and tool updates as the method evolves.</p></div></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lg:col-span-5 h-full">
-                        <div class="sticky top-32 space-y-8">
-                            <div class="glass-card p-10 rounded-[32px] border border-[#4ade80]/20 bg-gradient-to-br from-[#4ade80]/5 to-transparent stagger relative overflow-hidden">
-                                <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-50 pointer-events-none"></div>
-                                <span class="relative z-10 inline-block px-3 py-1 bg-[#4ade80]/10 text-[#4ade80] text-[8px] font-mono uppercase tracking-widest rounded-full mb-6 border border-[#4ade80]/20">Interactive AI Preview</span>
-                                <h3 class="relative z-10 text-3xl font-bold text-white mb-4">Inline DNA Synthesizer ✨</h3>
-                                <p class="relative z-10 text-sm text-white/70 leading-relaxed mb-6">
-                                    Paste how you currently describe your business. Quantum AI will instantly extract your Core Essence, Premium Buyer Persona, and Market Moat.
-                                </p>
-                                <textarea id="dna-input" class="relative z-10 w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 focus:border-[#4ade80] outline-none text-sm font-mono placeholder:text-white/20 mb-4 resize-none min-h-[80px]" placeholder="e.g. I run a marketing agency for sustainable brands..."></textarea>
-                                <button id="dna-btn" onclick="window.synthesizeDNA()" class="relative z-10 magnetic-btn px-6 py-3 border border-white/20 text-white font-bold uppercase text-[9px] tracking-widest rounded-xl hover:bg-white/5 hover:border-[#4ade80]/50 transition-all flex items-center justify-center gap-2 w-full md:w-auto">
-                                    SYNTHESIZE MY DNA ✨
-                                </button>
-                                <div id="dna-result" class="relative z-10 mt-6 hidden border-t border-white/10 pt-6 space-y-4"></div>
-                            </div>
-
-                            <div class="space-y-4 stagger">
-                                <div class="glass-card p-8 rounded-[24px] border-white/5 hover:border-[#4ade80]/20 transition-colors">
-                                    <p class="text-lg italic text-white mb-6 leading-relaxed">"we found unified direction through the Brand DNA Map. everyone now speaks the same language."</p>
-                                    <div class="flex items-center gap-4">
-                                        <img src="/assets/voice-brent.jpg" alt="Brent" class="w-10 h-10 rounded-full object-cover grayscale opacity-80 border border-white/10 shrink-0">
-                                        <div class="text-[8px] font-mono tracking-widest uppercase flex flex-col gap-1">
-                                            <span class="text-[#4ade80] font-bold">CLOSED FIRST $12K RETAINER WITHIN 60 DAYS</span>
-                                            <span class="text-quantum-muted">BRENT, LACROO, SYDNEY AU</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="glass-card p-8 rounded-[24px] border-white/5 hover:border-[#4ade80]/20 transition-colors">
-                                    <p class="text-lg italic text-white mb-6 leading-relaxed">"I knew what to say, build, ignore. Soul-level decisions made clear."</p>
-                                    <div class="flex items-center gap-4">
-                                        <img src="/assets/voice-aaron.jpg" alt="Aaron" class="w-10 h-10 rounded-full object-cover grayscale opacity-80 border border-white/10 shrink-0">
-                                        <div class="text-[8px] font-mono tracking-widest uppercase flex flex-col gap-1">
-                                            <span class="text-[#4ade80] font-bold">RAISED MINIMUM ENGAGEMENT FROM $3K TO $8K</span>
-                                            <span class="text-quantum-muted">AARON, SELVAGGI BUILT, LA USA</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="glass-card p-8 rounded-[24px] border-white/5 hover:border-[#4ade80]/20 transition-colors">
-                                    <p class="text-lg italic text-white mb-6 leading-relaxed">"the Kit gave me structure. I went from feeling scattered to decisive."</p>
-                                    <div class="flex items-center gap-4">
-                                        <img src="/assets/voice-melissa.jpg" alt="Melissa" class="w-10 h-10 rounded-full object-cover grayscale opacity-80 border border-white/10 shrink-0">
-                                        <div class="text-[8px] font-mono tracking-widest uppercase flex flex-col gap-1">
-                                            <span class="text-[#4ade80] font-bold">$15K TO $19.5K MRR IN 12 WEEKS (+30%)</span>
-                                            <span class="text-quantum-muted">MELISSA, MELDORMAN, USA</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="glass-card glass-card-3d p-12 lg:p-16 rounded-[40px] text-center border-white/10 relative overflow-hidden bg-white/[0.01] stagger mt-8" data-tilt>
-                                <div class="card-glow"></div>
-                                <div class="absolute -top-32 -right-32 w-80 h-80 bg-green-400/5 rounded-full blur-[120px] float-animation"></div>
-                                <div class="card-content">
-                                    <h3 class="text-3xl font-bold text-white mb-4">Everything You Need To Close Your First $25K Deal.</h3>
-                                    <div class="font-mono text-[9px] tracking-[0.3em] uppercase text-quantum-muted mb-12">one-time fair price investment</div>
-
-                                    <div class="space-y-4 text-left mb-12 font-mono text-[9px] uppercase tracking-widest">
-                                        <div class="flex justify-between border-b border-white/5 pb-3"><span class="text-white/70">PREMIUM POSITIONING SYSTEM</span><span class="text-white/70">$800</span></div>
-                                        <div class="flex justify-between border-b border-white/5 pb-3"><span class="text-white/70">$25K OFFER STRUCTURE</span><span class="text-white/70">$600</span></div>
-                                        <div class="flex justify-between border-b border-white/5 pb-3"><span class="text-white/70">OPERATIONAL TEMPLATES (20+)</span><span class="text-white/70">$1,200</span></div>
-                                        <div class="flex justify-between border-b border-white/5 pb-3"><span class="text-white/70">PREMIUM PRICING SCRIPTS</span><span class="text-white/70">$900</span></div>
-                                        <div class="flex justify-between border-b border-white/5 pb-3"><span class="text-white/70">VISUAL IDENTITY SYSTEM</span><span class="text-white/70">$700</span></div>
-                                        <div class="flex justify-between border-b border-white/5 pb-3"><span class="text-white/70">AI PRICING ADVISOR (90 DAYS)</span><span class="text-white/70">$324</span></div>
-                                        <div class="flex justify-between border-b border-white/5 pb-3"><span class="text-white/70">1:1 STRATEGY CALL WITH NIZZAR</span><span class="text-white/70">$500</span></div>
-                                        <div class="flex justify-between text-[#4ade80] font-bold pt-4"><span>TOTAL VALUE</span><span>$5,024</span></div>
-                                        <div class="flex justify-between text-[#4ade80] font-bold pt-2 pb-6 border-b border-white/5"><span>AVERAGE REVENUE INCREASE IN 90 DAYS</span><span>+30%</span></div>
-                                    </div>
-
-                                    <div class="text-[110px] lg:text-[130px] font-black text-white leading-none tracking-tighter mb-6"><span class="counter" data-target="297" data-prefix="$">$0</span></div>
-                                    <div class="inline-block px-4 py-2 border border-[#4ade80]/30 rounded-full text-[#4ade80] font-bold uppercase tracking-widest text-[9px] mb-4">94% SAVINGS ($4,727 OFF)</div>
-                                    <div class="text-[8px] font-mono tracking-widest uppercase text-white/30 mb-10">OR 3 PAYMENTS OF $1,666 ON THE LAB</div>
-
-                                    <button onclick="window.QuantumPlatform.checkoutKit()" class="magnetic-btn ripple w-full py-6 bg-white text-black font-black uppercase tracking-widest text-[11px] rounded-2xl hover:bg-green-400 transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)]">GET THE SYSTEM • $297</button>
-                                    <p class="text-[8px] font-mono tracking-widest text-quantum-muted uppercase mt-6 mb-12">instant access, 30-day results guarantee</p>
-
-                                    <div class="w-full h-[1px] bg-white/10 mb-8"></div>
-                                    <div class="font-mono text-[8px] tracking-[0.3em] uppercase text-white/40 mb-6">OR, SKIP THE SELF-GUIDED WORK AND DO IT WITH ME IN 9 WEEKS</div>
-                                    <div class="relative p-[2px] rounded-[18px] overflow-hidden group">
-                                        <div class="absolute inset-0 bg-[conic-gradient(from_0deg,transparent,rgba(74,222,128,0.5),transparent_30%)] animate-[spin_4s_linear_infinite] z-0"></div>
-                                        <button onclick="window.navigate('lab')" class="relative z-10 w-full bg-[#0a0a0a] text-white py-5 font-bold uppercase tracking-widest text-[10px] rounded-[16px] hover:bg-white/5 transition-all">APPLY TO THE LAB: WE BUILD IT TOGETHER • $4,997</button>
-                                    </div>
-                                    <div class="font-mono text-[7px] tracking-widest uppercase text-white/30 mt-6 space-y-1">
-                                        <div>weekly 1:1 sessions</div>
-                                        <div>custom architecture</div>
-                                        <div>9 weeks</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="page-lab" class="page px-6 pt-40 pb-32">
-            <div class="max-w-7xl mx-auto">
-                <div class="max-w-4xl mb-24 stagger relative">
-                    <div class="absolute right-0 top-1/2 -translate-y-1/2 hidden lg:flex items-center justify-center w-12 h-12 rounded-full border border-[#4ade80]/20 pointer-events-none">
-                        <div class="w-2 h-2 bg-[#4ade80] rounded-full shadow-[0_0_10px_#4ade80] animate-pulse"></div>
-                    </div>
-
-                    <div class="inline-block px-4 py-2 border border-red-500/30 bg-red-500/10 rounded-full font-mono text-[10px] tracking-[0.3em] uppercase text-red-500 mb-8 animate-pulse">
-                        ⚠️ 3 FOUNDERS ACCEPTED PER QUARTER. APPLICATION REQUIRED.
-                    </div>
-                    <h1 class="text-5xl md:text-6xl lg:text-[80px] font-black leading-[1.1] tracking-tighter text-white mb-8 gradient-text-animated pb-2 pr-2">
-                        9 weeks. We rebuild your brand positioning from the ground up <br class="hidden lg:block"><span class="italic font-light tracking-normal text-white/90">and close your pricing gap together.</span>
-                    </h1>
-                    <p class="text-xl md:text-2xl text-quantum-muted leading-relaxed max-w-4xl">
-                        You're past $500K. You're doing strong work. But your brand is still positioned where you were two years ago, and it's costing you $20K to $50K per deal in rate compression, longer sales cycles, and clients who negotiate when they shouldn't.
-                    </p>
-                </div>
-                <div class="mb-32 stagger">
-                    <div class="font-mono text-[10px] tracking-[0.4em] uppercase text-white font-bold mb-10 block">WHAT WE BUILD TOGETHER IN 9 WEEKS</div>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] group hover:bg-white/[0.03]" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-green-400 mb-6 card-icon w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20"><i data-lucide="calendar" class="w-5 h-5"></i></div><h3 class="text-lg font-bold text-white mb-4">9 Weekly 1:1 Sessions</h3><p class="text-sm text-quantum-muted leading-relaxed">Every week we work through a specific revenue blocker. Recorded so you can reference every decision we made and why.</p></div></div>
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] group hover:bg-white/[0.03]" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-green-400 mb-6 card-icon w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20"><i data-lucide="map" class="w-5 h-5"></i></div><h3 class="text-lg font-bold text-white mb-4">Bespoke Brand DNA Map</h3><p class="text-sm text-quantum-muted leading-relaxed">The single strategic document that repositions you off the mid-market permanently.</p></div></div>
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] group hover:bg-white/[0.03]" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-green-400 mb-6 card-icon w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20"><i data-lucide="layers" class="w-5 h-5"></i></div><h3 class="text-lg font-bold text-white mb-4">Offer Stack & Pricing</h3><p class="text-sm text-quantum-muted leading-relaxed">We rebuild the exact structure that makes a $25K to $50K engagement feel logical to the buyer.</p></div></div>
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] group hover:bg-white/[0.03]" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-green-400 mb-6 card-icon w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20"><i data-lucide="cpu" class="w-5 h-5"></i></div><h3 class="text-lg font-bold text-white mb-4">Funnel Installation</h3><p class="text-sm text-quantum-muted leading-relaxed">We remove every friction point between a premium buyer discovering you and signing.</p></div></div>
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] group hover:bg-white/[0.03]" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-green-400 mb-6 card-icon w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20"><i data-lucide="zap" class="w-5 h-5"></i></div><h3 class="text-lg font-bold text-white mb-4">Week Zero Diagnosis</h3><p class="text-sm text-quantum-muted leading-relaxed">Before session one, the AI runs a complete audit of your current positioning, offer language, and pricing signals.</p></div></div>
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] group hover:bg-white/[0.03]" data-tilt><div class="card-glow"></div><div class="card-content"><div class="text-green-400 mb-6 card-icon w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20"><i data-lucide="message" class="w-5 h-5"></i></div><h3 class="text-lg font-bold text-white mb-4">24/7 AI Support</h3><p class="text-sm text-quantum-muted leading-relaxed">Every time you write a proposal, update your website, or second-guess your rate between sessions, the AI gives you an answer trained on this methodology.</p></div></div>
-                    </div>
-
-                    <div class="glass-card glass-card-3d p-10 rounded-[32px] border border-[#4ade80]/20 bg-[#4ade80]/5 w-full mt-6" data-tilt>
-                        <div class="card-glow"></div>
-                        <div class="card-content flex flex-col md:flex-row items-start md:items-center gap-6">
-                            <div class="w-14 h-14 rounded-full bg-[#4ade80]/20 flex items-center justify-center shrink-0 border border-[#4ade80]/30 shadow-[0_0_20px_rgba(74,222,128,0.2)]">
-                                <i data-lucide="infinity" class="w-6 h-6 text-[#4ade80]"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-white mb-2">Lifetime Positioning Support • No Annual Fee</h3>
-                                <p class="text-sm text-white/60">The AI advisor stays with you after the Lab ends.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid lg:grid-cols-12 gap-16 items-start pb-32 border-t border-white/5 pt-32 stagger">
-                    <div class="lg:col-span-5 space-y-8">
-                        <div class="glass-card glass-card-3d p-12 rounded-[40px] bg-white/[0.02] border border-white/5" data-tilt>
-                            <div class="card-glow"></div>
-                            <div class="card-content">
-                                <div class="font-mono text-[10px] font-bold tracking-[0.2em] uppercase text-white mb-6">WHY THE APPLICATION COSTS $500</div>
-                                <p class="text-sm text-quantum-muted mb-10 leading-relaxed">The Lab takes 3 founders per quarter. The $500 deposit confirms you're serious about the work. If you're accepted, it comes off the total. If it's not a fit after the diagnostic call, it's refunded in full.</p>
-                                <div class="space-y-5 font-mono text-[9px] uppercase tracking-widest">
-                                    <div class="flex justify-between border-b border-white/5 pb-4"><span class="text-white/50">IF ACCEPTED:</span><span class="text-white">CREDITED TO $4,997</span></div>
-                                    <div class="flex justify-between border-b border-white/5 pb-4"><span class="text-white/50">IF NOT A FIT:</span><span class="text-white">100% REFUNDED</span></div>
-                                    <div class="flex justify-between pb-2"><span class="text-white/50">NO-SHOW:</span><span class="text-red-500">DEPOSIT FORFEITED</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lg:col-span-7">
-                        <div class="relative p-[2px] rounded-[40px] overflow-hidden group">
-                            <div class="absolute inset-0 bg-[conic-gradient(from_0deg,transparent,rgba(74,222,128,0.5),transparent_30%)] animate-[spin_4s_linear_infinite] z-0"></div>
-                            <form action="https://formspree.io/f/YOUR_LAB_FORM_ID" method="POST" onsubmit="window.handleLabApplication(event)" class="glass-card p-10 lg:p-12 rounded-[39px] space-y-8 bg-[#0a0a0a] relative z-10 w-full h-full">
-                                <div class="border-b border-white/5 pb-8 relative z-10 mb-8">
-                                    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-8">
-                                        <div>
-                                            <h3 class="text-3xl font-black text-white mb-3">Tell Us About<br>Your Pricing Gap</h3>
-                                            <div class="font-mono text-[8px] tracking-[0.3em] uppercase text-quantum-muted">STEP 1 OF 2</div>
-                                            <div class="font-mono text-[9px] text-[#4ade80] mt-2">Takes 4 minutes. We read every application personally.</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="bg-[#4ade80]/5 border border-[#4ade80]/20 rounded-2xl p-6 mb-8">
-                                        <div class="flex justify-between items-end mb-4">
-                                            <div class="font-mono text-[10px] text-[#4ade80] uppercase tracking-widest font-bold">CALCULATE YOUR 90-DAY ROI</div>
-                                            <div class="font-mono text-[12px] text-white font-bold"><span id="roi-mrr-val">$19,500</span> MRR</div>
-                                        </div>
-                                        <input type="range" id="roi-slider" min="10000" max="100000" step="1000" value="19500" class="w-full mb-6 cursor-pointer" oninput="window.updateROI(this.value)">
-                                        <div class="space-y-3">
-                                            <div class="flex justify-between text-sm"><span class="text-white/50">Expected 30% Lift:</span><span class="text-white font-bold text-[#4ade80]" id="roi-lift-val">+$5,850/mo</span></div>
-                                            <div class="flex justify-between text-sm pt-2 border-t border-[#4ade80]/10"><span class="text-white/50">The Lab Pays For Itself In:</span><span class="text-white font-bold" id="roi-days-val">26 Days</span></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex justify-between items-end">
-                                        <div class="text-xs font-mono uppercase tracking-widest text-white/50">Total Investment</div>
-                                        <div class="text-right">
-                                            <div class="text-4xl font-light text-white">$4,997</div>
-                                            <div class="text-[9px] font-mono text-quantum-muted tracking-widest mt-2">or 3x $1,666</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="space-y-4 relative z-10">
-                                    <input type="text" name="full_name" required placeholder="Full Legal Name" class="w-full bg-white/[0.02] border border-white/10 rounded-2xl px-6 py-5 focus:border-[#4ade80] outline-none text-sm transition-all font-mono placeholder:text-white/20">
-                                    <div class="relative">
-                                        <input type="email" name="email" required placeholder="Direct Email" class="w-full bg-white/[0.02] border border-white/10 rounded-2xl px-6 py-5 focus:border-[#4ade80] outline-none text-sm transition-all font-mono placeholder:text-white/20" oninput="window.checkEmail(this)">
-                                        <div class="absolute right-4 top-1/2 -translate-y-1/2 text-[#4ade80] opacity-0 transition-opacity duration-300 pointer-events-none email-check-icon"><i data-lucide="check-circle" class="w-5 h-5"></i></div>
-                                    </div>
-                                    <input type="url" name="website_url" placeholder="Current Web Property" class="w-full bg-white/[0.02] border border-white/10 rounded-2xl px-6 py-5 focus:border-[#4ade80] outline-none text-sm transition-all font-mono placeholder:text-white/20">
-
-                                    <div class="relative">
-                                        <select name="revenue" required onchange="window.handleRevenue(this.value)" class="w-full bg-white/[0.02] border border-white/10 rounded-2xl px-6 py-5 focus:border-[#4ade80] outline-none appearance-none cursor-pointer text-sm transition-all text-white/50 font-mono">
-                                            <option value="">Trailing 12-Month Revenue...</option>
-                                            <option value="aspirant">Under $500K/yr (I recommend starting with The Kit for $297)</option>
-                                            <option value="whale">$500K to $1M/yr</option>
-                                            <option value="giant">$1M to $5M/yr</option>
-                                            <option value="leviathan">$5M+ /yr</option>
-                                        </select>
-                                        <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none opacity-30"><i data-lucide="chevron-down"></i></div>
-                                    </div>
-
-                                    <div class="hidden p-6 border border-red-500/20 bg-red-500/[0.05] rounded-2xl" id="lab-warning">
-                                        <p class="text-sm text-quantum-muted leading-relaxed font-mono">
-                                            <strong class="text-white block mb-2 font-bold uppercase tracking-widest text-[9px]">Recommendation: The Kit</strong>
-                                            The Lab is designed for founders already above $500K. Below that threshold, <button type="button" onclick="window.navigate('kit')" class="text-[#4ade80] underline font-bold magnetic-btn inline-block">The Kit ($297)</button> is the better move first.
-                                        </p>
-                                    </div>
-
-                                    <textarea name="gap_description" placeholder="What's the biggest thing your brand is costing you right now?" class="w-full bg-white/[0.02] border border-white/10 rounded-2xl px-6 py-5 focus:border-[#4ade80] outline-none min-h-[120px] text-sm transition-all font-mono placeholder:text-white/20 resize-none"></textarea>
-                                    <textarea name="urgency" placeholder="Why does this need to change in the next 90 days?" class="w-full bg-white/[0.02] border border-white/10 rounded-2xl px-6 py-5 focus:border-[#4ade80] outline-none min-h-[100px] text-sm transition-all font-mono placeholder:text-white/20 resize-none"></textarea>
-                                </div>
-
-                                <div class="magnetic-btn ripple w-full block pt-4">
-                                    <button type="submit" id="lab-submit" class="w-full bg-white text-black py-6 font-black uppercase tracking-widest text-[11px] rounded-2xl transition-all relative z-10 hover:bg-[#4ade80]">
-                                        SUBMIT APPLICATION • $500 DEPOSIT
-                                    </button>
-                                </div>
-
-                                <div class="text-center pt-4 relative z-10">
-                                    <a href="https://calendly.com/qtmbg/strategy-call-lab" target="_blank" class="text-white hover:text-[#4ade80] underline font-bold font-mono text-[9px] tracking-[0.2em] transition-colors magnetic-btn inline-block uppercase">
-                                        NOT SURE IF THE LAB IS RIGHT FOR YOU? BOOK A FREE 30-MIN DIAGNOSTIC CALL FIRST
-                                    </a>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="page-mri" class="page px-6 pt-40 pb-32">
-            <div class="max-w-7xl mx-auto">
-                <div class="max-w-5xl mb-24 stagger">
-                    <span class="inline-block px-4 py-2 border border-red-500/30 bg-red-500/10 rounded-full font-mono text-[10px] tracking-[0.3em] uppercase text-red-500 mb-8 animate-pulse">
-                        ⚠️ 5 SESSIONS PER MONTH. NIZZAR RUNS EVERY ONE PERSONALLY.
-                    </span>
-                    <h1 class="text-5xl md:text-6xl lg:text-[80px] font-black leading-[1.1] tracking-tighter text-white mb-8 gradient-text-animated pb-2 pr-2">
-                        120 minutes. <br>We find exactly what your brand is costing you per deal, <br class="hidden lg:block"><span class="italic font-light tracking-normal text-white/90">and hand you the roadmap to fix it this week.</span>
-                    </h1>
-                    <p class="text-xl lg:text-2xl text-quantum-muted leading-relaxed max-w-4xl">
-                        This is designed for founders between $10K and $50K/month, past early stage, not yet at scale, and losing premium deals to a brand that doesn't match the quality of their work.
-                    </p>
-                </div>
-
-                <div class="mb-32 stagger">
-                    <div class="mb-12">
-                        <span class="font-mono text-[10px] tracking-[0.4em] uppercase text-white font-bold mb-4 block">WHAT WE COVER IN THE 120 MINUTES</span>
-                        <p class="text-sm text-quantum-muted">Each module is ranked by revenue impact.</p>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] border border-white/5" data-tilt><div class="card-glow"></div><div class="card-content flex flex-col h-full"><h3 class="text-xl font-bold text-white mb-4"><span class="font-mono text-white/30 font-light mr-2">01</span> Why Premium Buyers Aren't Choosing You</h3><p class="text-sm text-quantum-muted leading-relaxed">We look at what your brand is actually communicating to high-ticket buyers versus what you think it's communicating.</p></div></div>
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] border border-white/5" data-tilt><div class="card-glow"></div><div class="card-content flex flex-col h-full"><h3 class="text-xl font-bold text-white mb-4"><span class="font-mono text-white/30 font-light mr-2">02</span> Where Your Brand Is Making You Look Mid-Market</h3><p class="text-sm text-quantum-muted leading-relaxed">We audit your website, your copy, your visual identity, and your tone of voice against a single benchmark.</p></div></div>
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] border border-white/5" data-tilt><div class="card-glow"></div><div class="card-content flex flex-col h-full"><h3 class="text-xl font-bold text-white mb-4"><span class="font-mono text-white/30 font-light mr-2">03</span> Why Your Pricing Structure Is Capping Your Revenue</h3><p class="text-sm text-quantum-muted leading-relaxed">We look at every offer you have, what it costs, what it promises, and how it sits relative to the others.</p></div></div>
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] border border-white/5" data-tilt><div class="card-glow"></div><div class="card-content flex flex-col h-full"><h3 class="text-xl font-bold text-white mb-4"><span class="font-mono text-white/30 font-light mr-2">04</span> The Exact Words That Are Costing You Deals</h3><p class="text-sm text-quantum-muted leading-relaxed">We go line by line through your core messaging and identify every phrase that undermines your premium positioning.</p></div></div>
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] border border-white/5" data-tilt><div class="card-glow"></div><div class="card-content flex flex-col h-full"><h3 class="text-xl font-bold text-white mb-4"><span class="font-mono text-white/30 font-light mr-2">05</span> The 3-5 Things Costing You The Most Money Right Now</h3><p class="text-sm text-quantum-muted leading-relaxed">We prioritize by revenue impact, not by convenience.</p></div></div>
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] border-[#4ade80]/20 bg-gradient-to-br from-[#4ade80]/5 to-transparent" data-tilt><div class="card-glow"></div><div class="card-content flex flex-col h-full"><h3 class="text-xl font-bold text-white mb-4"><span class="font-mono text-[#4ade80]/50 font-light mr-2">06</span> Your Exact 30-Day Fix, In Order</h3><p class="text-sm text-white/70 leading-relaxed">Week 1, Week 2, Week 3, Week 4. Nothing left to figure out.</p></div></div>
-                    </div>
-                </div>
-                        if (window.counterObserver) {
-                            window.counterObserver.observe(c);
-                        }
-                    });
-                });
-            };
-        </script>
-
-        <script>
-            window.toggleMenu = function () {
-                const menu = document.getElementById('mobile-nav');
-                if (!menu) return;
-
-                if (menu.classList.contains('hidden')) {
-                    menu.classList.remove('hidden');
-                    menu.classList.add('flex');
-                    gsap.fromTo(menu, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.35 });
-                } else {
-                    gsap.to(menu, {
-                        opacity: 0,
-                        y: -20,
-                        duration: 0.25,
-                        onComplete: () => {
-                            menu.classList.add('hidden');
-                            menu.classList.remove('flex');
-                            menu.style.opacity = '';
-                            menu.style.transform = '';
-                        }
-                    });
-                }
-            };
-
-            window.openChat = function () {
-                const panel = document.getElementById('chat-panel');
-                if (!panel) return;
-                gsap.to(panel, { x: 0, duration: 0.8, ease: 'expo.out' });
-            };
-
-            window.closeChat = function () {
-                const panel = document.getElementById('chat-panel');
-                if (!panel) return;
-                gsap.to(panel, { x: '100%', duration: 0.8, ease: 'expo.inOut' });
-            };
-
-            window.checkEmail = function (input) {
-                if (!input) return;
-                const icon = input.parentElement ? input.parentElement.querySelector('.email-check-icon') : null;
-                const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
-
-                if (isValid) {
-                    input.style.borderColor = '#4ade80';
-                    input.style.boxShadow = '0 0 18px rgba(74,222,128,0.12)';
-                    if (icon) icon.style.opacity = '1';
-                } else {
-                    input.style.borderColor = '';
-                    input.style.boxShadow = '';
-                    if (icon) icon.style.opacity = '0';
-                }
-            };
-
-            window.handleEmailCapture = async function (e) {
-                e.preventDefault();
-                const form = e.target;
-                const success = document.getElementById('email-success');
-                const btn = form.querySelector('button[type="submit"]');
-                if (!form || !btn) return;
-
-                const original = btn.innerHTML;
-                btn.disabled = true;
-                btn.innerHTML = '<div class="spinner mx-auto"></div>';
-
-                try {
-                    const formData = new FormData(form);
-                    const response = await fetch(form.action, {
-                        method: form.method || 'POST',
-                        body: formData,
-                        headers: { Accept: 'application/json' }
-                    });
-
-                    if (!response.ok) throw new Error('Form submission failed');
-
-                    form.style.display = 'none';
-                    if (success) {
-                        success.classList.remove('hidden');
-                        gsap.fromTo(success, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.45 });
-                    }
-                } catch (err) {
-                    console.error(err);
-                    btn.disabled = false;
-                    btn.innerHTML = original;
-                    alert('There was a problem sending the form.');
-                }
-            };
-
-            window.handleLabApplication = async function (e) {
-                e.preventDefault();
-                const form = e.target;
-                const btn = document.getElementById('lab-submit');
-                if (!form || !btn) return;
-
-                const original = btn.innerText;
-                btn.disabled = true;
-                btn.innerText = 'TRANSMITTING...';
-
-                try {
-                    const formData = new FormData(form);
-                    const response = await fetch(form.action, {
-                        method: form.method || 'POST',
-                        body: formData,
-                        headers: { Accept: 'application/json' }
-                    });
-
-                    if (!response.ok) throw new Error('Application submission failed');
-
-                    btn.innerText = 'APPLICATION RECEIVED';
-                } catch (err) {
-                    console.error(err);
-                    btn.disabled = false;
-                    btn.innerText = original;
-                    alert('There was a problem sending the application.');
-                }
-            };
-
-            window.handleRevenue = function (value) {
-                const warning = document.getElementById('lab-warning');
-                const submit = document.getElementById('lab-submit');
-                if (!warning || !submit) return;
-
-                if (value === 'aspirant') {
-                    warning.classList.remove('hidden');
-                    submit.style.opacity = '0.35';
-                    submit.style.pointerEvents = 'none';
-                    submit.innerText = 'KIT RECOMMENDED';
-                } else {
-                    warning.classList.add('hidden');
-                    submit.style.opacity = '1';
-                    submit.style.pointerEvents = 'auto';
-                    submit.innerText = 'SUBMIT APPLICATION • $500 DEPOSIT';
-                }
-            };
-
-            window.updateROI = function (value) {
-                const mrr = parseInt(value || '0', 10);
-                const lift = Math.round(mrr * 0.3);
-                const cost = 4997;
-                const days = lift > 0 ? Math.round((cost / lift) * 30) : 0;
-
-                const mrrEl = document.getElementById('roi-mrr-val');
-                const liftEl = document.getElementById('roi-lift-val');
-                const daysEl = document.getElementById('roi-days-val');
-
-                if (mrrEl) mrrEl.innerText = '$' + mrr.toLocaleString();
-                if (liftEl) liftEl.innerText = '+$' + lift.toLocaleString() + '/mo';
-                if (daysEl) daysEl.innerText = days + ' Days';
-            };
-        </script>
-
-        <script>
-            window.qs_scores = { clarity: 0, authority: 0, desire: 0 };
-            window.qs_avg = 0;
-
-            const qs_LOW_CLARITY = ['help', 'empower', 'solutions', 'growth', 'transform', 'journey', 'authentic'];
-            const qs_HIGH_CLARITY = ['founders', 'revenue', 'clients', 'positioning', 'premium', 'pricing', 'mrr', 'arr'];
-            const qs_LOW_AUTHORITY = ['maybe', 'try', 'hope', 'might', 'aspiring', 'want to'];
-            const qs_HIGH_AUTHORITY = ['diagnose', 'position', 'restructure', 'close', 'premium', 'signal', 'market'];
-            const qs_LOW_DESIRE = ['our approach', 'step-by-step', 'collaboration', 'support'];
-            const qs_HIGH_DESIRE = ['stop losing', 'pricing gap', 'premium buyer', 'close the gap', 'what it costs'];
-
-            window.qs_updateMeter = function (id, value) {
-                const bar = document.getElementById(`qs-meter-${id}-bar`);
-                const score = document.getElementById(`qs-score-${id}`);
-                if (bar) bar.style.width = `${value}%`;
-                if (score) score.innerText = `${value}%`;
-            };
-
-            window.qs_scoreInput = function (el) {
-                if (!el) return;
-                const raw = el.value.trim();
-                const words = raw ? raw.split(/\s+/).length : 0;
-
-                const wordCount = document.getElementById('qs-word-count');
-                const cta = document.getElementById('qs-cta-phase1');
-                const frequency = document.getElementById('qs-frequency-line');
-
-                if (wordCount) wordCount.innerText = `${words} words`;
-
-                if (!raw || words < 8) {
-                    ['clarity', 'authority', 'desire'].forEach((key) => window.qs_updateMeter(key, 0));
-                    if (cta) {
-                        cta.style.opacity = '0';
-                        cta.style.pointerEvents = 'none';
-                    }
-                    if (frequency) {
-                        frequency.style.color = raw ? '#f59e0b' : '#4ade80';
-                        frequency.innerText = raw
-                            ? 'FREQUENCY: INSUFFICIENT DATA. NEED MORE CONTEXT.'
-                            : 'FREQUENCY: AWAITING INPUT. SYSTEM READY.';
-                    }
-                    return;
-                }
-
-                let clarity = 45;
-                let authority = 45;
-                let desire = 45;
-                const txt = raw.toLowerCase();
-
-                qs_LOW_CLARITY.forEach((w) => { if (txt.includes(w)) clarity -= 8; });
-                qs_HIGH_CLARITY.forEach((w) => { if (txt.includes(w)) clarity += 12; });
-
-                qs_LOW_AUTHORITY.forEach((w) => { if (txt.includes(w)) authority -= 8; });
-                qs_HIGH_AUTHORITY.forEach((w) => { if (txt.includes(w)) authority += 12; });
-
-                qs_LOW_DESIRE.forEach((w) => { if (txt.includes(w)) desire -= 8; });
-                qs_HIGH_DESIRE.forEach((w) => { if (txt.includes(w)) desire += 12; });
-
-                clarity = Math.max(0, Math.min(100, Math.round(clarity + (Math.random() * 6 - 3))));
-                authority = Math.max(0, Math.min(100, Math.round(authority + (Math.random() * 6 - 3))));
-                desire = Math.max(0, Math.min(100, Math.round(desire + (Math.random() * 6 - 3))));
-
-                window.qs_scores = { clarity, authority, desire };
-                window.qs_avg = Math.round((clarity + authority + desire) / 3);
-
-                window.qs_updateMeter('clarity', clarity);
-                window.qs_updateMeter('authority', authority);
-                window.qs_updateMeter('desire', desire);
-
-                if (cta) {
-                    cta.style.opacity = '1';
-                    cta.style.pointerEvents = 'auto';
-                }
-
-                if (frequency) {
-                    if (window.qs_avg <= 25) {
-                        frequency.style.color = '#ef4444';
-                        frequency.innerText = 'FREQUENCY: VOID. YOUR SIGNAL IS REACHING NO ONE.';
-                    } else if (window.qs_avg <= 40) {
-                        frequency.style.color = '#ef4444';
-                        frequency.innerText = 'FREQUENCY: STATIC. NOISE WITHOUT DIRECTION.';
-                    } else if (window.qs_avg <= 55) {
-                        frequency.style.color = '#f59e0b';
-                        frequency.innerText = 'FREQUENCY: ECHO. YOU SOUND LIKE THE MARKET.';
-                    } else if (window.qs_avg <= 70) {
-                        frequency.style.color = '#f59e0b';
-                        frequency.innerText = 'FREQUENCY: EMERGING. SIGNAL EXISTS. NEEDS AMPLIFICATION.';
-                    } else {
-                        frequency.style.color = '#4ade80';
-                        frequency.innerText = 'FREQUENCY: LOCKED. PREMIUM SIGNAL DETECTED.';
-                    }
-                }
-            };
-
-            window.qs_scrambleText = function (id, text) {
-                const el = document.getElementById(id);
-                if (!el) return;
-
-                const chars = '0123456789ABCDEF';
-                let frame = 0;
-
-                const interval = setInterval(() => {
-                    if (frame >= 14) {
-                        clearInterval(interval);
-                        el.innerText = text;
-                        return;
-                    }
-
-                    let output = '';
-                    for (let i = 0; i < text.length; i++) {
-                        output += text[i] === ' ' ? ' ' : chars[Math.floor(Math.random() * chars.length)];
-                    }
-                    el.innerText = output;
-                    frame += 1;
-                }, 35);
-            };
-
-            window.qs_advanceToPhase2 = function () {
-                const input = document.getElementById('qs-input');
-                const signalDisplay = document.getElementById('qs-signal-display');
-                const phase1 = document.getElementById('qs-phase1');
-                const phase2 = document.getElementById('qs-phase2');
-
-                if (!input || !signalDisplay || !phase1 || !phase2) return;
-
-                signalDisplay.innerText = `"${input.value.trim()}"`;
-
-                let attractsHead = 'MID-MARKET BUYERS';
-                let attractsBody = 'Your current language sounds broad, safe, and negotiable. It invites comparison instead of conviction.';
-                let contradictionHead = 'SIGNAL CONTRADICTION DETECTED';
-                let contradictionBody = 'Your work may be premium, but your signal does not yet create a premium reading in the buyer’s mind.';
-
-                if (window.qs_avg > 70) {
-                    attractsHead = 'PREMIUM BUYERS';
-                    attractsBody = 'The signal is stronger. Buyers can feel the value sooner and trust the frame faster.';
-                    contradictionHead = 'SIGNAL IS STRONG';
-                    contradictionBody = 'The next opportunity is not clarity. It is scale, repetition, and channel precision.';
-                } else if (window.qs_avg > 55) {
-                    attractsHead = 'GROWTH-STAGE FOUNDERS';
-                    attractsBody = 'They see something valuable, but still need more proof and stronger differentiation.';
-                } else if (window.qs_avg > 40) {
-                    attractsHead = 'CAUTIOUS OPERATORS';
-                    attractsBody = 'They are interested, but your wording still feels familiar enough to trigger hesitation.';
-                }
-
-                gsap.to(phase1, {
-                    opacity: 0,
-                    y: -24,
-                    duration: 0.45,
-                    onComplete: () => {
-                        phase1.style.display = 'none';
-                        phase2.style.display = 'block';
-                        gsap.fromTo(phase2, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5 });
-
-                        window.qs_scrambleText('qs-col-attracts-headline', attractsHead);
-                        window.qs_scrambleText('qs-col-attracts-body', attractsBody);
-                        window.qs_scrambleText('qs-col-contradiction-headline', contradictionHead);
-                        window.qs_scrambleText('qs-col-contradiction-body', contradictionBody);
-                    }
-                });
-            };
-
-            window.qs_routeCTA = function (value) {
-                const routed = document.getElementById('qs-routed-cta');
-                if (!routed) return;
-
-                routed.style.display = 'block';
-
-                if (value === 'under-10k' || value === '10k-50k') {
-                    routed.innerHTML = `
-                        <p class="text-sm text-quantum-muted mb-4">I recommend starting with The Kit first.</p>
-                        <button onclick="window.navigate('kit')" class="magnetic-btn px-6 py-3 bg-[#4ade80] text-black font-bold uppercase rounded-xl flex items-center justify-center gap-2 mx-auto">
-                            GET THE SYSTEM
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </button>
-                    `;
-                } else {
-                    routed.innerHTML = `
-                        <p class="text-sm text-quantum-muted mb-4">Expert diagnostic suggested.</p>
-                        <button onclick="window.navigate('mri')" class="magnetic-btn px-6 py-3 bg-[#4ade80] text-black font-bold uppercase rounded-xl flex items-center justify-center gap-2 mx-auto">
-                            BOOK BRAND MRI
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </button>
-                    `;
-                }
-
-                try { lucide.createIcons(); } catch (e) {}
-                gsap.fromTo(routed, { opacity: 0 }, { opacity: 1, duration: 0.3 });
-            };
-
-            window.qs_reset = function () {
-                const input = document.getElementById('qs-input');
-                const phase1 = document.getElementById('qs-phase1');
-                const phase2 = document.getElementById('qs-phase2');
-                const routed = document.getElementById('qs-routed-cta');
-                const rewrite = document.getElementById('qs-rewrite-result');
-
-                if (input) input.value = '';
-                if (routed) {
-                    routed.style.display = 'none';
-                    routed.style.opacity = '0';
-                    routed.innerHTML = '';
-                }
-                if (rewrite) {
-                    rewrite.style.display = 'none';
-                    rewrite.innerHTML = '';
-                }
-
-                if (phase2 && phase1) {
-                    gsap.to(phase2, {
-                        opacity: 0,
-                        duration: 0.25,
-                        onComplete: () => {
-                            phase2.style.display = 'none';
-                            phase1.style.display = 'block';
-                            gsap.set(phase1, { opacity: 1, y: 0 });
-                            window.qs_scoreInput(document.getElementById('qs-input'));
-                        }
-                    });
-                }
-            };
-        </script>
-
-        <script>
-            window.GeminiAPI = {
-                apiKey: "YOUR_GEMINI_API_KEY_HERE",
-                apiUrl: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
-                async fetch(prompt) {
-                    const payload = {
-                        contents: [{ parts: [{ text: prompt }] }]
-                    };
-
-                    try {
-                        const res = await fetch(`${this.apiUrl}?key=${this.apiKey}`, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-
-                        const data = await res.json();
-                        return data?.candidates?.[0]?.content?.parts?.[0]?.text || null;
-                    } catch (err) {
-                        console.error(err);
-                        return null;
-                    }
-                }
-            };
-
-            window.QuantumAI = {
-                async runDiagnostic() {
-                    const history = document.getElementById('ai-chat-history');
-                    const input = document.getElementById('ai-user-input');
-                    if (!history || !input) return;
-
-                    const text = input.value.trim();
-                    if (!text) return;
-
-                    history.innerHTML += `
-                        <div class="flex flex-col gap-2">
-                            <div class="text-xs font-mono text-white/50 uppercase tracking-widest">You</div>
-                            <div class="glass-card p-5 rounded-xl text-sm leading-relaxed text-white">${text}</div>
-                        </div>
-                    `;
-
-                    input.value = '';
-
-                    const loaderId = `load-${Date.now()}`;
-                    history.innerHTML += `
-                        <div id="${loaderId}" class="flex flex-col gap-2">
-                            <div class="text-xs font-mono text-green-400 uppercase tracking-widest">Quantum AI</div>
-                            <div class="glass-card p-5 rounded-xl text-sm leading-relaxed text-[#4ade80]">Analyzing signal geometry...</div>
-                        </div>
-                    `;
-
-                    history.scrollTop = history.scrollHeight;
-
-                    const prompt = `[System: You are an elite brand strategist. Diagnose why this signal fails or succeeds for premium buyers. Be direct, precise, and commercially sharp in under 90 words.] Input: ${text}`;
-                    const result = await window.GeminiAPI.fetch(prompt);
-
-                    const loader = document.getElementById(loaderId);
-                    if (loader) {
-                        loader.innerHTML = `
-                            <div class="text-xs font-mono text-green-400 uppercase tracking-widest">Quantum AI</div>
-                            <div class="glass-card p-5 rounded-xl text-sm leading-relaxed text-white">${result || 'System calibration required. Unable to process signal.'}</div>
-                        `;
-                    }
-
-                    history.scrollTop = history.scrollHeight;
-                }
-            };
-
-            window.generatePremiumSignal = async function () {
-                const input = document.getElementById('qs-input');
-                const resultBox = document.getElementById('qs-rewrite-result');
-                const btn = document.getElementById('qs-rewrite-btn');
-                if (!input || !resultBox || !btn) return;
-
-                resultBox.style.display = 'block';
-                resultBox.innerHTML = `<div class="text-[#4ade80] font-mono text-[10px] uppercase mb-2">Synthesizing premium signal...</div>`;
-
-                const original = btn.innerHTML;
-                btn.disabled = true;
-                btn.innerHTML = '<div class="spinner mx-auto"></div>';
-
-                const prompt = `[System: Rewrite this as a premium $25K+ positioning signal. Keep it clean, sharp, specific, commercially strong, and under 2 sentences. Avoid vague brand clichés.] Input: ${input.value.trim()}`;
-                const result = await window.GeminiAPI.fetch(prompt);
-
-                resultBox.innerHTML = `
-                    <div class="text-[#4ade80] font-mono text-[10px] uppercase mb-2">Upgraded Signal</div>
-                    <div class="text-white font-bold leading-relaxed">${result || 'System overload. Try again.'}</div>
-                `;
-
-                btn.disabled = false;
-                btn.innerHTML = original;
-            };
-
-            window.synthesizeDNA = async function () {
-                const inputEl = document.getElementById('dna-input');
-                const btn = document.getElementById('dna-btn');
-                const resultBox = document.getElementById('dna-result');
-                if (!inputEl || !btn || !resultBox) return;
-
-                const text = inputEl.value.trim();
-                if (!text) return;
-
-                const original = btn.innerHTML;
-                btn.disabled = true;
-                btn.innerHTML = '<div class="spinner mx-auto"></div>';
-
-                resultBox.classList.remove('hidden');
-                resultBox.innerHTML = `<div class="text-sm text-quantum-muted">Synthesizing DNA...</div>`;
-
-                const prompt = `[System: You are an elite brand strategist. Output only clean HTML blocks. Analyze the following business description and extract:
-1. Core Essence
-2. Premium Buyer Persona
-3. Market Moat
-
-Format each as:
-<div class="mb-4"><strong class="text-[#4ade80] font-mono text-[10px] uppercase tracking-widest block mb-1">TITLE</strong><span class="text-sm text-white/90">Description</span></div>
-
-Input: ${text}`;
-
-                const result = await window.GeminiAPI.fetch(prompt);
-
-                resultBox.innerHTML = result
-                    ? result.replace(/```html|```/g, '').trim()
-                    : `<div class="text-red-500 text-sm font-mono">System offline. Could not synthesize DNA.</div>`;
-
-                gsap.fromTo(resultBox, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35 });
-
-                btn.disabled = false;
-                btn.innerHTML = original;
-            };
-        </script>
-
-        <script>
-            const ParticleSystem = {
-                scene: null,
-                camera: null,
-                renderer: null,
-                particles: null,
-
-                init() {
-                    const canvas = document.getElementById('particle-canvas');
-                    if (!canvas || window.matchMedia('(pointer: coarse)').matches || typeof THREE === 'undefined') return;
-
-                    this.scene = new THREE.Scene();
-                    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-                    this.renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-                    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-                    this.renderer.setSize(window.innerWidth, window.innerHeight);
-
-                    const geometry = new THREE.BufferGeometry();
-                    const positions = new Float32Array(300 * 3);
-
-                    for (let i = 0; i < positions.length; i++) {
-                        positions[i] = (Math.random() - 0.5) * 100;
-                    }
-
-                    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-                    const material = new THREE.PointsMaterial({
-                        color: 0x4ade80,
-                        size: 0.45,
-                        transparent: true,
-                        opacity: 0.35
-                    });
-
-                    this.particles = new THREE.Points(geometry, material);
-                    this.scene.add(this.particles);
-                    this.camera.position.z = 50;
-
-                    this.animate();
-
-                    window.addEventListener('resize', () => {
-                        if (!this.camera || !this.renderer) return;
-                        this.camera.aspect = window.innerWidth / window.innerHeight;
-                        this.camera.updateProjectionMatrix();
-                        this.renderer.setSize(window.innerWidth, window.innerHeight);
-                    });
-                },
-
-                animate() {
-                    requestAnimationFrame(() => this.animate());
-                    if (this.particles) {
-                        this.particles.rotation.y += 0.00045;
-                        this.particles.rotation.x += 0.00015;
-                    }
-                    if (this.renderer && this.scene && this.camera) {
-                        this.renderer.render(this.scene, this.camera);
-                    }
-                }
-            };
-
-            const CardTilt = {
-                init() {
-                    if (window.matchMedia('(pointer: coarse)').matches) return;
-
-                    document.querySelectorAll('[data-tilt]').forEach((card) => {
-                        card.addEventListener('mousemove', (e) => {
-                            const rect = card.getBoundingClientRect();
-                            const x = (e.clientX - rect.left) / rect.width - 0.5;
-                            const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-                            gsap.to(card, {
-                                rotationY: x * 8,
-                                rotationX: -y * 8,
-                                duration: 0.35,
-                                ease: 'power2.out'
-                            });
-
-                            const glow = card.querySelector('.card-glow');
-                            if (glow) {
-                                glow.style.setProperty('--mouse-x', `${(x + 0.5) * 100}%`);
-                                glow.style.setProperty('--mouse-y', `${(y + 0.5) * 100}%`);
-                            }
-                        });
-
-                        card.addEventListener('mouseleave', () => {
-                            gsap.to(card, {
-                                rotationY: 0,
-                                rotationX: 0,
-                                duration: 0.45,
-                                ease: 'power2.out'
-                            });
-                        });
-                    });
-                }
-            };
-
-            window.QuantumPlatform = {
-                openVideoModal() {
-                    const modal = document.getElementById('qtm-video-modal');
-                    const container = document.getElementById('qtm-video-container');
-                    if (!modal || !container) return;
-
-                    container.innerHTML = `
-                        <iframe
-                            width="100%"
-                            height="100%"
-                            src="https://www.youtube.com/embed/R-nTC5nBeNo?autoplay=1&rel=0"
-                            frameborder="0"
-                            allow="autoplay; encrypted-media; fullscreen"
-                            allowfullscreen
-                            class="absolute inset-0 rounded-3xl">
-                        </iframe>
-                    `;
-
-                    modal.classList.remove('hidden');
-                    modal.classList.add('flex');
-
-                    const content = document.getElementById('qtm-video-content');
-                    gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 0.25 });
-                    gsap.fromTo(content, { scale: 0.95 }, { scale: 1, duration: 0.35, ease: 'power2.out' });
-                },
-
-                closeVideoModal() {
-                    const modal = document.getElementById('qtm-video-modal');
-                    const container = document.getElementById('qtm-video-container');
-                    if (!modal || !container) return;
-
-                    gsap.to(modal, {
-                        opacity: 0,
-                        duration: 0.25,
-                        onComplete: () => {
-                            modal.classList.add('hidden');
-                            modal.classList.remove('flex');
-                            container.innerHTML = '';
-                        }
-                    });
-                },
-
-                checkoutKit() {
-                    window.location.href = 'https://checkout.stripe.com/c/pay/cs_live_placeholder_kit';
-                }
-            };
-        </script>
-
-        <script>
-            function initPreloader() {
-                const preloader = document.getElementById('quantum-preloader');
-                const percent = document.getElementById('loader-percent');
-
-                if (!preloader || !percent) return;
-
-                let progress = 0;
-                const timer = setInterval(() => {
-                    progress += Math.floor(Math.random() * 16) + 8;
-                    if (progress >= 100) {
-                        progress = 100;
-                        clearInterval(timer);
-                        percent.innerText = '100%';
-
-                        setTimeout(() => {
-                            preloader.style.opacity = '0';
-                            setTimeout(() => {
-                                preloader.style.display = 'none';
-                            }, 700);
-                        }, 300);
-
-                        return;
-                    }
-
-                    percent.innerText = `${progress}%`;
-                }, 110);
-            }
-
-            function initLenis() {
-                if (typeof Lenis === 'undefined') return null;
-
-                const lenis = new Lenis({
-                    lerp: 0.1,
-                    smoothWheel: true
-                });
-
-                function raf(time) {
-                    lenis.raf(time);
-                    requestAnimationFrame(raf);
-                }
-                requestAnimationFrame(raf);
-
-                lenis.on('scroll', () => {
-                    if (window.ScrollTrigger) ScrollTrigger.refresh();
-                });
-
-                window.lenis = lenis;
-                return lenis;
-            }
-
-            function initObservers() {
-                window.counterObserver = new IntersectionObserver((entries) => {
-                    entries.forEach((entry) => {
-                        if (!entry.isIntersecting) return;
-
-                        const el = entry.target;
-                        const target = parseFloat(el.dataset.target || '0');
-                        const prefix = el.dataset.prefix || '';
-                        const suffix = el.dataset.suffix || '';
-                        const isDecimal = String(target).includes('.');
-
-                        gsap.to({ value: 0 }, {
-                            value: target,
-                            duration: 1.8,
-                            ease: 'power2.out',
-                            onUpdate() {
-                                const current = this.targets()[0].value;
-                                const formatted = isDecimal ? current.toFixed(1) : Math.floor(current).toString();
-                                el.innerText = `${prefix}${formatted}${suffix}`;
-                            }
-                        });
-
-                        window.counterObserver.unobserve(el);
-                    });
-                }, { threshold: 0.45 });
-
-                window.staggerObserver = new IntersectionObserver((entries) => {
-                    entries.forEach((entry) => {
-                        if (!entry.isIntersecting) return;
-                        entry.target.classList.add('visible');
-                        window.staggerObserver.unobserve(entry.target);
-                    });
-                }, {
-                    threshold: 0.01,
-                    rootMargin: '0px 0px -10% 0px'
-                });
-
-                document.querySelectorAll('.counter').forEach((el) => window.counterObserver.observe(el));
-                document.querySelectorAll('.stagger').forEach((el) => window.staggerObserver.observe(el));
-            }
-
-            function initScrollChrome() {
-                window.addEventListener('scroll', () => {
-                    const nav = document.getElementById('main-nav');
-                    const bar = document.getElementById('mobile-action-bar');
-
-                    if (nav) {
-                        if (window.scrollY > 80) {
-                            nav.style.background = 'rgba(0,0,0,0.94)';
-                            nav.style.backdropFilter = 'blur(20px)';
-                        } else {
-                            nav.style.background = 'rgba(0,0,0,0.8)';
-                            nav.style.backdropFilter = 'blur(16px)';
-                        }
-                    }
-
-                    if (bar) {
-                        if (window.scrollY > 500) {
-                            bar.classList.remove('translate-y-full');
-                        } else {
-                            bar.classList.add('translate-y-full');
-                        }
-                    }
-                }, { passive: true });
-            }
-
-            function initResizeSync() {
-                window.addEventListener('load', () => {
-                    if (window.lenis) window.lenis.resize();
-                    if (window.ScrollTrigger) ScrollTrigger.refresh();
-                });
-
-                window.addEventListener('resize', () => {
-                    if (window.lenis) window.lenis.resize();
-                    if (window.ScrollTrigger) ScrollTrigger.refresh();
-                });
-
-                const ro = new ResizeObserver(() => {
-                    if (window.lenis) window.lenis.resize();
-                    if (window.ScrollTrigger) ScrollTrigger.refresh();
-                });
-
-                ro.observe(document.body);
-            }
-
-            document.addEventListener('DOMContentLoaded', () => {
-                try { gsap.registerPlugin(ScrollTrigger); } catch (e) {}
-                try { lucide.createIcons(); } catch (e) {}
-
-                initPreloader();
-                initLenis();
-                initObservers();
-                initResizeSync();
-                initScrollChrome();
-
-                try { ParticleSystem.init(); } catch (e) { console.error(e); }
-                try { CardTilt.init(); } catch (e) { console.error(e); }
-
-                if (document.getElementById('roi-slider')) {
-                    window.updateROI(document.getElementById('roi-slider').value);
-                }
-
-                window.navigate('home');
-            });
-        </script>
-    </body>
+      </div>`;
+    messages.scrollTop = messages.scrollHeight;
+  }
+};
+</script>
+
+<!-- Script 4: Particles + Visual FX -->
+<script>
+const ParticleSystem = {
+  init() {
+    const canvas = document.getElementById('particle-canvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 5;
+    const geometry = new THREE.BufferGeometry();
+    const count = window.innerWidth < 768 ? 800 : 1500;
+    const positions = new Float32Array(count * 3);
+    for (let i = 0; i < count * 3; i++) positions[i] = (Math.random() - 0.5) * 20;
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const material = new THREE.PointsMaterial({ color: 0x4ade80, size: 0.02, transparent: true, opacity: 0.4 });
+    const particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+    let mouseX = 0, mouseY = 0;
+    document.addEventListener('mousemove', e => {
+      mouseX = (e.clientX / window.innerWidth - 0.5) * 0.5;
+      mouseY = (e.clientY / window.innerHeight - 0.5) * 0.5;
+    });
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+    const animate = () => {
+      requestAnimationFrame(animate);
+      particles.rotation.x += 0.0003;
+      particles.rotation.y += 0.0005;
+      particles.rotation.x += (mouseY - particles.rotation.x) * 0.02;
+      particles.rotation.y += (mouseX - particles.rotation.y) * 0.02;
+      renderer.render(scene, camera);
+    };
+    animate();
+  }
+};
+
+// ─── CUSTOM CURSOR ───
+function initCursor() {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+  const dot = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  if (!dot || !ring) return;
+  dot.style.display = 'block';
+  ring.style.display = 'block';
+  let rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    dot.style.left = e.clientX + 'px';
+    dot.style.top = e.clientY + 'px';
+    rx += (e.clientX - rx) * 0.15;
+    ry += (e.clientY - ry) * 0.15;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+  });
+  document.addEventListener('mouseover', e => {
+    if (e.target.matches('a,button,[onclick]')) {
+      dot.classList.add('hover');
+      ring.classList.add('hover');
+    }
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.matches('a,button,[onclick]')) {
+      dot.classList.remove('hover');
+      ring.classList.remove('hover');
+    }
+  });
+  // Smooth ring follow via rAF
+  (function loop() {
+    requestAnimationFrame(loop);
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+  })();
+}
+
+// ─── 3D CARD TILT ───
+function initTilt() {
+  document.querySelectorAll('[data-tilt]').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      const rotX = (y - 0.5) * 12;
+      const rotY = (x - 0.5) * -12;
+      card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(4px)`;
+      card.style.setProperty('--mouse-x', (x * 100) + '%');
+      card.style.setProperty('--mouse-y', (y * 100) + '%');
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.setProperty('--mouse-x', '50%');
+      card.style.setProperty('--mouse-y', '50%');
+    });
+  });
+}
+
+// ─── MAGNETIC BUTTONS ───
+function initMagnetic() {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+  document.querySelectorAll('.magnetic-btn').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const rect = btn.getBoundingClientRect();
+      const dx = (e.clientX - rect.left - rect.width / 2) * 0.25;
+      const dy = (e.clientY - rect.top - rect.height / 2) * 0.25;
+      gsap.to(btn, { x: dx, y: dy, duration: 0.3, ease: 'power2.out' });
+    });
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1,0.5)' });
+    });
+  });
+}
+
+ParticleSystem.init();
+initCursor();
+initTilt();
+initMagnetic();
+</script>
+
+<!-- Script 5: Counters + Stagger + Preloader -->
+<script>
+// ─── COUNTER ANIMATION ───
+function initCounters() {
+  document.querySelectorAll('.counter').forEach(el => {
+    const target = parseFloat(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const isFloat = target % 1 !== 0;
+    let start = null;
+    const duration = 2000;
+    const step = ts => {
+      if (!start) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const val = target * eased;
+      el.textContent = prefix + (isFloat ? val.toFixed(1) : Math.round(val)) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) { requestAnimationFrame(step); obs.disconnect(); }
+    }, { threshold: 0.5 });
+    obs.observe(el);
+  });
+}
+
+// ─── STAGGER ANIMATION ───
+window.triggerStagger = function() {
+  document.querySelectorAll('.page.active .stagger:not(.visible)').forEach((el, i) => {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => el.classList.add('visible'), i * 60);
+          obs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.1 });
+    obs.observe(el);
+    // Also trigger immediately if in viewport
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.95) {
+      setTimeout(() => el.classList.add('visible'), i * 60);
+    }
+  });
+};
+
+// ─── MOBILE ACTION BAR ───
+function initMobileBar() {
+  const bar = document.getElementById('mobile-action-bar');
+  if (!bar) return;
+  let shown = false;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300 && !shown) {
+      shown = true;
+      bar.style.transform = 'translateY(0)';
+    } else if (window.scrollY < 100 && shown) {
+      shown = false;
+      bar.style.transform = 'translateY(100%)';
+    }
+  }, { passive: true });
+}
+
+// ─── PARALLAX ───
+function initParallax() {
+  const bg = document.getElementById('parallax-bg');
+  const noise = document.getElementById('parallax-noise');
+  document.addEventListener('mousemove', e => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    if (bg) bg.style.transform = `translate(${x}px,${y}px)`;
+    if (noise) noise.style.transform = `translate(${x * 0.5}px,${y * 0.5}px)`;
+  });
+}
+
+// ─── PRELOADER — fixed: resolves before blocking page ───
+function initPreloader() {
+  const preloader = document.getElementById('quantum-preloader');
+  const percent = document.getElementById('loader-percent');
+  const loaderText = document.getElementById('loader-text');
+  if (!preloader || !percent) {
+    // No preloader DOM — just make sure home page is visible
+    window.navigate('home');
+    return;
+  }
+  const messages = ['INITIALIZING NEURAL NET','CALIBRATING SIGNAL','LOADING QUANTUM SYSTEM','READY'];
+  let progress = 0;
+  let msgIdx = 0;
+  const interval = setInterval(() => {
+    progress += Math.random() * 18 + 5;
+    if (progress > 100) progress = 100;
+    percent.textContent = Math.round(progress) + '%';
+    const newIdx = Math.min(Math.floor(progress / 34), messages.length - 1);
+    if (newIdx !== msgIdx && loaderText) {
+      msgIdx = newIdx;
+      gsap.fromTo(loaderText, { y: 0, opacity: 1 }, { y: -14, opacity: 0, duration: 0.2, onComplete: () => {
+        loaderText.textContent = messages[msgIdx];
+        gsap.fromTo(loaderText, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2 });
+      }});
+    }
+    if (progress >= 100) {
+      clearInterval(interval);
+      setTimeout(() => {
+        gsap.to(preloader, { opacity: 0, duration: 0.8, ease: 'power2.inOut', onComplete: () => {
+          preloader.style.display = 'none';
+          // Ensure home page is visible
+          window.navigate('home');
+          window.triggerStagger();
+          initCounters();
+          // Lenis smooth scroll
+          if (typeof Lenis !== 'undefined') {
+            window.lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1,1.001-Math.pow(2,-10*t)), smooth: true });
+            const raf = time => { window.lenis.raf(time); requestAnimationFrame(raf); };
+            requestAnimationFrame(raf);
+          }
+        }});
+      }, 200);
+    }
+  }, 80);
+}
+
+// ─── LUCIDE ICONS ───
+if (window.lucide) lucide.createIcons();
+
+// ─── INIT ───
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    initPreloader();
+    initMobileBar();
+    initParallax();
+  });
+} else {
+  initPreloader();
+  initMobileBar();
+  initParallax();
+}
+// Re-init icons after any dynamic content
+window.addEventListener('load', () => {
+  if (window.lucide) lucide.createIcons();
+  window.triggerStagger();
+  initTilt();
+  initMagnetic();
+});
+</script>
+
+</body>
 </html>
