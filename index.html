@@ -1,11 +1,3 @@
-
-
-
-Here is your complete, updated code with the **Gemini API Core** block integrated exactly where it belongs. 
-
-*Note: I have replaced the empty `apiKey` variable with your updated block. Please be aware that exposing API keys in frontend, client-side HTML code means anyone inspecting the page can see and potentially use your key. If this is for a production environment, it's highly recommended to route these requests through a secure backend!*
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,6 +43,14 @@ Here is your complete, updated code with the **Gemini API Core** block integrate
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
+        
+        /* Essential Lenis Smooth Scroll Base */
+        html.lenis, html.lenis body { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        .lenis.lenis-scrolling iframe { pointer-events: none; }
+
         /* Anti-Clipping Typography */
         .gradient-text-animated {
             background: linear-gradient(90deg, #fff, #4ade80, #fff, #4ade80);
@@ -222,7 +222,7 @@ Here is your complete, updated code with the **Gemini API Core** block integrate
                 <button onclick="window.navigate('kit')" data-page="kit" class="nav-btn text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors hover-underline magnetic-btn">The Kit</button>
                 <button onclick="window.navigate('lab')" data-page="lab" class="nav-btn text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors hover-underline magnetic-btn">The Lab</button>
                 <button onclick="window.navigate('mri')" data-page="mri" class="nav-btn text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors hover-underline magnetic-btn">Brand MRI</button>
-                <button onclick="window.navigate('tools')" data-page="tools" class="nav-btn text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-[#4ade80] hover:text-white transition-colors hover-underline magnetic-btn" style="text-shadow: 0 0 10px rgba(74,222,128,0.5);">AI Tools</button>
+                <button onclick="window.navigate('tools')" data-page="tools" class="nav-btn text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors hover-underline magnetic-btn" style="text-shadow: 0 0 10px rgba(74,222,128,0.5);">AI Tools</button>
                 <button onclick="window.navigate('about')" data-page="about" class="nav-btn text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors hover-underline magnetic-btn">About</button>
                 <button onclick="window.navigate('start')" data-page="start" class="nav-btn text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-white/70 hover:text-white transition-colors hover-underline magnetic-btn">Start Here</button>
             </div>
@@ -255,7 +255,7 @@ Here is your complete, updated code with the **Gemini API Core** block integrate
             <button onclick="window.navigate('kit')" class="text-3xl md:text-4xl font-bold tracking-tighter text-left hover:text-green-400 transition-colors magnetic-btn">The Kit</button>
             <button onclick="window.navigate('lab')" class="text-3xl md:text-4xl font-bold tracking-tighter text-left hover:text-green-400 transition-colors magnetic-btn">The Lab</button>
             <button onclick="window.navigate('mri')" class="text-3xl md:text-4xl font-bold tracking-tighter text-left hover:text-green-400 transition-colors magnetic-btn">Brand MRI</button>
-            <button onclick="window.navigate('tools')" class="text-3xl md:text-4xl font-bold tracking-tighter text-left text-[#4ade80] hover:text-white transition-colors magnetic-btn">AI Tools</button>
+            <button onclick="window.navigate('tools')" class="text-3xl md:text-4xl font-bold tracking-tighter text-left hover:text-green-400 transition-colors magnetic-btn">AI Tools</button>
             <button onclick="window.navigate('about')" class="text-3xl md:text-4xl font-bold tracking-tighter text-left hover:text-green-400 transition-colors magnetic-btn">About</button>
             <button onclick="window.navigate('start')" class="text-3xl md:text-4xl font-bold tracking-tighter text-left hover:text-green-400 transition-colors magnetic-btn">Start Here</button>
         </div>
@@ -1557,6 +1557,86 @@ Here is your complete, updated code with the **Gemini API Core** block integrate
                 </div>
             </div>
         </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="page-about" class="page px-6 pt-40 pb-32">
+            <div class="max-w-7xl mx-auto">
+                <div class="max-w-4xl mb-12 stagger">
+                    <span class="inline-block px-4 py-2 border border-[#4ade80]/30 bg-[#4ade80]/10 rounded-full font-mono text-[10px] tracking-[0.3em] uppercase text-[#4ade80] mb-8 scan-line">
+                        About Quantum Branding
+                    </span>
+                    <h1 class="text-5xl md:text-6xl lg:text-[80px] font-black leading-[1.1] tracking-tighter text-white mb-8 gradient-text-animated pb-2 pr-2">
+                        The Architect.
+                    </h1>
+                    <p class="text-xl lg:text-2xl text-quantum-muted leading-relaxed max-w-3xl mb-10">
+                        A modern brand is not static. It exists in multiple states at once across digital economies, perception layers, audience touchpoints, offer structures, and identity signals. 
+                        <br><br>
+                        Quantum Branding is not surface marketing. It is a frequency-based alignment system. It closes the gap between who the founder has become and the identity the business is still projecting.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-8 mt-12">
+                        <div class="glass-card glass-card-3d p-8 rounded-[32px] border border-white/10" data-tilt>
+                            <div class="card-glow"></div>
+                            <div class="card-content flex items-center gap-6">
+                                <img src="https://ui-avatars.com/api/?name=Nizzar&background=000&color=4ade80" alt="Nizzar" class="w-16 h-16 rounded-full border border-green-400/50">
+                                <div>
+                                    <div class="text-xl font-bold text-white mb-1">Nizzar Ben Chekroune</div>
+                                    <div class="text-[9px] uppercase tracking-widest text-quantum-muted font-mono">Founder & Architect</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- START HERE PAGE -->
+        <div id="page-start" class="page px-6 pt-40 pb-32">
+            <div class="max-w-7xl mx-auto">
+                <div class="max-w-4xl mb-12 stagger">
+                    <span class="inline-block px-4 py-2 border border-[#4ade80]/30 bg-[#4ade80]/10 rounded-full font-mono text-[10px] tracking-[0.3em] uppercase text-[#4ade80] mb-8 scan-line">
+                        Initiate Alignment
+                    </span>
+                    <h1 class="text-5xl md:text-6xl lg:text-[80px] font-black leading-[1.1] tracking-tighter text-white mb-8 gradient-text-animated pb-2 pr-2">
+                        Start Here.
+                    </h1>
+                    <p class="text-xl lg:text-2xl text-quantum-muted leading-relaxed max-w-3xl">
+                        Determine your structural readiness. Evaluate your signal and close the existential pricing gap today.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger mt-16">
+                    <div class="glass-card glass-card-3d p-10 rounded-[32px] group cursor-pointer border-[#4ade80]/20 bg-[#4ade80]/5" onclick="window.navigate('mri')" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-content flex flex-col h-full">
+                            <h3 class="text-2xl font-bold text-white mb-4">Diagnostic Intervention</h3>
+                            <p class="text-sm text-quantum-muted leading-relaxed flex-grow">For founders who need expert eyes to identify immediate leaks and missed revenue opportunities.</p>
+                            <div class="mt-8 text-[9px] font-mono tracking-widest uppercase text-[#4ade80] flex items-center gap-2">
+                                SECURE DIAGNOSTIC <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card glass-card-3d p-10 rounded-[32px] group cursor-pointer border-white/10 hover:border-white/30" onclick="window.navigate('kit')" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-content flex flex-col h-full">
+                            <h3 class="text-2xl font-bold text-white mb-4">Autonomous Execution</h3>
+                            <p class="text-sm text-quantum-muted leading-relaxed flex-grow">The blueprint to build structural pricing power. We supply the framework. You run the deployment.</p>
+                            <div class="mt-8 text-[9px] font-mono tracking-widest uppercase text-white/50 group-hover:text-white flex items-center gap-2 transition-colors">
+                                OBTAIN SYSTEM <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card glass-card-3d p-10 rounded-[32px] group cursor-pointer border-white/10 hover:border-white/30" onclick="window.navigate('lab')" data-tilt>
+                        <div class="card-glow"></div>
+                        <div class="card-content flex flex-col h-full">
+                            <h3 class="text-2xl font-bold text-white mb-4">Complete Rebuild</h3>
+                            <p class="text-sm text-quantum-muted leading-relaxed flex-grow">Hybrid architecture. The AI builds the foundation. I build the soul. Strict allocation per quarter.</p>
+                            <div class="mt-8 text-[9px] font-mono tracking-widest uppercase text-white/50 group-hover:text-white flex items-center gap-2 transition-colors">
+                                INITIATE REBUILD <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <!-- AI TOOLS DIRECTORY PAGE -->
         <div id="page-tools" class="page px-6 pt-40">
@@ -1743,8 +1823,19 @@ Here is your complete, updated code with the **Gemini API Core** block integrate
                     window.lenis.on('scroll', ScrollTrigger.update);
                     gsap.ticker.add((time) => { window.lenis.raf(time * 1000); });
                     gsap.ticker.lagSmoothing(0);
+                    
+                    // Added a Global ResizeObserver to catch page changes and natively fix the 'Frozen Scroll' issue
+                    const resizeObserver = new ResizeObserver(() => {
+                        window.lenis.resize();
+                        if (window.ScrollTrigger) ScrollTrigger.refresh();
+                    });
+                    
+                    document.addEventListener('DOMContentLoaded', () => {
+                        resizeObserver.observe(document.body);
+                    });
                 }
                 
+                // Adjusted Intersection Observer threshold & rootMargin. Prevents elements from "Half Loading" when scrolled fast or if they are taller than viewport
                 window.staggerObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -1752,7 +1843,7 @@ Here is your complete, updated code with the **Gemini API Core** block integrate
                             window.staggerObserver.unobserve(entry.target);
                         }
                     });
-                }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+                }, { threshold: 0.05, rootMargin: "0px 0px 100px 0px" });
                 
                 window.counterObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
@@ -1803,7 +1894,7 @@ Here is your complete, updated code with the **Gemini API Core** block integrate
                 window.navigate = function(id) {
                     const pages = document.querySelectorAll('.page');
                     const target = document.getElementById('page-' + id);
-                    if (!target) return;
+                    if (!target) return; // This early return used to kill the About & Start loading because they were completely missing from HTML
                     
                     pages.forEach(p => { 
                         p.style.display = 'none'; 
@@ -1813,7 +1904,15 @@ Here is your complete, updated code with the **Gemini API Core** block integrate
                     target.style.display = 'block';
                     
                     window.scrollTo({ top: 0, behavior: 'instant' });
-                    if(window.lenis) window.lenis.scrollTo(0, {immediate: true});
+                    
+                    // Essential command sequence for Lenis caching when display states change rapidly
+                    if(window.lenis) {
+                        window.lenis.scrollTo(0, {immediate: true});
+                        setTimeout(() => {
+                            if (window.lenis.resize) window.lenis.resize();
+                        }, 50);
+                    }
+                    
                     gsap.fromTo(target, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6 });
                     
                     target.querySelectorAll('.stagger').forEach((el) => { 
@@ -1839,7 +1938,13 @@ Here is your complete, updated code with the **Gemini API Core** block integrate
                     
                     const menu = document.getElementById('mobile-nav');
                     if(menu && !menu.classList.contains('hidden')) window.toggleMenu();
-                    setTimeout(() => ScrollTrigger.refresh(), 100);
+                    
+                    // Final safety checks after everything resolves
+                    setTimeout(() => {
+                        if(window.ScrollTrigger) ScrollTrigger.refresh();
+                        if(window.lenis) window.lenis.resize();
+                        if(window.lucide) lucide.createIcons();
+                    }, 100);
                 };
 
                 window.navigateAndScroll = function(pageId, targetId) {
@@ -1952,648 +2057,4 @@ Here is your complete, updated code with the **Gemini API Core** block integrate
                 
                 window.handleRevenue = function(val) {
                     const warn = document.getElementById('lab-warning');
-                    const submit = document.getElementById('lab-submit');
-                    if (val === 'aspirant') {
-                        warn.classList.remove('hidden');
-                        submit.style.opacity = '0.3'; submit.style.pointerEvents = 'none'; submit.innerText = 'Redirect Suggested';
-                    } else {
-                        warn.classList.add('hidden');
-                        submit.style.opacity = '1'; submit.style.pointerEvents = 'auto'; submit.innerText = 'SECURE HUMAN ADVISORY // $500 DEPOSIT';
-                    }
-                };
-
-                window.updateROI = function(val) {
-                    const mrr = parseInt(val);
-                    const leak = mrr * 1.5; 
-                    
-                    document.getElementById('roi-mrr-val').innerText = '$' + mrr.toLocaleString();
-                    document.getElementById('roi-lift-val').innerText = '$' + leak.toLocaleString();
-                    document.getElementById('roi-days-val').innerText = 'IMMEDIATE';
-                };
-
-                window.updateDynamicScarcity = function() {
-                    const el = document.getElementById('mri-dynamic-date');
-                    if (el) {
-                        const date = new Date();
-                        const months =["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
-                        const monthName = months[date.getMonth()];
-                        const year = date.getFullYear();
-                        el.innerText = `FOR ${monthName} ${year}`;
-                    }
-                };
-                
-                window.addEventListener('scroll', () => {
-                    const nav = document.getElementById('main-nav');
-                    const mobileBar = document.getElementById('mobile-action-bar');
-                    
-                    if (window.scrollY > 100) {
-                        nav.style.background = 'rgba(0, 0, 0, 0.95)';
-                        nav.style.backdropFilter = 'blur(20px)';
-                    } else {
-                        nav.style.background = 'rgba(0, 0, 0, 0.8)';
-                    }
-                    if (mobileBar) {
-                        if (window.scrollY > 500) {
-                            mobileBar.classList.remove('translate-y-full');
-                        } else {
-                            mobileBar.classList.add('translate-y-full');
-                        }
-                    }
-                }, { passive: true });
-
-                // --- GEMINI API CORE ---
-                const apiKey = "AIzaSyBSqHEWIDaP_WSARhZTVGBe19LHCviq4pw";
-                
-                async function fetchWithBackoff(url, options, retries = 5) {
-                    const delays =[1000, 2000, 4000, 8000, 16000];
-                    for (let i = 0; i < retries; i++) {
-                        try {
-                            const res = await fetch(url, options);
-                            if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                            return await res.json();
-                        } catch (err) {
-                            if (i === retries - 1) throw err;
-                            await new Promise(r => setTimeout(r, delays[i]));
-                        }
-                    }
-                }
-
-                function pcmToWav(pcmData, sampleRate) {
-                    const numChannels = 1;
-                    const bitsPerSample = 16;
-                    const byteRate = sampleRate * numChannels * (bitsPerSample / 8);
-                    const blockAlign = numChannels * (bitsPerSample / 8);
-                    const dataSize = pcmData.length;
-                    const buffer = new ArrayBuffer(44 + dataSize);
-                    const view = new DataView(buffer);
-                    const writeString = (offset, string) => {
-                        for (let i = 0; i < string.length; i++) view.setUint8(offset + i, string.charCodeAt(i));
-                    };
-                    writeString(0, 'RIFF');
-                    view.setUint32(4, 36 + dataSize, true);
-                    writeString(8, 'WAVE');
-                    writeString(12, 'fmt ');
-                    view.setUint32(16, 16, true);
-                    view.setUint16(20, 1, true);
-                    view.setUint16(22, numChannels, true);
-                    view.setUint32(24, sampleRate, true);
-                    view.setUint32(28, byteRate, true);
-                    view.setUint16(32, blockAlign, true);
-                    view.setUint16(34, bitsPerSample, true);
-                    writeString(36, 'data');
-                    view.setUint32(40, dataSize, true);
-                    const pcmView = new Uint8Array(pcmData);
-                    new Uint8Array(buffer, 44).set(pcmView);
-                    return new Blob([buffer], { type: 'audio/wav' });
-                }
-
-                function base64ToArrayBuffer(base64) {
-                    const binaryString = window.atob(base64);
-                    const bytes = new Uint8Array(binaryString.length);
-                    for (let i = 0; i < binaryString.length; i++) bytes[i] = binaryString.charCodeAt(i);
-                    return bytes.buffer;
-                }
-
-                window.qs_globalScanData = null;
-
-                window.qs_runDeepScan = async function() {
-                    const inputEl = document.getElementById('qs-input');
-                    const text = inputEl.value.trim();
-                    if (!text || text.split(/\s+/).length < 3) {
-                        alert("Supply complete signal description for accurate analysis.");
-                        return;
-                    }
-                    
-                    const btn = document.getElementById('qs-deepscan-btn');
-                    btn.innerHTML = 'SCANNING FREQUENCIES <div class="spinner inline-block ml-3 w-3 h-3 border-t-black"></div>';
-                    btn.disabled = true;
-
-                    const systemPrompt = `You are a strict, elite brand positioning strategist for high-ticket founders. Analyze the following brand signal/tagline. Evaluate it on Clarity, Authority, and Desire (0-100). Determine exactly who this attracts and the core contradiction preventing it from closing $25K deals. Finally, generate an upgraded $25K signal.`;
-                    
-                    const payload = {
-                        contents: [{ parts: [{ text: text }] }],
-                        systemInstruction: { parts: [{ text: systemPrompt }] },
-                        generationConfig: {
-                            responseMimeType: "application/json",
-                            responseSchema: {
-                                type: "OBJECT",
-                                properties: {
-                                    clarity: { type: "INTEGER", description: "Score 0-100" },
-                                    authority: { type: "INTEGER", description: "Score 0-100" },
-                                    desire: { type: "INTEGER", description: "Score 0-100" },
-                                    attractsHead: { type: "STRING", description: "Short ALL CAPS persona name, e.g., 'MID-MARKET GENERALISTS'" },
-                                    attractsBody: { type: "STRING", description: "1 sentence describing who this attracts." },
-                                    contraHead: { type: "STRING", description: "Short ALL CAPS contradiction title." },
-                                    contraBody: { type: "STRING", description: "1 sentence explaining why this fails premium buyers." },
-                                    upgradedSignal: { type: "STRING", description: "A rewritten, premium 2-sentence version." }
-                                },
-                                required:["clarity", "authority", "desire", "attractsHead", "attractsBody", "contraHead", "contraBody", "upgradedSignal"]
-                            }
-                        }
-                    };
-
-                    try {
-                        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-                        const data = await fetchWithBackoff(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-                        
-                        const resultText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-                        const result = JSON.parse(resultText);
-                        window.qs_globalScanData = result;
-
-                        window.qs_updateMeter('clarity', result.clarity);
-                        window.qs_updateMeter('authority', result.authority);
-                        window.qs_updateMeter('desire', result.desire);
-                        
-                        const avg = Math.round((result.clarity + result.authority + result.desire) / 3);
-                        const freqEl = document.getElementById('qs-frequency-line');
-                        if(avg <= 40) { freqEl.style.color = '#ef4444'; freqEl.innerText = 'FREQUENCY: STATIC. Noise without direction.'; }
-                        else if(avg <= 70) { freqEl.style.color = '#f59e0b'; freqEl.innerText = 'FREQUENCY: ECHO. Generic resonance detected.'; }
-                        else { freqEl.style.color = '#4ade80'; freqEl.innerText = 'FREQUENCY: LOCKED. Premium signal active.'; }
-
-                        document.getElementById('qs-cta-phase1').style.opacity = '1';
-                        document.getElementById('qs-cta-phase1').style.pointerEvents = 'auto';
-                        btn.innerHTML = 'SCAN COMPLETE';
-                        
-                    } catch (e) {
-                        btn.innerHTML = 'SYSTEM ERROR. REINITIALIZE.';
-                        btn.disabled = false;
-                        console.error(e);
-                    }
-                };
-
-                window.qs_updateMeter = function(id, val) {
-                    const bar = document.getElementById(`qs-meter-${id}-bar`);
-                    const text = document.getElementById(`qs-score-${id}`);
-                    if(bar) bar.style.width = val + '%';
-                    if(text) {
-                        gsap.to(text, { innerText: val, duration: 1.5, snap: { innerText: 1 }, onUpdate: function() { text.innerHTML = Math.round(text.innerText) + '%'; } });
-                    }
-                };
-
-                window.qs_advanceToPhase2 = function() {
-                    if (!window.qs_globalScanData) return;
-                    const data = window.qs_globalScanData;
-                    const text = document.getElementById('qs-input').value;
-                    document.getElementById('qs-signal-display').innerText = `"${text}"`;
-                    
-                    const phase1 = document.getElementById('qs-phase1');
-                    const phase2 = document.getElementById('qs-phase2');
-                    gsap.to(phase1, { y: -40, opacity: 0, duration: 0.6, onComplete: () => { 
-                        phase1.style.display = 'none'; 
-                        phase2.style.display = 'block'; 
-                        gsap.fromTo(phase2, {y: 40, opacity: 0}, {y: 0, opacity: 1, duration: 0.6}); 
-                        window.qs_scrambleText('qs-col-attracts-headline', data.attractsHead);
-                        window.qs_scrambleText('qs-col-attracts-body', data.attractsBody);
-                        window.qs_scrambleText('qs-col-contradiction-headline', data.contraHead);
-                        window.qs_scrambleText('qs-col-contradiction-body', data.contraBody);
-                    }});
-                };
-
-                window.qs_scrambleText = function(id, text) { 
-                    const el = document.getElementById(id);
-                    if(!el) return;
-                    const chars = "0123456789ABCDEF";
-                    let frames = 0;
-                    const interval = setInterval(() => {
-                        if (frames >= 15) { clearInterval(interval); el.innerText = text; return; }
-                        let scrambled = "";
-                        for(let i=0; i<text.length; i++) scrambled += chars[Math.floor(Math.random() * chars.length)];
-                        el.innerText = scrambled;
-                        frames++;
-                    }, 40);
-                };
-
-                window.qs_routeCTA = function(value) {
-                    const container = document.getElementById('qs-routed-cta');
-                    container.style.display = 'block';
-                    if (value === 'kit') {
-                        container.innerHTML = `<p class="text-sm text-quantum-muted mb-4">Autonomous execution required.</p><button onclick="window.navigate('kit')" class="magnetic-btn px-6 py-3 bg-[#4ade80] text-black font-bold uppercase rounded-xl flex items-center justify-center gap-2 mx-auto">OBTAIN SYSTEM <i data-lucide="arrow-right" class="w-4 h-4"></i></button>`;
-                    } else if (value === 'mri') {
-                        container.innerHTML = `<p class="text-sm text-quantum-muted mb-4">Diagnostic intervention required.</p><button onclick="window.navigate('mri')" class="magnetic-btn px-6 py-3 bg-[#4ade80] text-black font-bold uppercase rounded-xl flex items-center justify-center gap-2 mx-auto">SECURE DIAGNOSTIC <i data-lucide="arrow-right" class="w-4 h-4"></i></button>`;
-                    } else {
-                        container.innerHTML = `<p class="text-sm text-quantum-muted mb-4">Structural reconstruction required.</p><button onclick="window.navigate('lab')" class="magnetic-btn px-6 py-3 bg-[#4ade80] text-black font-bold uppercase rounded-xl flex items-center justify-center gap-2 mx-auto">INITIATE REBUILD <i data-lucide="arrow-right" class="w-4 h-4"></i></button>`;
-                    }
-                    try { lucide.createIcons(); } catch(e){}
-                    gsap.fromTo(container, {opacity: 0}, {opacity: 1, duration: 0.4});
-                };
-
-                window.qs_reset = function() {
-                    document.getElementById('qs-input').value = '';
-                    window.qs_globalScanData = null;
-                    const deepScanBtn = document.getElementById('qs-deepscan-btn');
-                    if (deepScanBtn) {
-                        deepScanBtn.disabled = false;
-                        deepScanBtn.innerHTML = 'INITIATE DEEP SCAN ✨';
-                    }
-                    window.qs_updateMeter('clarity', 0);
-                    window.qs_updateMeter('authority', 0);
-                    window.qs_updateMeter('desire', 0);
-                    document.getElementById('qs-frequency-line').innerText = 'FREQUENCY: AWAITING INPUT. SYSTEM READY.';
-                    document.getElementById('qs-frequency-line').style.color = '#4ade80';
-                    document.getElementById('qs-cta-phase1').style.opacity = '0';
-                    document.getElementById('qs-cta-phase1').style.pointerEvents = 'none';
-                    document.getElementById('qs-routed-cta').style.opacity = '0';
-                    document.getElementById('qs-rewrite-result').style.display = 'none';
-                    
-                    const phase1 = document.getElementById('qs-phase1');
-                    const phase2 = document.getElementById('qs-phase2');
-                    gsap.to(phase2, { opacity: 0, onComplete: () => {
-                        phase2.style.display = 'none';
-                        phase1.style.display = 'block';
-                        gsap.to(phase1, { opacity: 1 });
-                    }});
-                };
-
-                window.generatePremiumSignal = function() {
-                    const resBox = document.getElementById('qs-rewrite-result');
-                    resBox.style.display = 'block';
-                    resBox.innerHTML = `<div class="text-[#4ade80] font-mono text-[10px] uppercase mb-2">Upgraded Signal:</div><div class="text-white font-bold text-lg">${window.qs_globalScanData?.upgradedSignal || "Error processing signal."}</div>`;
-                };
-
-                window.synthesizeDNA = async function() {
-                    const inputEl = document.getElementById('dna-input');
-                    const btn = document.getElementById('dna-btn');
-                    const resultBox = document.getElementById('dna-result');
-                    const text = inputEl.value.trim();
-                    if (!text) return;
-                    
-                    btn.innerHTML = 'SYNTHESIZING... <div class="spinner inline-block ml-2 w-3 h-3 border-t-black"></div>';
-                    btn.style.pointerEvents = 'none';
-                    resultBox.classList.add('hidden');
-                    
-                    const fullPrompt = `You are an elite brand positioning strategist. Analyze this: "${text}". Provide a 3-part 'Brand DNA Map': Core Essence, Premium Buyer Persona, and Market Moat. Return HTML format exactly like: <div class="mb-4"><strong class="text-[#4ade80] font-mono text-[10px] uppercase tracking-widest block mb-1">PART NAME</strong><span class="text-sm text-white/90">Description...</span></div>. Do NOT include markdown blocks (\`\`\`html). Just raw HTML.`;
-                    
-                    try {
-                        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-                        const payload = { contents: [{ parts: [{ text: fullPrompt }] }] };
-                        const data = await fetchWithBackoff(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-                        
-                        let resHtml = data.candidates?.[0]?.content?.parts?.[0]?.text;
-                        if(resHtml) {
-                            resHtml = resHtml.replace(/```html|```/gi, '').trim();
-                            const cleanTextForVoice = resHtml.replace(/<[^>]*>?/gm, ' ').replace(/\n/g, ' ').trim();
-                            resultBox.innerHTML = resHtml + `
-                                <div class="mt-6 border-t border-white/10 pt-4">
-                                    <button onclick="window.playDNAAudio('${btoa(unescape(encodeURIComponent(cleanTextForVoice)))}')" id="dna-tts-btn" class="magnetic-btn w-full py-3 bg-[#4ade80]/10 text-[#4ade80] border border-[#4ade80]/30 font-bold uppercase text-[9px] tracking-widest rounded-2xl hover:bg-[#4ade80] hover:text-black transition-all flex items-center justify-center gap-2">
-                                        BROADCAST SIGNAL ✨ (Audio)
-                                    </button>
-                                </div>`;
-                            resultBox.classList.remove('hidden');
-                            gsap.fromTo(resultBox, {opacity: 0, y: 10}, {opacity: 1, y: 0, duration: 0.5});
-                        }
-                    } catch(e) {
-                        resultBox.innerHTML = `<div class="text-red-500 text-sm font-mono">System offline. Connection required.</div>`;
-                        resultBox.classList.remove('hidden');
-                    }
-                    btn.innerHTML = 'SYNTHESIZE MY DNA ✨';
-                    btn.style.pointerEvents = 'auto';
-                };
-
-                window.playDNAAudio = async function(b64Text) {
-                    const btn = document.getElementById('dna-tts-btn');
-                    if (btn.disabled) return;
-                    btn.disabled = true;
-                    btn.innerHTML = 'GENERATING FREQUENCY... <div class="spinner inline-block ml-2 w-3 h-3 border-t-[#4ade80]"></div>';
-                    
-                    try {
-                        const text = decodeURIComponent(escape(atob(b64Text)));
-                        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
-                        const payload = {
-                            contents: [{ parts: [{ text: "Here is your new brand frequency. " + text }] }],
-                            generationConfig: {
-                                responseModalities: ["AUDIO"],
-                                speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: "Aoede" } } }
-                            }
-                        };
-                        const data = await fetchWithBackoff(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-                        
-                        const part = data.candidates?.[0]?.content?.parts?.[0];
-                        if (part?.inlineData) {
-                            const pcmBytes = base64ToArrayBuffer(part.inlineData.data);
-                            const wavBlob = pcmToWav(pcmBytes, 24000); 
-                            const audioUrl = URL.createObjectURL(wavBlob);
-                            const audio = new Audio(audioUrl);
-                            audio.play();
-                            btn.innerHTML = 'PLAYING SIGNAL 🔊';
-                            audio.onended = () => {
-                                btn.innerHTML = 'BROADCAST SIGNAL ✨ (Audio)';
-                                btn.disabled = false;
-                            };
-                        } else {
-                            throw new Error("No audio data returned");
-                        }
-                    } catch(e) {
-                        console.error(e);
-                        btn.innerHTML = 'AUDIO ERROR';
-                        setTimeout(() => { btn.innerHTML = 'BROADCAST SIGNAL ✨ (Audio)'; btn.disabled = false; }, 3000);
-                    }
-                };
-
-                window.generateOfferLadder = async function() {
-                    const inputEl = document.getElementById('ladder-input');
-                    const btn = document.getElementById('ladder-btn');
-                    const resultBox = document.getElementById('ladder-result');
-                    const text = inputEl.value.trim();
-                    
-                    if (!text) return;
-                    
-                    btn.innerHTML = 'ARCHITECTING... <div class="spinner inline-block ml-2 w-3 h-3 border-t-black"></div>';
-                    btn.disabled = true;
-                    resultBox.classList.add('hidden');
-                    
-                    const systemPrompt = `You are an elite brand positioning strategist. The user will provide their basic service. You must elevate it into a 3-tier premium offer ladder: 1. The Audit/Diagnostic (Entry, $3K-$5K), 2. The Core System (Mid, $10K-$15K), 3. The Comprehensive Transformation (Premium, $25K+).
-                    Respond ONLY with a valid JSON array of 3 objects. Each object must have: "tier" (e.g., "ENTRY // DIAGNOSTIC"), "price" (e.g., "$3,500"), "title" (e.g., "The Growth Audit"), "description" (2 sentences explaining the high-level value, NOT just deliverables).`;
-                    
-                    const payload = {
-                        contents: [{ parts: [{ text: text }] }],
-                        systemInstruction: { parts: [{ text: systemPrompt }] },
-                        generationConfig: {
-                            responseMimeType: "application/json",
-                            responseSchema: {
-                                type: "ARRAY",
-                                items: {
-                                    type: "OBJECT",
-                                    properties: {
-                                        tier: { type: "STRING" },
-                                        price: { type: "STRING" },
-                                        title: { type: "STRING" },
-                                        description: { type: "STRING" }
-                                    },
-                                    required: ["tier", "price", "title", "description"]
-                                }
-                            }
-                        }
-                    };
-
-                    try {
-                        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-                        const data = await fetchWithBackoff(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-                        
-                        const resultText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-                        const tiers = JSON.parse(resultText);
-                        
-                        let html = '';
-                        const borderColors = ['border-white/10', 'border-[#4ade80]/30', 'border-[#4ade80]'];
-                        const bgColors =['bg-black/40', 'bg-[#4ade80]/5', 'bg-[#4ade80]/10'];
-                        const titleColors = ['text-white', 'text-white', 'text-[#4ade80]'];
-
-                        tiers.forEach((tier, i) => {
-                            html += `
-                                <div class="glass-card p-8 rounded-3xl border ${borderColors[i]} ${bgColors[i]} flex flex-col h-full relative overflow-hidden">
-                                    ${i === 2 ? '<div class="absolute -top-10 -right-10 w-32 h-32 bg-[#4ade80]/20 rounded-full blur-[40px] pointer-events-none"></div>' : ''}
-                                    <div class="font-mono text-[9px] text-white/50 tracking-[0.2em] uppercase mb-4 font-bold relative z-10">${tier.tier}</div>
-                                    <div class="text-3xl font-black ${titleColors[i]} mb-2 relative z-10">${tier.price}</div>
-                                    <h4 class="text-lg font-bold text-white mb-4 relative z-10">${tier.title}</h4>
-                                    <p class="text-sm text-white/70 leading-relaxed flex-grow relative z-10">${tier.description}</p>
-                                </div>
-                            `;
-                        });
-                        
-                        resultBox.innerHTML = html;
-                        resultBox.classList.remove('hidden');
-                        gsap.fromTo(resultBox.children, {opacity: 0, y: 20}, {opacity: 1, y: 0, duration: 0.6, stagger: 0.15});
-                        
-                    } catch (e) {
-                        console.error(e);
-                        resultBox.innerHTML = `<div class="col-span-3 text-red-500 text-sm font-mono text-center">System anomaly. Verify connection.</div>`;
-                        resultBox.classList.remove('hidden');
-                    }
-                    
-                    btn.innerHTML = '<span>ARCHITECT OFFERS</span> <span class="animate-pulse"> ✨ </span>';
-                    btn.disabled = false;
-                };
-
-                window.calibrateScript = async function() {
-                    const inputEl = document.getElementById('script-input');
-                    const btn = document.getElementById('script-btn');
-                    const resultBox = document.getElementById('script-result');
-                    const text = inputEl.value.trim();
-
-                    if (!text) return;
-
-                    btn.innerHTML = 'CALIBRATING... <div class="spinner inline-block ml-2 w-3 h-3 border-t-white"></div>';
-                    btn.disabled = true;
-                    resultBox.classList.add('hidden');
-
-                    const systemPrompt = `You are an elite brand positioning strategist and $25K+ high-ticket closer. Rewrite the user's pricing or sales script to sound highly authoritative, restrained, and premium. Strip out all "needy" language, unnecessary justifications, apologies, or discounts. The rewritten script must be concise, direct, and project absolute confidence. Return ONLY the rewritten text.`;
-
-                    const payload = {
-                        contents: [{ parts: [{ text: text }] }],
-                        systemInstruction: { parts: [{ text: systemPrompt }] },
-                    };
-
-                    try {
-                        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-                        const data = await fetchWithBackoff(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-
-                        const resultText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-
-                        if (resultText) {
-                            resultBox.innerHTML = `
-                                <div class="text-[#4ade80] font-mono text-[10px] uppercase tracking-widest mb-3">Calibrated Signal:</div>
-                                <div class="text-white text-sm font-mono leading-relaxed border-l-2 border-[#4ade80] pl-4 py-2 italic bg-white/[0.02] rounded-r-lg">
-                                    "${resultText.trim().replace(/\n/g, '<br>')}"
-                                </div>
-                            `;
-                            resultBox.classList.remove('hidden');
-                            gsap.fromTo(resultBox, {opacity: 0, y: 10}, {opacity: 1, y: 0, duration: 0.5});
-                        }
-                    } catch (e) {
-                        console.error(e);
-                        resultBox.innerHTML = `<div class="text-red-500 text-sm font-mono">System anomaly. Verify connection.</div>`;
-                        resultBox.classList.remove('hidden');
-                    }
-
-                    btn.innerHTML = 'REWRITE SCRIPT ✨';
-                    btn.disabled = false;
-                };
-
-                window.visionBase64 = null;
-                window.visionMimeType = null;
-
-                window.handleVisionUpload = function(event) {
-                    const file = event.target.files[0];
-                    if (!file) return;
-
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        const result = e.target.result;
-                        window.visionMimeType = file.type;
-                        window.visionBase64 = result.split(',')[1]; 
-                        
-                        document.getElementById('vision-preview').src = result;
-                        document.getElementById('vision-prompt-ui').classList.add('hidden');
-                        document.getElementById('vision-preview-container').classList.remove('hidden');
-                        document.getElementById('vision-preview-container').classList.add('flex');
-                        document.getElementById('vision-result').classList.add('hidden');
-                    };
-                    reader.readAsDataURL(file);
-                };
-
-                window.runVisualMRI = async function() {
-                    if (!window.visionBase64) return;
-
-                    const btn = document.getElementById('vision-analyze-btn');
-                    const resultBox = document.getElementById('vision-result');
-                    
-                    btn.innerHTML = 'SCANNING PIXELS... <div class="spinner inline-block ml-2 w-3 h-3 border-t-black"></div>';
-                    btn.disabled = true;
-                    resultBox.classList.add('hidden');
-
-                    const systemPrompt = `You are a ruthless, elite brand designer and positioning expert. Analyze the provided website screenshot. Give it a brutal assessment. Format as a JSON object with: "aesthetic_rating" (e.g. "Mid-Market / $5K" or "Premium / $25K"), "cheap_signals" (array of 2 strings pointing out visual flaws like poor whitespace, bad typography, clutter), "premium_fix" (string with 1 high-impact design recommendation). Be brutally honest and concise.`;
-
-                    const payload = {
-                        contents: [{
-                            parts:[
-                                { text: systemPrompt },
-                                { inlineData: { mimeType: window.visionMimeType, data: window.visionBase64 } }
-                            ]
-                        }],
-                        generationConfig: {
-                            responseMimeType: "application/json",
-                            responseSchema: {
-                                type: "OBJECT",
-                                properties: {
-                                    aesthetic_rating: { type: "STRING" },
-                                    cheap_signals: { type: "ARRAY", items: { type: "STRING" } },
-                                    premium_fix: { type: "STRING" }
-                                },
-                                required: ["aesthetic_rating", "cheap_signals", "premium_fix"]
-                            }
-                        }
-                    };
-
-                    try {
-                        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-                        const data = await fetchWithBackoff(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-                        
-                        const resultText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-                        const res = JSON.parse(resultText);
-
-                        let cheapSignalsHtml = res.cheap_signals.map(sig => `<li class="flex items-start gap-2 mb-2"><span class="text-red-500">✕</span> <span>${sig}</span></li>`).join('');
-
-                        resultBox.innerHTML = `
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <div class="font-mono text-[9px] text-white/50 uppercase tracking-widest mb-2">Detected Frequency</div>
-                                    <div class="text-2xl font-black text-white mb-6">${res.aesthetic_rating}</div>
-                                    <div class="font-mono text-[9px] text-red-400 uppercase tracking-widest mb-3 border-b border-red-500/20 pb-2">Value Leaks Detected</div>
-                                    <ul class="text-sm text-white/80 font-mono">${cheapSignalsHtml}</ul>
-                                </div>
-                                <div class="border-l border-white/10 pl-6 flex flex-col justify-center">
-                                    <div class="font-mono text-[9px] text-[#4ade80] uppercase tracking-widest mb-3 border-b border-[#4ade80]/20 pb-2">Premium Recommendation</div>
-                                    <p class="text-sm text-white/90 leading-relaxed">${res.premium_fix}</p>
-                                </div>
-                            </div>
-                        `;
-                        resultBox.classList.remove('hidden');
-                        gsap.fromTo(resultBox, {opacity: 0, y: 10}, {opacity: 1, y: 0, duration: 0.5});
-                        
-                    } catch (e) {
-                        console.error(e);
-                        resultBox.innerHTML = `<div class="text-red-500 text-sm font-mono text-center">System anomaly. Verify file bounds.</div>`;
-                        resultBox.classList.remove('hidden');
-                    }
-
-                    btn.innerHTML = 'ANALYZE VISUALS ✨';
-                    btn.disabled = false;
-                };
-
-                const ParticleSystem = {
-                    scene: null, camera: null, renderer: null, particles: null,
-                    init: function() {
-                        const canvas = document.getElementById('particle-canvas');
-                        if (!canvas || window.matchMedia('(pointer: coarse)').matches) return;
-                        this.scene = new THREE.Scene();
-                        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-                        this.renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-                        this.renderer.setSize(window.innerWidth, window.innerHeight);
-                        const geo = new THREE.BufferGeometry();
-                        const pos = new Float32Array(300);
-                        for(let i=0; i<300; i++) pos[i] = (Math.random() - 0.5) * 100;
-                        geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-                        this.particles = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0x4ade80, size: 0.5, transparent: true, opacity: 0.5 }));
-                        this.scene.add(this.particles);
-                        this.camera.position.z = 50;
-                        this.animate();
-                        window.addEventListener('resize', () => {
-                            this.camera.aspect = window.innerWidth / window.innerHeight;
-                            this.camera.updateProjectionMatrix();
-                            this.renderer.setSize(window.innerWidth, window.innerHeight);
-                        });
-                    },
-                    animate: function() {
-                        requestAnimationFrame(() => this.animate());
-                        if(this.particles) {
-                            this.particles.rotation.y += 0.0005;
-                            this.particles.rotation.x += 0.0002;
-                        }
-                        this.renderer.render(this.scene, this.camera);
-                    }
-                };
-                const CustomCursor = {
-                    init: function() {
-                        if (window.matchMedia('(pointer: coarse)').matches) return;
-                        const dot = document.getElementById('cursor-dot');
-                        const ring = document.getElementById('cursor-ring');
-                        document.addEventListener('mousemove', (e) => {
-                            gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0 });
-                            gsap.to(ring, { x: e.clientX, y: e.clientY, duration: 0.15 });
-                            dot.style.display = 'block'; ring.style.display = 'block';
-                        });
-                    }
-                };
-                const CardTilt = {
-                    init: function() {
-                        if (window.matchMedia('(pointer: coarse)').matches) return;
-                        document.querySelectorAll('[data-tilt]').forEach(card => {
-                            card.addEventListener('mousemove', (e) => {
-                                const r = card.getBoundingClientRect();
-                                const x = (e.clientX - r.left) / r.width - 0.5;
-                                const y = (e.clientY - r.top) / r.height - 0.5;
-                                gsap.to(card, { rotationY: x * 10, rotationX: -y * 10, duration: 0.5 });
-                                
-                                const glow = card.querySelector('.card-glow');
-                                if (glow) {
-                                    glow.style.setProperty('--mouse-x', `${(x + 0.5) * 100}%`);
-                                    glow.style.setProperty('--mouse-y', `${(y + 0.5) * 100}%`);
-                                }
-                            });
-                            card.addEventListener('mouseleave', () => gsap.to(card, { rotationY: 0, rotationX: 0 }));
-                        });
-                    }
-                };
-                window.QuantumPlatform = {
-                    openVideoModal: function() { 
-                        const modal = document.getElementById('qtm-video-modal');
-                        const container = document.getElementById('qtm-video-container');
-                        container.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/placeholder?autoplay=1" frameborder="0" allow="autoplay; fullscreen" class="absolute inset-0 rounded-3xl"></iframe>`;
-                        modal.classList.remove('hidden'); modal.classList.add('flex'); 
-                        gsap.fromTo(modal, {opacity: 0}, {opacity: 1, duration: 0.3});
-                    },
-                    closeVideoModal: function() { 
-                        const modal = document.getElementById('qtm-video-modal');
-                        gsap.to(modal, {opacity: 0, duration: 0.3, onComplete: () => {
-                            modal.classList.add('hidden'); modal.classList.remove('flex');
-                            document.getElementById('qtm-video-container').innerHTML = '';
-                        }});
-                    },
-                    checkoutKit: function() { window.location.href = "https://buy.stripe.com/aFa14nd6e1iKb9n5hI2Ry00"; }
-                };
-                
-                document.addEventListener('DOMContentLoaded', () => {
-                    try { window.initPreloader(); } catch(e){}
-                    try { window.updateDynamicScarcity(); } catch(e){}
-                    try { lucide.createIcons(); } catch(e){}
-                    try { gsap.registerPlugin(ScrollTrigger); } catch(e){}
-                    try { window.navigate('home'); } catch(e){} 
-                    try { ParticleSystem.init(); } catch(e){}
-                    try { CustomCursor.init(); } catch(e){}
-                    try { CardTilt.init(); } catch(e){}
-                });
-            } catch(e) { console.error("Critical System Failure:", e); }
-        })();
-    </script>
-</body>
-</html>
-```
+                    const submit =
