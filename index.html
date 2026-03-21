@@ -57,15 +57,6 @@
   ]
 }
 </script>
-```
-
-**Then in the Tailwind config block** (still in `<head>`), find:
-```
-muted: '#71717a'
-```
-Replace with:
-```
-muted: '#a1a1aa'    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -77,7 +68,7 @@ muted: '#a1a1aa'
                             surface: '#050505',
                             border: '#161616',
                             accent: '#4ade80',
-                            muted: '#71717a'
+                            muted: '#a1a1aa'
                         }
                     },
                     fontFamily: {
@@ -2168,12 +2159,12 @@ muted: '#a1a1aa'
                         } else {
                             btn.innerHTML = originalContent;
                             btn.disabled = false;
-                            alert("System error processing deployment.");
+                            
                         }
                     } catch (error) {
                         btn.innerHTML = originalContent;
                         btn.disabled = false;
-                        alert("System error processing deployment.");
+                        
                     }
                 };
                 
@@ -2198,26 +2189,16 @@ muted: '#a1a1aa'
                         } else {
                             btn.innerText = originalText;
                             btn.disabled = false;
-                            alert("System error processing application.");
+                            
                         }
                     } catch (error) {
                         btn.innerText = originalText;
                         btn.disabled = false;
-                        alert("System error processing application.");
+                        
                     }
                 };
                 
-                window.handleRevenue = function(val) {
-                    const warn = document.getElementById('lab-warning');
-                    const submit = document.getElementById('lab-submit');
-                    if (val === 'aspirant') {
-                        warn.classList.remove('hidden');
-                        submit.style.opacity = '0.3'; submit.style.pointerEvents = 'none'; submit.innerText = 'Redirect Suggested';
-                    } else {
-                        warn.classList.add('hidden');
-                        submit.style.opacity = '1'; submit.style.pointerEvents = 'auto'; submit.innerText = 'SECURE HUMAN ADVISORY // $500 DEPOSIT';
-                    }
-                };
+
                 window.updateROI = function(val) {
                     const mrr = parseInt(val);
                     const leak = mrr * 1.5; 
@@ -2256,7 +2237,7 @@ muted: '#a1a1aa'
                     }
                 }, { passive: true });
                 // --- GEMINI API CORE ---
-                const apiKey = "";
+                const apiKey = null;
                 
                 async function fetchWithBackoff(url, options, retries = 5) {
                     const delays =[1000, 2000, 4000, 8000, 16000];
@@ -2310,7 +2291,7 @@ muted: '#a1a1aa'
                     const inputEl = document.getElementById('qs-input');
                     const text = inputEl.value.trim();
                     if (!text || text.split(/\s+/).length < 3) {
-                        alert("Supply complete signal description for accurate analysis.");
+                        
                         return;
                     }
                     
@@ -2341,8 +2322,8 @@ muted: '#a1a1aa'
                         }
                     };
                     try {
-                        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-                        const data = await fetchWithBackoff(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                                                payload._model = 'gemini-2.5-flash-preview-05-20';
+        const data = await fetchWithBackoff('/api/gemini', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
                         
                         const resultText = data.candidates?.[0]?.content?.parts?.[0]?.text;
                         const result = JSON.parse(resultText);
@@ -2463,9 +2444,9 @@ muted: '#a1a1aa'
                     const fullPrompt = `You are an elite brand positioning strategist. Analyze this: "${text}". Provide a 3-part 'Brand DNA Map': Core Essence, Premium Buyer Persona, and Market Moat. Return HTML format exactly like: <div class="mb-4"><strong class="text-[#4ade80] font-mono text-[10px] uppercase tracking-widest block mb-1">PART NAME</strong><span class="text-sm text-white/90">Description...</span></div>. Do NOT include markdown blocks (\`\`\`html). Just raw HTML.`;
                     
                     try {
-                        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-                        const payload = { contents: [{ parts: [{ text: fullPrompt }] }] };
-                        const data = await fetchWithBackoff(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                                                const payload = { contents: [{ parts: [{ text: fullPrompt }] }] };
+                        payload._model = 'gemini-2.5-flash-preview-05-20';
+        const data = await fetchWithBackoff('/api/gemini', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
                         
                         let resHtml = data.candidates?.[0]?.content?.parts?.[0]?.text;
                         if(resHtml) {
@@ -2495,15 +2476,16 @@ muted: '#a1a1aa'
                     
                     try {
                         const text = decodeURIComponent(escape(atob(b64Text)));
-                        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+                        
                         const payload = {
                             contents: [{ parts: [{ text: "Here is your new brand frequency. " + text }] }],
                             generationConfig: {
                                 responseModalities: ["AUDIO"],
                                 speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: "Aoede" } } }
-                            }
+                            },
+                                        _model: 'gemini-2.5-flash-preview-tts'
                         };
-                        const data = await fetchWithBackoff(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                        const data = await fetchWithBackoff('/api/gemini', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
                         
                         const part = data.candidates?.[0]?.content?.parts?.[0];
                         if (part?.inlineData) {
@@ -2562,8 +2544,8 @@ muted: '#a1a1aa'
                         }
                     };
                     try {
-                        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-                        const data = await fetchWithBackoff(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                                                payload._model = 'gemini-2.5-flash-preview-05-20';
+        const data = await fetchWithBackoff('/api/gemini', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
                         
                         const resultText = data.candidates?.[0]?.content?.parts?.[0]?.text;
                         const tiers = JSON.parse(resultText);
@@ -2612,8 +2594,8 @@ muted: '#a1a1aa'
                         systemInstruction: { parts: [{ text: systemPrompt }] },
                     };
                     try {
-                        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-                        const data = await fetchWithBackoff(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                                                payload._model = 'gemini-2.5-flash-preview-05-20';
+        const data = await fetchWithBackoff('/api/gemini', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
                         const resultText = data.candidates?.[0]?.content?.parts?.[0]?.text;
                         if (resultText) {
                             resultBox.innerHTML = `
@@ -2682,8 +2664,8 @@ muted: '#a1a1aa'
                         }
                     };
                     try {
-                        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-                        const data = await fetchWithBackoff(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                                                payload._model = 'gemini-2.5-flash-preview-05-20';
+        const data = await fetchWithBackoff('/api/gemini', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
                         
                         const resultText = data.candidates?.[0]?.content?.parts?.[0]?.text;
                         const res = JSON.parse(resultText);
