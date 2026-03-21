@@ -6,6 +6,7 @@
 <title>Quantum Branding | High-Ticket Brand Architecture</title>
 <meta name="description" content="A structural brand architecture system for founders demanding absolute authority. We close the gap between what you charge and what your work is worth.">
 <link rel="canonical" href="https://www.qtmbg.com">
+<meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.qtmbg.com">
 <meta property="og:title" content="Quantum Branding | High-Ticket Brand Architecture">
@@ -19,6 +20,8 @@
 <meta name="twitter:title" content="Quantum Branding | High-Ticket Brand Architecture">
 <meta name="twitter:description" content="A structural brand architecture system for founders demanding absolute authority. We close the gap between what you charge and what your work is worth.">
 <meta name="twitter:image" content="https://www.qtmbg.com/assets/og-quantum.jpg">
+<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script type="application/ld+json">
@@ -137,7 +140,7 @@
         }
         .magnetic-btn { position: relative; transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1); }
         #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; pointer-events: none; }
-        .grid-bg-container { position: fixed; inset: -50px; z-index: -1; pointer-events: none; transition: transform 0.1s ease-out; }
+        .grid-bg-container { position: fixed; inset: -50px; z-index: -1; pointer-events: none; }
         .grid-bg { background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px; width: 100%; height: 100%; }
         .glitch-text { position: relative; }
         .glitch-text::before, .glitch-text::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; }
@@ -157,8 +160,7 @@
         .page { display: none; }
         .stagger { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
         .stagger.visible { opacity: 1; transform: translateY(0); }
-        .noise { position: fixed; inset: -50px; background: url('https://grainy-gradients.vercel.app/noise.svg'); opacity: 0.02; pointer-events: none; z-index: 50; transition: transform 0.1s ease-out; }
-        /* --- AGGRESSIVE RESPONSIVE SPACING OVERRIDES --- */
+        .noise { position: fixed; inset: -50px; background: url('https://grainy-gradients.vercel.app/noise.svg'); opacity: 0.02; pointer-events: none; z-index: 50; }
         @media (max-width: 1024px) {
             .page { padding-top: 6rem !important; padding-bottom: 4rem !important; }
             .mb-32 { margin-bottom: 4rem !important; }
@@ -1704,6 +1706,7 @@
                                 <div class="flex gap-12 pt-4">
                                     <div><div class="text-4xl font-black text-white"><span class="counter" data-target="500" data-suffix="+">0+</span></div><div class="text-[9px] font-mono uppercase tracking-widest text-quantum-muted">Founders who stopped undercharging</div></div>
                                     <div><div class="text-4xl font-black text-white"><span class="counter" data-target="30" data-suffix="+">0+</span></div><div class="text-[9px] font-mono uppercase tracking-widest text-quantum-muted">Countries</div></div>
+
                                 </div>
                             </div>
                         </div>
@@ -2020,15 +2023,6 @@
                     });
                 }, { threshold: 0.5 });
                 
-                window.qs_scores = { clarity: 45, authority: 45, desire: 45 };
-                window.qs_avg = 45;
-                const qs_LOW_CLARITY =['help', 'empower', 'solutions', 'growth', 'transform', 'journey', 'authentic'];
-                const qs_HIGH_CLARITY =['founders', 'revenue', 'clients', 'positioning', 'premium', 'mrr', 'arr', 'b2b'];
-                const qs_LOW_AUTHORITY =['maybe', 'try', 'hope', 'might', 'aspiring', 'want to'];
-                const qs_HIGH_AUTHORITY =['we build', 'diagnose', 'guaranteed', 'the result is', 'your brand'];
-                const qs_LOW_DESIRE =['our approach', 'step-by-step', 'proven system', 'collaboration'];
-                const qs_HIGH_DESIRE =['never again', 'stop losing', 'the result', 'what it costs you'];
-                
                 window.initPreloader = function() {
       if (sessionStorage.getItem('preloaderShown')) {
         const pl = document.getElementById('quantum-preloader');
@@ -2055,7 +2049,8 @@
                     }, 120);
                 };
                 
-                window.navigate = function(id) {
+                window.navigate = function(id, noPush) {
+                    if (!noPush) history.pushState({ page: id }, '', '/' + (id === 'home' ? '' : id));
                     const pages = document.querySelectorAll('.page');
                     const target = document.getElementById('page-' + id);
                     if (!target) return;
@@ -2077,7 +2072,7 @@
                     });
                     
                     target.querySelectorAll('.counter').forEach((c) => {
-                        c.innerText = '0';
+                        c.innerText = (c.dataset.prefix || '') + '0' + (c.dataset.suffix || '');
                         window.counterObserver.observe(c);
                     });
                     document.querySelectorAll('.nav-btn').forEach(btn => {
@@ -2242,20 +2237,17 @@
                         }
                     }
                 }, { passive: true });
-                // --- GEMINI API CORE ---
-                const apiKey = null;
-                
+                // --- GEMINI API CORE ---  
+                 
                 async function fetchWithBackoff(url, options, retries = 5) {
-                    const delays =[1000, 2000, 4000, 8000, 16000];
+                    const delays = [1000, 2000, 4000, 8000, 16000];
                     for (let i = 0; i < retries; i++) {
-                        try {
-                            const res = await fetch(url, options);
-                            if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                            return await res.json();
-                        } catch (err) {
-                            if (i === retries - 1) throw err;
-                            await new Promise(r => setTimeout(r, delays[i]));
-                        }
+                        const res = await fetch(url, options);
+                        if (res.ok) return await res.json();
+                        if (res.status < 500) throw new Error(`HTTP ${res.status}`);
+                        if (i === retries - 1) throw new Error(`HTTP ${res.status}`);
+                        await new Promise(r => setTimeout(r, delays[i]));
+                    
                     }
                 }
                 function pcmToWav(pcmData, sampleRate) {
@@ -2345,7 +2337,8 @@
                         else { freqEl.style.color = '#4ade80'; freqEl.innerText = 'FREQUENCY: LOCKED. Premium signal active.'; }
                         document.getElementById('qs-cta-phase1').style.opacity = '1';
                         document.getElementById('qs-cta-phase1').style.pointerEvents = 'auto';
-                        btn.innerHTML = 'SCAN COMPLETE';
+                        btn.innerHTML = 'SCAN COMPLETE ✓';
+                        btn.disabled = false;
                         
                     } catch (e) {
                         btn.innerHTML = 'SYSTEM ERROR. REINITIALIZE.';
@@ -2561,8 +2554,8 @@
                         const bgColors =['bg-black/40', 'bg-[#4ade80]/5', 'bg-[#4ade80]/10'];
                         const titleColors = ['text-white', 'text-white', 'text-[#4ade80]'];
                         tiers.forEach((tier, i) => {
-                            html += `
-                                <div class="glass-card p-8 rounded-3xl border ${borderColors[i]} ${bgColors[i]} flex flex-col h-full relative overflow-hidden">
+                        html += `
+                            <div class="glass-card p-8 rounded-3xl border ${borderColors[i]} ${bgColors[i]} flex flex-col h-full relative overflow-hidden" data-tilt>
                                     ${i === 2 ? '<div class="absolute -top-10 -right-10 w-32 h-32 bg-[#4ade80]/20 rounded-full blur-[40px] pointer-events-none"></div>' : ''}
                                     <div class="font-mono text-[9px] text-white/50 tracking-[0.2em] uppercase mb-4 font-bold relative z-10">${tier.tier}</div>
                                     <div class="text-3xl font-black ${titleColors[i]} mb-2 relative z-10">${tier.price}</div>
@@ -2575,7 +2568,7 @@
                         resultBox.innerHTML = html;
                         resultBox.classList.remove('hidden');
                         gsap.fromTo(resultBox.children, {opacity: 0, y: 20}, {opacity: 1, y: 0, duration: 0.6, stagger: 0.15});
-                        
+                        try { CardTilt.init(resultBox); } catch(e){}
                     } catch (e) {
                         console.error(e);
                         resultBox.innerHTML = `<div class="col-span-3 text-red-500 text-sm font-mono text-center">System anomaly. Verify connection.</div>`;
@@ -2604,10 +2597,16 @@
         const data = await fetchWithBackoff('/api/gemini', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
                         const resultText = data.candidates?.[0]?.content?.parts?.[0]?.text;
                         if (resultText) {
+                            const safeText = resultText.trim()
+                                .replace(/&/g, '&amp;')
+                                .replace(/</g, '&lt;')
+                                .replace(/>/g, '&gt;')
+                                .replace(/"/g, '&quot;')
+                                .replace(/\n/g, '<br>');
                             resultBox.innerHTML = `
                                 <div class="text-[#4ade80] font-mono text-[10px] uppercase tracking-widest mb-3">Calibrated Signal:</div>
                                 <div class="text-white text-sm font-mono leading-relaxed border-l-2 border-[#4ade80] pl-4 py-2 italic bg-white/[0.02] rounded-r-lg">
-                                    "${resultText.trim().replace(/\n/g, '<br>')}"
+                                    "${safeText}"
                                 </div>
                             `;
                             resultBox.classList.remove('hidden');
@@ -2734,15 +2733,16 @@
                     }
                 };
                 const CardTilt = {
-                    init: function() {
+                    init: function(root) {
                         if (window.matchMedia('(pointer: coarse)').matches) return;
-                        document.querySelectorAll('[data-tilt]').forEach(card => {
+                        const scope = root || document;
+                        scope.querySelectorAll('[data-tilt]:not([data-tilt-done])').forEach(card => {
+                            card.dataset.tiltDone = '1';
                             card.addEventListener('mousemove', (e) => {
                                 const r = card.getBoundingClientRect();
                                 const x = (e.clientX - r.left) / r.width - 0.5;
                                 const y = (e.clientY - r.top) / r.height - 0.5;
                                 gsap.to(card, { rotationY: x * 10, rotationX: -y * 10, duration: 0.5 });
-                                
                                 const glow = card.querySelector('.card-glow');
                                 if (glow) {
                                     glow.style.setProperty('--mouse-x', `${(x + 0.5) * 100}%`);
@@ -2776,7 +2776,14 @@
                     try { window.updateDynamicScarcity(); } catch(e){}
                     try { lucide.createIcons(); } catch(e){}
                     try { gsap.registerPlugin(ScrollTrigger); } catch(e){}
-                    try { window.navigate('home'); } catch(e){} 
+                    const validPages = ['home','vault','method','kit','lab','mri','tools','about','start'];
+                    const initialPage = location.pathname.replace('/', '').split('/')[0] || 'home';
+                    const startPage = validPages.includes(initialPage) ? initialPage : 'home';
+                    try { window.navigate(startPage, true); } catch(e){}
+                    history.replaceState({ page: startPage }, '', location.pathname);
+                    window.addEventListener('popstate', (e) => {
+                        if (e.state && e.state.page) window.navigate(e.state.page, true);
+                    });
                     try { ParticleSystem.init(); } catch(e){}
                     try { CardTilt.init(); } catch(e){}
                 });
