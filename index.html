@@ -67,11 +67,6 @@ Replace with:
 ```
 muted: '#a1a1aa'    
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -225,10 +220,9 @@ muted: '#a1a1aa'
         ::selection { background: #4ade80; color: #000; }
         *:focus-visible { outline: 2px solid #4ade80; outline-offset: 2px; }
         
-        .meter-bar { height: 100%; border-radius: 99px; transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
-    </style>
+        .meter-bar { height: 100%; border-radius: 99px; transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1); }         @media (prefers-reduced-motion: reduce) {             *, *::before, *::after {                 animation-duration: 0.01ms !important;                 animation-iteration-count: 1 !important;                 transition-duration: 0.01ms !important;                 scroll-behavior: auto !important;             }         }     </style>
 </head>
-<body class="selection:bg-green-500 selection:text-black">
+<body class="selection:bg-green-500 selection:text-black">     <a href="#main-content" style="position:fixed;top:-100px;left:16px;z-index:999999;padding:8px 16px;background:#4ade80;color:#000;font-weight:700;font-size:13px;border-radius:8px;text-decoration:none;transition:top 0.2s;" onfocus="this.style.top='16px'" onblur="this.style.top='-100px'">Skip to content</a>
     <!-- Quantum Preloader -->
     <div id="quantum-preloader" class="fixed inset-0 z-[99999] bg-[#050505] flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out">
         <div class="relative w-32 h-32 flex items-center justify-center mb-8">
@@ -298,7 +292,7 @@ muted: '#a1a1aa'
         </div>
     </div>
     
-    <main class="pb-24">
+    <main class="pb-24" id="main-content">
         <!-- HOME PAGE -->
         <div id="page-home" class="page px-6 pt-32 lg:pt-48 pb-32">
             <div class="max-w-7xl mx-auto">
@@ -371,7 +365,7 @@ muted: '#a1a1aa'
                         <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger" data-tilt>
                             <div class="card-glow"></div>
                             <div class="card-content flex flex-col h-full">
-                                <img src="/assets/voice-keith-grossman.jpg" alt="Keith Grossman" onerror="this.src='https://ui-avatars.com/api/?name=Keith+Grossman&background=random'" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-white/10 card-icon">
+                                <img loading="lazy" src="/assets/voice-keith-grossman.jpg" alt="Keith Grossman" onerror="this.src='https://ui-avatars.com/api/?name=Keith+Grossman&background=random'" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-white/10 card-icon">
                                 <p class="italic text-lg text-white mb-10 flex-grow">"Nizzar consistently uplifted me and helped me think."</p>
                                 <div>
                                     <div class="text-sm font-bold text-white">Keith Grossman</div>
@@ -386,7 +380,7 @@ muted: '#a1a1aa'
                         <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger border-[#4ade80]/20 bg-[#4ade80]/5" data-tilt>
                             <div class="card-glow"></div>
                             <div class="card-content flex flex-col h-full">
-                                <img src="/assets/voice-gary-vee.jpg" alt="Gary Vee" onerror="this.src='https://ui-avatars.com/api/?name=Gary+Vee&background=random'" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-[#4ade80]/30 card-icon">
+                                <img loading="lazy" src="/assets/voice-gary-vee.jpg" alt="Gary Vee" onerror="this.src='https://ui-avatars.com/api/?name=Gary+Vee&background=random'" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-[#4ade80]/30 card-icon">
                                 <p class="italic text-lg text-white mb-10 flex-grow">"It got me goosebumps. Please keep sharing love."</p>
                                 <div>
                                     <div class="text-sm font-bold text-white">Gary Vee</div>
@@ -401,7 +395,7 @@ muted: '#a1a1aa'
                         <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger" data-tilt>
                             <div class="card-glow"></div>
                             <div class="card-content flex flex-col h-full">
-                                <img src="/assets/voice-charly-palmer.jpg" alt="Charly Palmer" onerror="this.src='https://ui-avatars.com/api/?name=Charly+Palmer&background=random'" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-white/10 card-icon">
+                                <img loading="lazy" src="/assets/voice-charly-palmer.jpg" alt="Charly Palmer" onerror="this.src='https://ui-avatars.com/api/?name=Charly+Palmer&background=random'" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-white/10 card-icon">
                                 <p class="italic text-lg text-white mb-10 flex-grow">"Nizzar elevated the digital art conversation at <a href="https://www.instagram.com/p/DLnC8uLspBA/?igsh=MWZ1aWJzZjN3MWcybA==" target="_blank" rel="noopener noreferrer" class="hover:text-[#4ade80] transition-colors underline">LA Lakers</a>' In The Paint event for 3 straight years."</p>
                                 <div>
                                     <div class="text-sm font-bold text-white">Charly Palmer</div>
@@ -416,7 +410,7 @@ muted: '#a1a1aa'
                         <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger" data-tilt>
                             <div class="card-glow"></div>
                             <div class="card-content flex flex-col h-full">
-                                <img src="/assets/voice-mike-mongo.jpg" alt="Mike Mongo" onerror="this.src='https://ui-avatars.com/api/?name=Mike+Mongo&background=random'" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-white/10 card-icon">
+                                <img loading="lazy" src="/assets/voice-mike-mongo.jpg" alt="Mike Mongo" onerror="this.src='https://ui-avatars.com/api/?name=Mike+Mongo&background=random'" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-white/10 card-icon">
                                 <p class="italic text-lg text-white mb-10 flex-grow">"Brother I know you see the world through my eyes."</p>
                                 <div>
                                     <div class="text-sm font-bold text-white">Mike Mongo</div>
@@ -428,7 +422,7 @@ muted: '#a1a1aa'
                         <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger border-[#4ade80]/20" data-tilt>
                             <div class="card-glow"></div>
                             <div class="card-content flex flex-col h-full">
-                                <img src="/assets/voice-stan-wawrinka.jpg" alt="Stan Wawrinka" onerror="this.src='https://ui-avatars.com/api/?name=Stan+Wawrinka&background=random'" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-white/10 card-icon">
+                                <img loading="lazy" src="/assets/voice-stan-wawrinka.jpg" alt="Stan Wawrinka" onerror="this.src='https://ui-avatars.com/api/?name=Stan+Wawrinka&background=random'" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-white/10 card-icon">
                                 <p class="italic text-lg text-white mb-10 flex-grow">"Nizzar is ahead of his time. I learned and built significant equity thanks to him."</p>
                                 <div>
                                     <div class="text-sm font-bold text-white">Stan Wawrinka</div>
@@ -440,7 +434,7 @@ muted: '#a1a1aa'
                         <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger" data-tilt>
                             <div class="card-glow"></div>
                             <div class="card-content flex flex-col h-full">
-                                <img src="/assets/voice-christian-cordella.jpg" alt="Christian Cordella" onerror="this.src='https://ui-avatars.com/api/?name=Christian+Cordella&background=random'" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-white/10 card-icon">
+                                <img loading="lazy" src="/assets/voice-christian-cordella.jpg" alt="Christian Cordella" onerror="this.src='https://ui-avatars.com/api/?name=Christian+Cordella&background=random'" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-white/10 card-icon">
                                 <p class="italic text-lg text-white mb-10 flex-grow">"Nizzar built a brilliant branding method."</p>
                                 <div>
                                     <div class="text-sm font-bold text-white">Christian Cordella</div>
@@ -488,7 +482,7 @@ muted: '#a1a1aa'
                     </div>
                 </div>
                 <div class="glass-card glass-card-3d w-full aspect-video rounded-[40px] overflow-hidden relative group cursor-pointer mt-16" onclick="window.QuantumPlatform.openVideoModal()" data-tilt>
-                    <img src="/assets/founder-vsl-thumbnail.jpg" alt="Founder Video" class="absolute inset-0 w-full h-full object-cover grayscale contrast-125 opacity-80 group-hover:opacity-100 transition-all" />
+                    <img loading="lazy" src="/assets/founder-vsl-thumbnail.jpg" alt="Founder Video" class="absolute inset-0 w-full h-full object-cover grayscale contrast-125 opacity-80 group-hover:opacity-100 transition-all" />
                     <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all z-10"></div>
                     <div class="absolute inset-0 flex flex-col items-center justify-center z-20">
                         <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
@@ -675,7 +669,7 @@ muted: '#a1a1aa'
                                         <input type="email" name="email" required placeholder="founder@company.com" class="email-input rounded-2xl" oninput="window.checkEmail(this)">
                                         <div class="absolute right-4 top-1/2 translate-y-1 text-[#4ade80] opacity-0 transition-opacity duration-300 pointer-events-none email-check-icon"><i data-lucide="check-circle" class="w-5 h-5"></i></div>
                                     </div>
-                                    <button type="submit" class="magnetic-btn ripple w-full py-6 bg-white text-black font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-green-400 transition-all shadow-2xl active:scale-95 mt-4 group">
+                                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off"> <button type="submit" class="magnetic-btn ripple w-full py-6 bg-white text-black font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-green-400 transition-all shadow-2xl active:scale-95 mt-4 group">
                                         <span class="group-hover:tracking-[0.4em] transition-all">Send Documentation</span>
                                     </button>
                                 </form>
@@ -748,7 +742,7 @@ muted: '#a1a1aa'
                         <span class="text-[10px] font-mono tracking-widest text-white uppercase mt-6 group-hover:text-green-400 transition-colors text-center px-4">Observe: The Structural Shift to $25K Alignment (28:40)</span>
                     </div>
                     <div class="w-full h-full bg-[#0a0a0a] opacity-50 flex items-center justify-center">
-                        <img src="/assets/vault-masterclass-thumbnail.jpg" alt="The Void, The Echo, The Signal" class="w-full h-full object-cover grayscale contrast-125 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                        <img loading="lazy" src="/assets/vault-masterclass-thumbnail.jpg" alt="The Void, The Echo, The Signal" class="w-full h-full object-cover grayscale contrast-125 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                 </div>
                 <div class="grid lg:grid-cols-3 gap-8 mb-16">
@@ -880,7 +874,7 @@ muted: '#a1a1aa'
                 <div class="max-w-4xl mx-auto p-10 md:p-16 rounded-[40px] stagger mb-32 relative border border-[#4ade80]/20 bg-[#050505] glass-card glass-card-3d" data-tilt>
                     <!-- Top Circle Overlay & Avatar -->
                     <div class="absolute -top-6 left-1/4 w-12 h-12 rounded-full border border-[#4ade80]/40 bg-[#000] z-10 flex items-center justify-center">
-                        <img src="/assets/voice-patsita-vharty.jpg" alt="Patsita Vharty" onerror="this.src='https://ui-avatars.com/api/?name=Patsita+Vharty&background=random'" class="w-10 h-10 rounded-full object-cover grayscale opacity-80 border border-[#4ade80]/20">
+                        <img loading="lazy" src="/assets/voice-patsita-vharty.jpg" alt="Patsita Vharty" onerror="this.src='https://ui-avatars.com/api/?name=Patsita+Vharty&background=random'" class="w-10 h-10 rounded-full object-cover grayscale opacity-80 border border-[#4ade80]/20">
                     </div>
                     <!-- Subtle Glow -->
                     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(74,222,128,0.05),transparent_70%)] pointer-events-none rounded-[40px]"></div>
@@ -1063,7 +1057,7 @@ muted: '#a1a1aa'
                                     <div class="card-content">
                                         <p class="text-lg italic text-white mb-6 leading-relaxed">"Structural coherence restored. The team operates with absolute clarity."</p>
                                         <div class="flex items-center gap-4">
-                                            <img src="/assets/voice-brent.jpg" alt="Brent" onerror="this.src='https://ui-avatars.com/api/?name=Brent&background=random'" class="w-10 h-10 rounded-full object-cover grayscale opacity-80 border border-white/10 shrink-0">
+                                            <img loading="lazy" src="/assets/voice-brent.jpg" alt="Brent" onerror="this.src='https://ui-avatars.com/api/?name=Brent&background=random'" class="w-10 h-10 rounded-full object-cover grayscale opacity-80 border border-white/10 shrink-0">
                                             <div class="text-[8px] font-mono tracking-widest uppercase flex flex-col gap-1">
                                                 <span class="text-[#4ade80] font-bold">CLOSED FIRST $12K RETAINER</span>
                                                 <span class="text-quantum-muted">BRENT, LACROO, SYDNEY AU</span>
@@ -1076,7 +1070,7 @@ muted: '#a1a1aa'
                                     <div class="card-content">
                                         <p class="text-lg italic text-white mb-6 leading-relaxed">"The framework forces decisive action. Weak compromises eliminated."</p>
                                         <div class="flex items-center gap-4">
-                                            <img src="/assets/voice-aaron.jpg" alt="Aaron" onerror="this.src='https://ui-avatars.com/api/?name=Aaron&background=random'" class="w-10 h-10 rounded-full object-cover grayscale opacity-80 border border-white/10 shrink-0">
+                                            <img loading="lazy" src="/assets/voice-aaron.jpg" alt="Aaron" onerror="this.src='https://ui-avatars.com/api/?name=Aaron&background=random'" class="w-10 h-10 rounded-full object-cover grayscale opacity-80 border border-white/10 shrink-0">
                                             <div class="text-[8px] font-mono tracking-widest uppercase flex flex-col gap-1">
                                                 <span class="text-[#4ade80] font-bold">RAISED MINIMUM ENGAGEMENT TO $8K</span>
                                                 <span class="text-quantum-muted">AARON, SELVAGGI BUILT, LA USA</span>
@@ -1089,7 +1083,7 @@ muted: '#a1a1aa'
                                     <div class="card-content">
                                         <p class="text-lg italic text-white mb-6 leading-relaxed">"Scattered operation converted into a highly disciplined entity."</p>
                                         <div class="flex items-center gap-4">
-                                            <img src="/assets/voice-melissa.jpg" alt="Melissa" onerror="this.src='https://ui-avatars.com/api/?name=Melissa&background=random'" class="w-10 h-10 rounded-full object-cover grayscale opacity-80 border border-white/10 shrink-0">
+                                            <img loading="lazy" src="/assets/voice-melissa.jpg" alt="Melissa" onerror="this.src='https://ui-avatars.com/api/?name=Melissa&background=random'" class="w-10 h-10 rounded-full object-cover grayscale opacity-80 border border-white/10 shrink-0">
                                             <div class="text-[8px] font-mono tracking-widest uppercase flex flex-col gap-1">
                                                 <span class="text-[#4ade80] font-bold">ACHIEVED STRUCTURAL GROWTH</span>
                                                 <span class="text-quantum-muted">MELISSA, MELDORMAN, USA</span>
@@ -1191,7 +1185,7 @@ muted: '#a1a1aa'
                 </div>
                 <!-- Session Visual Log -->
                 <div class="w-full aspect-[21/9] lg:aspect-[3/1] rounded-[40px] overflow-hidden relative mb-16 glass-card stagger">
-                    <img src="/assets/architect-in-session.jpg" alt="Advisory Session" class="w-full h-full object-cover grayscale contrast-125 opacity-70" />
+                    <img loading="lazy" src="/assets/architect-in-session.jpg" alt="Advisory Session" class="w-full h-full object-cover grayscale contrast-125 opacity-70" />
                     <div class="absolute bottom-4 left-6 z-10">
                         <span class="font-mono text-[9px] tracking-widest uppercase text-white/50 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">SYS.LOG // ACTIVE HUMAN ADVISORY SESSION</span>
                     </div>
@@ -1331,8 +1325,7 @@ muted: '#a1a1aa'
                                     
                                     <textarea name="urgency" placeholder="Why must this structural flaw be resolved immediately?" class="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-5 focus:border-[#4ade80] outline-none min-h-[100px] text-sm transition-all font-mono placeholder:text-white/30 text-white resize-none uppercase"></textarea>
                                 </div>
-                                <div class="magnetic-btn ripple w-full block pt-4">
-                                    <button type="submit" id="lab-submit" class="w-full bg-white text-black py-6 font-black uppercase tracking-widest text-[11px] rounded-2xl transition-all relative z-10 hover:bg-[#4ade80]">
+                                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off"> <div class="magnetic-btn ripple w-full block pt-4">                                     <button type="submit" id="lab-submit" class="w-full bg-white text-black py-6 font-black uppercase tracking-widest text-[11px] rounded-2xl transition-all relative z-10 hover:bg-[#4ade80]">
                                         SECURE HUMAN ADVISORY // $500 DEPOSIT
                                     </button>
                                 </div>
@@ -1448,7 +1441,7 @@ muted: '#a1a1aa'
                     </div>
                 </div>
 <div class="w-full aspect-[21/9] lg:aspect-[3/1] rounded-[40px] overflow-hidden relative mb-16 glass-card stagger">
-    <img src="/assets/architect-in-session.jpg" alt="Advisory Session" class="w-full h-full object-cover grayscale contrast-125 opacity-70" />
+    <img loading="lazy" src="/assets/architect-in-session.jpg" alt="Advisory Session" class="w-full h-full object-cover grayscale contrast-125 opacity-70" />
     <div class="absolute bottom-4 left-6 z-10">
         <span class="font-mono text-[9px] tracking-widest uppercase text-white/50 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">SYS.LOG // ACTIVE DIAGNOSTIC INTERVENTION</span>
     </div>
@@ -1524,7 +1517,7 @@ muted: '#a1a1aa'
                                 </p>
                                 <div class="flex flex-col gap-6">
                                     <div class="flex items-center gap-4">
-                                        <img src="/assets/voice-badra.jpg" alt="Badra" onerror="this.src='https://ui-avatars.com/api/?name=Badra&background=random'" class="w-12 h-12 rounded-full object-cover grayscale opacity-80 border border-white/10 shrink-0">
+                                        <img loading="lazy" src="/assets/voice-badra.jpg" alt="Badra" onerror="this.src='https://ui-avatars.com/api/?name=Badra&background=random'" class="w-12 h-12 rounded-full object-cover grayscale opacity-80 border border-white/10 shrink-0">
                                         <div>
                                             <div class="text-xl font-bold text-white mb-2">Badra</div>
                                             <div class="text-[9px] uppercase tracking-widest text-quantum-muted font-mono">E-COMMERCE FOUNDER</div>
@@ -1745,7 +1738,7 @@ muted: '#a1a1aa'
                         <div class="sticky top-48 space-y-8 lg:space-y-12">
                             <div class="glass-card glass-card-3d aspect-[4/5] rounded-[60px] overflow-hidden relative flex items-end stagger" data-tilt>
                                 <div class="card-glow"></div>
-                                <img src="/assets/nizzar-architect-portrait.jpg" alt="Nizzar Ben Chekroune" class="absolute inset-0 w-full h-full object-cover grayscale contrast-125" />
+                                <img loading="lazy" src="/assets/nizzar-architect-portrait.jpg" alt="Nizzar Ben Chekroune" class="absolute inset-0 w-full h-full object-cover grayscale contrast-125" />
                                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
                                 <div class="relative z-20 p-10 w-full text-center">
                                     <h3 class="text-2xl font-black text-white mb-2 tracking-tight">Nizzar Ben Chekroune</h3>
@@ -1966,7 +1959,7 @@ muted: '#a1a1aa'
     </footer>
     
     <!-- Chat Sidebar -->
-    <div id="chat-panel" class="fixed inset-y-0 right-0 w-full md:w-[450px] bg-black border-l border-white/10 z-[300] translate-x-full transition-transform duration-700 ease-[cubic-bezier(0.85,0,0.15,1)]">
+    <div id="chat-panel" class="fixed inset-y-0 right-0 w-full md:w-[450px] bg-black border-l border-white/10 z-[300]" style="transform: translateX(100%);">
         <div class="h-24 border-b border-white/5 flex items-center justify-between px-10">
             <div class="flex items-center gap-4">
                 <div class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse shadow-[0_0_10px_#4ade80]"></div>
@@ -1978,8 +1971,7 @@ muted: '#a1a1aa'
             <button onclick="window.closeChat()" class="text-white text-2xl magnetic-btn hover:rotate-90 transition-transform">×</button>
         </div>
         <div class="h-[calc(100%-96px)] w-full relative">
-            <iframe
-                src="https://www.chatbase.co/chatbot-iframe/dc3YR2L7BTm7tenJsiqKe"
+            <iframe                 title="AI Consultant Chat"                 src="https://www.chatbase.co/chatbot-iframe/dc3YR2L7BTm7tenJsiqKe"
                 width="100%"
                 height="100%"
                 frameborder="0"
@@ -2000,7 +1992,7 @@ muted: '#a1a1aa'
         </div>
     </div>
     
-    <!-- JavaScript Core -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> <script src="https://unpkg.com/lucide@latest"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>      <!-- JavaScript Core -->
     <script>
         (function() {
             try {
