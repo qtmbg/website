@@ -2030,6 +2030,12 @@
                 const qs_HIGH_DESIRE =['never again', 'stop losing', 'the result', 'what it costs you'];
                 
                 window.initPreloader = function() {
+      if (sessionStorage.getItem('preloaderShown')) {
+        const pl = document.getElementById('quantum-preloader');
+        if (pl) pl.remove();
+        return;
+      }
+      sessionStorage.setItem('preloaderShown', '1');
                     let progress = 0;
                     const loaderPercent = document.getElementById('loader-percent');
                     const loadInterval = setInterval(() => {
