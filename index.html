@@ -134,8 +134,15 @@
         @media (hover: hover) {
             .glass-card:hover {
                 border-color: rgba(74, 222, 128, 0.5) !important;
-                box-shadow: 0 10px 40px -10px rgba(74, 222, 128, 0.2), 0 0 20px -5px rgba(74, 222, 128, 0.1);
-                transform: translateY(-3px);
+                box-shadow: 0 10px 40px -10px rgba(74, 222, 128, 0.25), 0 0 30px -5px rgba(74, 222, 128, 0.15);
+                transform: translateY(-4px);
+                background: rgba(74, 222, 128, 0.04) !important;
+            }
+        }
+        @media (pointer: coarse) {
+            .glass-card:active {
+                border-color: rgba(74, 222, 128, 0.4) !important;
+                background: rgba(74, 222, 128, 0.04) !important;
             }
         }
         .magnetic-btn { position: relative; transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1); }
@@ -215,7 +222,16 @@
         .text-white\/50 { color: rgba(255,255,255,0.65) !important; }
         ::selection { background: #4ade80; color: #000; }
         *:focus-visible { outline: 2px solid #4ade80; outline-offset: 2px; }
-        
+        .flip-card { perspective: 1200px; cursor: pointer; }
+        .flip-card-inner { position: relative; width: 100%; min-height: 300px; transform-style: preserve-3d; transition: transform 0.65s cubic-bezier(0.23, 1, 0.32, 1); }
+        @media (hover: hover) { .flip-card:hover .flip-card-inner { transform: rotateY(180deg); } }
+        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 32px; padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between; }
+        .flip-card-front { background: rgba(10,10,10,0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); transition: border-color 0.3s ease; }
+        .flip-card:hover .flip-card-front { border-color: rgba(74,222,128,0.3); }
+        .flip-card-back { transform: rotateY(180deg); background: rgba(10,30,15,0.95); backdrop-filter: blur(20px); border: 1px solid rgba(74,222,128,0.25); }
+        .flip-hint { transition: opacity 0.3s ease; }
+        .flip-card.flipped .flip-hint { opacity: 0; }
         .meter-bar { height: 100%; border-radius: 99px; transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1); }         @media (prefers-reduced-motion: reduce) {             *, *::before, *::after {                 animation-duration: 0.01ms !important;                 animation-iteration-count: 1 !important;                 transition-duration: 0.01ms !important;                 scroll-behavior: auto !important;             }         }     </style>
 </head>
 <body class="selection:bg-green-500 selection:text-black">     <a href="#main-content" style="position:fixed;top:-100px;left:16px;z-index:999999;padding:8px 16px;background:#4ade80;color:#000;font-weight:700;font-size:13px;border-radius:8px;text-decoration:none;transition:top 0.2s;" onfocus="this.style.top='16px'" onblur="this.style.top='-100px'">Skip to content</a>
@@ -316,7 +332,7 @@
                         </div>
                     </div>
                     <div class="lg:col-span-4 space-y-10 pt-10 stagger">
-                        <div class="glass-card glass-card-3d p-8 rounded-2xl border-l-2 border-l-green-400/50" data-tilt>
+                        <div class="glass-card glass-card-3d p-8 rounded-2xl border-l-2 border-l-white/20" data-tilt>
                             <div class="card-glow"></div>
                             <div class="card-content">
                                 <div class="text-4xl font-bold text-white mb-2">5</div>
@@ -373,7 +389,7 @@
                             </div>
                         </div>
                         <!-- Card 2 -->
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger border-[#4ade80]/20 bg-[#4ade80]/5" data-tilt>
+                        <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger" data-tilt>
                             <div class="card-glow"></div>
                             <div class="card-content flex flex-col h-full">
                                 <img loading="lazy" src="/assets/voice-gary-vee.jpg" alt="Gary Vee" onerror="this.src='https://ui-avatars.com/api/?name=Gary+Vee&background=random'" class="w-14 h-14 rounded-full mb-8 object-cover grayscale opacity-80 border border-[#4ade80]/30 card-icon">
@@ -1543,7 +1559,7 @@
                                 <div class="text-[9px] tracking-widest uppercase text-quantum-muted leading-relaxed">Acquisition requirement</div>
                             </div>
                         </div>
-                        <div class="glass-card glass-card-3d p-8 rounded-2xl border-l-2 border-l-white/20 text-left min-w-[240px]" data-tilt>
+                        <div class="glass-card glass-card-3d p-8 rounded-2xl border-l-2 border-l-white/70 text-left min-w-[240px]" data-tilt>
                             <div class="card-glow"></div>
                             <div class="card-content flex flex-col h-full justify-center">
                                 <div class="text-3xl font-bold text-white mb-2">120 min</div>
@@ -1586,7 +1602,7 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-32 stagger">
                     
                     <!-- Card 1: Scanner -->
-                    <div class="glass-card glass-card-3d p-10 rounded-[32px] group cursor-pointer border-[#4ade80]/20 hover:bg-[#4ade80]/5" onclick="window.navigateAndScroll('home', 'qs-scanner')" data-tilt>
+                    <div class="glass-card glass-card-3d p-10 rounded-[32px] group cursor-pointer" onclick="window.navigateAndScroll('home', 'qs-scanner')" data-tilt>
                         <div class="card-glow"></div>
                         <div class="card-content flex flex-col h-full">
                             <div class="text-[#4ade80] mb-6 w-12 h-12 rounded-full bg-[#4ade80]/10 flex items-center justify-center border border-[#4ade80]/20 card-icon">
@@ -1696,13 +1712,21 @@
                             <div class="space-y-8">
                                 <div class="text-xs font-mono tracking-widest text-white/20 uppercase">Chapter 01 // Origins</div>
                                 <p class="text-xl text-quantum-muted leading-relaxed">I didn't start as a brand strategist. I started as a PR and marketing manager in a nightclub, where your personal brand is either working or you're invisible, and there's no middle ground. I built my own personal brand using the same methodology I now run for founders. Within three years it generated over $500K in direct revenue. That's when I understood that brand positioning isn't an aesthetic exercise, it's a pricing mechanism.</p>
-                                <div class="glass-card glass-card-3d p-8 border-l-2 border-l-green-400" data-tilt>
+                                <div class="glass-card glass-card-3d p-8 border-l-4 border-l-green-400" data-tilt>
                                     <div class="card-glow"></div>
                                     <div class="card-content">
-                                        <div class="text-4xl font-bold text-white mb-2"><span class="counter" data-target="500" data-prefix="+$" data-suffix="K">$0K</span></div>
-                                        <div class="text-[10px] font-mono tracking-widest uppercase text-quantum-muted">Personal revenue in 3 years</div>
-                                        <div class="text-[9px] font-mono tracking-widest uppercase text-green-400 mt-2 pt-2 border-t border-white/10">Same methodology. Now applied to 500+ founders.</div>
+                                        <div class="flex items-end justify-between mb-6">
+                                            <div class="text-[64px] font-black text-white leading-none"><span class="counter" data-target="500" data-prefix="+$" data-suffix="K">$0K</span></div>
+                                            <div class="text-right shrink-0 pb-2">
+                                                <div class="text-[#4ade80] font-mono text-[8px] uppercase tracking-widest leading-relaxed">REVENUE<br>IMPACT<br>DOCUMENTED</div>
+                                            </div>
+                                        </div>
+                                        <div class="border-t border-white/10 pt-4 flex flex-col gap-1">
+                                            <div class="text-[10px] font-mono tracking-widest uppercase text-quantum-muted">Personal revenue in 3 years</div>
+                                            <div class="text-[9px] font-mono tracking-widest uppercase text-green-400">Same methodology. Now applied to 500+ founders.</div>
+                                        </div>
                                     </div>
+                                </div>
                                 </div>
                             </div>
                             <div class="space-y-8">
@@ -1720,14 +1744,17 @@
                             <h3 class="text-2xl font-bold text-white uppercase tracking-widest">Why This Works When Other Approaches Don't</h3>
                             <p class="text-lg text-quantum-muted leading-relaxed">Most brand consultants start with visuals. We start with pricing. Specifically: we start by measuring the gap between what you currently charge and what your work is worth, and working backwards from that number to find the exact positioning change that closes it fastest. We don't redesign your logo until we know why your current rate is wrong. We don't rewrite your copy until we know which buyers you're accidentally repelling. The methodology is diagnosis-first because every other approach treats symptoms. We treat the cause. The cause is almost always the same: strong work, wrong positioning, avoidable revenue gap.</p>
                             
-                            <div class="mt-16 p-10 border border-white/20 bg-[#050505] relative overflow-hidden group">
+                            <div class="mt-16 relative overflow-hidden group" style="border-left: 3px solid #4ade80; padding: 40px 48px; background: linear-gradient(135deg, rgba(74,222,128,0.04) 0%, rgba(0,0,0,0) 60%); border-radius: 0 24px 24px 0;">
                                 <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 pointer-events-none"></div>
+                                <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-[#4ade80]/40 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-[#4ade80]/20 to-transparent"></div>
+                                <div class="font-mono text-[9px] tracking-[0.4em] uppercase text-[#4ade80] mb-6 relative z-10">Private Directive</div>
                                 <h3 class="text-3xl font-black text-white mb-6 uppercase tracking-tighter relative z-10">The Existential Block</h3>
-                                <p class="text-lg text-quantum-muted leading-relaxed mb-10 relative z-10">
+                                <p class="text-lg text-quantum-muted leading-relaxed mb-10 relative z-10 max-w-2xl">
                                     Sometimes, a pricing problem is not a market error. It is an identity problem. You are undercharging because you are still operating from an outdated version of yourself. For founders experiencing an identity fracture that goes deeper than market positioning, see my private advisory work.
                                 </p>
-                                <a href="https://nizzar.com" target="_blank" class="magnetic-btn ripple inline-block px-10 py-5 bg-transparent border-2 border-white text-white font-black uppercase tracking-widest text-[11px] hover:bg-white hover:text-black transition-all relative z-10">
-                                    ENTER THE RETURN
+                                <a href="https://nizzar.com" target="_blank" class="magnetic-btn ripple inline-block px-10 py-5 bg-transparent border border-[#4ade80]/40 text-[#4ade80] font-black uppercase tracking-widest text-[11px] hover:bg-[#4ade80] hover:text-black transition-all relative z-10 rounded-xl">
+                                    ENTER THE RETURN →
                                 </a>
                             </div>
                         </div>
@@ -1752,48 +1779,115 @@
                 <div class="pt-32 pb-32 stagger">
                     <span class="font-mono text-[10px] tracking-[0.4em] uppercase text-white font-bold block mb-16 text-center">THE 6 BELIEFS BEHIND THE METHODOLOGY</span>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] flex flex-col gap-6" data-tilt>
-                            <div class="card-glow"></div>
-                            <div class="card-content">
-                                <span class="font-mono text-2xl text-white/20">01</span>
-                                <p class="text-lg text-white font-medium leading-relaxed">People don't follow brands. They follow founders who are specific about who they are and who they're for. Vague positioning attracts vague buyers who negotiate on price.</p>
+
+                        <div class="flip-card rounded-[32px]" onclick="this.classList.toggle('flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <span class="font-mono text-[56px] font-black text-white/8 leading-none">01</span>
+                                    <div>
+                                        <div class="text-xl font-bold text-white mb-3">Specificity wins.</div>
+                                        <div class="flip-hint text-[9px] font-mono uppercase tracking-widest text-[#4ade80] flex items-center gap-2">
+                                            <span class="lg:hidden">TAP TO READ</span><span class="hidden lg:block">HOVER TO READ</span><span>→</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <span class="font-mono text-[9px] uppercase tracking-widest text-[#4ade80]/60">BELIEF 01</span>
+                                    <p class="text-base text-white/90 font-medium leading-relaxed">People don't follow brands. They follow founders who are specific about who they are and who they're for. Vague positioning attracts vague buyers who negotiate on price.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] flex flex-col gap-6" data-tilt>
-                            <div class="card-glow"></div>
-                            <div class="card-content">
-                                <span class="font-mono text-2xl text-white/20">02</span>
-                                <p class="text-lg text-white font-medium leading-relaxed">Honesty about what you do and who you do it for is the fastest way to stop attracting the wrong clients. Most founders are losing premium deals because their brand is trying to appeal to everyone.</p>
+
+                        <div class="flip-card rounded-[32px]" onclick="this.classList.toggle('flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <span class="font-mono text-[56px] font-black text-white/8 leading-none">02</span>
+                                    <div>
+                                        <div class="text-xl font-bold text-white mb-3">Honesty converts.</div>
+                                        <div class="flip-hint text-[9px] font-mono uppercase tracking-widest text-[#4ade80] flex items-center gap-2">
+                                            <span class="lg:hidden">TAP TO READ</span><span class="hidden lg:block">HOVER TO READ</span><span>→</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <span class="font-mono text-[9px] uppercase tracking-widest text-[#4ade80]/60">BELIEF 02</span>
+                                    <p class="text-base text-white/90 font-medium leading-relaxed">Honesty about what you do and who you do it for is the fastest way to stop attracting the wrong clients. Most founders are losing premium deals because their brand is trying to appeal to everyone.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] flex flex-col gap-6" data-tilt>
-                            <div class="card-glow"></div>
-                            <div class="card-content">
-                                <span class="font-mono text-2xl text-white/20">03</span>
-                                <p class="text-lg text-white font-medium leading-relaxed">The founders who close the biggest deals are the ones who are clearest about their own positioning, not the ones with the best product. Clarity on the inside becomes premium pricing on the outside.</p>
+
+                        <div class="flip-card rounded-[32px]" onclick="this.classList.toggle('flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <span class="font-mono text-[56px] font-black text-white/8 leading-none">03</span>
+                                    <div>
+                                        <div class="text-xl font-bold text-white mb-3">Clarity prices.</div>
+                                        <div class="flip-hint text-[9px] font-mono uppercase tracking-widest text-[#4ade80] flex items-center gap-2">
+                                            <span class="lg:hidden">TAP TO READ</span><span class="hidden lg:block">HOVER TO READ</span><span>→</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <span class="font-mono text-[9px] uppercase tracking-widest text-[#4ade80]/60">BELIEF 03</span>
+                                    <p class="text-base text-white/90 font-medium leading-relaxed">The founders who close the biggest deals are the ones who are clearest about their own positioning, not the ones with the best product. Clarity on the inside becomes premium pricing on the outside.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] flex flex-col gap-6" data-tilt>
-                            <div class="card-glow"></div>
-                            <div class="card-content">
-                                <span class="font-mono text-2xl text-white/20">04</span>
-                                <p class="text-lg text-white font-medium leading-relaxed">Every client who has come to me with a complex brand has been hiding behind it. Complexity in positioning is usually a symptom of not being willing to commit to a specific buyer. The founders who commit earn the most.</p>
+
+                        <div class="flip-card rounded-[32px]" onclick="this.classList.toggle('flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <span class="font-mono text-[56px] font-black text-white/8 leading-none">04</span>
+                                    <div>
+                                        <div class="text-xl font-bold text-white mb-3">Commitment earns.</div>
+                                        <div class="flip-hint text-[9px] font-mono uppercase tracking-widest text-[#4ade80] flex items-center gap-2">
+                                            <span class="lg:hidden">TAP TO READ</span><span class="hidden lg:block">HOVER TO READ</span><span>→</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <span class="font-mono text-[9px] uppercase tracking-widest text-[#4ade80]/60">BELIEF 04</span>
+                                    <p class="text-base text-white/90 font-medium leading-relaxed">Every client who has come to me with a complex brand has been hiding behind it. Complexity in positioning is usually a symptom of not being willing to commit to a specific buyer. The founders who commit earn the most.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] flex flex-col gap-6" data-tilt>
-                            <div class="card-glow"></div>
-                            <div class="card-content">
-                                <span class="font-mono text-2xl text-white/20">05</span>
-                                <p class="text-lg text-white font-medium leading-relaxed">A creative brand without a commercial structure is just expensive content. The methodology exists because creativity without a pricing architecture doesn't pay the bills.</p>
+
+                        <div class="flip-card rounded-[32px]" onclick="this.classList.toggle('flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <span class="font-mono text-[56px] font-black text-white/8 leading-none">05</span>
+                                    <div>
+                                        <div class="text-xl font-bold text-white mb-3">Structure pays.</div>
+                                        <div class="flip-hint text-[9px] font-mono uppercase tracking-widest text-[#4ade80] flex items-center gap-2">
+                                            <span class="lg:hidden">TAP TO READ</span><span class="hidden lg:block">HOVER TO READ</span><span>→</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <span class="font-mono text-[9px] uppercase tracking-widest text-[#4ade80]/60">BELIEF 05</span>
+                                    <p class="text-base text-white/90 font-medium leading-relaxed">A creative brand without a commercial structure is just expensive content. The methodology exists because creativity without a pricing architecture doesn't pay the bills.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="glass-card glass-card-3d p-10 rounded-[32px] flex flex-col gap-6" data-tilt>
-                            <div class="card-glow"></div>
-                            <div class="card-content">
-                                <span class="font-mono text-2xl text-white/20">06</span>
-                                <p class="text-lg text-white font-medium leading-relaxed">Strategy without soul is hollow: you end up with a brand that looks right but attracts the wrong people. Soul without strategy is starving: you end up doing great work for clients who can't afford you. The methodology solves both sides of that equation simultaneously.</p>
+
+                        <div class="flip-card rounded-[32px]" onclick="this.classList.toggle('flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <span class="font-mono text-[56px] font-black text-white/8 leading-none">06</span>
+                                    <div>
+                                        <div class="text-xl font-bold text-white mb-3">Soul + System.</div>
+                                        <div class="flip-hint text-[9px] font-mono uppercase tracking-widest text-[#4ade80] flex items-center gap-2">
+                                            <span class="lg:hidden">TAP TO READ</span><span class="hidden lg:block">HOVER TO READ</span><span>→</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <span class="font-mono text-[9px] uppercase tracking-widest text-[#4ade80]/60">BELIEF 06</span>
+                                    <p class="text-base text-white/90 font-medium leading-relaxed">Strategy without soul is hollow: you end up with a brand that looks right but attracts the wrong people. Soul without strategy is starving: you end up doing great work for clients who can't afford you. The methodology solves both simultaneously.</p>
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
