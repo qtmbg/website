@@ -273,6 +273,31 @@
             <div id="loader-text">INITIALIZING NEURAL NET</div>
         </div>
     </div>
+    <!-- Preloader: self-contained, zero CDN dependencies -->
+    <script>
+    (function(){
+        var pl = document.getElementById('quantum-preloader');
+        if (!pl) return;
+        if (sessionStorage.getItem('preloaderShown')) { pl.remove(); return; }
+        sessionStorage.setItem('preloaderShown', '1');
+        var pct = document.getElementById('loader-percent');
+        var progress = 0;
+        var iv = setInterval(function(){
+            progress += Math.floor(Math.random() * 20) + 5;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(iv);
+                setTimeout(function(){
+                    pl.style.opacity = '0';
+                    setTimeout(function(){ pl.remove(); }, 1000);
+                }, 400);
+            }
+            if (pct) pct.innerText = progress + '%';
+        }, 100);
+        // Hard kill: if still visible after 4 seconds, force remove
+        setTimeout(function(){ if (pl && pl.parentNode) { pl.style.opacity = '0'; setTimeout(function(){ try{pl.remove();}catch(e){} }, 500); } }, 4000);
+    })();
+    </script>
 
     <!-- Particle Background & Parallax Grid -->
     <canvas id="particle-canvas"></canvas>
@@ -1686,28 +1711,7 @@
             });
         }, { threshold: 0.5 });
         
-        window.initPreloader = function() {
-            if (sessionStorage.getItem('preloaderShown')) {
-                const pl = document.getElementById('quantum-preloader');
-                if (pl) pl.remove();
-                return;
-            }
-            sessionStorage.setItem('preloaderShown', '1');
-            let progress = 0;
-            const loaderPercent = document.getElementById('loader-percent');
-            const loadInterval = setInterval(() => {
-                progress += Math.floor(Math.random() * 20) + 5;
-                if(progress >= 100) {
-                    progress = 100;
-                    clearInterval(loadInterval);
-                    setTimeout(() => {
-                        const pl = document.getElementById('quantum-preloader');
-                        if(pl) { pl.style.opacity = '0'; setTimeout(() => pl.remove(), 1000); }
-                    }, 500);
-                }
-                if(loaderPercent) loaderPercent.innerText = progress + '%';
-            }, 120);
-        };
+        // Preloader now runs independently via inline script above
         
         window.navigate = function(id, noPush) {
             if (!noPush) history.pushState({ page: id }, '', '/' + (id === 'home' ? '' : id));
@@ -2168,7 +2172,6 @@
         };
         
         document.addEventListener('DOMContentLoaded', () => {
-            try { window.initPreloader(); } catch(e){}
             try { window.updateDynamicScarcity(); } catch(e){}
             try { lucide.createIcons(); } catch(e){}
             try { gsap.registerPlugin(ScrollTrigger); } catch(e){}
@@ -2177,4 +2180,12 @@
             const startPage = validPages.includes(initialPage) ? initialPage : 'home';
             try { window.navigate(startPage, true); } catch(e){}
             history.replaceState({ page: startPage }, '', location.pathname);
-            window.addEventListener('popstate', (e) => { if (e.state && e.state.page) window.navigate(e.stat
+            window.addEventListener('popstate', (e) => { if (e.state && e.state.page) window.navigate(e.state.page, true); });
+            try { ParticleSystem.init(); } catch(e){}
+            try { CardTilt.init(); } catch(e){}
+        });
+    } catch(e) { console.error("Critical System Failure:", e); }
+})();
+</script>
+</body>
+</html>
