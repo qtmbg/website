@@ -1606,7 +1606,7 @@
                     <span class="text-[10px] font-bold uppercase tracking-widest text-white mb-4">Access</span>
                     <a href="https://calendly.com/qtmbg/strategy-call-lab" target="_blank" rel="noopener noreferrer" class="text-xs text-quantum-muted hover:text-green-400 transition-colors hover-underline">Book Strategy Call</a>
                     <!-- FIX: Standardized email to match schema.org -->
-                    <a href="mailto:me@qtmbg.com" class="text-xs text-quantum-muted hover:text-green-400 transition-colors hover-underline">me@qtmbg.com</a>
+                    <a href="/cdn-cgi/l/email-protection#771a123706031a15105914181a" class="text-xs text-quantum-muted hover:text-green-400 transition-colors hover-underline"><span class="__cf_email__" data-cfemail="335e567342475e51541d505c5e">[email&#160;protected]</span></a>
                 </nav>
             </div>
         </div>
@@ -1644,7 +1644,7 @@
         </div>
     </div>
     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -1875,7 +1875,7 @@
                 contents: [{ parts: [{ text: text }] }],
                 systemInstruction: { parts: [{ text: 'You are a strict, elite brand positioning strategist for high-ticket founders. Analyze the following brand signal/tagline. Evaluate it on Clarity, Authority, and Desire (0-100). Determine exactly who this attracts and the core contradiction preventing it from closing $25K deals. Finally, generate an upgraded $25K signal.' }] },
                 generationConfig: { responseMimeType: "application/json", responseSchema: { type: "OBJECT", properties: { clarity: { type: "INTEGER" }, authority: { type: "INTEGER" }, desire: { type: "INTEGER" }, attractsHead: { type: "STRING" }, attractsBody: { type: "STRING" }, contraHead: { type: "STRING" }, contraBody: { type: "STRING" }, upgradedSignal: { type: "STRING" } }, required:["clarity","authority","desire","attractsHead","attractsBody","contraHead","contraBody","upgradedSignal"] } },
-                _model: 'gemini-2.5-flash-preview-05-20'
+                _model: 'gemini-2.5-flash'
             };
             try {
                 const data = await fetchWithBackoff('/api/gemini', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
@@ -1972,7 +1972,7 @@
             btn.style.pointerEvents = 'none';
             resultBox.classList.add('hidden');
             try {
-                const payload = { contents: [{ parts: [{ text: 'You are an elite brand positioning strategist. Analyze this: "' + text + '". Provide a 3-part Brand DNA Map: Core Essence, Premium Buyer Persona, and Market Moat. Return HTML format exactly like: <div class="mb-4"><strong class="text-[#4ade80] font-mono text-[10px] uppercase tracking-widest block mb-1">PART NAME</strong><span class="text-sm text-white/90">Description...</span></div>. Do NOT include markdown blocks. Just raw HTML.' }] }], _model: 'gemini-2.5-flash-preview-05-20' };
+                const payload = { contents: [{ parts: [{ text: 'You are an elite brand positioning strategist. Analyze this: "' + text + '". Provide a 3-part Brand DNA Map: Core Essence, Premium Buyer Persona, and Market Moat. Return HTML format exactly like: <div class="mb-4"><strong class="text-[#4ade80] font-mono text-[10px] uppercase tracking-widest block mb-1">PART NAME</strong><span class="text-sm text-white/90">Description...</span></div>. Do NOT include markdown blocks. Just raw HTML.' }] }], _model: 'gemini-2.5-flash' };
                 const data = await fetchWithBackoff('/api/gemini', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
                 let resHtml = data.candidates?.[0]?.content?.parts?.[0]?.text;
                 if(resHtml) {
@@ -1993,7 +1993,7 @@
             btn.innerHTML = 'GENERATING FREQUENCY... <div class="spinner inline-block ml-2 w-3 h-3 border-t-[#4ade80]"></div>';
             try {
                 const text = decodeURIComponent(escape(atob(b64Text)));
-                const payload = { contents: [{ parts: [{ text: "Here is your new brand frequency. " + text }] }], generationConfig: { responseModalities: ["AUDIO"], speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: "Aoede" } } } }, _model: 'gemini-2.5-flash-preview-tts' };
+                const payload = { contents: [{ parts: [{ text: "Here is your new brand frequency. " + text }] }], generationConfig: { responseModalities: ["AUDIO"], speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: "Aoede" } } } }, _model: 'gemini-2.5-flash-tts' };
                 const data = await fetchWithBackoff('/api/gemini', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
                 const part = data.candidates?.[0]?.content?.parts?.[0];
                 if (part?.inlineData) {
@@ -2018,7 +2018,7 @@
                 contents: [{ parts: [{ text: text }] }],
                 systemInstruction: { parts: [{ text: 'You are an elite brand positioning strategist. The user will provide their basic service. You must elevate it into a 3-tier premium offer ladder: 1. The Audit/Diagnostic (Entry, $3K-$5K), 2. The Core System (Mid, $10K-$15K), 3. The Comprehensive Transformation (Premium, $25K+). Respond ONLY with a valid JSON array of 3 objects. Each object must have: "tier", "price", "title", "description" (2 sentences).' }] },
                 generationConfig: { responseMimeType: "application/json", responseSchema: { type: "ARRAY", items: { type: "OBJECT", properties: { tier: { type: "STRING" }, price: { type: "STRING" }, title: { type: "STRING" }, description: { type: "STRING" } }, required: ["tier","price","title","description"] } } },
-                _model: 'gemini-2.5-flash-preview-05-20'
+                _model: 'gemini-2.5-flash'
             };
             try {
                 const data = await fetchWithBackoff('/api/gemini', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
@@ -2049,7 +2049,7 @@
             const payload = {
                 contents: [{ parts: [{ text: text }] }],
                 systemInstruction: { parts: [{ text: 'You are an elite brand positioning strategist and $25K+ high-ticket closer. Rewrite the user\'s pricing or sales script to sound highly authoritative, restrained, and premium. Strip out all "needy" language, unnecessary justifications, apologies, or discounts. The rewritten script must be concise, direct, and project absolute confidence. Return ONLY the rewritten text.' }] },
-                _model: 'gemini-2.5-flash-preview-05-20'
+                _model: 'gemini-2.5-flash'
             };
             try {
                 const data = await fetchWithBackoff('/api/gemini', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
@@ -2095,7 +2095,7 @@
                     { inlineData: { mimeType: window.visionMimeType, data: window.visionBase64 } }
                 ] }],
                 generationConfig: { responseMimeType: "application/json", responseSchema: { type: "OBJECT", properties: { aesthetic_rating: { type: "STRING" }, cheap_signals: { type: "ARRAY", items: { type: "STRING" } }, premium_fix: { type: "STRING" } }, required: ["aesthetic_rating","cheap_signals","premium_fix"] } },
-                _model: 'gemini-2.5-flash-preview-05-20'
+                _model: 'gemini-2.5-flash'
             };
             try {
                 const data = await fetchWithBackoff('/api/gemini', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
@@ -2177,12 +2177,4 @@
             const startPage = validPages.includes(initialPage) ? initialPage : 'home';
             try { window.navigate(startPage, true); } catch(e){}
             history.replaceState({ page: startPage }, '', location.pathname);
-            window.addEventListener('popstate', (e) => { if (e.state && e.state.page) window.navigate(e.state.page, true); });
-            try { ParticleSystem.init(); } catch(e){}
-            try { CardTilt.init(); } catch(e){}
-        });
-    } catch(e) { console.error("Critical System Failure:", e); }
-})();
-</script>
-</body>
-</html>
+            window.addEventListener('popstate', (e) => { if (e.state && e.state.page) window.navigate(e.stat
