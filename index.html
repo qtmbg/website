@@ -169,6 +169,21 @@
         .stagger.visible { opacity: 1; transform: translateY(0); }
         /* FIX: Constrain noise overlay to prevent overflow */
         .noise { position: fixed; inset: 0; background: url('https://grainy-gradients.vercel.app/noise.svg'); opacity: 0.02; pointer-events: none; z-index: 50; overflow: hidden; }
+        /* Law Accordion */
+        .law-row { cursor: pointer; user-select: none; }
+        .law-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.38s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.22s ease;
+            opacity: 0;
+        }
+        .law-row.is-open .law-body { max-height: 260px; opacity: 1; }
+        .law-icon {
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        .law-row.is-open .law-icon { transform: rotate(45deg); }
         @media (max-width: 1024px) {
             .page { padding-top: 6rem !important; padding-bottom: 4rem !important; }
             .mb-32 { margin-bottom: 4rem !important; }
@@ -265,6 +280,7 @@
             flex-wrap: wrap;
         }
         .mri-outcome-row .text-green { color: #4ade80; }
+
     </style>
 </head>
 <body class="selection:bg-green-500 selection:text-black">
@@ -963,12 +979,12 @@
         <div id="page-philosophy" class="page px-6 pt-40">
             <div class="max-w-7xl mx-auto">
 
-                <!-- SECTION 1: THE CORE AXIOM -->
+                <!-- SECTION 1: HERO -->
                 <div class="max-w-4xl mb-24 stagger">
                     <span class="inline-block px-4 py-2 border border-[#4ade80]/30 bg-[#4ade80]/10 rounded-full font-mono text-[10px] tracking-[0.3em] uppercase text-[#4ade80] mb-8 scan-line">
                         the operational paradigm // v2.0
                     </span>
-                    <h1 class="text-5xl md:text-6xl lg:text-[72px] font-black leading-[1.05] tracking-tighter text-white mb-10">
+                    <h1 class="text-5xl md:text-6xl lg:text-[80px] font-black leading-[1.1] tracking-tighter text-white mb-8 gradient-text-animated pb-2 pr-2">
                         Success built on an outdated identity is just misalignment with better lighting.
                     </h1>
                     <p class="text-xl lg:text-2xl text-quantum-muted leading-relaxed max-w-3xl">
@@ -982,21 +998,21 @@
                         <span class="font-mono text-[10px] tracking-[0.4em] uppercase text-quantum-muted">empirical foundation // pattern stack</span>
                     </div>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="glass-card glass-card-3d p-10 rounded-2xl stagger" data-tilt>
+                        <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger" data-tilt>
                             <div class="card-glow"></div>
                             <div class="card-content">
                                 <div class="font-mono text-[10px] tracking-[0.3em] uppercase text-[#4ade80] mb-6">01 / PATTERN RECOGNITION</div>
                                 <p class="text-quantum-muted leading-relaxed">Forged across 15 years of institutional diplomacy and luxury heritage. From the United Nations to global athletic icons. This is not textbook marketing. It is the ability to read complex market signals and bypass logical resistance at the highest levels of global commerce.</p>
                             </div>
                         </div>
-                        <div class="glass-card glass-card-3d p-10 rounded-2xl stagger" data-tilt>
+                        <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger" data-tilt>
                             <div class="card-glow"></div>
                             <div class="card-content">
                                 <div class="font-mono text-[10px] tracking-[0.3em] uppercase text-[#4ade80] mb-6">02 / SOVEREIGN ARCHITECTURE</div>
                                 <p class="text-quantum-muted leading-relaxed">Operating at the frontier of Web3 and AI requires absolute psychological detachment. A premium brand cannot be built from panic or the addiction to startup volatility. We strip away performative metrics and reconstruct your operations from a sovereign center.</p>
                             </div>
                         </div>
-                        <div class="glass-card glass-card-3d p-10 rounded-2xl stagger" data-tilt>
+                        <div class="glass-card glass-card-3d p-10 rounded-[32px] stagger" data-tilt>
                             <div class="card-glow"></div>
                             <div class="card-content">
                                 <div class="font-mono text-[10px] tracking-[0.3em] uppercase text-[#4ade80] mb-6">03 / THE IDENTITY FRACTURE</div>
@@ -1006,51 +1022,91 @@
                     </div>
                 </div>
 
-                <!-- SECTION 3: THE 6 IMMUTABLE LAWS -->
+                <!-- SECTION 3: THE 6 IMMUTABLE LAWS – ACCORDION -->
                 <div class="mb-24 stagger">
                     <div class="mb-12">
                         <span class="font-mono text-[10px] tracking-[0.4em] uppercase text-quantum-muted">structural laws // immutable</span>
                         <h2 class="text-3xl lg:text-4xl font-black text-white tracking-tighter mt-4">The 6 Immutable Laws</h2>
                     </div>
-                    <div class="space-y-0 border border-[#4ade80]/20 rounded-2xl overflow-hidden bg-black">
-                        <div class="flex items-start gap-6 p-8 border-b border-[#4ade80]/10 hover:bg-[#4ade80]/5 transition-colors group">
-                            <span class="font-mono text-[10px] text-[#4ade80] tracking-widest pt-1 shrink-0">01</span>
-                            <p class="font-mono text-sm text-white/80 leading-relaxed group-hover:text-white transition-colors">Complexity in positioning is a symptom of avoiding commitment to a specific buyer.</p>
+                    <div class="border border-[#4ade80]/15 rounded-2xl overflow-hidden bg-black" id="law-accordion">
+
+                        <div class="law-row border-b border-[#4ade80]/10" onclick="window.toggleLaw(this)" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.toggleLaw(this)}">
+                            <div class="flex items-center gap-6 p-8 select-none">
+                                <span class="font-mono text-[10px] text-[#4ade80] tracking-widest shrink-0">01</span>
+                                <p class="font-mono text-sm text-white/80 leading-relaxed flex-1">Complexity in positioning is a symptom of avoiding commitment to a specific buyer.</p>
+                                <span class="law-icon text-[#4ade80] text-lg font-light font-mono">+</span>
+                            </div>
+                            <div class="law-body">
+                                <p class="px-8 pb-8 text-sm text-quantum-muted leading-relaxed border-t border-white/5 pt-6 ml-[3.5rem]">When a founder cannot name their buyer with precision, they compensate by layering the message. Every qualifier added is a commitment withdrawn. The market reads ambiguity as uncertainty. Buyers at the premium tier do not tolerate uncertainty. They select whoever states their position without hesitation. Complexity is not nuance. It is avoidance dressed as sophistication.</p>
+                            </div>
                         </div>
-                        <div class="flex items-start gap-6 p-8 border-b border-[#4ade80]/10 hover:bg-[#4ade80]/5 transition-colors group">
-                            <span class="font-mono text-[10px] text-[#4ade80] tracking-widest pt-1 shrink-0">02</span>
-                            <p class="font-mono text-sm text-white/80 leading-relaxed group-hover:text-white transition-colors">Honesty about who you are is the fastest way to repel low-ticket clients.</p>
+
+                        <div class="law-row border-b border-[#4ade80]/10" onclick="window.toggleLaw(this)" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.toggleLaw(this)}">
+                            <div class="flex items-center gap-6 p-8 select-none">
+                                <span class="font-mono text-[10px] text-[#4ade80] tracking-widest shrink-0">02</span>
+                                <p class="font-mono text-sm text-white/80 leading-relaxed flex-1">Honesty about who you are is the fastest way to repel low-ticket clients.</p>
+                                <span class="law-icon text-[#4ade80] text-lg font-light font-mono">+</span>
+                            </div>
+                            <div class="law-body">
+                                <p class="px-8 pb-8 text-sm text-quantum-muted leading-relaxed border-t border-white/5 pt-6 ml-[3.5rem]">Most founders soften their signal to remain accessible. What they lose is authority. A precise, honest brand statement activates genuine buyers and disqualifies mismatched ones in the same motion. This is not rejection. It is filtration at the architectural level. A brand that speaks to everyone costs more to run and charges less for the work.</p>
+                            </div>
                         </div>
-                        <div class="flex items-start gap-6 p-8 border-b border-[#4ade80]/10 hover:bg-[#4ade80]/5 transition-colors group">
-                            <span class="font-mono text-[10px] text-[#4ade80] tracking-widest pt-1 shrink-0">03</span>
-                            <p class="font-mono text-sm text-white/80 leading-relaxed group-hover:text-white transition-colors">A creative brand without a commercial pricing structure is just expensive content.</p>
+
+                        <div class="law-row border-b border-[#4ade80]/10" onclick="window.toggleLaw(this)" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.toggleLaw(this)}">
+                            <div class="flex items-center gap-6 p-8 select-none">
+                                <span class="font-mono text-[10px] text-[#4ade80] tracking-widest shrink-0">03</span>
+                                <p class="font-mono text-sm text-white/80 leading-relaxed flex-1">A creative brand without a commercial pricing structure is just expensive content.</p>
+                                <span class="law-icon text-[#4ade80] text-lg font-light font-mono">+</span>
+                            </div>
+                            <div class="law-body">
+                                <p class="px-8 pb-8 text-sm text-quantum-muted leading-relaxed border-t border-white/5 pt-6 ml-[3.5rem]">Aesthetic precision without pricing architecture is overhead with a portfolio attached. The market will admire it. It will not pay premium rates for it. Commercial logic and design thinking are not competing forces. They are structural prerequisites for each other. The offer must carry financial coherence, not emotional resonance alone.</p>
+                            </div>
                         </div>
-                        <div class="flex items-start gap-6 p-8 border-b border-[#4ade80]/10 hover:bg-[#4ade80]/5 transition-colors group">
-                            <span class="font-mono text-[10px] text-[#4ade80] tracking-widest pt-1 shrink-0">04</span>
-                            <p class="font-mono text-sm text-white/80 leading-relaxed group-hover:text-white transition-colors">You cannot optimize an identity that needs to be buried.</p>
+
+                        <div class="law-row border-b border-[#4ade80]/10" onclick="window.toggleLaw(this)" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.toggleLaw(this)}">
+                            <div class="flex items-center gap-6 p-8 select-none">
+                                <span class="font-mono text-[10px] text-[#4ade80] tracking-widest shrink-0">04</span>
+                                <p class="font-mono text-sm text-white/80 leading-relaxed flex-1">You cannot optimize an identity that needs to be buried.</p>
+                                <span class="law-icon text-[#4ade80] text-lg font-light font-mono">+</span>
+                            </div>
+                            <div class="law-body">
+                                <p class="px-8 pb-8 text-sm text-quantum-muted leading-relaxed border-t border-white/5 pt-6 ml-[3.5rem]">Incremental improvement applied to a misaligned foundation compounds the problem. Refining language, updating visuals, or adjusting the offer does not close the pricing gap when the underlying identity is the source of the distortion. Some architectures need to be dissolved and rebuilt from the foundation up. Optimization requires something structurally sound to optimize.</p>
+                            </div>
                         </div>
-                        <div class="flex items-start gap-6 p-8 border-b border-[#4ade80]/10 hover:bg-[#4ade80]/5 transition-colors group">
-                            <span class="font-mono text-[10px] text-[#4ade80] tracking-widest pt-1 shrink-0">05</span>
-                            <p class="font-mono text-sm text-white/80 leading-relaxed group-hover:text-white transition-colors">Authority is not granted by the market. It is assumed by the founder.</p>
+
+                        <div class="law-row border-b border-[#4ade80]/10" onclick="window.toggleLaw(this)" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.toggleLaw(this)}">
+                            <div class="flex items-center gap-6 p-8 select-none">
+                                <span class="font-mono text-[10px] text-[#4ade80] tracking-widest shrink-0">05</span>
+                                <p class="font-mono text-sm text-white/80 leading-relaxed flex-1">Authority is not granted by the market. It is assumed by the founder.</p>
+                                <span class="law-icon text-[#4ade80] text-lg font-light font-mono">+</span>
+                            </div>
+                            <div class="law-body">
+                                <p class="px-8 pb-8 text-sm text-quantum-muted leading-relaxed border-t border-white/5 pt-6 ml-[3.5rem]">The market reflects the signal it receives. A founder who positions from deference waits for external validation that never materializes at the rate they need. Premium buyers do not elevate the reluctant. They confirm authority that is already operating at full conviction. The decision to hold the frame happens internally. The market response is downstream of that decision.</p>
+                            </div>
                         </div>
-                        <div class="flex items-start gap-6 p-8 hover:bg-[#4ade80]/5 transition-colors group">
-                            <span class="font-mono text-[10px] text-[#4ade80] tracking-widest pt-1 shrink-0">06</span>
-                            <p class="font-mono text-sm text-white/80 leading-relaxed group-hover:text-white transition-colors">The machine builds the structure. The human builds the soul.</p>
+
+                        <div class="law-row" onclick="window.toggleLaw(this)" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.toggleLaw(this)}">
+                            <div class="flex items-center gap-6 p-8 select-none">
+                                <span class="font-mono text-[10px] text-[#4ade80] tracking-widest shrink-0">06</span>
+                                <p class="font-mono text-sm text-white/80 leading-relaxed flex-1">The machine builds the structure. The human builds the soul.</p>
+                                <span class="law-icon text-[#4ade80] text-lg font-light font-mono">+</span>
+                            </div>
+                            <div class="law-body">
+                                <p class="px-8 pb-8 text-sm text-quantum-muted leading-relaxed border-t border-white/5 pt-6 ml-[3.5rem]">AI systems can map market data, expose pricing gaps, and generate structural frameworks at a speed no consultant can match. What they cannot carry is the weight of lived complexity, cultural intelligence, or the earned instinct that comes from fifteen years of high-stakes pattern recognition. The Quantum protocol is a hybrid because that is what the problem requires.</p>
+                            </div>
                         </div>
+
                     </div>
                 </div>
 
                 <!-- SECTION 4: THE HYBRID CONVERGENCE -->
                 <div class="mb-24 stagger">
-                    <div class="glass-card p-12 bg-white/[0.02] rounded-2xl border border-white/10">
-                        <div class="card-glow"></div>
-                        <div class="max-w-3xl">
-                            <div class="font-mono text-[10px] tracking-[0.4em] uppercase text-[#4ade80] mb-6">SYS.LOG // THE EXISTENTIAL BLOCK</div>
-                            <h2 class="text-3xl lg:text-4xl font-black text-white tracking-tighter mb-8">The Hybrid Convergence</h2>
-                            <p class="text-xl text-quantum-muted leading-relaxed">
-                                Automation alone limits trust. Pure consulting is inefficient. The Quantum protocol relies on a hybrid convergence. The AI processes market data, exposes pricing leaks, and builds the structural foundation at speed. The Architect injects the cultural intuition, the narrative weight, and the lived complexity that machines cannot replicate. This is how we protect authenticity while sealing the pricing gap.
-                            </p>
-                        </div>
+                    <div class="relative glass-card p-12 bg-white/[0.02] rounded-2xl border border-white/10">
+                        <div class="font-mono text-[10px] tracking-[0.4em] uppercase text-[#4ade80] mb-6">SYS.LOG // THE EXISTENTIAL BLOCK</div>
+                        <h2 class="text-3xl lg:text-4xl font-black text-white tracking-tighter mb-8">The Hybrid Convergence</h2>
+                        <p class="text-xl text-quantum-muted leading-relaxed">
+                            Automation alone limits trust. Pure consulting is inefficient. The Quantum protocol relies on a hybrid convergence. The AI processes market data, exposes pricing leaks, and builds the structural foundation at speed. The Architect injects the cultural intuition, the narrative weight, and the lived complexity that machines cannot replicate. This is how we protect authenticity while sealing the pricing gap.
+                        </p>
                     </div>
                 </div>
 
@@ -1963,6 +2019,18 @@
             }, 600); 
         };
         
+        window.toggleLaw = function(row) {
+            const isOpen = row.classList.contains('is-open');
+            document.querySelectorAll('#law-accordion .law-row').forEach(r => {
+                r.classList.remove('is-open');
+                r.setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                row.classList.add('is-open');
+                row.setAttribute('aria-expanded', 'true');
+            }
+        };
+
         window.toggleMenu = function() {
             const menu = document.getElementById('mobile-nav');
             if (menu.classList.contains('hidden')) {
@@ -2389,7 +2457,7 @@
             try { window.updateDynamicScarcity(); } catch(e){}
             try { lucide.createIcons(); } catch(e){}
             try { gsap.registerPlugin(ScrollTrigger); } catch(e){}
-            const validPages = ['home','vault','method','kit','lab','mri','tools','about','start'];
+            const validPages = ['home','vault','method','philosophy','kit','lab','mri','tools','about','start'];
             const initialPage = location.pathname.replace('/', '').split('/')[0] || 'home';
             const startPage = validPages.includes(initialPage) ? initialPage : 'home';
             try { window.navigate(startPage, true); } catch(e){}
