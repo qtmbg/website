@@ -1,8 +1,19 @@
 {
+  "name": "quantum-branding",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "start": "servor --reload"
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs",
+    "test": "node --test tests/site.test.mjs",
+    "test:browser": "node tests/browser.mjs",
+    "test:visual": "node tests/visual.mjs"
   },
-  "dependencies": {
-    "servor": "^4.0.2"
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
   }
 }
