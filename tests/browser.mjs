@@ -1,7 +1,7 @@
 import { chromium } from '@playwright/test';
 import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
-import { territories, processSteps } from '../app.js';
+import { territories, processSteps, siteConfig, french } from '../app.js';
 
 const browser = await chromium.launch({ channel:'chrome', headless:true });
 const output = new URL('../test-results/',import.meta.url).pathname;
@@ -10,7 +10,7 @@ const page = await browser.newPage({viewport:{width:1440,height:1000}, reducedMo
 const errors=[];
 page.on('pageerror',error=>errors.push(error.message));
 try {
-  await page.goto('http://localhost:3000',{waitUntil:'networkidle'});
+  await page.goto(process.env.BASE_URL || 'http://localhost:3000',{waitUntil:'networkidle'});
   await page.evaluate(()=>document.fonts.ready);
   assert.equal(await page.locator('.instrument').count(),6);
   await page.screenshot({path:`${output}desktop.png`,fullPage:true});
@@ -33,6 +33,10 @@ try {
   await page.locator('#brief-form [type="submit"]').click();
   assert.match(await page.locator('.brief-result').textContent(),/<script>alert/);
   assert.equal(await page.locator('.brief-result script').count(),0);
+  const draft = new URL(await page.locator('.brief-actions a[href^="mailto:"]').getAttribute('href'));
+  assert.equal(decodeURIComponent(draft.pathname),siteConfig.contactEmail);
+  assert.equal(draft.searchParams.get('body'),await page.locator('.brief-result').textContent());
+  assert.match(draft.searchParams.get('subject'),/Quantum Branding/);
   const downloadPromise = page.waitForEvent('download');
   await page.locator('#download-brief').click();
   const download = await downloadPromise;
@@ -52,6 +56,39 @@ try {
   await page.locator('#language').click();
   for(const language of ['en','fr']) {
   if(await page.locator('html').getAttribute('lang')!==language) await page.locator('#language').click();
+  assert.equal(await page.locator('[data-contact-link]').getAttribute('href'),`mailto:${siteConfig.contactEmail}`);
+  assert.equal(await page.locator('[data-i18n="productLive"]').textContent(),language==='en'?'LIVE':'EN LIGNE');
+  const missingTranslations = await page.locator('[data-i18n]').evaluateAll(elements=>elements.filter(el=>!el.textContent.trim() || el.textContent==='undefined').map(el=>el.dataset.i18n));
+  assert.deepEqual(missingTranslations,[]);
+  assert.equal(await page.locator('.client-voices figure').count(),3);
+  assert.equal(await page.locator('.history-list>div').count(),3);
+  assert.equal(await page.locator('.research-list>div').count(),4);
+  assert.equal(await page.locator('#signal-scan a').getAttribute('href'),'https://app.quantumbranding.ai/signal-scan.html');
+  assert.match(await page.locator('#founder-toolbox').textContent(),language==='en'?/PRODUCT · IN DEVELOPMENT/:/PRODUIT · EN DÉVELOPPEMENT/);
+  assert.match(await page.locator('#the-mirror').textContent(),language==='en'?/EXPERIMENT/:/EXPÉRIENCE/);
+  for(const [handle,key] of [['elvinpicardo','quoteUnderstanding'],['tisasen','quoteExecution'],['shelahj','quoteJudgment']]) {
+    const voice = page.locator(`[data-review="${handle}"]`);
+    assert.equal(await voice.locator('figcaption a').getAttribute('href'),'https://www.fiverr.com/nizzar');
+    if(language==='fr') {
+      assert.equal(await voice.locator('blockquote p').textContent(),french[key]);
+      await voice.locator('summary').click();
+      assert.equal(await voice.locator('details p[lang="en"]').isVisible(),true);
+      await voice.locator('summary').click();
+    } else assert.equal(await voice.locator('details').isVisible(),false);
+  }
+  await page.locator('[data-case="quantum"]').click();
+  assert.equal(await page.locator('#dialog-content a[href="https://quantumbranding.ai"]').count(),1);
+  assert.match(await page.locator('#dialog-content').textContent(),language==='en'?/Born in Quantum Lab/:/Né au sein de Quantum Lab/);
+  await page.keyboard.press('Escape');
+  await page.locator('[data-start="project"]').click();
+  assert.equal(await page.locator('.direct-email a').getAttribute('href'),`mailto:${siteConfig.contactEmail}`);
+  await page.locator('[name="change"]').fill('Clarifier & construire');
+  await page.locator('[name="result"]').fill('Un départ précis');
+  await page.locator('#brief-form [type="submit"]').click();
+  const bilingualDraft = new URL(await page.locator('.brief-actions a').getAttribute('href'));
+  assert.equal(bilingualDraft.searchParams.get('body'),await page.locator('.brief-result').textContent());
+  assert.match(bilingualDraft.searchParams.get('subject'),language==='en'?/Something to change/:/Quelque chose à changer/);
+  await page.keyboard.press('Escape');
   for(const width of [375,390,540,541,768,1024,1440,1920]) {
     await page.setViewportSize({width,height:900});
     await page.evaluate(()=>window.scrollTo(0,0));
@@ -126,8 +163,20 @@ try {
   assert.equal(await page.locator('body').evaluate(el=>el.classList.contains('motion-paused')),true);
   assert.equal(await page.locator('.ticker>div').evaluate(el=>getComputedStyle(el).animationName),'none');
 
-  const response=await page.request.get('http://localhost:3000/package.json');
+  const response=await page.request.get(`${process.env.BASE_URL || 'http://localhost:3000'}/package.json`);
   assert.equal(response.status(),404);
+  const noScript = await browser.newContext({javaScriptEnabled:false});
+  try {
+    const fallback = await noScript.newPage();
+    await fallback.goto(process.env.BASE_URL || 'http://localhost:3000');
+    assert.equal(await fallback.locator('[data-contact-link]').getAttribute('href'),`mailto:${siteConfig.contactEmail}`);
+    assert.equal(await fallback.locator('.lab-product-link').getAttribute('href'),'https://quantumbranding.ai');
+    assert.equal(await fallback.locator('.career-proof a[href^="https://artsandculture.google.com/"]').count(),1);
+    assert.equal(await fallback.locator('.client-voices figure').count(),3);
+    assert.equal(await fallback.locator('.history-list>div').count(),3);
+    assert.equal(await fallback.locator('.research-list>div').count(),4);
+    assert.equal(await fallback.locator('.career-proof a[href="#selected-history"]').count(),1);
+  } finally { await noScript.close(); }
   assert.deepEqual(errors,[]);
   console.log('PASS: EN/FR layouts at eight widths, all six tool dialogs, keyboard focus containment/restoration, box controls, accordions, safe brief rendering, download, edit, bilingual persistence, navigation, server access controls, four process states, process keyboard navigation, case panels, formats, live reduced-motion preference and no runtime errors.');
 } finally { await browser.close(); }

@@ -7,7 +7,7 @@ await mkdir(output,{recursive:true});
 const page=await browser.newPage({reducedMotion:'reduce'});
 const report=[];
 try {
-await page.goto('http://localhost:3000',{waitUntil:'networkidle'});
+await page.goto(process.env.BASE_URL || 'http://localhost:3000',{waitUntil:'networkidle'});
 await page.evaluate(()=>document.fonts.ready);
 for(const lang of ['en','fr']) {
  if(await page.locator('html').getAttribute('lang')!==lang) await page.locator('#language').click();
@@ -16,7 +16,7 @@ for(const lang of ['en','fr']) {
   await page.evaluate(()=>window.scrollTo(0,0));
   const geometry=await page.evaluate(()=> {
     const bad=[];
-    for(const el of document.querySelectorAll('h1,h2,h3,p,.instrument,.hero-invitation,.box-note,.process-tabs button')) {
+    for(const el of document.querySelectorAll('h1,h2,h3,p,dt,dd,figcaption,.evidence-label,.research-list a,.instrument,.hero-invitation,.box-note,.process-tabs button')) {
       if(!el.getClientRects().length) continue;
       const r=el.getBoundingClientRect();
       if(r.left < -1 || r.right > innerWidth+1 || el.scrollWidth>el.clientWidth+2) bad.push({tag:el.tagName,text:el.textContent.slice(0,70),left:r.left,right:r.right,scroll:el.scrollWidth,client:el.clientWidth});
