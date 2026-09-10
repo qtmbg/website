@@ -22,7 +22,7 @@ const strip = html => String(html)
 
 const kicker = (basePath, lang) => {
   const fr = lang === 'fr';
-  if (basePath === '/') return fr ? 'Pratique indépendante · Marrakech' : 'Independent practice · Marrakech';
+  if (basePath === '/') return fr ? 'Pratique indépendante' : 'Independent practice';
   if (basePath.startsWith('/thinking/')) return fr ? 'Un texte de la pratique' : 'An essay from the practice';
   if (basePath.startsWith('/work/')) return fr ? 'Le travail' : 'The work';
   if (basePath.startsWith('/lab/')) return 'Quantum Lab';

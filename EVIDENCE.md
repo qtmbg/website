@@ -78,3 +78,21 @@ The single-page site was replaced by a static bilingual generator. No factual cl
 - **Product naming**: the product at quantumbranding.ai is referred to as BrandOS by Quantum Branding. That repository was not modified.
 
 Deployment of this version to thequantumbranding.com was authorised by the owner.
+
+---
+
+## Addendum — 10 September 2026: content pass
+
+Copy only. No style, colour, typography, layout or animation was changed.
+
+Two earlier instructions were deliberately reversed by the owner:
+
+- **Contact address**: `me@qtmbg.com` → `nizzar@thequantumbranding.com`. This returns to the address specified in §1 of the redesign spec.
+- **Geography**: the spec (§6.4) asked for Marrakech and the served countries on `/about` and in the JSON-LD. The owner now requires no location anywhere. Removed from the footer, `/about`, `/notes`, the JSON-LD (`address`, `areaServed`), both brochures and all 38 sharing images. The word "African" survives only inside the proper name of the 1:54 fair.
+
+Placeholders now stand where the owner will supply facts. Nothing was invented to fill them:
+
+- **Testimonial attribution** — `[First Last] · [Role, Company] · [Year]`. The three quotes remain verbatim. The source platform is no longer named anywhere; `/notes` records that the excerpts come from public client reviews held in the practice's source archive, and reproduces the English originals with their source handles.
+- **Selvaggi and Verne Jewels** — `[TO REWRITE — situation, decision, result]`. The previously documented scope lines are retained as `meta` and used for `<title>`, meta description, Open Graph and the brochure, so a placeholder never reaches a search snippet or a document sent to a prospect.
+
+The claim "Work I contributed to across seventeen years, as an individual" was replaced by the owner's exact wording, "Work I did before this practice existed." The seventeen-year figure remains on `/about`, still founder-reported and still labelled as such in `/notes`.

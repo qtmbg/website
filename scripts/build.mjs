@@ -57,7 +57,7 @@ function footer(lang) {
   return `<footer class="site-footer">
 <p class="footer-author">Quantum Branding<br>Nizzar Ben Chekroune</p>
 <nav aria-label="${t('Footer navigation', 'Navigation de pied de page')}">${links}</nav>
-<p>${t('An independent practice. Marrakech, working across France, Morocco and the United States.', 'Une pratique indépendante. Marrakech, entre France, Maroc et États-Unis.')}<br><a href="mailto:${contactEmail}">${contactEmail}</a></p>
+<p>${t('The independent practice of Nizzar Ben Chekroune. In English and French.', 'La pratique indépendante de Nizzar Ben Chekroune. En anglais et en français.')}<br><a href="mailto:${contactEmail}">${contactEmail}</a></p>
 <p><a href="https://nizzar.com">nizzar.com</a> · <a href="https://quantumbranding.ai">BrandOS</a><br><small>© ${new Date().getFullYear()} Quantum Branding · <a href="${route('/notes', lang)}">${t('Notes & sources', 'Notes et sources')}</a></small></p>
 </footer>`;
 }
@@ -82,7 +82,6 @@ const person = {
   jobTitle: 'Independent brand and business practitioner',
   url: 'https://nizzar.com',
   worksFor: { '@id': `${origin}/#practice` },
-  address: { '@type': 'PostalAddress', addressLocality: 'Marrakech', addressCountry: 'MA' },
   sameAs: [
     'https://nizzar.com',
     'https://www.linkedin.com/in/nizzarbenchekroune',
@@ -97,12 +96,6 @@ const practice = {
   url: origin,
   email: contactEmail,
   founder: { '@id': `${origin}/#nizzar` },
-  address: { '@type': 'PostalAddress', addressLocality: 'Marrakech', addressCountry: 'MA' },
-  areaServed: [
-    { '@type': 'Country', name: 'France' },
-    { '@type': 'Country', name: 'Morocco' },
-    { '@type': 'Country', name: 'United States' }
-  ],
   knowsLanguage: ['en', 'fr'],
   slogan: 'Making got cheap. Deciding didn’t.'
 };

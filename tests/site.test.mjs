@@ -102,7 +102,7 @@ test('the site says how scope and price are settled instead of showing a scale',
 /* ---------------------------------------------------------------- contact */
 
 test('the contact address is visible and functional across the site', async () => {
-  assert.equal(contactEmail, 'me@qtmbg.com');
+  assert.equal(contactEmail, 'nizzar@thequantumbranding.com');
   for (const route of ['/', '/fr', '/start', '/fr/start', '/notes']) {
     assert.ok((await read(route)).includes(`mailto:${contactEmail}`), `${route} has no working contact`);
   }
@@ -116,7 +116,7 @@ test('French routes are French in the static HTML, with no JavaScript required',
   assert.match(html, /<html lang="fr">/);
   assert.match(html, /Créer coûte moins/);
   assert.match(html, /Bien décider reste rare/);
-  assert.match(html, /Une pratique indépendante pour les entreprises/);
+  assert.match(html, /Pour les entreprises qui ont quelque chose d’important/);
   const withoutScripts = html.replace(/<script[\s\S]*?<\/script>/g, '');
   assert.match(withoutScripts, /Que faut-il changer/);
   assert.match(await read('/fr/practice/method'), /Observer/);
@@ -227,15 +227,55 @@ test('the product is called BrandOS on the practice site', async () => {
   assert.match(lab, /by Quantum Branding/);
 });
 
-test('Fiverr is named only in the notes page', async () => {
-  for (const file of (await walk(dist)).filter(f => /\.(html|xml|txt|svg)$/.test(f))) {
-    const relative = '/' + path.relative(dist, file).split(path.sep).join('/');
-    const mentions = /fiverr/i.test(await readFile(file, 'utf8'));
-    const allowed = relative === '/notes.html' || relative === '/fr/notes.html';
-    assert.ok(!mentions || allowed, `${relative} mentions Fiverr`);
+test('the review platform is named nowhere', async () => {
+  for (const file of [...(await walk(dist)), ...(await walk(path.join(root, 'src'))), ...(await walk(path.join(root, 'scripts')))]) {
+    if (!/\.(html|xml|txt|svg|mjs|js|css)$/.test(file)) continue;
+    assert.equal(/fiverr/i.test(await readFile(file, 'utf8')), false, `${path.relative(root, file)} names the platform`);
   }
-  assert.match(await read('/notes'), /Fiverr/);
-  assert.equal((await read('/work')).match(/fiverr\.com/i), null);
+});
+
+test('no location is claimed anywhere', async () => {
+  // "African" is allowed: it belongs to the proper name of the 1:54 fair.
+  const banned = /marrakech|morocco|maroc\b|united states|états-unis|guadeloupe|\bcanada\b|\bfrance\b|based in|working from|working across|addressLocality|areaServed/i;
+  const files = [
+    ...(await walk(dist)).filter(f => /\.(html|xml|txt|svg|css|js)$/.test(f)),
+    ...(await walk(path.join(root, 'src'))),
+    ...(await walk(path.join(root, 'scripts')))
+  ];
+  for (const file of files) {
+    const hit = (await readFile(file, 'utf8')).match(banned);
+    assert.equal(hit, null, `${path.relative(root, file)} claims a location: ${hit?.[0]}`);
+  }
+});
+
+test('“we” appears only where it means the client and me', async () => {
+  const allowed = [/We can work out the right starting point together/, /we talk/,
+    /Nous trouverons ensemble/, /nous définirons ensemble/, /nous explicitons/];
+  for (const file of (await walk(dist)).filter(f => f.endsWith('.html'))) {
+    const text = (await readFile(file, 'utf8')).replace(/<script[\s\S]*?<\/script>/g, '');
+    for (const [phrase] of text.matchAll(/\b(?:we|us|our)\b[^<.!?]{0,60}/gi)) {
+      assert.ok(allowed.some(ok => ok.test(phrase)),
+        `${path.relative(dist, file)} uses a collective pronoun for the practice: "${phrase.trim()}"`);
+    }
+  }
+});
+
+test('placeholders awaiting the owner are exactly the expected ones', async () => {
+  const found = [];
+  for (const file of (await walk(dist)).filter(f => f.endsWith('.html'))) {
+    const text = (await readFile(file, 'utf8')).replace(/<script[\s\S]*?<\/script>/g, '');
+    for (const [hit] of text.matchAll(/\[[^\]]{3,60}\]/g)) {
+      found.push(`${path.relative(dist, file)} → ${hit}`);
+    }
+  }
+  const kinds = new Set(found.map(f => f.split('→ ')[1]));
+  assert.deepEqual([...kinds].sort(), [
+    '[First Last]', '[Role, Company]', '[Year]',
+    '[Prénom Nom]', '[Rôle, Entreprise]', '[Année]',
+    '[TO REWRITE — situation, decision, result]',
+    '[À RÉÉCRIRE — situation, décision, résultat]'
+  ].sort(), `unexpected placeholder set:\n${[...kinds].join('\n')}`);
+  console.log(`    (${found.length} placeholder slots awaiting the owner, across ${new Set(found.map(f => f.split(' →')[0])).size} pages)`);
 });
 
 test('defensive qualifications and the retired visual furniture are gone', async () => {

@@ -84,7 +84,7 @@ export function brochure(lang) {
   const i = fr ? 1 : 0;
   const chrome = (kicker, n) => ({
     top: `<div class="top"><span class="wordmark">QUANTUM<b>BRANDING</b></span><span class="kicker">${esc(kicker)}</span></div>`,
-    foot: `<div class="foot"><span>${t('Quantum Branding · Nizzar Ben Chekroune · Marrakech', 'Quantum Branding · Nizzar Ben Chekroune · Marrakech')}</span><span>thequantumbranding.com · ${n}</span></div>`
+    foot: `<div class="foot"><span>Quantum Branding · Nizzar Ben Chekroune</span><span>thequantumbranding.com · ${n}</span></div>`
   });
 
   const p2 = chrome(t('The practice', 'La pratique'), '02');
@@ -95,7 +95,7 @@ export function brochure(lang) {
   return `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><style>${styles}</style></head><body>
 
 <section class="sheet cover">
-  <div class="top"><span class="wordmark">QUANTUM<b>BRANDING</b></span><span class="kicker">${t('Independent practice · Marrakech', 'Pratique indépendante · Marrakech')}</span></div>
+  <div class="top"><span class="wordmark">QUANTUM<b>BRANDING</b></span><span class="kicker">${t('Independent practice', 'Pratique indépendante')}</span></div>
   <div>
     <h1>${t('Making got cheap.<br><em>Deciding didn’t.</em>', 'Créer coûte moins.<br><em>Bien décider reste rare.</em>')}</h1>
     <p class="lede">${t('An independent practice for companies with something important to improve, launch, rethink or build.', 'Une pratique indépendante pour les entreprises qui ont quelque chose d’important à améliorer, lancer, repenser ou construire.')}</p>
@@ -104,7 +104,7 @@ export function brochure(lang) {
   <div class="signature">
     <strong>Nizzar Ben Chekroune</strong><br>
     ${t('Founder, Quantum Branding', 'Fondateur, Quantum Branding')}<br>
-    ${t('Marrakech · France, Morocco, United States · English &amp; French', 'Marrakech · France, Maroc, États-Unis · Anglais et français')}<br>
+    ${t('English &amp; French', 'Anglais et français')}<br>
     <a href="mailto:${contactEmail}" style="color:#d94c32;text-decoration:none">${contactEmail}</a> · thequantumbranding.com
   </div>
 </section>
@@ -144,11 +144,11 @@ export function brochure(lang) {
   <div style="padding-top:9mm">
     <h2 class="title">${t('Decisions leave traces.', 'Les choix laissent des traces.')}</h2>
     <p class="standfirst">${t('The scope, the decisions and the work they produce.', 'Le périmètre, les décisions et le travail qui en découle.')}</p>
-    <div class="rows">${cases.map(c => `<div class="row"><div><h3>${esc(c.name)}</h3><p class="note">${esc(c.type[i])}</p></div><div><p>${esc(c.summary[i])}</p><p class="note">${esc(c.fact[i])}</p></div></div>`).join('')}</div>
+    <div class="rows">${cases.map(c => `<div class="row"><div><h3>${esc(c.name)}</h3><p class="note">${esc(c.type[i])}</p></div><div><p>${esc((c.meta||c.summary)[i])}</p><p class="note">${esc(c.fact[i])}</p></div></div>`).join('')}</div>
     <h3 style="font-size:9pt;letter-spacing:.06em;color:#666158;margin-top:9mm;font-weight:500">${t('BEFORE THIS PRACTICE', 'AVANT CETTE PRATIQUE')}</h3>
     <p class="small" style="margin-top:2mm">${t('Work I contributed to across seventeen years, as an individual.', 'Des travaux auxquels j’ai contribué à titre individuel au fil de dix-sept ans.')}</p>
     <div class="rows">${references.map(r => `<div class="row"><h3>${esc(r[0])}</h3><p>${esc(t(r[1], r[2]))}</p></div>`).join('')}</div>
-    <div class="quotes">${reviews.slice(0, 2).map(r => `<figure><blockquote>“${esc(fr ? r.fr : r.en)}”</blockquote><figcaption>${esc(r.name)} · ${esc(r.country[i])}</figcaption></figure>`).join('')}</div>
+    <div class="quotes">${reviews.slice(0, 2).map(r => `<figure><blockquote>“${esc(fr ? r.fr : r.en)}”</blockquote><figcaption>${esc(r.attribution[i])}</figcaption></figure>`).join('')}</div>
   </div>
   ${p4.foot}
 </section>
