@@ -62,3 +62,19 @@ The existing working brief formatter remains an instrument, local-only and deter
 ## Validation boundaries
 
 Automated unit, Chrome EN/FR responsive and screenshot geometry checks are recorded in the final task report. Screenshots require visual inspection and are not a pixel-baseline comparison. This is not an accessibility certification, cross-browser audit, mailbox delivery test or product transaction test. Human French editorial review and legal review remain advisable before a separately authorized release.
+---
+
+## Addendum — 10 September 2026: multi-page rebuild
+
+The single-page site was replaced by a static bilingual generator. No factual claim was added, changed or extended in the process. Specifically:
+
+- **Historical references** (UNIDO / La Minute Creative, Audi / Driven by Art, Diptyk) were rewritten to the active first person, as the spec requires, without adding dates, deliverables, results or client authorisations. `/notes` states that dates for individual historical projects remain to be documented.
+- **Client words** keep the three public handles and countries already recorded above. Full names, roles and years are still unconfirmed and are therefore still absent. The provenance sentence moved to `/notes`, once, for all three excerpts. French versions are marked as translations with the English original available beside each.
+- **Cases**: Selvaggi and Verne Jewels document scope and role only — no outcome is claimed. The Quantum Branding case is the one complete `Observe / Collapse / Build / Hold` record, and its verifiable fact is a property of this website, observable by anyone.
+- **Seventeen years** remains founder-reported and is labelled as such in `/notes`.
+- **Trademark**: registration is still unverified, so the name is displayed without a registration symbol.
+- **Prices**: removed entirely from the site, its metadata, the generated files and both brochures. The site states only that scope and price are defined after a conversation.
+- **Contact**: me@qtmbg.com, as instructed by the owner. This supersedes the address suggested in the redesign spec.
+- **Product naming**: the product at quantumbranding.ai is referred to as BrandOS by Quantum Branding. That repository was not modified.
+
+Deployment of this version to thequantumbranding.com was authorised by the owner.

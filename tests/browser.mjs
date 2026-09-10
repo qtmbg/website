@@ -1,182 +1,174 @@
+// End-to-end checks in Chrome against a running server (BASE_URL).
 import { chromium } from '@playwright/test';
 import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
-import { territories, processSteps, siteConfig, french } from '../app.js';
+import { contactEmail } from '../src/shared.mjs';
 
-const browser = await chromium.launch({ channel:'chrome', headless:true });
-const output = new URL('../test-results/',import.meta.url).pathname;
-await mkdir(output,{recursive:true});
-const page = await browser.newPage({viewport:{width:1440,height:1000}, reducedMotion:'reduce'});
-const errors=[];
-page.on('pageerror',error=>errors.push(error.message));
+const base = (process.env.BASE_URL || 'http://localhost:3017').replace(/\/$/, '');
+const output = new URL('../test-results/', import.meta.url).pathname;
+await mkdir(output, { recursive: true });
+
+const routes = [
+  '/', '/practice', '/practice/method', '/work', '/work/quantum-branding',
+  '/thinking', '/thinking/the-collapse', '/lab', '/lab/the-brief-before-the-brief',
+  '/about', '/start', '/notes'
+];
+const all = [...routes, ...routes.map(r => (r === '/' ? '/fr' : `/fr${r}`))];
+
+const browser = await chromium.launch({ channel: 'chrome', headless: true });
+const problems = [];
+const checked = [];
+
+function watch(page, label) {
+  page.on('pageerror', error => problems.push(`${label}: page error — ${error.message}`));
+  page.on('console', message => {
+    if (message.type() === 'error') problems.push(`${label}: console — ${message.text()}`);
+  });
+  page.on('requestfailed', request => {
+    if (request.url().startsWith(base)) problems.push(`${label}: failed request — ${request.url()}`);
+  });
+}
+
 try {
-  await page.goto(process.env.BASE_URL || 'http://localhost:3000',{waitUntil:'networkidle'});
-  await page.evaluate(()=>document.fonts.ready);
-  assert.equal(await page.locator('.instrument').count(),6);
-  await page.screenshot({path:`${output}desktop.png`,fullPage:true});
-  await page.locator('[data-territory="brand"]').first().click();
-  await page.locator('#detail-dialog[open]').waitFor();
-  assert.match(await page.locator('#dialog-title').textContent(),/Brand/);
-  await page.keyboard.press('Escape');
-  assert.equal(await page.locator('.instrument-0').evaluate(el=>el===document.activeElement),true);
-  await page.locator('#box-toggle').click();
-  assert.equal(await page.locator('#box-toggle').getAttribute('aria-expanded'),'false');
-  assert.equal(await page.locator('#instruments').evaluate(el=>el.inert),true);
-  await page.locator('#box-toggle').click();
-  await page.locator('[data-accordion="systems"]').click();
-  assert.equal(await page.locator('#territory-systems').isVisible(),true);
-  await page.locator('#lab-brief').click();
-  await page.locator('[name="company"]').fill('Acme Test');
-  await page.locator('[name="change"]').fill('<script>alert("test")</script> Rebuild the website');
-  await page.locator('[name="result"]').fill('Make the offer clear');
-  await page.locator('[name="contact"]').fill('person@example.com');
-  await page.locator('#brief-form [type="submit"]').click();
-  assert.match(await page.locator('.brief-result').textContent(),/<script>alert/);
-  assert.equal(await page.locator('.brief-result script').count(),0);
-  const draft = new URL(await page.locator('.brief-actions a[href^="mailto:"]').getAttribute('href'));
-  assert.equal(decodeURIComponent(draft.pathname),siteConfig.contactEmail);
-  assert.equal(draft.searchParams.get('body'),await page.locator('.brief-result').textContent());
-  assert.match(draft.searchParams.get('subject'),/Quantum Branding/);
-  const downloadPromise = page.waitForEvent('download');
-  await page.locator('#download-brief').click();
-  const download = await downloadPromise;
-  assert.equal(download.suggestedFilename(),'quantum-brief-en.txt');
-  await page.locator('#edit-brief').click();
-  assert.equal(await page.locator('[name="company"]').inputValue(),'Acme Test');
-  await page.keyboard.press('Escape');
-  await page.locator('#language').click();
-  assert.equal(await page.locator('html').getAttribute('lang'),'fr');
-  assert.match(await page.locator('h1').textContent(),/Mieux/);
-  await page.locator('[data-start="project"]').click();
-  assert.match(await page.locator('#dialog-title').textContent(),/Dites-nous/);
-  await page.keyboard.press('Escape');
-  await page.reload({waitUntil:'networkidle'});
-  assert.equal(await page.locator('html').getAttribute('lang'),'fr');
-  await page.screenshot({path:`${output}desktop-fr.png`,fullPage:true});
-  await page.locator('#language').click();
-  for(const language of ['en','fr']) {
-  if(await page.locator('html').getAttribute('lang')!==language) await page.locator('#language').click();
-  assert.equal(await page.locator('[data-contact-link]').getAttribute('href'),`mailto:${siteConfig.contactEmail}`);
-  assert.equal(await page.locator('[data-i18n="productLive"]').textContent(),language==='en'?'LIVE':'EN LIGNE');
-  const missingTranslations = await page.locator('[data-i18n]').evaluateAll(elements=>elements.filter(el=>!el.textContent.trim() || el.textContent==='undefined').map(el=>el.dataset.i18n));
-  assert.deepEqual(missingTranslations,[]);
-  assert.equal(await page.locator('.client-voices figure').count(),3);
-  assert.equal(await page.locator('.history-list>div').count(),3);
-  assert.equal(await page.locator('.research-list>div').count(),4);
-  assert.equal(await page.locator('#signal-scan a').getAttribute('href'),'https://app.quantumbranding.ai/signal-scan.html');
-  assert.match(await page.locator('#founder-toolbox').textContent(),language==='en'?/PRODUCT · IN DEVELOPMENT/:/PRODUIT · EN DÉVELOPPEMENT/);
-  assert.match(await page.locator('#the-mirror').textContent(),language==='en'?/EXPERIMENT/:/EXPÉRIENCE/);
-  for(const [handle,key] of [['elvinpicardo','quoteUnderstanding'],['tisasen','quoteExecution'],['shelahj','quoteJudgment']]) {
-    const voice = page.locator(`[data-review="${handle}"]`);
-    assert.equal(await voice.locator('figcaption a').getAttribute('href'),'https://www.fiverr.com/nizzar');
-    if(language==='fr') {
-      assert.equal(await voice.locator('blockquote p').textContent(),french[key]);
-      await voice.locator('summary').click();
-      assert.equal(await voice.locator('details p[lang="en"]').isVisible(),true);
-      await voice.locator('summary').click();
-    } else assert.equal(await voice.locator('details').isVisible(),false);
-  }
-  await page.locator('[data-case="quantum"]').click();
-  assert.equal(await page.locator('#dialog-content a[href="https://quantumbranding.ai"]').count(),1);
-  assert.match(await page.locator('#dialog-content').textContent(),language==='en'?/Born in Quantum Lab/:/Né au sein de Quantum Lab/);
-  await page.keyboard.press('Escape');
-  await page.locator('[data-start="project"]').click();
-  assert.equal(await page.locator('.direct-email a').getAttribute('href'),`mailto:${siteConfig.contactEmail}`);
-  await page.locator('[name="change"]').fill('Clarifier & construire');
-  await page.locator('[name="result"]').fill('Un départ précis');
-  await page.locator('#brief-form [type="submit"]').click();
-  const bilingualDraft = new URL(await page.locator('.brief-actions a').getAttribute('href'));
-  assert.equal(bilingualDraft.searchParams.get('body'),await page.locator('.brief-result').textContent());
-  assert.match(bilingualDraft.searchParams.get('subject'),language==='en'?/Something to change/:/Quelque chose à changer/);
-  await page.keyboard.press('Escape');
-  for(const width of [375,390,540,541,768,1024,1440,1920]) {
-    await page.setViewportSize({width,height:900});
-    await page.evaluate(()=>window.scrollTo(0,0));
-    const overflow = await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
-    assert.equal(overflow,false,`Horizontal overflow at ${width}px (${language})`);
-    for(const [index,territory] of territories.entries()) {
-      const tool=page.locator(`.instrument-${index}`);
-      const bounds=await tool.boundingBox();
-      assert.ok(bounds.x>=0 && bounds.x+bounds.width<=width,`Tool ${territory.id} outside ${width}px (${language})`);
-      await tool.click();
-      assert.equal(await page.locator('#dialog-title').textContent(),territory[language].name);
-      await page.keyboard.press('Shift+Tab');
-      assert.equal(await page.evaluate(()=>document.activeElement.closest('#detail-dialog')!==null),true);
-      await page.keyboard.press('Tab');
-      assert.equal(await page.locator('.dialog-close').evaluate(el=>el===document.activeElement),true);
-      await page.keyboard.press('Escape');
-      assert.equal(await tool.evaluate(el=>el===document.activeElement),true);
-    }
-    if(width===390) {
-      await page.screenshot({path:`${output}${language==='en'?'mobile':'mobile-fr'}.png`,fullPage:true});
-      await page.locator('#menu-toggle').click();
-      assert.equal(await page.locator('#mobile-nav').isVisible(),true);
-      await page.locator('#mobile-nav a[href="#lab"]').click();
-      assert.equal(await page.locator('#mobile-nav').isVisible(),false);
-      await page.locator('#lab-brief').click();
-      assert.equal(await page.locator('#brief-form').isVisible(),true);
-      await page.keyboard.press('Escape');
-    }
-  }
-  }
-  // The four-stage workbench keeps its state on language change, supports keyboard
-  // navigation and points to real next steps, including under reduced motion.
-  await page.setViewportSize({width:1440,height:1000});
-  for(const language of ['en','fr']) {
-    if(await page.locator('html').getAttribute('lang')!==language) await page.locator('#language').click();
-    for(const [index,step] of processSteps.entries()) {
-      await page.locator(`#step-${index}`).click();
-      assert.equal(await page.locator('#process-title').textContent(),step[language].title);
-      assert.equal(await page.locator('#process-link').getAttribute('href'),step.href);
-      assert.equal(await page.locator('#process-panel').getAttribute('aria-labelledby'),`step-${index}`);
-      assert.equal(await page.locator('[data-process-step][aria-selected="true"]').count(),1);
-      assert.equal(await page.locator('[data-process-step][tabindex="0"]').count(),1);
-    }
-    await page.locator('#step-3').press('ArrowRight');
-    assert.equal(await page.locator('#step-0').evaluate(el=>el===document.activeElement),true);
-    await page.locator('#step-0').press('End');
-    assert.equal(await page.locator('#step-3').getAttribute('aria-selected'),'true');
-    await page.locator('#step-3').press('Home');
-    await page.locator('#step-0').press('ArrowLeft');
-    assert.equal(await page.locator('#step-3').evaluate(el=>el===document.activeElement),true);
-  }
-  await page.locator('#language').click();
-  assert.equal(await page.locator('#step-3').getAttribute('aria-selected'),'true');
-  assert.equal(await page.locator('#process-title').textContent(),processSteps[3].en.title);
-  for(const id of ['selvaggi','verne','quantum']) {
-    await page.locator(`[data-case="${id}"]`).click();
-    assert.equal(await page.locator('#detail-dialog').isVisible(),true);
-    await page.keyboard.press('Escape');
-  }
-  await page.locator('#privacy-button').click();
-  assert.match(await page.locator('#dialog-title').textContent(),/Privacy/);
-  await page.keyboard.press('Escape');
-  await page.locator('.formats summary').click();
-  assert.equal(await page.locator('.format-grid').isVisible(),true);
-  await page.locator('.formats summary').click();
-  await page.emulateMedia({reducedMotion:'no-preference'});
-  await page.waitForFunction(()=>document.querySelector('#motion-toggle').getAttribute('aria-pressed')==='false');
-  assert.equal(await page.locator('#motion-toggle').getAttribute('aria-pressed'),'false');
-  await page.locator('#motion-toggle').click();
-  assert.equal(await page.locator('#motion-toggle').getAttribute('aria-pressed'),'true');
-  await page.emulateMedia({reducedMotion:'reduce'});
-  assert.equal(await page.locator('body').evaluate(el=>el.classList.contains('motion-paused')),true);
-  assert.equal(await page.locator('.ticker>div').evaluate(el=>getComputedStyle(el).animationName),'none');
+  /* ---------------------------------------------- every route, two widths */
+  for (const [width, height, tag] of [[1440, 1000, 'desktop'], [380, 780, 'mobile']]) {
+    const page = await browser.newPage({ viewport: { width, height }, reducedMotion: 'reduce' });
+    for (const route of all) {
+      watch(page, `${tag} ${route}`);
+      const response = await page.goto(base + route, { waitUntil: 'networkidle' });
+      assert.equal(response.status(), 200, `${route} returned ${response.status()}`);
+      await page.evaluate(() => document.fonts.ready);
 
-  const response=await page.request.get(`${process.env.BASE_URL || 'http://localhost:3000'}/package.json`);
-  assert.equal(response.status(),404);
-  const noScript = await browser.newContext({javaScriptEnabled:false});
-  try {
-    const fallback = await noScript.newPage();
-    await fallback.goto(process.env.BASE_URL || 'http://localhost:3000');
-    assert.equal(await fallback.locator('[data-contact-link]').getAttribute('href'),`mailto:${siteConfig.contactEmail}`);
-    assert.equal(await fallback.locator('.lab-product-link').getAttribute('href'),'https://quantumbranding.ai');
-    assert.equal(await fallback.locator('.career-proof a[href^="https://artsandculture.google.com/"]').count(),1);
-    assert.equal(await fallback.locator('.client-voices figure').count(),3);
-    assert.equal(await fallback.locator('.history-list>div').count(),3);
-    assert.equal(await fallback.locator('.research-list>div').count(),4);
-    assert.equal(await fallback.locator('.career-proof a[href="#selected-history"]').count(),1);
-  } finally { await noScript.close(); }
-  assert.deepEqual(errors,[]);
-  console.log('PASS: EN/FR layouts at eight widths, all six tool dialogs, keyboard focus containment/restoration, box controls, accordions, safe brief rendering, download, edit, bilingual persistence, navigation, server access controls, four process states, process keyboard navigation, case panels, formats, live reduced-motion preference and no runtime errors.');
-} finally { await browser.close(); }
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
+      if (overflow > 1) problems.push(`${route} @${window?.innerWidth ?? width}px: document overflows by ${overflow}px`);
+
+      const lang = await page.locator('html').getAttribute('lang');
+      assert.equal(lang, route.startsWith('/fr') ? 'fr' : 'en', `${route}: wrong lang attribute`);
+      assert.ok((await page.locator('h1').count()) >= 1, `${route}: no h1`);
+      assert.equal(await page.locator('.site-header .contact-link').count(), 1, `${route}: no persistent CTA`);
+      checked.push(`${tag} ${route}`);
+    }
+    await page.close();
+  }
+
+  /* ------------------------------------------------------- mobile hero fit */
+  const phone = await browser.newPage({ viewport: { width: 380, height: 780 }, reducedMotion: 'reduce' });
+  watch(phone, 'mobile hero');
+  for (const route of ['/', '/fr']) {
+    await phone.goto(base + route, { waitUntil: 'networkidle' });
+    await phone.evaluate(() => document.fonts.ready);
+    const fits = await phone.evaluate(() => {
+      const cta = document.querySelector('.hero .button').getBoundingClientRect();
+      const h1 = document.querySelector('.hero h1').getBoundingClientRect();
+      return { bottom: Math.round(cta.bottom), viewport: innerHeight, top: Math.round(h1.top) };
+    });
+    assert.ok(fits.bottom <= fits.viewport,
+      `${route}: hero CTA sits at ${fits.bottom}px, below the ${fits.viewport}px fold`);
+    assert.ok(fits.top >= 0, `${route}: hero headline starts above the fold`);
+  }
+
+  /* ------------------------------------------------------------ mobile menu */
+  await phone.goto(base + '/', { waitUntil: 'networkidle' });
+  const toggle = phone.locator('.menu-toggle');
+  await toggle.click();
+  assert.equal(await toggle.getAttribute('aria-expanded'), 'true');
+  assert.equal(await phone.locator('#site-nav').isVisible(), true, 'mobile menu did not open');
+  await phone.keyboard.press('Escape');
+  assert.equal(await toggle.getAttribute('aria-expanded'), 'false');
+  await toggle.click();
+  await phone.locator('#site-nav a', { hasText: 'Work' }).click();
+  await phone.waitForURL('**/work');
+  assert.equal(await toggle.getAttribute('aria-expanded'), 'false', 'menu stayed open after navigating');
+  await phone.screenshot({ path: `${output}mobile.png`, fullPage: false });
+  await phone.goto(base + '/fr', { waitUntil: 'networkidle' });
+  await phone.screenshot({ path: `${output}mobile-fr.png`, fullPage: false });
+  await phone.close();
+
+  /* -------------------------------------------------------- language switch */
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'reduce' });
+  watch(page, 'desktop flows');
+  await page.goto(base + '/practice/method', { waitUntil: 'networkidle' });
+  await page.locator('.language-link').click();
+  await page.waitForURL('**/fr/practice/method');
+  assert.equal(await page.locator('html').getAttribute('lang'), 'fr');
+  assert.match(await page.locator('.method-grid h3').first().textContent(), /Observe/);
+  await page.locator('.language-link').click();
+  await page.waitForURL(url => url.pathname === '/practice/method');
+  assert.equal(await page.locator('html').getAttribute('lang'), 'en');
+
+  /* ------------------------------------------------- downloadable artefacts */
+  for (const [selector, filename] of [
+    ['a[href="/assets/the-collapse-en.svg"]', 'the-collapse-en.svg']
+  ]) {
+    const wait = page.waitForEvent('download');
+    await page.locator(selector).first().click();
+    assert.equal((await wait).suggestedFilename(), filename);
+  }
+  for (const url of ['/downloads/quantum-branding-brochure-en.pdf', '/downloads/quantum-branding-brochure-fr.pdf']) {
+    const response = await page.request.get(base + url);
+    assert.equal(response.status(), 200, `${url} is not served`);
+    assert.equal(response.headers()['content-type'], 'application/pdf', `${url} wrong content type`);
+    assert.ok((await response.body()).length > 40_000, `${url} looks truncated`);
+  }
+
+  /* --------------------------------------------------------------- the brief */
+  await page.goto(base + '/lab/the-brief-before-the-brief', { waitUntil: 'networkidle' });
+  await page.context().grantPermissions(['clipboard-read', 'clipboard-write']);
+  const posts = [];
+  page.on('request', request => { if (request.method() !== 'GET') posts.push(request.url()); });
+
+  await page.locator('#brief-form [type="submit"]').click();
+  assert.equal(await page.locator('#brief-output').isVisible(), false, 'empty brief was accepted');
+
+  await page.locator('[name="company"]').fill('Acme Test');
+  await page.locator('[name="change"]').fill('<script>alert(1)</script> Rebuild the website');
+  await page.locator('[name="result"]').fill('An offer people understand');
+  await page.locator('#brief-form [type="submit"]').click();
+  await page.locator('#brief-output').waitFor({ state: 'visible' });
+
+  const brief = await page.locator('#brief-output pre').textContent();
+  assert.match(brief, /Rebuild the website/);
+  assert.match(brief, /<script>alert\(1\)<\/script>/, 'input should be shown literally');
+  assert.equal(await page.locator('#brief-output script').count(), 0, 'input was injected as markup');
+
+  await page.locator('#copy-brief').click();
+  assert.equal(await page.evaluate(() => navigator.clipboard.readText()), brief, 'copy did not match');
+
+  const download = page.waitForEvent('download');
+  await page.locator('#download-brief').click();
+  assert.equal((await download).suggestedFilename(), 'quantum-brief-en.txt');
+
+  const draft = new URL(await page.locator('[data-email-draft]').getAttribute('href'));
+  assert.equal(draft.protocol, 'mailto:');
+  assert.equal(decodeURIComponent(draft.pathname), contactEmail);
+  assert.match(draft.searchParams.get('body'), /Rebuild the website/);
+
+  await page.locator('#edit-brief').click();
+  assert.equal(await page.locator('[name="company"]').inputValue(), 'Acme Test', 'answers were lost');
+  assert.deepEqual(posts, [], `the page sent data on its own: ${posts.join(', ')}`);
+
+  // French edition of the same instrument
+  await page.goto(base + '/fr/lab/the-brief-before-the-brief', { waitUntil: 'networkidle' });
+  await page.locator('[name="change"]').fill('Repenser le site');
+  await page.locator('[name="result"]').fill('Une offre claire');
+  await page.locator('#brief-form [type="submit"]').click();
+  await page.locator('#brief-output').waitFor({ state: 'visible' });
+  assert.match(await page.locator('#brief-output pre').textContent(), /POINT DE DÉPART/);
+
+  await page.goto(base + '/', { waitUntil: 'networkidle' });
+  await page.screenshot({ path: `${output}desktop.png`, fullPage: true });
+  await page.goto(base + '/fr', { waitUntil: 'networkidle' });
+  await page.screenshot({ path: `${output}desktop-fr.png`, fullPage: true });
+  await page.close();
+
+  if (problems.length) {
+    console.error(problems.join('\n'));
+    assert.fail(`${problems.length} browser problem(s)`);
+  }
+  console.log(`PASS: ${checked.length} page loads across ${all.length} routes at 1440px and 380px.`);
+  console.log('PASS: no console errors, no page errors, no failed requests, no horizontal overflow.');
+  console.log('PASS: mobile menu, EN/FR switching, diagram + brochure downloads, brief copy/download/email draft.');
+  console.log('PASS: nothing is transmitted without the visitor acting.');
+} finally {
+  await browser.close();
+}

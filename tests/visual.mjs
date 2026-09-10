@@ -1,44 +1,69 @@
+// Geometry sweep: every route, both languages, six widths. No overflow allowed.
 import { chromium } from '@playwright/test';
-import { mkdir, writeFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
-const browser=await chromium.launch({channel:'chrome',headless:true});
-const output=new URL('../test-results/visual/',import.meta.url).pathname;
-await mkdir(output,{recursive:true});
-const page=await browser.newPage({reducedMotion:'reduce'});
-const report=[];
+import { mkdir, writeFile } from 'node:fs/promises';
+
+const base = (process.env.BASE_URL || 'http://localhost:3017').replace(/\/$/, '');
+const output = new URL('../test-results/visual/', import.meta.url).pathname;
+await mkdir(output, { recursive: true });
+
+const routes = ['/', '/practice', '/practice/method', '/work', '/work/quantum-branding',
+  '/thinking', '/thinking/the-collapse', '/lab', '/lab/the-brief-before-the-brief',
+  '/about', '/start', '/notes'];
+const widths = [375, 380, 390, 768, 1024, 1440, 1920];
+const shot = route => (route === '/' ? 'home' : route.replace(/^\//, '').replace(/\//g, '-'));
+
+const browser = await chromium.launch({ channel: 'chrome', headless: true });
+const report = [];
 try {
-await page.goto(process.env.BASE_URL || 'http://localhost:3000',{waitUntil:'networkidle'});
-await page.evaluate(()=>document.fonts.ready);
-for(const lang of ['en','fr']) {
- if(await page.locator('html').getAttribute('lang')!==lang) await page.locator('#language').click();
- for(const width of [375,390,768,1024,1440,1920]) {
-  await page.setViewportSize({width,height:1000});
-  await page.evaluate(()=>window.scrollTo(0,0));
-  const geometry=await page.evaluate(()=> {
-    const bad=[];
-    for(const el of document.querySelectorAll('h1,h2,h3,p,dt,dd,figcaption,.evidence-label,.research-list a,.instrument,.hero-invitation,.box-note,.process-tabs button')) {
-      if(!el.getClientRects().length) continue;
-      const r=el.getBoundingClientRect();
-      if(r.left < -1 || r.right > innerWidth+1 || el.scrollWidth>el.clientWidth+2) bad.push({tag:el.tagName,text:el.textContent.slice(0,70),left:r.left,right:r.right,scroll:el.scrollWidth,client:el.clientWidth});
+  const page = await browser.newPage({ reducedMotion: 'reduce' });
+  for (const lang of ['en', 'fr']) {
+    for (const route of routes) {
+      const url = base + (lang === 'fr' ? (route === '/' ? '/fr' : `/fr${route}`) : route);
+      for (const width of widths) {
+        await page.setViewportSize({ width, height: 900 });
+        await page.goto(url, { waitUntil: 'networkidle' });
+        await page.evaluate(() => document.fonts.ready);
+        const geometry = await page.evaluate(() => {
+          const bad = [];
+          const selector = 'h1,h2,h3,h4,p,li,dt,dd,blockquote,figcaption,summary,label,'
+            + 'button,input,textarea,pre,.eyebrow,.status,.text-link,.button,.case-name,.essay-number';
+          for (const el of document.querySelectorAll(selector)) {
+            if (!el.getClientRects().length) continue;
+            const box = el.getBoundingClientRect();
+            if (box.left < -1 || box.right > innerWidth + 1 || el.scrollWidth > el.clientWidth + 2) {
+              bad.push({ tag: el.tagName, cls: el.className, text: el.textContent.trim().slice(0, 60),
+                left: Math.round(box.left), right: Math.round(box.right),
+                scroll: el.scrollWidth, client: el.clientWidth });
+            }
+          }
+          const hero = document.querySelector('.hero .button');
+          return {
+            viewport: innerWidth,
+            document: document.documentElement.scrollWidth,
+            heroFits: hero ? Math.round(hero.getBoundingClientRect().bottom) <= innerHeight : null,
+            bad
+          };
+        });
+        report.push({ lang, route, width, ...geometry });
+        if (width === 380 || width === 1440) {
+          await page.screenshot({ path: `${output}${lang}-${width}-${shot(route)}.png` });
+        }
+      }
     }
-    const invitation=document.querySelector('.hero-invitation').getBoundingClientRect();
-    for(const tool of document.querySelectorAll('.instrument')) {
-      const r=tool.getBoundingClientRect();
-      if(Math.min(r.right,invitation.right)>Math.max(r.left,invitation.left) && Math.min(r.bottom,invitation.bottom)>Math.max(r.top,invitation.top)) bad.push({text:tool.textContent,issue:'Tool overlaps the commercial invitation'});
-    }
-    return {width:innerWidth,document:document.documentElement.scrollWidth,bad};
-  });
-  report.push({lang,width,...geometry});
-  await page.screenshot({path:`${output}${lang}-${width}-hero.png`});
-  for(const id of ['intro','work','practice','lab','nizzar','start']) {
-    await page.locator(`#${id}`).screenshot({path:`${output}${lang}-${width}-${id}.png`});
   }
-  await page.locator('.site-footer').screenshot({path:`${output}${lang}-${width}-footer.png`});
- }
+  await writeFile(`${output}report.json`, JSON.stringify(report, null, 2));
+
+  const overflowing = report.filter(row => row.bad.length || row.document > row.viewport + 1);
+  const heroCut = report.filter(row => row.heroFits === false && row.width <= 390);
+  if (overflowing.length) console.error(JSON.stringify(overflowing.slice(0, 6), null, 2));
+  if (heroCut.length) console.error(JSON.stringify(heroCut, null, 2));
+  assert.equal(overflowing.length, 0, 'geometry violations: see test-results/visual/report.json');
+  assert.equal(heroCut.length, 0, 'the hero proposition does not fit the first screen on mobile');
+
+  console.log(`PASS: ${report.length} measurements — ${routes.length} routes × 2 languages × ${widths.length} widths.`);
+  console.log('PASS: no element or document overflows its viewport at any width.');
+  console.log('PASS: the full hero proposition fits the first screen at 375, 380 and 390px in both languages.');
+} finally {
+  await browser.close();
 }
-await writeFile(`${output}report.json`,JSON.stringify(report,null,2));
-const bad=report.filter(row=>row.bad.length||row.document>row.width);
-console.log(JSON.stringify(bad,null,2));
-assert.equal(bad.length,0,'Visual geometry violations: inspect test-results/visual/report.json');
-console.log('PASS: 12 EN/FR viewport combinations; 96 section screenshots; no overflowing headings, paragraphs, tool controls or page widths.');
-} finally {await browser.close();}
