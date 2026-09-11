@@ -6,7 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { articles } from '../src/articles.mjs';
 import { makePages } from '../src/pages.mjs';
-import { buildBrief, contactEmail, method, origin } from '../src/shared.mjs';
+import { buildBrief, cases, contactEmail, method, origin, publishTestimonials, reviews } from '../src/shared.mjs';
 import { brochure } from '../scripts/brochures.mjs';
 import { ogSlug } from '../scripts/meta.mjs';
 
@@ -44,7 +44,7 @@ test('every required English and French route is a real static file', async () =
 
 test('every case, essay and instrument has its own address in both languages', async () => {
   const extra = [
-    '/work/selvaggi', '/work/verne-jewels', '/work/quantum-branding',
+    '/work/selvaggi', '/work/verne-jewels',
     '/lab/signal-scan', '/lab/the-brief-before-the-brief',
     ...articles.map(a => `/thinking/${a.slug}`)
   ];
@@ -260,20 +260,52 @@ test('“we” appears only where it means the client and me', async () => {
   }
 });
 
-test('placeholders awaiting the owner are exactly the expected ones', async () => {
-  const found = [];
+test('no placeholder reaches the published HTML', async () => {
   for (const file of (await walk(dist)).filter(f => f.endsWith('.html'))) {
     const text = (await readFile(file, 'utf8')).replace(/<script[\s\S]*?<\/script>/g, '');
-    for (const [hit] of text.matchAll(/\[[^\]]{3,60}\]/g)) {
-      found.push(`${path.relative(dist, file)} → ${hit}`);
-    }
+    const hits = [...text.matchAll(/\[[^\]]{3,60}\]/g)].map(m => m[0]);
+    assert.deepEqual(hits, [], `${path.relative(dist, file)} still shows ${hits.join(', ')}`);
   }
-  const kinds = new Set(found.map(f => f.split('→ ')[1]));
-  assert.deepEqual([...kinds].sort(), [
-    '[First Last]', '[Role, Company]', '[Year]',
-    '[Prénom Nom]', '[Rôle, Entreprise]', '[Année]',
-  ].sort(), `unexpected placeholder set:\n${[...kinds].join('\n')}`);
-  console.log(`    (${found.length} placeholder slots awaiting the owner, across ${new Set(found.map(f => f.split(' →')[0])).size} pages)`);
+});
+
+test('the retired case is unreachable and unindexable', async () => {
+  assert.equal(cases.some(c => c.slug === 'quantum-branding'), false, 'the case is still in the data');
+  for (const route of ['/work/quantum-branding', '/fr/work/quantum-branding']) {
+    await assert.rejects(read(route), 'the page is still generated');
+  }
+  const sitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
+  assert.equal(/work\/quantum-branding/.test(sitemap), false, 'the sitemap still lists it');
+  for (const file of (await walk(dist)).filter(f => /\.(html|xml|txt)$/.test(f))) {
+    assert.equal(/work\/quantum-branding/.test(await readFile(file, 'utf8')), false,
+      `${path.relative(dist, file)} still links to it`);
+  }
+  assert.deepEqual((await read('/work')).match(/class="case-name">([^<]+)/g).map(m => m.split('>')[1]),
+    ['Selvaggi', 'Verne Jewels']);
+});
+
+test('its argument survives as an essay, with no client-project framing', async () => {
+  for (const [route, title] of [['/thinking/one-page-many-arguments', 'One page, many arguments'],
+                                ['/fr/thinking/one-page-many-arguments', 'Une page, plusieurs arguments']]) {
+    const html = await read(route);
+    assert.ok(html.includes(title), `${route}: title`);
+    assert.equal(/case|client work|projet client|projet de la pratique/i.test(
+      html.split('<article class="article-body')[1].split('</article>')[0]), false,
+      `${route}: the essay still frames itself as a project`);
+  }
+  assert.ok((await read('/thinking')).includes('One page, many arguments'), 'the index does not list it');
+});
+
+test('testimonials are withheld until attribution is confirmed', async () => {
+  assert.equal(publishTestimonials, false);
+  assert.equal(reviews.length, 3, 'the quotes must stay in the data');
+  for (const route of ['/work', '/fr/work']) {
+    const html = await read(route);
+    assert.equal(/<blockquote>/.test(html), false, `${route} still publishes quotes`);
+    assert.equal(/In clients|Ce que les clients/.test(html), false, `${route} still shows the section`);
+  }
+  // /notes keeps the sourcing record and the English originals.
+  const notes = await read('/notes');
+  for (const review of reviews) assert.ok(notes.includes(review.handle), `/notes lost ${review.handle}`);
 });
 
 test('defensive qualifications and the retired visual furniture are gone', async () => {

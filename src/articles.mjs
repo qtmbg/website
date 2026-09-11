@@ -294,6 +294,65 @@ export const articles = [
         ] }
       ]
     }
+  },
+  {
+    slug: 'one-page-many-arguments',
+    en: {
+      title: 'One page, many arguments',
+      description: 'What changes when every argument gets its own address instead of sharing one long page.',
+      standfirst: 'A single page can hold a great deal of thinking. It cannot let any of it travel. The structure of a publication decides what its arguments are allowed to do.',
+      date: '2026-09-11',
+      sections: [
+        { heading: 'A page is a container with one address', paragraphs: [
+          'A long page is an attractive way to publish. It reads as one continuous argument, it is quick to assemble, and nothing has to be decided about hierarchy. The cost appears later, when someone wants to use a part of it. There is no part. There is one address, and everything inside it arrives together or not at all.',
+          'That constraint is easy to miss while writing, because writing feels like the work. It becomes obvious the first time someone asks for one idea and the only honest answer is a link to everything. The container has quietly become the unit of thought, and the unit is too large for the way people actually pass ideas around.'
+        ] },
+        { heading: 'Everything on one surface competes', paragraphs: [
+          'When a method, a body of work and a research direction share a single surface, they do not coexist. They compete for the same attention in the same scroll. Each one is individually defensible, which is what makes the situation hard to diagnose: nothing is wrong, and the whole is still difficult to read.',
+          'The first screen shows the problem most clearly. Every element that wants attention becomes an invitation, and invitations do not accumulate into persuasion. Past a certain number they cancel each other, and the reader postpones the decision the page was built to provoke. On a page that argues for deciding, that is a contradiction the design performs.'
+        ] },
+        { heading: 'An address makes an argument portable', paragraphs: [
+          'Giving an idea its own address changes what can happen to it. It can be sent on its own. It can be cited without inheriting six other claims. It can be positioned on its own terms rather than on the name of whoever published it. None of that is available to a section anchor, which cannot be quoted without dragging its neighbours along.',
+          'This is why writing that circulates almost always has one URL per idea. The structure is not a technical preference; it decides whether an argument can be picked up by someone else. A publication that wants its thinking reused has to be shaped so that reuse costs nothing.'
+        ] },
+        { heading: 'Language is structure, not a control', paragraphs: [
+          'A second language delivered by a toggle exists for the reader who already arrived and found the switch. It does not exist for anything that reads the page without running its scripts, which includes most of what now summarises and recommends pages to people. In that reading, the second language is simply absent.',
+          'Treating translation as structure rather than as an interface control resolves it. Each language gets real addresses and complete content, and each page states where its counterpart lives. The toggle can stay as a convenience, but it stops being the only way in, which is the difference between a site that exists in two languages and a site that offers one.'
+        ] },
+        { heading: 'What the structure makes possible', paragraphs: [
+          'Once each argument has an address, ordinary things become possible that were not possible before. A method can be sent to someone who asked about a method. An essay can be quoted in a discussion it belongs in. A page can carry its own summary and its own sharing image, because it is a thing rather than a fragment of a thing.',
+          'These are properties of the structure, observable directly. Whether they change how the thinking travels is a separate question, answered over time by watching what people do with it. The structure does not guarantee an audience. It removes the obstacle that made one impossible, which is the part that was inside my control.'
+        ] }
+      ]
+    },
+    fr: {
+      title: 'Une page, plusieurs arguments',
+      description: 'Ce qui change lorsque chaque argument reçoit sa propre adresse au lieu de partager une longue page.',
+      standfirst: 'Une page unique peut contenir beaucoup de pensée. Elle ne permet à aucune de circuler. La structure d\u2019une publication décide de ce que ses arguments ont le droit de faire.',
+      date: '2026-09-11',
+      sections: [
+        { heading: 'Une page est un contenant à une seule adresse', paragraphs: [
+          'La longue page est une façon séduisante de publier. Elle se lit comme un argument continu, elle s\u2019assemble vite, et rien n\u2019oblige à trancher sur la hiérarchie. Le coût apparaît plus tard, quand quelqu\u2019un veut en utiliser une partie. Il n\u2019y a pas de partie. Il y a une adresse, et tout ce qu\u2019elle contient arrive ensemble ou pas du tout.',
+          'Cette contrainte passe facilement inaperçue pendant la rédaction, parce que rédiger donne le sentiment de faire le travail. Elle devient évidente la première fois qu\u2019on demande une seule idée et que la seule réponse honnête est un lien vers l\u2019ensemble. Le contenant est devenu l\u2019unité de pensée, et cette unité est trop large pour la façon dont les idées se transmettent réellement.'
+        ] },
+        { heading: 'Tout ce qui partage une surface entre en concurrence', paragraphs: [
+          'Quand une méthode, un corpus de travaux et une direction de recherche partagent une même surface, ils ne cohabitent pas. Ils se disputent la même attention dans le même défilement. Chacun se défend très bien seul, ce qui rend le diagnostic difficile : rien n\u2019est fautif, et l\u2019ensemble reste pénible à lire.',
+          'Le premier écran expose le problème le plus nettement. Chaque élément qui réclame l\u2019attention devient une invitation, et les invitations ne s\u2019additionnent pas en persuasion. Au-delà d\u2019un certain nombre, elles s\u2019annulent, et le lecteur diffère la décision que la page cherchait à provoquer. Sur une page qui plaide pour le fait de décider, c\u2019est une contradiction que la mise en forme met en scène.'
+        ] },
+        { heading: 'Une adresse rend un argument transportable', paragraphs: [
+          'Donner à une idée sa propre adresse change ce qu\u2019on peut en faire. Elle s\u2019envoie seule. Elle se cite sans hériter de six autres affirmations. Elle se positionne selon ses propres termes plutôt que sous le nom de qui l\u2019a publiée. Rien de cela n\u2019est accessible à une ancre de section, qui ne peut être citée sans entraîner ses voisines.',
+          'C\u2019est pourquoi les écrits qui circulent ont presque toujours une URL par idée. La structure n\u2019est pas une préférence technique : elle détermine si un argument peut être repris par quelqu\u2019un d\u2019autre. Une publication qui veut voir sa pensée réutilisée doit être faite pour que cette reprise ne coûte rien.'
+        ] },
+        { heading: 'La langue est une structure, pas une commande', paragraphs: [
+          'Une seconde langue livrée par un bouton existe pour le lecteur déjà arrivé qui a trouvé l\u2019interrupteur. Elle n\u2019existe pas pour ce qui lit la page sans exécuter ses scripts, ce qui inclut l\u2019essentiel de ce qui résume et recommande aujourd\u2019hui des pages à des gens. Dans cette lecture, la seconde langue est simplement absente.',
+          'Traiter la traduction comme une structure plutôt que comme une commande d\u2019interface règle la question. Chaque langue obtient de vraies adresses et un contenu complet, et chaque page indique où vit son équivalent. Le bouton peut rester par confort, mais il cesse d\u2019être la seule entrée — c\u2019est la différence entre un site qui existe en deux langues et un site qui en propose une.'
+        ] },
+        { heading: 'Ce que la structure rend possible', paragraphs: [
+          'Une fois que chaque argument a une adresse, des choses ordinaires deviennent possibles qui ne l\u2019étaient pas. Une méthode s\u2019envoie à qui a posé une question de méthode. Un texte se cite dans la discussion à laquelle il appartient. Une page porte son propre résumé et sa propre image de partage, parce qu\u2019elle est une chose et non le fragment d\u2019une chose.',
+          'Ce sont des propriétés de la structure, directement observables. Savoir si elles changent la façon dont la pensée circule est une autre question, à laquelle le temps répond en montrant ce que les gens en font. La structure ne garantit pas un lectorat. Elle lève l\u2019obstacle qui le rendait impossible, et c\u2019était la part qui dépendait de moi.'
+        ] }
+      ]
+    }
   }
 ];
 

@@ -7,8 +7,8 @@ const base = (process.env.BASE_URL || 'http://localhost:3017').replace(/\/$/, ''
 const output = new URL('../test-results/visual/', import.meta.url).pathname;
 await mkdir(output, { recursive: true });
 
-const routes = ['/', '/practice', '/practice/method', '/work', '/work/quantum-branding',
-  '/thinking', '/thinking/the-collapse', '/lab', '/lab/the-brief-before-the-brief',
+const routes = ['/', '/practice', '/practice/method', '/work', '/work/selvaggi',
+  '/thinking', '/thinking/one-page-many-arguments', '/lab', '/lab/the-brief-before-the-brief',
   '/about', '/start', '/notes'];
 const widths = [375, 380, 390, 768, 1024, 1440, 1920];
 const shot = route => (route === '/' ? 'home' : route.replace(/^\//, '').replace(/\//g, '-'));
@@ -22,7 +22,8 @@ try {
       const url = base + (lang === 'fr' ? (route === '/' ? '/fr' : `/fr${route}`) : route);
       for (const width of widths) {
         await page.setViewportSize({ width, height: 900 });
-        await page.goto(url, { waitUntil: 'networkidle' });
+        const response = await page.goto(url, { waitUntil: 'networkidle' });
+        assert.equal(response.status(), 200, `${url} answered ${response.status()}`);
         await page.evaluate(() => document.fonts.ready);
         const geometry = await page.evaluate(() => {
           const bad = [];

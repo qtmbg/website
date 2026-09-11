@@ -9,9 +9,9 @@ const output = new URL('../test-results/', import.meta.url).pathname;
 await mkdir(output, { recursive: true });
 
 const routes = [
-  '/', '/practice', '/practice/method', '/work', '/work/quantum-branding',
-  '/thinking', '/thinking/the-collapse', '/lab', '/lab/the-brief-before-the-brief',
-  '/about', '/start', '/notes'
+  '/', '/practice', '/practice/method', '/work', '/work/selvaggi',
+  '/thinking', '/thinking/the-collapse', '/thinking/one-page-many-arguments',
+  '/lab', '/lab/the-brief-before-the-brief', '/about', '/start', '/notes'
 ];
 const all = [...routes, ...routes.map(r => (r === '/' ? '/fr' : `/fr${r}`))];
 
@@ -50,6 +50,14 @@ try {
     }
     await page.close();
   }
+
+  /* --------------------------------------------------- the retired case 404 */
+  const probe = await browser.newPage();
+  for (const gone of ['/work/quantum-branding', '/fr/work/quantum-branding']) {
+    const response = await probe.goto(base + gone, { waitUntil: 'domcontentloaded' });
+    assert.equal(response.status(), 404, `${gone} answered ${response.status()}, expected 404`);
+  }
+  await probe.close();
 
   /* ------------------------------------------------------- mobile hero fit */
   const phone = await browser.newPage({ viewport: { width: 380, height: 780 }, reducedMotion: 'reduce' });
