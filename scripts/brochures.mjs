@@ -15,67 +15,66 @@ const font = name => pathToFileURL(path.join(root, 'assets', 'fonts', name)).hre
 const styles = `
 @font-face{font-family:"Instrument Serif";src:url("${font('instrument-serif-latin-400-normal.ttf')}");font-weight:400;font-style:normal}
 @font-face{font-family:"Instrument Serif";src:url("${font('instrument-serif-latin-400-italic.ttf')}");font-weight:400;font-style:italic}
-@font-face{font-family:"DM Sans";src:url("${font('dm-sans-latin-400-normal.ttf')}");font-weight:400}
-@font-face{font-family:"DM Sans";src:url("${font('dm-sans-latin-500-normal.ttf')}");font-weight:500}
+@font-face{font-family:"DM Sans";src:url("${font('dm-sans-latin-variable-normal.ttf')}");font-weight:100 1000}
 @page{size:A4;margin:0}
 *{box-sizing:border-box;margin:0}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-body{font-family:"DM Sans",Arial,sans-serif;color:#25241f;background:#f5f0e7;font-size:10.5pt;line-height:1.6}
-.sheet{width:210mm;height:297mm;padding:20mm 18mm 16mm;background:#f5f0e7;position:relative;
+body{font-family:"DM Sans",Arial,sans-serif;color:#1b252b;background:#f4f6f8;font-size:10.5pt;line-height:1.6}
+.sheet{width:210mm;height:297mm;padding:20mm 18mm 16mm;background:#f4f6f8;position:relative;
  display:flex;flex-direction:column;page-break-after:always;overflow:hidden}
 .sheet:last-child{page-break-after:auto}
 h1,h2,h3{font-weight:400;letter-spacing:-.03em}
 h1,h2{font-family:"Instrument Serif",Georgia,serif;line-height:1.03}
-.rule{border:0;border-top:.5pt solid #c9c2b6;margin:0}
+.rule{border:0;border-top:.5pt solid #cdd4d9;margin:0}
 .top{display:flex;justify-content:space-between;align-items:flex-start;font-size:8.5pt;
- letter-spacing:.05em;font-weight:500;padding-bottom:5mm;border-bottom:.5pt solid #25241f}
-.top .kicker{color:#666158;letter-spacing:.05em}
+ letter-spacing:.05em;font-weight:500;padding-bottom:5mm;border-bottom:.5pt solid #1b252b}
+.top .kicker{color:#59666e;letter-spacing:.05em}
 .wordmark b{display:block;font-weight:500}
-.foot{margin-top:auto;padding-top:5mm;border-top:.5pt solid #c9c2b6;display:flex;
- justify-content:space-between;font-size:8pt;color:#666158;letter-spacing:.02em}
+.foot{margin-top:auto;padding-top:5mm;border-top:.5pt solid #cdd4d9;display:flex;
+ justify-content:space-between;font-size:8pt;color:#59666e;letter-spacing:.02em}
 .cover{justify-content:space-between}
 .cover h1{font-size:46pt;letter-spacing:-.04em;max-width:15ch}
 .cover h1 em{font-style:italic}
-.cover .lede{font-size:13pt;line-height:1.45;max-width:44ch;margin-top:9mm;color:#3a3830}
+.cover .lede{font-size:13pt;line-height:1.45;max-width:44ch;margin-top:9mm;color:#1b252b}
 .cover .signature{font-size:10pt;line-height:1.6}
 .cover .signature strong{font-weight:500}
 .states{display:flex;gap:4mm;align-items:center;margin:10mm 0 0}
-.states i{display:block;width:13mm;height:13mm;border:.75pt solid #25241f}
-.states i:last-child{background:#d94c32;border-color:#d94c32}
+.states i{display:block;width:13mm;height:13mm;border:.75pt solid #1b252b}
+.states i:last-child{background:#3158df;border-color:#3158df}
 h2.title{font-size:30pt;margin-bottom:4mm;max-width:20ch}
-.standfirst{font-size:11.5pt;line-height:1.5;max-width:58ch;color:#3a3830;margin-bottom:8mm}
+.standfirst{font-size:11.5pt;line-height:1.5;max-width:58ch;color:#1b252b;margin-bottom:8mm}
 .body p{max-width:64ch}
 .body p+p{margin-top:3.4mm}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:7mm 9mm;margin-top:6mm}
-.item{border-top:.5pt solid #c9c2b6;padding-top:3.2mm}
+.item{border-top:.5pt solid #cdd4d9;padding-top:3.2mm}
 .item h3{font-size:11.5pt;margin-bottom:1.6mm;font-weight:500;font-family:"DM Sans",Arial,sans-serif}
-.item p{font-size:9.5pt;line-height:1.55;color:#4b473f}
+.item p{font-size:9.5pt;line-height:1.55;color:#59666e}
 .movements{margin-top:7mm}
 .movement{display:grid;grid-template-columns:11mm 42mm 1fr;gap:0 7mm;align-items:start;
- border-top:.5pt solid #c9c2b6;padding:4.5mm 0}
-.movement .no{font-size:8.5pt;color:#666158;padding-top:2mm}
+ border-top:.5pt solid #cdd4d9;padding:4.5mm 0}
+.movement .no{font-size:8.5pt;color:#59666e;padding-top:2mm}
 .movement h3{font-family:"Instrument Serif",Georgia,serif;font-size:21pt;line-height:1.05}
 .movement h3 small{display:block;font-family:"DM Sans",Arial,sans-serif;font-size:8.5pt;
- color:#666158;letter-spacing:.03em;margin-top:1.5mm}
-.movement p{font-size:9.5pt;line-height:1.6;color:#4b473f;padding-top:1.5mm}
-.movement.pick h3{color:#d94c32}
-.arc{font-size:9pt;color:#666158;letter-spacing:.06em;margin-top:5mm}
+ color:#59666e;letter-spacing:.03em;margin-top:1.5mm}
+.movement p{font-size:9.5pt;line-height:1.6;color:#59666e;padding-top:1.5mm}
+.movement.pick h3{color:#3158df}
+.arc{font-size:9pt;color:#59666e;letter-spacing:.06em;margin-top:5mm}
 .rows{margin-top:6mm}
-.row{display:grid;grid-template-columns:52mm 1fr;gap:7mm;border-top:.5pt solid #c9c2b6;padding:3.6mm 0}
+.row{display:grid;grid-template-columns:52mm 1fr;gap:7mm;border-top:.5pt solid #cdd4d9;padding:3.6mm 0}
 .row h3{font-size:11pt;font-weight:500;font-family:"DM Sans",Arial,sans-serif}
-.row p{font-size:9.5pt;line-height:1.55;color:#4b473f}
-.row .note{font-size:8.5pt;color:#666158;margin-top:1.2mm}
+.row p{font-size:9.5pt;line-height:1.55;color:#59666e}
+.row .note{font-size:8.5pt;color:#59666e;margin-top:1.2mm}
 .quotes{margin-top:6mm;display:grid;gap:5mm}
 blockquote{font-family:"Instrument Serif",Georgia,serif;font-size:14pt;line-height:1.2;
- letter-spacing:-.02em;border-top:.5pt solid #c9c2b6;padding-top:3.4mm;max-width:70ch}
-figcaption{font-size:8pt;color:#666158;margin-top:2.4mm;letter-spacing:.02em}
-.callout{border:.75pt solid #25241f;padding:7mm;margin-top:7mm}
+ letter-spacing:-.02em;border-top:.5pt solid #cdd4d9;padding-top:3.4mm;max-width:70ch}
+figcaption{font-size:8pt;color:#59666e;margin-top:2.4mm;letter-spacing:.02em}
+.callout{border:.75pt solid #1b252b;padding:7mm;margin-top:7mm}
 .callout h3{font-family:"Instrument Serif",Georgia,serif;font-size:19pt;margin-bottom:2.5mm}
 .callout p{font-size:10pt;max-width:62ch;line-height:1.55}
-.contact{margin-top:7mm;border-top:.75pt solid #25241f;padding-top:6mm}
-.contact .mail{font-family:"Instrument Serif",Georgia,serif;font-size:26pt;letter-spacing:-.02em;color:#d94c32}
-.contact p{font-size:9.5pt;color:#4b473f;margin-top:2.5mm;max-width:60ch}
-.small{font-size:8.5pt;color:#666158;line-height:1.6;max-width:74ch;margin-top:5mm}
+.contact{margin-top:7mm;border-top:.75pt solid #1b252b;padding-top:6mm}
+.contact .mail{font-family:"Instrument Serif",Georgia,serif;font-size:26pt;letter-spacing:-.02em;color:#3158df}
+.contact p{font-size:9.5pt;color:#59666e;margin-top:2.5mm;max-width:60ch}
+.small{font-size:8.5pt;color:#59666e;line-height:1.6;max-width:74ch;margin-top:5mm}
 `;
 
 export function brochure(lang) {
@@ -105,7 +104,7 @@ export function brochure(lang) {
     <strong>Nizzar Ben Chekroune</strong><br>
     ${t('Founder, Quantum Branding', 'Fondateur, Quantum Branding')}<br>
     ${t('English &amp; French', 'Anglais et français')}<br>
-    <a href="mailto:${contactEmail}" style="color:#d94c32;text-decoration:none">${contactEmail}</a> · thequantumbranding.com
+    <a href="mailto:${contactEmail}" style="color:#3158df;text-decoration:none">${contactEmail}</a> · thequantumbranding.com
   </div>
 </section>
 
@@ -118,7 +117,7 @@ export function brochure(lang) {
       <p>${t('A company rarely experiences its problem as a discipline. The offer may be hard to explain. The website may obstruct a sale. A new technology may change the work before anyone has agreed what it should improve.', 'Une entreprise vit rarement son problème comme une discipline. L’offre se raconte difficilement. Le site freine la vente. Une technologie change le travail avant même que l’on ait décidé ce qu’elle doit améliorer.')}</p>
       <p>${t('I start there. I work across brand, marketing, digital products and intelligent systems, with seventeen years of experience informing the connections I make. I also build AI products, which is why the question before the build matters more than ever: what is worth making, and why?', 'Je pars de là. Je travaille entre marque, marketing, produits digitaux et systèmes intelligents, avec dix-sept ans d’expérience pour nourrir les liens que je fais. Je construis aussi des produits d’IA : la question qui précède la fabrication compte donc plus que jamais — qu’est-ce qui mérite d’exister, et pourquoi ?')}</p>
     </div>
-    <h3 style="font-size:9pt;letter-spacing:.06em;color:#666158;margin-top:9mm;font-weight:500">${t('WHERE THE WORK TAKES SHAPE', 'LES TERRAINS DU TRAVAIL')}</h3>
+    <h3 style="font-size:9pt;letter-spacing:.06em;color:#59666e;margin-top:9mm;font-weight:500">${t('WHERE THE WORK TAKES SHAPE', 'LES TERRAINS DU TRAVAIL')}</h3>
     <div class="grid2">${territories.map(a => `<div class="item"><h3>${esc(t(a[0], a[1]))}</h3><p>${esc(t(a[2], a[3]))}</p></div>`).join('')}</div>
   </div>
   ${p2.foot}
@@ -145,7 +144,7 @@ export function brochure(lang) {
     <h2 class="title">${t('Decisions leave traces.', 'Les choix laissent des traces.')}</h2>
     <p class="standfirst">${t('The scope, the decisions and the work they produce.', 'Le périmètre, les décisions et le travail qui en découle.')}</p>
     <div class="rows">${cases.map(c => `<div class="row"><div><h3>${esc(c.name)}</h3><p class="note">${esc(c.type[i])}</p></div><div><p>${esc((c.meta||c.summary)[i])}</p><p class="note">${esc(c.fact[i])}</p></div></div>`).join('')}</div>
-    <h3 style="font-size:9pt;letter-spacing:.06em;color:#666158;margin-top:9mm;font-weight:500">${t('BEFORE THIS PRACTICE', 'AVANT CETTE PRATIQUE')}</h3>
+    <h3 style="font-size:9pt;letter-spacing:.06em;color:#59666e;margin-top:9mm;font-weight:500">${t('BEFORE THIS PRACTICE', 'AVANT CETTE PRATIQUE')}</h3>
     <p class="small" style="margin-top:2mm">${t('Work I contributed to across seventeen years, as an individual.', 'Des travaux auxquels j’ai contribué à titre individuel au fil de dix-sept ans.')}</p>
     <div class="rows">${references.map(r => `<div class="row"><h3>${esc(r[0])}</h3><p>${esc(t(r[1], r[2]))}</p></div>`).join('')}</div>
     <div class="quotes">${reviews.slice(0, 2).map(r => `<figure><blockquote>“${esc(fr ? r.fr : r.en)}”</blockquote><figcaption>${esc(r.attribution[i])}</figcaption></figure>`).join('')}</div>

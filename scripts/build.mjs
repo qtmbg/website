@@ -170,7 +170,7 @@ function document_(page, pages) {
 <title>${esc(fullTitle)}</title>
 <meta name="description" content="${esc(desc)}">
 <meta name="author" content="Nizzar Ben Chekroune">
-<meta name="theme-color" content="#f5f0e7">
+<meta name="theme-color" content="#f4f6f8">
 <link rel="canonical" href="${url}">
 ${alternates}
 ${xDefault}
@@ -192,7 +192,7 @@ ${xDefault}
 <meta name="twitter:image:alt" content="${esc(plainTitle)} — Quantum Branding">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" as="font" type="font/ttf" href="/assets/fonts/instrument-serif-latin-400-normal.ttf" crossorigin>
-<link rel="preload" as="font" type="font/ttf" href="/assets/fonts/dm-sans-latin-400-normal.ttf" crossorigin>
+<link rel="preload" as="font" type="font/ttf" href="/assets/fonts/dm-sans-latin-variable-normal.ttf" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <script type="application/ld+json">${jsonLd(page)}</script>
 <script type="module" src="/app.js" defer></script>
@@ -214,10 +214,10 @@ ${footer(lang)}
 
 function methodDiagram(lang) {
   const fr = lang === 'fr';
-  const accent = '#d94c32';
-  const ink = '#25241f';
-  const paper = '#f5f0e7';
-  const muted = '#666158';
+  const accent = '#3158df';
+  const ink = '#1b252b';
+  const paper = '#f4f6f8';
+  const muted = '#59666e';
   const cells = method.map((m, i) => {
     const x = 80 + i * 260;
     const marks = [
@@ -246,9 +246,9 @@ ${lines.slice(0, 4).map((l, k) => `<text x="${x}" y="${300 + k * 22}" font-famil
 <rect width="1200" height="480" fill="${paper}"/>
 <text x="80" y="72" font-family="Instrument Serif, Georgia, serif" font-size="52" fill="${ink}">The Collapse</text>
 <text x="80" y="100" font-family="DM Sans, Arial, sans-serif" font-size="15" fill="${muted}">Observe → Collapse → Build → Hold</text>
-<line x1="80" y1="112" x2="1120" y2="112" stroke="#c9c2b6"/>
+<line x1="80" y1="112" x2="1120" y2="112" stroke="#cdd4d9"/>
 ${cells}
-<line x1="80" y1="410" x2="1120" y2="410" stroke="#c9c2b6"/>
+<line x1="80" y1="410" x2="1120" y2="410" stroke="#cdd4d9"/>
 <text x="80" y="440" font-family="DM Sans, Arial, sans-serif" font-size="14" fill="${muted}">The Collapse — Nizzar Ben Chekroune / Quantum Branding · thequantumbranding.com</text>
 </svg>
 `;

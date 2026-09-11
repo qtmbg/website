@@ -36,22 +36,21 @@ function card({ title, description, basePath, lang }) {
   return `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><style>
 @font-face{font-family:"Instrument Serif";src:url("${font('instrument-serif-latin-400-normal.ttf')}");font-weight:400}
 @font-face{font-family:"Instrument Serif";src:url("${font('instrument-serif-latin-400-italic.ttf')}");font-weight:400;font-style:italic}
-@font-face{font-family:"DM Sans";src:url("${font('dm-sans-latin-400-normal.ttf')}");font-weight:400}
-@font-face{font-family:"DM Sans";src:url("${font('dm-sans-latin-500-normal.ttf')}");font-weight:500}
+@font-face{font-family:"DM Sans";src:url("${font('dm-sans-latin-variable-normal.ttf')}");font-weight:100 1000}
 *{box-sizing:border-box;margin:0}
-body{width:1200px;height:630px;background:#f5f0e7;color:#25241f;font-family:"DM Sans",Arial,sans-serif;
+body{width:1200px;height:630px;background:#f4f6f8;color:#1b252b;font-family:"DM Sans",Arial,sans-serif;
  display:flex;flex-direction:column;justify-content:space-between;padding:64px 72px;overflow:hidden}
 .top{display:flex;justify-content:space-between;align-items:flex-start;font-size:19px;letter-spacing:.02em;font-weight:500}
 .wordmark{line-height:1.1}
 .wordmark b{display:block;font-weight:500}
-.kicker{color:#666158}
+.kicker{color:#59666e}
 h1{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:${size}px;line-height:1.02;
  letter-spacing:-.035em;max-width:19ch}
-.desc{font-size:23px;line-height:1.45;color:#4b473f;max-width:60ch;margin-top:26px}
-.foot{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid #c9c2b6;padding-top:26px;font-size:19px;color:#666158}
+.desc{font-size:23px;line-height:1.45;color:#59666e;max-width:60ch;margin-top:26px}
+.foot{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid #cdd4d9;padding-top:26px;font-size:19px;color:#59666e}
 .mark{display:flex;gap:9px;align-items:center}
-.mark i{display:block;width:26px;height:26px;border:1px solid #25241f}
-.mark i:last-child{background:#d94c32;border-color:#d94c32}
+.mark i{display:block;width:26px;height:26px;border:1px solid #1b252b}
+.mark i:last-child{background:#3158df;border-color:#3158df}
 </style></head><body>
 <div class="top"><span class="wordmark">QUANTUM<b>BRANDING</b></span><span class="kicker">${esc(kicker(basePath, lang))}</span></div>
 <div><h1>${esc(t)}</h1><p class="desc">${esc(strip(description).slice(0, 170))}</p></div>
