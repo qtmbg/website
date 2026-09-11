@@ -5,7 +5,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import {
-  cases, contactEmail, esc, formats, method, origin, references, reviews, territories
+  cases, contactEmail, esc, formats, method, origin, publishTestimonials, references, reviews, territories
 } from '../src/shared.mjs';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
@@ -97,7 +97,7 @@ export function brochure(lang) {
   <div class="top"><span class="wordmark">QUANTUM<b>BRANDING</b></span><span class="kicker">${t('Independent practice', 'Pratique indépendante')}</span></div>
   <div>
     <h1>${t('Making got cheap.<br><em>Deciding didn’t.</em>', 'Créer coûte moins.<br><em>Bien décider reste rare.</em>')}</h1>
-    <p class="lede">${t('An independent practice for companies with something important to improve, launch, rethink or build.', 'Une pratique indépendante pour les entreprises qui ont quelque chose d’important à améliorer, lancer, repenser ou construire.')}</p>
+    <p class="lede">${t('For companies with something important to improve, launch, rethink or build.', 'Pour les entreprises qui ont quelque chose d’important à améliorer, lancer, repenser ou construire.')}</p>
     <div class="states"><i></i><i></i><i></i><i></i></div>
   </div>
   <div class="signature">
@@ -145,9 +145,9 @@ export function brochure(lang) {
     <p class="standfirst">${t('The scope, the decisions and the work they produce.', 'Le périmètre, les décisions et le travail qui en découle.')}</p>
     <div class="rows">${cases.map(c => `<div class="row"><div><h3>${esc(c.name)}</h3><p class="note">${esc(c.type[i])}</p></div><div><p>${esc((c.meta||c.summary)[i])}</p><p class="note">${esc(c.fact[i])}</p></div></div>`).join('')}</div>
     <h3 style="font-size:9pt;letter-spacing:.06em;color:#59666e;margin-top:9mm;font-weight:500">${t('BEFORE THIS PRACTICE', 'AVANT CETTE PRATIQUE')}</h3>
-    <p class="small" style="margin-top:2mm">${t('Work I contributed to across seventeen years, as an individual.', 'Des travaux auxquels j’ai contribué à titre individuel au fil de dix-sept ans.')}</p>
+    <p class="small" style="margin-top:2mm">${t('Work I did before this practice existed.', 'Des travaux réalisés avant l’existence de cette pratique.')}</p>
     <div class="rows">${references.map(r => `<div class="row"><h3>${esc(r[0])}</h3><p>${esc(t(r[1], r[2]))}</p></div>`).join('')}</div>
-    <div class="quotes">${reviews.slice(0, 2).map(r => `<figure><blockquote>“${esc(fr ? r.fr : r.en)}”</blockquote><figcaption>${esc(r.attribution[i])}</figcaption></figure>`).join('')}</div>
+    ${publishTestimonials ? `<div class="quotes">${reviews.slice(0, 2).map(r => `<figure><blockquote>“${esc(fr ? r.fr : r.en)}”</blockquote><figcaption>${esc(r.attribution[i])}</figcaption></figure>`).join('')}</div>` : ''}
   </div>
   ${p4.foot}
 </section>
