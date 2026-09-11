@@ -96,3 +96,13 @@ Placeholders now stand where the owner will supply facts. Nothing was invented t
 - **Selvaggi and Verne Jewels** — `[TO REWRITE — situation, decision, result]`. The previously documented scope lines are retained as `meta` and used for `<title>`, meta description, Open Graph and the brochure, so a placeholder never reaches a search snippet or a document sent to a prospect.
 
 The claim "Work I contributed to across seventeen years, as an individual" was replaced by the owner's exact wording, "Work I did before this practice existed." The seventeen-year figure remains on `/about`, still founder-reported and still labelled as such in `/notes`.
+
+---
+
+## Addendum — 11 September 2026: corrections
+
+- **Contact address**: reverted to `me@qtmbg.com`, confirmed by the owner as the only address in use. This supersedes the change recorded in the 10 September content-pass addendum. Applied across the site, the JSON-LD and both brochures.
+- **Selvaggi and Verne Jewels**: the owner supplied the final descriptions, so the `[TO REWRITE]` placeholders and the `meta` fallback that shielded them from search snippets are both gone. The copy describes the scope of each engagement; no outcome, date or figure is claimed, and `/notes` still records that approved situations, decisions and results are being assembled.
+- **Home page**: the Quantum Branding practice-project card was removed from the home grid at the owner's request. The case keeps its own page at `/work/quantum-branding` (and `/fr/...`) and remains listed on `/work`, so nothing published was withdrawn.
+
+Testimonial attribution remains `[First Last] · [Role, Company] · [Year]` pending the owner's facts.

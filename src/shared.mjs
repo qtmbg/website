@@ -1,5 +1,5 @@
 export const origin='https://thequantumbranding.com';
-export const contactEmail='nizzar@thequantumbranding.com';
+export const contactEmail='me@qtmbg.com';
 export const contactUrl='https://nizzar.com/contact';
 export const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const route=(path,lang)=>(lang==='fr'?'/fr':'')+(path==='/'&&lang==='fr'?'':path);
@@ -10,8 +10,8 @@ export const method=[
  {name:'Hold',fr:'Tenir',en:'Put the work in use. Observe what holds, refine what changes and give the team a basis for its next decision.',bodyFr:'Mettre le travail en usage. Observer ce qui tient, ajuster ce qui évolue et donner à l’équipe un repère pour ses prochaines décisions.'}
 ];
 export const cases=[
- {slug:'selvaggi',name:'Selvaggi',type:['Brand · Digital · Commercial','Marque · Digital · Commercial'],summary:['[TO REWRITE — situation, decision, result]','[À RÉÉCRIRE — situation, décision, résultat]'],meta:['A brand, its digital presence and its commercial materials in one scope of work.','La marque, sa présence digitale et ses supports commerciaux dans un même périmètre de travail.'],fact:['Documented scope: brand, digital and commercial work.','Périmètre documenté : marque, digital et travail commercial.'],complete:false},
- {slug:'verne-jewels',name:'Verne Jewels',type:['Strategy · Jewelry','Stratégie · Joaillerie'],summary:['[TO REWRITE — situation, decision, result]','[À RÉÉCRIRE — situation, décision, résultat]'],meta:['Brand strategy and commercial direction for a jewelry business.','Stratégie de marque et direction commerciale pour une maison de joaillerie.'],fact:['Documented role: strategy, marketing and commercial direction.','Rôle documenté : stratégie, marketing et direction commerciale.'],complete:false},
+ {slug:'selvaggi',name:'Selvaggi',type:['Brand · Digital · Commercial','Marque · Digital · Commercial'],summary:['Brand, digital presence and commercial conversation, connected into one system.','Marque, présence digitale et conversation commerciale, reliées en un seul système.'],fact:['Documented scope: brand, digital and commercial work.','Périmètre documenté : marque, digital et travail commercial.'],complete:false},
+ {slug:'verne-jewels',name:'Verne Jewels',type:['Strategy · Jewelry','Stratégie · Joaillerie'],summary:['Strategic and commercial direction for a luxury jewelry house.','Direction stratégique et commerciale pour une maison de joaillerie de luxe.'],fact:['Documented role: strategy, marketing and commercial direction.','Rôle documenté : stratégie, marketing et direction commerciale.'],complete:false},
  {slug:'quantum-branding',name:'Quantum Branding',type:['Practice project · 2026','Projet de la pratique · 2026'],summary:['From one long page to an address for every argument.','D’une longue page à une adresse pour chaque argument.'],fact:['English and French pages have separate URLs and complete HTML content.','Les pages anglaises et françaises ont chacune leur URL et leur contenu HTML complet.'],complete:true}
 ];
 export const reviews=[

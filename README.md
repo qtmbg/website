@@ -6,7 +6,7 @@ no content injected after hydration.
 
 - **Positioning** — *Making got cheap. Deciding didn’t.* / *Créer coûte moins. Bien décider reste rare.*
 - **Method** — The Collapse: Observe → Collapse → Build → Hold.
-- **Contact** — nizzar@thequantumbranding.com. The first conversation is free; scope and price are defined after it. No prices appear on the site.
+- **Contact** — me@qtmbg.com. The first conversation is free; scope and price are defined after it. No prices appear on the site.
 - **Product** — the product at quantumbranding.ai is called **BrandOS by Quantum Branding**. This repository never touches it.
 
 ## Run

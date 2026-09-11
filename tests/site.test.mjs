@@ -102,7 +102,7 @@ test('the site says how scope and price are settled instead of showing a scale',
 /* ---------------------------------------------------------------- contact */
 
 test('the contact address is visible and functional across the site', async () => {
-  assert.equal(contactEmail, 'nizzar@thequantumbranding.com');
+  assert.equal(contactEmail, 'me@qtmbg.com');
   for (const route of ['/', '/fr', '/start', '/fr/start', '/notes']) {
     assert.ok((await read(route)).includes(`mailto:${contactEmail}`), `${route} has no working contact`);
   }
@@ -272,8 +272,6 @@ test('placeholders awaiting the owner are exactly the expected ones', async () =
   assert.deepEqual([...kinds].sort(), [
     '[First Last]', '[Role, Company]', '[Year]',
     '[Prénom Nom]', '[Rôle, Entreprise]', '[Année]',
-    '[TO REWRITE — situation, decision, result]',
-    '[À RÉÉCRIRE — situation, décision, résultat]'
   ].sort(), `unexpected placeholder set:\n${[...kinds].join('\n')}`);
   console.log(`    (${found.length} placeholder slots awaiting the owner, across ${new Set(found.map(f => f.split(' →')[0])).size} pages)`);
 });
