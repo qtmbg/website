@@ -8,6 +8,7 @@ import { articles } from '../src/articles.mjs';
 import { makePages } from '../src/pages.mjs';
 import { contactEmail, esc, method, origin, route } from '../src/shared.mjs';
 import { ancestors, canonical, crumbLabels, ogSlug, routeSection, routeSlug } from './meta.mjs';
+import { logoMark, present } from './presentation.mjs';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const dist = path.join(root, 'dist');
@@ -38,7 +39,7 @@ function header(lang, basePath) {
     .join('');
   const other = fr ? 'en' : 'fr';
   return `<header class="site-header">
-<a class="wordmark" href="${route('/', lang)}" aria-label="${t('Quantum Branding, home', 'Quantum Branding, accueil')}"><span>QUANTUM</span><span>BRANDING</span></a>
+<a class="wordmark" href="${route('/', lang)}" aria-label="${t('Quantum Branding, home', 'Quantum Branding, accueil')}">${logoMark}<span class="wordmark-type"><span>QUANTUM</span><span>BRANDING</span></span></a>
 <nav id="site-nav" aria-label="${t('Main navigation', 'Navigation principale')}">${links}</nav>
 <div class="header-actions">
 <a class="language-link" href="${route(basePath, other)}" hreflang="${other}" lang="${other}">${fr ? 'EN' : 'FR'}</a>
@@ -194,6 +195,7 @@ ${xDefault}
 <link rel="preload" as="font" type="font/ttf" href="/assets/fonts/instrument-serif-latin-400-normal.ttf" crossorigin>
 <link rel="preload" as="font" type="font/ttf" href="/assets/fonts/dm-sans-latin-variable-normal.ttf" crossorigin>
 <link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/assets/visual-restoration.css">
 <script type="application/ld+json">${jsonLd(page)}</script>
 <script type="module" src="/app.js" defer></script>
 </head>
@@ -202,7 +204,7 @@ ${xDefault}
 ${header(lang, basePath)}
 <main id="main">
 ${breadcrumbs(basePath, lang)}
-${body}
+${present(page)}
 </main>
 ${footer(lang)}
 </body>

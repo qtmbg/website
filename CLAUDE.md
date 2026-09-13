@@ -40,6 +40,21 @@ ask for it.
 
 ## Checks
 
+### Visual restoration approved 13 September 2026
+
+The current multipage EN/FR content is approved. Commit `24eac66` is the
+visual reference, not the editorial source. Preserve `src/pages.mjs`,
+`src/articles.mjs` and `src/shared.mjs` when changing presentation.
+`scripts/presentation.mjs` and `assets/visual-restoration.css` restore the
+cube, illustrated tools, logo symbol, alternating project compositions,
+blue founder poster and acid contact surfaces. These are intentional and
+must not be removed by an editorial or routing change. Original illustration
+shading and the original project-cover colours are part of the reference.
+Do not reintroduce old slogans, prices or product naming with the artwork.
+Run `npm run test:restoration` to compare every page's text, metadata and
+links with the pre-restoration editorial baseline, and to check boundary
+widths and reduced motion. Preview for visual approval before production.
+
 ### 1. Em dash
 
 The em dash rule applies to **page text**: body copy, headings, standfirsts,

@@ -32,6 +32,21 @@ document.addEventListener('click', event => {
 });
 addEventListener('resize', () => { if (innerWidth > 800) setMenu(false); });
 
+// The recovered illustration reacts to a pointer without hiding content or
+// creating an extra interaction required to understand the page.
+const scene = document.querySelector('.visual-scene');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+scene?.addEventListener('pointermove', event => {
+  if (reducedMotion.matches || event.pointerType !== 'mouse') return;
+  const box = scene.getBoundingClientRect();
+  scene.style.setProperty('--scene-x', `${((event.clientX-box.left)/box.width-.5)*8}deg`);
+  scene.style.setProperty('--scene-y', `${((event.clientY-box.top)/box.height-.5)*-6}deg`);
+});
+scene?.addEventListener('pointerleave', () => {
+  scene.style.setProperty('--scene-x','0deg');
+  scene.style.setProperty('--scene-y','0deg');
+});
+
 /* --------------------------------------------------------------- the brief */
 
 const form = document.querySelector('#brief-form');

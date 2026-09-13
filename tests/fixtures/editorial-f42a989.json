@@ -1,0 +1,192 @@
+{
+  "/": {
+    "text": "7d49d6ababc9ec01d8b872a50e68c3582aabbb6377aa13c78f27c29b720f32d6",
+    "links": "291d5c2bc363403d9c2082349692d5ac24c66e61eaa7d98b5fe7b7a83f650531",
+    "metadata": "d5c53beaf26bea97686b0158c2296c2be98218043b8ead47c65ad55b7b1bd914"
+  },
+  "/practice": {
+    "text": "7a291090b372f6c3ef311760169322a02fe581913dc34052b5793ce014119deb",
+    "links": "45555c232418bc512ae940833c7d00bbb93f1bb9cba8949ee366a7ce86f1aa22",
+    "metadata": "94fec4c465d01d146f4ddf8196d87db2e35aa4a9ea53f8cc2aaca7b01344f4e9"
+  },
+  "/practice/method": {
+    "text": "263ea0fe9face899785f013930351ea53d60897e4491055ce2229b59d48d1ac5",
+    "links": "78ac0d940723d920cb4f1abc9a2406c75a956d95d073056fa1540873242b9976",
+    "metadata": "bfe0983a03fd856c9b4e5d10c59bcc08231178a7176fa7a8354b78d22d71f819"
+  },
+  "/work": {
+    "text": "5a2b3bf3ffd9d4ea9c376dcdb7fc7cf8872f21ebf3bd3a8dbd146187b9034adb",
+    "links": "775fddffafc3505a58228fb93d2e393d8450c0edb0da92f8e60abaf19c05701f",
+    "metadata": "6aa31fb966432d81a55f12804e868aed9439ae6fe0daf0b562299dc2af3fb863"
+  },
+  "/work/selvaggi": {
+    "text": "fa6e9634d0ca8eab2484357526c1e095605c7ed1d7b3c888de14f45a608f02d1",
+    "links": "a7b8e5cd34b23c592a86a0a4a3be7da83d950ac6335e89a4b3d115e195174b32",
+    "metadata": "ec187b4109dd60a7d9fd82e27f2dd8b2de693775bc637877b0b3b52210ba00c1"
+  },
+  "/work/verne-jewels": {
+    "text": "e51532e2f2d036109789bbbe3c01e28761af9145aed91e5b089c16a9206b091c",
+    "links": "fbb1c13bdf4a8ffe1c14fb8fa0f273201fc8fd429e8eeeb752ecf6520c201534",
+    "metadata": "d9135eef288633b7cb7bccacb7f7da35460683361216e0f4fe104d710519977f"
+  },
+  "/thinking": {
+    "text": "1053ef4324709cdecc35c9cba8eb773c54a30d50543f9ce59820424b80bb0332",
+    "links": "c0504b8105d7fe4feea4cc268027117947c50a531c918ea6d5e0fe047334d2c3",
+    "metadata": "2907d01c520166e6aa6d5dfbce3195f79923bbb6f40724278493ad559a8d5dc5"
+  },
+  "/thinking/the-collapse": {
+    "text": "9579617a71234d619874050ebb3e6250340a94913a69ac65eea3f827a18106d6",
+    "links": "d73c8c5efe13737528e2a9fb898888422094b77a20e08aae3ff8e7f2f7a972a2",
+    "metadata": "03d05351c9acf90de468b3d11266d4523a6e13c4bc6e116f4661ee8c234e2aad"
+  },
+  "/thinking/the-brief-before-the-brief": {
+    "text": "0a16e0d47ae9f8955db981c47b3516234969e58be94923b50d9e3cf5a9de9680",
+    "links": "0785cd4ad07fdbbf539369a389f85898088b049e1124ee8560481e66ef8db48f",
+    "metadata": "d6dfd806b1bae09b9ba5d264139a6f25571b822e26c8ab3e304a5b4dcc607499"
+  },
+  "/thinking/diagnosis-before-prescription": {
+    "text": "9492fa85414109fb3638162d3ad9a7abcb6048d8507aa0d1bf2b9bc9fe2fccad",
+    "links": "0b32fdd406c83d5771fa3749b4805fbadde6ca3704efbf4ba43449ca3012fe50",
+    "metadata": "bdad6da73c535ae7be36027410d5022e2e3d7ddae25ee6b37d28afa39c0c38a0"
+  },
+  "/thinking/what-automation-should-earn": {
+    "text": "5759549255ff0923c19643ea725c898c2d81c7f95833faa500620835aee2363f",
+    "links": "c857b5a08301fdb89542c629144bf57e23ffadadb759f25873ed5e035221b871",
+    "metadata": "a032a3dff797abccf17a73caa41fd41c58cd7239a41ae77b851dc236cf8f859a"
+  },
+  "/thinking/holding-a-decision": {
+    "text": "09155062d45dbdcc6a8ea1213abe276caeecca1d6b2573e3a4c5a06954ed6cc9",
+    "links": "019cf39eeaf9681a8ea34ac335f8cc572d537b7d11b8dd3d9ddbaeda46b979b8",
+    "metadata": "324f816beb6f2b3d448eda4fd7910952925646133f058d30ffee1477cd1b352f"
+  },
+  "/thinking/one-page-many-arguments": {
+    "text": "2dd1551dd2572abc5dcdca919f0098091f4fe9a31e1cccbe9b72383c3e558939",
+    "links": "6de00eda8f14bac83f8d776b243a30a8eb63f62851c9665b23265ff2c227abc7",
+    "metadata": "4e760a05d2e96bacf2ce9fdf6b2d98c57cebbcfc08d83525e7e5579c88c1a3b1"
+  },
+  "/lab": {
+    "text": "90a848d7606f4237b5bc87c33df8e20cc0cd4fc0ec6ea4c7255e5f3147265497",
+    "links": "e33636cd2ddd747df7a949540386033e7496adb4b89b53aa3d56c04bd314ebf2",
+    "metadata": "7115e89df7ebb6c466e6875233be37e161365eb409bea0a9d6e40a7dfa62d9e7"
+  },
+  "/lab/signal-scan": {
+    "text": "f925ce1647a06224b55ed028234d909999fe70b821302d016fe59021357134ae",
+    "links": "1b087310d1aac679c22aebe4c9f4b05b945b9bfe622b5f230bf55deb5b4e85f2",
+    "metadata": "975343ca0c500ae6a762ec1d21dd1e18c1079e20c2a839c67b4d0aa2a7f745c3"
+  },
+  "/lab/the-brief-before-the-brief": {
+    "text": "4bea9b00dfc503ea364d8be1727d84ab3c048e95d49b4007baafeac4150689fe",
+    "links": "9b658660ee361e8794728f50b2775b7e86249df00cc6f42a39c09d9d5bb5ef6e",
+    "metadata": "633796fba507816371a9bc14c9e24618be0946f1c5562e7f52f70bc3d56b9615"
+  },
+  "/about": {
+    "text": "9c1a3fe5195dc5f6455cbc57e7f1adc6607ae92e1b60595115b9097a439aff99",
+    "links": "1ea78f4061e1a775145a9531c8eb3e7def1a973006fbe51cf2576ba0a490e597",
+    "metadata": "a9177ceb4430adda6a256cfce41005a3f7fc253e4a1a595e45fcbaf3c5476ea8"
+  },
+  "/start": {
+    "text": "596baa670667de1e84393b9925ac5db24aac42af3f1b7488c739d5dcf75dc2fc",
+    "links": "ddd4b1754bdfd507311b743368c35f347c1361079c957226a1960b0d200dd59b",
+    "metadata": "7d963ccc2dd05e89ec14272d4434a5b172ea95388e35304028366299ab425671"
+  },
+  "/notes": {
+    "text": "3070b162fd623f2d8074b50e2cf743509155d2887270e4e67539f1b7686b1c17",
+    "links": "b3ac7b3a72798144bbe1446d7aa20892be46d056234018fbf35ea456ca4a4ce8",
+    "metadata": "987a52f80e805f064d200afa47a2854a40af7eaffd4b747db2b0f97a87591338"
+  },
+  "/fr": {
+    "text": "1726c042a6c963701bd65b169d0c6d6e5227fab86acd1b31509da25fd3988ea2",
+    "links": "b557594d0cabe88b4bfcb59c27dc4e772f806044af41b325443b8590d9277037",
+    "metadata": "7b030c7d1aeb82c57e4bad7c8aa6d737e87c7811e6c7725f152abd1937cdece4"
+  },
+  "/fr/practice": {
+    "text": "8cc67d6a243d18bdafca2281621276fc6bde3b3c8c83acccf87c42da496d5b62",
+    "links": "d8747dbe9f966e768193e051f3901ce0eee9071c32cb907e05a864f107e48b35",
+    "metadata": "ba9934c95a13e37faaba1bd15c75ef9a954142689d0a84fa86ef7e631a69e26c"
+  },
+  "/fr/practice/method": {
+    "text": "d1400afb2532c2f007bbdcdbd720dd32495b5671f950c4cacc1e6bd24ac83e12",
+    "links": "d3420dfce46fc756e6f9e59994cbf617fa7fad2a8eb594de0631f72d27dea6bd",
+    "metadata": "6ed5b84d3f0d3654a800a191c598f76fdd2632b2c696e49f44f0cd06ad03fab2"
+  },
+  "/fr/work": {
+    "text": "5ed0d190e8453433aef6b9892e20906f7ef4603d7504eec070931a119efa1987",
+    "links": "f50e2141a21dbb39f334e66aae6f3c008527ec7af89a1330e19fade1bec89564",
+    "metadata": "9dbb9cd3560c06a650d35e40b0e585cdc2e9da4ae8f3611e09775772fdb93fb3"
+  },
+  "/fr/work/selvaggi": {
+    "text": "15ed4e0ea64f47268a4afe1ea5d9e5eab57724f5574d4a5cac6a97c8cb06085a",
+    "links": "9617452fdd8313332d5380cdfa377b5928c4509e885d74adf1cfdf93fef22275",
+    "metadata": "c8bf20da442a5db39817003606657f8609965503db2b322b898d21de017322a1"
+  },
+  "/fr/work/verne-jewels": {
+    "text": "918397a25f0535f9f9159dd544c4cbc966942a9584bfe1a70a406b46c3bc9c93",
+    "links": "ec4b3afb1ccab30c073d366c1634b5968d5b9ad6a38ec45ddc789df32fee55df",
+    "metadata": "4650a9e6d184de7d275820df7067f4e4988bb34aa5a9c4eb20a118826512966c"
+  },
+  "/fr/thinking": {
+    "text": "e272a72fb0f63c6ad29fd2165eff31b170b90610b91f296e4dec065a660effc2",
+    "links": "c07a66602ab566825b70ed29ffff909777ac542ba45a4c27855e7d28f29fd643",
+    "metadata": "218784d9a96eac87a3c0f3103706b5097711bb2d0f18411379caad15de952ed9"
+  },
+  "/fr/thinking/the-collapse": {
+    "text": "91b2ea65c8aacfa9a248ad257758a48aac65eea0cfb72b52131bb7a7eb66531c",
+    "links": "afa5457eca5a4f1637950e8f2a486e7f1ae97640ec03899e1c097904c8bf62a8",
+    "metadata": "bea753d2ddbc4f0351be7a1929aaf870cdac2105a2e50bc9280477abd0240346"
+  },
+  "/fr/thinking/the-brief-before-the-brief": {
+    "text": "697f5fdeff17868769d02199d5da118b60f5b49f7be2fb786cd264aa072f89cc",
+    "links": "5f9e671b9e7d86edc7f76f1357842e396555ef53f58fa499e722ffe7731b4665",
+    "metadata": "d53a1733bb69f8c287412dc4ae7d9816f8406a5ea2a8cc834ec865f8d796e9ce"
+  },
+  "/fr/thinking/diagnosis-before-prescription": {
+    "text": "635358b71e3bf3928e37ca1ccb68e01a349c164c3ee6282df85acfd0027ebd78",
+    "links": "e517204e6a10111640f401fac465d6cab299c118168f4c0d4de78fab62d3043b",
+    "metadata": "99422442ae1d2fd216ba82e6e46770502bbacd715d78c83cebe1dd553cc84299"
+  },
+  "/fr/thinking/what-automation-should-earn": {
+    "text": "1cf1ed887b30c075d5c7548e3890ee940a25af6f33bb910456fa5ac1f0f64174",
+    "links": "363e0bd9105a947c1f2935911b6eaa9cb7e85f3b44daf0fd057172d91163e60d",
+    "metadata": "b246fb7375681f0595c2d4a518f19d589a17473ac83e442c9f34166cc46c0dd4"
+  },
+  "/fr/thinking/holding-a-decision": {
+    "text": "c91410c44bf4e468f4b3b1de4b6b21e8ec9c62285b944cced2a2d7f664997e55",
+    "links": "5d364e11a4af2b5febf723de234add28d7a5fd5a1e981f851f220c8591b44cf0",
+    "metadata": "690090dcf8f02da56ef3f7425554be9fa9a04c399444c49ab6463fa33ac928e9"
+  },
+  "/fr/thinking/one-page-many-arguments": {
+    "text": "246e2188d410e7f674c03007b0194f0c890c954309b8df721d95b68a358acb6f",
+    "links": "7291cd32241563227e37a40ca7ba554b61a3929432ca7a0f706a01ccb9794aa2",
+    "metadata": "d1d3d308e44028d2f073039fe9a98c8e4e21068168eb8611813262ef88df5021"
+  },
+  "/fr/lab": {
+    "text": "93f725a893cb4bef7b37ed99178b8388c80177d0b5764ae493fd85c25cbb5edf",
+    "links": "16d06721ed2b5db4354ec45a551d11a392398c2aa5e5bde9da77425735a05f26",
+    "metadata": "404bb258f91bab8fd5b67b13419f86df22e2c998b02dceb3c26b5ebca5c691c2"
+  },
+  "/fr/lab/signal-scan": {
+    "text": "3e93bc3823b7a7fc6752f789321a2ba1a569a6b01ca8d37d03b520e7d2e8ba38",
+    "links": "486a90c27c3924a9eb23396986e9561723a592bbcc35d6dfabdbe23fab614706",
+    "metadata": "6edbe679486f0754b636ec7d4c6281f5cb9b9427d411765b285a47c0bfb33d40"
+  },
+  "/fr/lab/the-brief-before-the-brief": {
+    "text": "42e604ba245589a5e6f757d36d087b7adfb8f55ed9bdb6c75515224c37abc502",
+    "links": "ac8c8f5ad7124a70a2464f8847de7c047feff36ada505438a650a689322d8832",
+    "metadata": "87795aa19bc0528f3f98e325fa33956f32c69e7d31a8ae97653efc024c58d5b2"
+  },
+  "/fr/about": {
+    "text": "87858a25dc67f888d30795a29a9b1acf4208f9e13c0963b2381ee2948cf1a09a",
+    "links": "58d6f8ceddea9878a9f4088545d216bdc4449028e422bfcd40444179bd7c9a2c",
+    "metadata": "67c73825e97a423ce80d3799fe99f017ef62c6e01e0377f126e3da4099b073ed"
+  },
+  "/fr/start": {
+    "text": "96a738fcb36d15ac7d1628e44371439b7027cfc3b491525ccfe7ae2ecffc79db",
+    "links": "295e9a922b606c8b013b13500b61c4697103d7447c4f666d905836fb4d8563c3",
+    "metadata": "c1e7127d950ac6b17008a04d5930e92b41f97100cae10ff2371229e1bae59a5f"
+  },
+  "/fr/notes": {
+    "text": "aef1aafbe6dcdf53bd1c447998e0b54ac97ced275737c0d68bdcd2c95755c839",
+    "links": "d5184818ea476532e57646cb42ffaba199e46d1cd23ddd71eb016e12423ca5e7",
+    "metadata": "a32d3e155215fbdd98af9ee5012ca56ee0aca7e64f476614eb611af2d1cb8f5a"
+  }
+}

@@ -12,7 +12,8 @@
     "dev": "node scripts/build.mjs && node --watch server.mjs",
     "test": "node scripts/build.mjs && node --test tests/site.test.mjs",
     "test:browser": "node tests/browser.mjs",
-    "test:visual": "node tests/visual.mjs"
+    "test:visual": "node tests/visual.mjs",
+    "test:restoration": "node tests/restoration.mjs"
   },
   "engines": {
     "node": ">=22"
