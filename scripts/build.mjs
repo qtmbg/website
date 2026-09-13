@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { articles } from '../src/articles.mjs';
 import { makePages } from '../src/pages.mjs';
 import { contactEmail, esc, method, origin, route } from '../src/shared.mjs';
-import { ancestors, canonical, crumbLabels, ogSlug } from './meta.mjs';
+import { ancestors, canonical, crumbLabels, ogSlug, routeSection, routeSlug } from './meta.mjs';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const dist = path.join(root, 'dist');
@@ -197,7 +197,7 @@ ${xDefault}
 <script type="application/ld+json">${jsonLd(page)}</script>
 <script type="module" src="/app.js" defer></script>
 </head>
-<body>
+<body data-page="${esc(routeSlug(basePath))}" data-section="${esc(routeSection(basePath))}">
 <a class="skip-link" href="#main">${fr ? 'Aller au contenu' : 'Skip to content'}</a>
 ${header(lang, basePath)}
 <main id="main">

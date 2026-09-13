@@ -225,6 +225,19 @@ details[open] summary{margin-bottom:12px}
 .site-footer a:hover{text-decoration:underline}
 .site-footer small{font-size:12px;color:var(--muted)}
 
+/* Lab degree B: route-wide surfaces from 24eac66; content stays unchanged. */
+@media screen{
+ body[data-page="lab"]{background:#182931;color:var(--paper)}
+ body[data-page="lab"] .site-header nav{background:#182931}
+ body[data-page="lab"] a,body[data-page="lab"] .text-link{color:var(--paper);border-color:#71878d}
+ body[data-page="lab"] .skip-link{color:var(--ink)}
+ body[data-page="lab"] .lab-grid,body[data-page="lab"] .lab-card{border-color:#597078}
+ body[data-page="lab"] .standfirst,body[data-page="lab"] .lab-card p,body[data-page="lab"] .breadcrumbs,body[data-page="lab"] .site-footer small{color:#bac8ce}
+ body[data-page="lab"] .status,body[data-page="lab"] .eyebrow{color:var(--acid)}
+ body[data-page="lab"] .history-list,body[data-page="lab"] .history-list article{border-color:#50616a}
+ body[data-page="lab"] .history-list p,body[data-page="lab"] .lab-relationship{color:#b9c8ce}
+}
+
 @media(min-width:1600px){.hero{min-height:850px}}
 @media(max-width:1050px){.site-header{gap:24px}.site-header nav{gap:19px;font-size:12px}.header-actions{gap:18px;font-size:12px}.wordmark{font-size:17px;max-width:125px}.hero h1{font-size:8.7vw}.case-art{min-height:280px}.method-grid>article{padding-right:19px}.method-grid>article+article{padding-left:19px}.method-grid h3{font-size:32px}}
 @media(max-width:800px){

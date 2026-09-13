@@ -1,8 +1,15 @@
 // Shared metadata helpers: route identity, OG slugs, breadcrumbs.
 import {origin, route} from '../src/shared.mjs';
 
-export const ogSlug = (basePath, lang) =>
-  `${lang}-${basePath === '/' ? 'home' : basePath.replace(/^\//, '').replace(/\//g, '-')}`;
+// Route identity, reused for OG slugs and for the <body> styling hook.
+export const routeSlug = basePath =>
+  basePath === '/' ? 'home' : basePath.replace(/^\//, '').replace(/\//g, '-');
+
+// Top-level branch of a route, e.g. /lab/signal-scan -> lab
+export const routeSection = basePath =>
+  basePath === '/' ? 'home' : basePath.split('/').filter(Boolean)[0];
+
+export const ogSlug = (basePath, lang) => `${lang}-${routeSlug(basePath)}`;
 
 export const canonical = (basePath, lang) => origin + route(basePath, lang);
 
