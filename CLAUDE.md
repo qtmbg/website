@@ -42,7 +42,7 @@ ask for it.
 
 ### Visual restoration approved 13 September 2026
 
-The current multipage EN/FR content is approved. Commit `24eac66` is the
+The multipage EN/FR editorial pass of 14 September 2026 is approved. Commit `24eac66` is the
 visual reference, not the editorial source. Preserve `src/pages.mjs`,
 `src/articles.mjs` and `src/shared.mjs` when changing presentation.
 `scripts/presentation.mjs` and `assets/visual-restoration.css` restore the
@@ -52,22 +52,18 @@ must not be removed by an editorial or routing change. Original illustration
 shading and the original project-cover colours are part of the reference.
 Do not reintroduce old slogans, prices or product naming with the artwork.
 Run `npm run test:restoration` to compare every page's text, metadata and
-links with the pre-restoration editorial baseline, and to check boundary
-widths and reduced motion. Preview for visual approval before production.
+links with `tests/fixtures/editorial-2026-09-14.json`, and to check boundary
+widths and reduced motion. Refresh that baseline only for an explicitly
+requested editorial change. Preserve the older baseline as a historical record.
+The owner explicitly requested tests, commit and deployment for this editorial pass.
 
 ### 1. Em dash
 
 The em dash rule applies to **page text**: body copy, headings, standfirsts,
 essay prose, form labels and the brochures.
 
-It does **not** apply to:
-
-- `<title>` tags — `Quantum Branding — Making got cheap. Deciding didn't.`
-- navigation separators
-- breadcrumbs
-
-Those are structural separators, not prose, and the em dash is the correct
-character for them.
+The exception is title tags and their social-title equivalents.
+Body text, generated brief text and downloadable diagrams use no em dash.
 
 ### 2. No prices
 
@@ -87,8 +83,9 @@ Nothing is defined by what it is not. Qualifications are at most two words:
 
 ### 5. No location
 
-No city, country, region, "based in" or "working from". "African" is permitted
-only inside the proper name of the 1:54 art fair.
+No city, country, region, "based in" or "working from". The owner explicitly
+supplied The New York Times and Los Angeles Lakers in the career-reference
+bar. Preserve those proper names and list them as exceptions in the audit.
 
 ### 6. Product naming
 
@@ -108,10 +105,17 @@ If a fact is missing, use a cautious formulation and record the gap in
 
 ## Flags
 
-`src/shared.mjs` carries `publishTestimonials`. It is `false`: the three client
-quotes exist in the data and in the markup but are withheld from `/work` and
-from both brochures until each excerpt carries a confirmed name, role and year.
-Flip it to `true` once attribution is real — the site and the PDFs both follow it.
+`src/shared.mjs` carries `publishTestimonials=true`. On 14 September 2026 the
+owner confirmed Elvin Picardo, Tisa Esen and Shelah J. and requested publication
+without platform, role, location or year. Preserve the English quotes verbatim.
+The negative construction in the third quote is therefore an explicit quotation
+exception. `/notes` retains the originals; `/work` has the EN/FR versions.
+The existing PDF template includes the first two quotes.
+
+BrandOS belongs to Observe only in the method. The practitioner owns Collapse,
+Build and Hold. Never describe BrandOS as free, paid, required or bundled.
+The owner supplied both complete cases in `src/cases.mjs`. Historical dates
+for UNIDO, Audi and Diptyk still await the owner's response; never infer them.
 
 ## Before committing
 

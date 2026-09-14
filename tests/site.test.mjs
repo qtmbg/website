@@ -250,10 +250,10 @@ test('no location is claimed anywhere', async () => {
 
 test('“we” appears only where it means the client and me', async () => {
   const allowed = [/We can work out the right starting point together/, /we talk/,
-    /Nous trouverons ensemble/, /nous définirons ensemble/, /nous explicitons/];
+    /Nous trouverons ensemble/, /nous définirons ensemble/, /nous explicitons/, /us had walked the funnel/];
   for (const file of (await walk(dist)).filter(f => f.endsWith('.html'))) {
     const text = (await readFile(file, 'utf8')).replace(/<script[\s\S]*?<\/script>/g, '');
-    for (const [phrase] of text.matchAll(/\b(?:we|us|our)\b[^<.!?]{0,60}/gi)) {
+    for (const [phrase] of text.matchAll(/(?<![\p{L}\p{N}_])(?:we|us|our)(?![\p{L}\p{N}_])[^<.!?]{0,60}/giu)) {
       assert.ok(allowed.some(ok => ok.test(phrase)),
         `${path.relative(dist, file)} uses a collective pronoun for the practice: "${phrase.trim()}"`);
     }
@@ -295,17 +295,19 @@ test('its argument survives as an essay, with no client-project framing', async 
   assert.ok((await read('/thinking')).includes('One page, many arguments'), 'the index does not list it');
 });
 
-test('testimonials are withheld until attribution is confirmed', async () => {
-  assert.equal(publishTestimonials, false);
-  assert.equal(reviews.length, 3, 'the quotes must stay in the data');
-  for (const route of ['/work', '/fr/work']) {
-    const html = await read(route);
-    assert.equal(/<blockquote>/.test(html), false, `${route} still publishes quotes`);
-    assert.equal(/In clients|Ce que les clients/.test(html), false, `${route} still shows the section`);
+test('confirmed client names and verbatim excerpts are published', async () => {
+  assert.equal(publishTestimonials, true);
+  assert.deepEqual(reviews.map(r=>r.name), ['Elvin Picardo','Tisa Esen','Shelah J.']);
+  for (const route of ['/work','/fr/work']) {
+    const html=await read(route);
+    assert.equal((html.match(/<blockquote>/g)||[]).length,3);
+    for(const r of reviews)assert.ok(html.includes(r.name));
   }
-  // /notes keeps the sourcing record and the English originals.
-  const notes = await read('/notes');
-  for (const review of reviews) assert.ok(notes.includes(review.handle), `/notes lost ${review.handle}`);
+  const notes=await read('/notes');
+  for(const r of reviews){
+    assert.ok(notes.includes(r.name));
+    assert.ok(notes.includes(r.en.replaceAll("'",'&#39;')));
+  }
 });
 
 test('defensive qualifications and the retired visual furniture are gone', async () => {
@@ -377,4 +379,52 @@ test('the brief instrument keeps answers in the browser and never posts them', a
   assert.ok(page.includes(`data-email-draft href="mailto:${contactEmail}"`));
   const script = await readFile(path.join(dist, 'app.js'), 'utf8');
   assert.equal(script.match(/\bfetch\(|XMLHttpRequest|navigator\.sendBeacon/), null, 'app.js must not transmit answers');
+});
+
+test('rendered pages and brochures interpolate every variable and remove em dashes from body copy', async () => {
+  for(const page of pages){
+    const html=await read(page.path);
+    assert.doesNotMatch(html,/\$\{[^}]*\}/,page.path);
+    const body=html.split('<body')[1].replace(/<script[\s\S]*?<\/script>/g,'');
+    assert.doesNotMatch(body,/—/,page.path);
+  }
+  for(const lang of ['en','fr'])assert.doesNotMatch(brochure(lang).split('<body>')[1],/—|\$\{[^}]*\}/);
+});
+
+test('branch B is a direct conversation and start has no repeated fork', async () => {
+  for(const p of pages){
+    const html=await read(p.path);
+    const forks=[...html.matchAll(/class="fork-option" href="([^"]+)"/g)];
+    if(forks.length)assert.equal(forks[1][1],p.lang==='fr'?'/fr/start':'/start',p.path);
+  }
+  for(const route of ['/start','/fr/start']){
+    const html=await read(route);
+    assert.doesNotMatch(html,/closing-fork/);
+    assert.match(html,/the-brief-before-the-brief/);
+    assert.equal((html.match(/<h1>/g)||[]).length,1);
+  }
+});
+
+test('case studies have five sections, a closing note and confirmed status', async () => {
+  for(const route of ['/work/selvaggi','/fr/work/selvaggi','/work/verne-jewels','/fr/work/verne-jewels']){
+    const html=await read(route);
+    assert.equal((html.match(/<h2>/g)||[]).length,5,route);
+    assert.doesNotMatch(html,/The documented scope|Project documentation|Le périmètre documenté/);
+    assert.match(html,/mailto:me@qtmbg.com/);
+    assert.ok(html.includes(route.includes('selvaggi')?'Zero-Disruption Protocol':'Verne Style Oracle'));
+  }
+});
+
+test('BrandOS belongs only to Observe in the method and decorative poster is hidden', async () => {
+  for(const route of ['/practice/method','/fr/practice/method']){
+    const html=await read(route);
+    const cards=html.split('<div class="method-grid">')[1].split('</article>');
+    assert.match(cards[0],/BrandOS/);
+    for(const card of cards.slice(1,4))assert.doesNotMatch(card,/BrandOS/);
+  }
+  for(const route of ['/about','/fr/about']){
+    const html=await read(route);
+    assert.match(html,/class="visual-founder-poster" aria-hidden="true"/);
+    assert.doesNotMatch(html,/class="history-list"/);
+  }
 });

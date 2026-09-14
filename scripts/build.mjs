@@ -183,14 +183,14 @@ ${xDefault}
 <meta property="og:image" content="${image}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="${esc(plainTitle)} — Quantum Branding">
+<meta property="og:image:alt" content="${esc(plainTitle)} · Quantum Branding">
 <meta property="og:locale" content="${fr ? 'fr_FR' : 'en_US'}">
 <meta property="og:locale:alternate" content="${fr ? 'en_US' : 'fr_FR'}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(fullTitle)}">
 <meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${image}">
-<meta name="twitter:image:alt" content="${esc(plainTitle)} — Quantum Branding">
+<meta name="twitter:image:alt" content="${esc(plainTitle)} · Quantum Branding">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" as="font" type="font/ttf" href="/assets/fonts/instrument-serif-latin-400-normal.ttf" crossorigin>
 <link rel="preload" as="font" type="font/ttf" href="/assets/fonts/dm-sans-latin-variable-normal.ttf" crossorigin>
@@ -243,15 +243,15 @@ ${lines.slice(0, 4).map((l, k) => `<text x="${x}" y="${300 + k * 22}" font-famil
 <text x="${x}" y="128" font-family="DM Sans, Arial, sans-serif" font-size="13" fill="${muted}">0${i + 1}</text>`;
   }).join('\n');
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="1200" height="480" role="img" aria-label="The Collapse — Observe, Collapse, Build, Hold">
-<title>The Collapse — Observe → Collapse → Build → Hold</title>
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="1200" height="480" role="img" aria-label="The Collapse · Observe, Collapse, Build, Hold">
+<title>The Collapse · Observe → Collapse → Build → Hold</title>
 <rect width="1200" height="480" fill="${paper}"/>
 <text x="80" y="72" font-family="Instrument Serif, Georgia, serif" font-size="52" fill="${ink}">The Collapse</text>
 <text x="80" y="100" font-family="DM Sans, Arial, sans-serif" font-size="15" fill="${muted}">Observe → Collapse → Build → Hold</text>
 <line x1="80" y1="112" x2="1120" y2="112" stroke="#cdd4d9"/>
 ${cells}
 <line x1="80" y1="410" x2="1120" y2="410" stroke="#cdd4d9"/>
-<text x="80" y="440" font-family="DM Sans, Arial, sans-serif" font-size="14" fill="${muted}">The Collapse — Nizzar Ben Chekroune / Quantum Branding · thequantumbranding.com</text>
+<text x="80" y="440" font-family="DM Sans, Arial, sans-serif" font-size="14" fill="${muted}">The Collapse · Nizzar Ben Chekroune / Quantum Branding · thequantumbranding.com</text>
 </svg>
 `;
 }

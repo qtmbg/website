@@ -17,7 +17,9 @@ export function editorialFingerprint(html){
 
 if(process.argv[1]===fileURLToPath(import.meta.url)){
  const base=process.env.BASE_URL||'http://localhost:3017';
- const fixture=JSON.parse(await readFile(new URL('./fixtures/editorial-f42a989.json',import.meta.url),'utf8'));
+ const fixtureUrl=new URL('./fixtures/editorial-2026-09-14.json',import.meta.url);
+ const record=process.argv.includes('--record-editorial');
+ const fixture=record?{}:JSON.parse(await readFile(fixtureUrl,'utf8'));
  const browser=await chromium.launch({channel:'chrome',headless:true});
  const out=new URL('../test-results/restoration/',import.meta.url).pathname;await mkdir(out,{recursive:true});
  const report={editorialPages:0,geometry:[],errors:[],motion:false};
@@ -30,9 +32,12 @@ if(process.argv[1]===fileURLToPath(import.meta.url)){
    const actual=await page.evaluate(editorialFingerprint,await response.text());
    const textHash=createHash('sha256').update(actual.text).digest('hex');
    const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
-   assert.deepEqual({text:textHash,links:hash(actual.links),metadata:hash(actual.metadata)},fixture[item.path],`${item.path}: editorial content changed`);
+   const fingerprint={text:textHash,links:hash(actual.links),metadata:hash(actual.metadata)};
+   if(record)fixture[item.path]=fingerprint;
+   else assert.deepEqual(fingerprint,fixture[item.path],`${item.path}: editorial content changed`);
    report.editorialPages++;
   }
+  if(record)await writeFile(fixtureUrl,JSON.stringify(fixture,null,2)+'\n');
   for(const lang of ['en','fr'])for(const route of ['/','/practice','/work','/lab','/about','/start'])for(const width of [360,390,540,541,800,801,1440]){
    await page.setViewportSize({width,height:900});
    const pathname=(lang==='fr'?'/fr':'')+(route==='/'?(lang==='fr'?'':'/'):route);

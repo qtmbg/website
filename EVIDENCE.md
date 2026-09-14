@@ -106,3 +106,20 @@ The claim "Work I contributed to across seventeen years, as an individual" was r
 - **Home page**: the Quantum Branding practice-project card was removed from the home grid at the owner's request. The case keeps its own page at `/work/quantum-branding` (and `/fr/...`) and remains listed on `/work`, so nothing published was withdrawn.
 
 Testimonial attribution remains `[First Last] · [Role, Company] · [Year]` pending the owner's facts.
+
+---
+
+## Addendum — 14 September 2026: owner-supplied full editorial pass
+
+This addendum supersedes earlier publication flags and placeholder instructions.
+Source: the owner's attached instruction, `0ce956d7-3bc3-4966-841b-2b8334e676aa/pasted-text.txt`.
+
+- The owner confirmed the names Elvin Picardo, Tisa Esen and Shelah J. and requested publication of their existing excerpts. No role, year or location has been inferred. English originals remain verbatim; the French versions are translations.
+- Both complete case narratives, technical scope, decisions and outcomes were supplied by the owner. Selvaggi is ongoing. Verne Jewels is completed, 2026. These are first-party project accounts, not independently audited client-performance claims.
+- The owner supplied the home career-reference line: USAID, UNIDO, Audi, TV5 Monde, UM6P, The New York Times, TIME, Google Arts & Culture and Los Angeles Lakers. It describes work behind the practice, not a claim that all are current clients.
+- The year of UNIDO / La Minute Creative, Audi / Driven by Art and Diptyk remains unconfirmed. The owner has been asked. Dates are left absent.
+- The owner requested no geographic claims. The two explicitly supplied proper names containing place names are retained and disclosed in the editorial audit.
+- No monetary amount appears. The Verne case's discussion of removing prices from email body copy describes a content decision, not a published price.
+- The existing founder poster already has `aria-hidden="true"`. The accessibility check confirms its decorative text is excluded.
+- Changes are editorial, links and accessibility verification only. The CSS, illustration files and presentation module remain byte-identical to commit `76091a3`.
+- Tests, commit and production deployment are explicitly authorized by the same instruction.

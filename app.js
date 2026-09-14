@@ -77,7 +77,7 @@ if (form && output) {
     if (draft && contactEmail) {
       // A draft the visitor sends. Nothing leaves the browser on its own.
       const body = brief.length > 1600 ? `${brief.slice(0, 1600)}…` : brief;
-      draft.href = `mailto:${contactEmail}?subject=${encodeURIComponent(t('Quantum Branding — starting point', 'Quantum Branding — point de départ'))}&body=${encodeURIComponent(body)}`;
+      draft.href = `mailto:${contactEmail}?subject=${encodeURIComponent(t('Quantum Branding · starting point', 'Quantum Branding · point de départ'))}&body=${encodeURIComponent(body)}`;
     }
     say(t('Nothing has been sent. Copy it, download it, or open an email you send yourself.',
       'Rien n’a été envoyé. Copiez-le, téléchargez-le ou ouvrez un email que vous envoyez vous-même.'));

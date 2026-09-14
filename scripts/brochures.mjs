@@ -115,7 +115,7 @@ export function brochure(lang) {
     <p class="standfirst">${t('I bring strategy, design and implementation into the same conversation. You work directly with me. I bring in specialists when the scope calls for them.', 'Je réunis stratégie, design et réalisation dans une même conversation. Vous travaillez directement avec moi. Je fais intervenir des spécialistes selon le périmètre.')}</p>
     <div class="body">
       <p>${t('A company rarely experiences its problem as a discipline. The offer may be hard to explain. The website may obstruct a sale. A new technology may change the work before anyone has agreed what it should improve.', 'Une entreprise vit rarement son problème comme une discipline. L’offre se raconte difficilement. Le site freine la vente. Une technologie change le travail avant même que l’on ait décidé ce qu’elle doit améliorer.')}</p>
-      <p>${t('I start there. I work across brand, marketing, digital products and intelligent systems, with seventeen years of experience informing the connections I make. I also build AI products, which is why the question before the build matters more than ever: what is worth making, and why?', 'Je pars de là. Je travaille entre marque, marketing, produits digitaux et systèmes intelligents, avec dix-sept ans d’expérience pour nourrir les liens que je fais. Je construis aussi des produits d’IA : la question qui précède la fabrication compte donc plus que jamais — qu’est-ce qui mérite d’exister, et pourquoi ?')}</p>
+      <p>${t('I start there. I work across brand, marketing, digital products and intelligent systems, with seventeen years of experience informing the connections I make. I also build AI products. Production is fast now. The question before production is worth more than it has ever been: what deserves to exist here.', 'Je pars de là. Je travaille entre marque, marketing, produits digitaux et systèmes intelligents, avec dix-sept ans d’expérience pour nourrir les liens que je fais. Je construis aussi des produits d’IA. La production est rapide désormais. La question qui la précède vaut plus que jamais : qu’est-ce qui mérite d’exister ici.')}</p>
     </div>
     <h3 style="font-size:9pt;letter-spacing:.06em;color:#59666e;margin-top:9mm;font-weight:500">${t('WHERE THE WORK TAKES SHAPE', 'LES TERRAINS DU TRAVAIL')}</h3>
     <div class="grid2">${territories.map(a => `<div class="item"><h3>${esc(t(a[0], a[1]))}</h3><p>${esc(t(a[2], a[3]))}</p></div>`).join('')}</div>
@@ -127,7 +127,7 @@ export function brochure(lang) {
   ${p3.top}
   <div style="padding-top:9mm">
     <h2 class="title">The Collapse</h2>
-    <p class="standfirst">${t('Before you commit, a brand exists in many plausible states. The premium one. The playful one. The technical one. Each could become a coherent business. Choosing gives the work its direction.', 'Avant de choisir, une marque existe dans plusieurs états possibles. Haut de gamme. Ludique. Technique. Chacun pourrait devenir cohérent. Le choix donne au travail sa direction.')}</p>
+    <p class="standfirst">${t('Before you commit, your company is several plausible companies at once. The premium one. The playful one. The technical one. At 2am they all look right. The collapse is choosing one and holding it. The one that survives your market, your competitors and your own attention.', 'Avant de vous engager, votre entreprise est plusieurs entreprises plausibles à la fois. La haut de gamme. La ludique. La technique. À deux heures du matin, elles semblent toutes justes. Le collapse consiste à en choisir une et à la tenir. Celle qui résiste à votre marché, à vos concurrents et à votre propre attention.')}</p>
     <div class="movements">${method.map((m, n) => `<div class="movement${n === 1 ? ' pick' : ''}"><span class="no">0${n + 1}</span><h3>${m.name}${fr ? `<small>${esc(m.fr).toUpperCase()}</small>` : ''}</h3><p>${esc(fr ? m.bodyFr : m.en)}</p></div>`).join('')}</div>
     <p class="arc">OBSERVE → COLLAPSE → BUILD → HOLD</p>
     <div class="callout">
@@ -157,16 +157,16 @@ export function brochure(lang) {
   <div style="padding-top:9mm">
     <h2 class="title">${t('What needs<br>to change?', 'Que faut-il<br>changer ?')}</h2>
     <p class="standfirst">${t('A clear project or a question worth investigating. I can meet you at either starting point.', 'Un projet défini ou une question à explorer. Je peux vous rejoindre à chacun de ces points de départ.')}</p>
-    <div class="rows">${formats.map(f => `<div class="row"><h3>${esc(t(f[0], f[1]))}</h3><p>${esc(t(f[2], f[3]))}</p></div>`).join('')}</div>
+    <div class="rows">${formats.map(f => `<div class="row"><h3>${esc(t(f[0], f[1]))}</h3><div><p>${esc(t(f[2], f[3]))}</p><p>${esc(t(f[4], f[5]))}</p></div></div>`).join('')}</div>
     <div class="callout">
       <h3>${t('Scope and price are defined after we talk.', 'Le périmètre et le prix sont définis après un échange.')}</h3>
-      <p>${t('Every engagement is scoped around the work it requires. Tell me what needs to change and we will define the right starting point together.', 'Chaque mission se définit autour du travail à mener. Dites-moi ce qui doit changer et nous définirons ensemble le bon point de départ.')}</p>
+      <p>${t('Tell me what needs to change. We will define the scope together.', 'Dites-moi ce qui doit changer. Nous définirons le périmètre ensemble.')}</p>
     </div>
     <div class="contact">
       <a class="mail" href="mailto:${contactEmail}" style="text-decoration:none">${contactEmail}</a>
       <p>${t('Write to me directly. Or prepare a starting brief first:', 'Écrivez-moi directement. Ou préparez d’abord un point de départ :')} ${origin}${fr ? '/fr' : ''}/lab/the-brief-before-the-brief</p>
     </div>
-    <p class="small">${t('Quantum Branding is the independent practice of Nizzar Ben Chekroune. Quantum Lab is its research layer. BrandOS by Quantum Branding is the product, at quantumbranding.ai. Sources, attribution and privacy notes:', 'Quantum Branding est la pratique indépendante de Nizzar Ben Chekroune. Quantum Lab en est la couche de recherche. BrandOS by Quantum Branding est le produit, sur quantumbranding.ai. Sources, attribution et confidentialité :')} ${origin}${fr ? '/fr' : ''}/notes</p>
+    <p class="small">${t('Quantum Branding: Nizzar Ben Chekroune’s independent practice. Quantum Lab: research. BrandOS by Quantum Branding: the product at quantumbranding.ai. Sources, attribution and privacy:', 'Quantum Branding : la pratique indépendante de Nizzar Ben Chekroune. Quantum Lab : la recherche. BrandOS by Quantum Branding : le produit sur quantumbranding.ai. Sources, attribution et confidentialité :')} ${origin}${fr ? '/fr' : ''}/notes</p>
   </div>
   ${p5.foot}
 </section>
