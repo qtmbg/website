@@ -196,8 +196,10 @@ ${xDefault}
 <link rel="preload" as="font" type="font/ttf" href="/assets/fonts/dm-sans-latin-variable-normal.ttf" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <link rel="stylesheet" href="/assets/visual-restoration.css">
+<link rel="stylesheet" href="/assets/kinetic.css">
 <script type="application/ld+json">${jsonLd(page)}</script>
 <script type="module" src="/app.js" defer></script>
+<script type="module" src="/assets/motion.mjs"></script>
 </head>
 <body data-page="${esc(routeSlug(basePath))}" data-section="${esc(routeSection(basePath))}">
 <a class="skip-link" href="#main">${fr ? 'Aller au contenu' : 'Skip to content'}</a>

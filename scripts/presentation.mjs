@@ -1,8 +1,6 @@
 // Presentation only. All editorial strings and links come from src/pages.mjs.
-import { readFileSync } from 'node:fs';
 import { esc } from '../src/shared.mjs';
 
-const cube = readFileSync(new URL('../assets/illustrations/quantum-box.svg', import.meta.url), 'utf8');
 const tools = ['observe', 'mark', 'digital', 'systems', 'learning', 'compass'];
 const art = name => `<img src="/assets/illustrations/${name}.svg" alt="" width="110" height="110" loading="lazy">`;
 export const logoMark = `<svg class="wordmark-symbol" viewBox="0 0 38 42" fill="none" aria-hidden="true"><path d="m19 2 16 9v20L19 40 3 31V11Zm0 18L3 11m16 9 16-9M19 20v20" stroke="currentColor" stroke-width="2"/></svg>`;
@@ -13,7 +11,7 @@ function replaceOnce(html, needle, replacement, label) {
 }
 
 function scene() {
-  return `<div class="visual-scene" aria-hidden="true"><div class="visual-orbit"></div><div class="visual-orbit orbit-cross"></div><div class="visual-shadow"></div><div class="visual-cube">${cube}</div>${tools.map((name,i)=>`<div class="visual-tool tool-${i}">${art(name)}</div>`).join('')}</div>`;
+  return `<div class="visual-scene kinetic-stage" aria-hidden="true"><div class="quantum-aperture"><img src="/assets/illustrations/quantum-aperture.webp" srcset="/assets/illustrations/quantum-aperture-small.webp 520w, /assets/illustrations/quantum-aperture.webp 1000w" sizes="(max-width:540px) 90vw, 58vw" alt="" width="1000" height="1000" fetchpriority="high"></div><div class="tool-strip">${tools.map((name,i)=>`<div class="visual-tool tool-${i}">${art(name)}</div>`).join('')}</div></div>`;
 }
 
 function paper() {

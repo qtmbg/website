@@ -136,3 +136,15 @@ of the wording around 2019 and 2020 - 2022. No period is inferred.
 The owner explicitly removed compass.svg from BrandOS, retaining mark.svg
 as its single illustrated sign. Compass is reserved for the hero scene,
 Collapse and Business & Opportunity. See REFERENCE-UPDATE-2026-09-14.md.
+# Motion design pass, 14 September 2026
+
+The owner authorized a Google Labs-inspired evolution and asked for simple,
+contemporary motion without kitsch. See `MOTION-DESIGN-2026-09-14.md` for the
+direction, Picsart asset provenance, constraints and complete test evidence.
+
+Validation: 35 unit tests; 38 unchanged editorial fingerprints; 84 boundary
+checks; 52 browser loads with functional checks; 168 visual measurements;
+dedicated motion lifecycle, reduced-motion, pointer and eight JS-off route checks.
+The source editorial modules and baseline fixture are unchanged. BrandOS retains
+mark.svg alone and the compass mapping remains enforced. Palette, typefaces,
+contact address, brochures and pricing policy are preserved.

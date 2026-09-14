@@ -54,7 +54,7 @@ if(process.argv[1]===fileURLToPath(import.meta.url)){
   await page.setViewportSize({width:1440,height:900});await page.goto(base+'/');
   await page.emulateMedia({reducedMotion:'reduce'});
   await page.locator('.visual-scene').hover();
-  assert.equal(await page.locator('.visual-box-lid').evaluate(e=>getComputedStyle(e).transitionDuration),'0s');
+  assert.equal(await page.locator('.quantum-aperture').evaluate(e=>getComputedStyle(e).transitionDuration),'0s');
   report.motion=true;
   await page.locator('.case-card').nth(1).hover();
   assert.equal(await page.locator('.case-card').nth(1).locator('.case-art').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(212, 221, 229)');

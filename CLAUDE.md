@@ -5,6 +5,24 @@ from `src/` into `dist/`. Read `README.md` for the build and the file layout.
 
 ## Identité visuelle canonique
 
+### Authorized evolution, 14 September 2026
+
+The owner explicitly requested a Google Labs-inspired visual and motion evolution,
+including replacing the hero box, then clarified: simple and contemporary, never
+kitsch. `assets/kinetic.css` is the final presentation layer. The Picsart-generated
+open blue sculpture replaces the hero cube; the logo stays unchanged and static.
+Six illustrated tools remain in a quiet strip. Lab and territory cards, case
+covers, typography spacing and rounded contact surfaces are deliberate updates.
+This is an explicit exception to the historical no-scale/no-composition-change
+rules below. The palette and font families remain unchanged.
+
+Motion lives in `assets/motion.mjs`: finite entrances, subtle pointer depth,
+short page entrances. No logo rotation, bounces, ambient loops,
+custom cursor, scroll hijacking or external animation runtime. Preserve live
+reduced-motion handling and readable JS-off pages. Run `node tests/motion.mjs`
+alongside the existing suites. The editorial baseline and sign mappings remain
+unchanged. See `MOTION-DESIGN-2026-09-14.md` for provenance and verification.
+
 Reference: commit `24eac66`, the `:root` block on **line 147**.
 
 That stylesheet contains **three** `:root` blocks. Only the last one to declare
