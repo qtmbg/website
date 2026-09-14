@@ -428,3 +428,30 @@ test('BrandOS belongs only to Observe in the method and decorative poster is hid
     assert.doesNotMatch(html,/class="history-list"/);
   }
 });
+
+test('BrandOS has one sign and compass is restricted to its three intended contexts', async () => {
+  for(const p of pages){
+    const html=await read(p.path);
+    const expected={'/':2,'/practice':2,'/practice/method':1}[p.basePath]||0;
+    assert.equal((html.match(/src="\/assets\/illustrations\/compass\.svg"/g)||[]).length,expected,p.path);
+    if(p.basePath==='/lab'){
+      const art=html.split('<div class="lab-product-object" aria-hidden="true">')[1].split('</div>')[0];
+      assert.equal((art.match(/<img /g)||[]).length,1);
+      assert.match(art,/\/mark\.svg/);
+      assert.doesNotMatch(art,/compass|product-spark/);
+    }
+  }
+});
+
+test('confirmed career dates appear on work and about in both languages', async () => {
+  const expected=[['UNIDO / La Minute Creative','2015 - 2019'],['USAID / Career Centers','2017 - 2019'],['Diptyk','2020 - 2021'],['Inception','2021 - 2023'],['BnanaCorp','2021 - 2023']];
+  for(const route of ['/work','/about','/fr/work','/fr/about']){
+    const html=await read(route);
+    for(const [name,date]of expected){
+      const row=[...html.matchAll(/<(?:article|li)>[\s\S]*?<\/(?:article|li)>/g)].map(m=>m[0]).find(row=>row.includes(name));
+      assert.ok(row?.includes(date),route+': '+name);
+    }
+    assert.ok(html.includes(route.startsWith('/fr')?'2023 - aujourd’hui':'2023 - present'),route);
+    assert.doesNotMatch(html,/2020 - 2022|Diesel/,route+': ambiguous dates must await confirmation');
+  }
+});

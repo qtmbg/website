@@ -52,7 +52,7 @@ must not be removed by an editorial or routing change. Original illustration
 shading and the original project-cover colours are part of the reference.
 Do not reintroduce old slogans, prices or product naming with the artwork.
 Run `npm run test:restoration` to compare every page's text, metadata and
-links with `tests/fixtures/editorial-2026-09-14.json`, and to check boundary
+links with `tests/fixtures/editorial-2026-09-14-career.json`, and to check boundary
 widths and reduced motion. Refresh that baseline only for an explicitly
 requested editorial change. Preserve the older baseline as a historical record.
 The owner explicitly requested tests, commit and deployment for this editorial pass.
@@ -114,8 +114,12 @@ The existing PDF template includes the first two quotes.
 
 BrandOS belongs to Observe only in the method. The practitioner owns Collapse,
 Build and Hold. Never describe BrandOS as free, paid, required or bundled.
-The owner supplied both complete cases in `src/cases.mjs`. Historical dates
-for UNIDO, Audi and Diptyk still await the owner's response; never infer them.
+The owner supplied both complete cases in `src/cases.mjs`. Confirmed career dates
+live in `src/career.mjs` for /work and /about. UNIDO, USAID, Diptyk, Inception,
+BnanaCorp and Quantum Branding are dated. Diesel and Audi / Driven by Art
+await clarification of the owner's date attribution; never infer it.
+BrandOS has one illustrated sign: mark.svg. compass.svg belongs only to the
+hero scene, Collapse and Business & Opportunity. Keep it out of BrandOS.
 
 ## Before committing
 

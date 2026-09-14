@@ -49,7 +49,7 @@ export function present(page) {
     html=html.replace(original,decorated);
   }
   if (basePath === '/lab') {
-    html = replaceOnce(html,'<h2>BrandOS</h2>',`<div class="lab-product-object" aria-hidden="true">${art('compass')}<span class="product-spark">✳</span>${art('mark')}</div><h2>BrandOS</h2>`,'BrandOS art');
+    html = replaceOnce(html,'<h2>BrandOS</h2>',`<div class="lab-product-object" aria-hidden="true">${art('mark')}</div><h2>BrandOS</h2>`,'BrandOS art');
     html = replaceOnce(html,`<a class="lab-card" href="${lang==='fr'?'/fr':''}/lab/the-brief-before-the-brief">`,`<a class="lab-card" href="${lang==='fr'?'/fr':''}/lab/the-brief-before-the-brief">${paper()}`,'brief art');
     html = replaceOnce(html,`<a class="lab-card" href="${lang==='fr'?'/fr':''}/lab/signal-scan">`,`<a class="lab-card" href="${lang==='fr'?'/fr':''}/lab/signal-scan"><div class="lab-signal-object" aria-hidden="true">${art('observe')}</div>`,'signal art');
   }

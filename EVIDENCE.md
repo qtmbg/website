@@ -123,3 +123,16 @@ Source: the owner's attached instruction, `0ce956d7-3bc3-4966-841b-2b8334e676aa/
 - The existing founder poster already has `aria-hidden="true"`. The accessibility check confirms its decorative text is excluded.
 - Changes are editorial, links and accessibility verification only. The CSS, illustration files and presentation module remain byte-identical to commit `76091a3`.
 - Tests, commit and production deployment are explicitly authorized by the same instruction.
+
+## Follow-up, 14 September 2026: career dates and BrandOS sign
+
+The owner supplied UNIDO / La Minute Creative (2015 - 2019), USAID / Career
+Centers (2017 - 2019), Diptyk (2020 - 2021), Inception and BnanaCorp
+(2021 - 2023), and Quantum Branding (2023 - present). These periods are
+published on /work and /about in both languages, from src/career.mjs.
+Audi / Driven by Art remains undated and Diesel is pending clarification
+of the wording around 2019 and 2020 - 2022. No period is inferred.
+
+The owner explicitly removed compass.svg from BrandOS, retaining mark.svg
+as its single illustrated sign. Compass is reserved for the hero scene,
+Collapse and Business & Opportunity. See REFERENCE-UPDATE-2026-09-14.md.
