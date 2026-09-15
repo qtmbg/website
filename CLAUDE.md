@@ -5,6 +5,26 @@ from `src/` into `dist/`. Read `README.md` for the build and the file layout.
 
 ## Identité visuelle canonique
 
+### Owner correction, 15 September 2026 — current direction
+
+The owner rejected the circular blue sculpture and the old illustrated icons,
+and explicitly extended the Google Labs-inspired direction to every page family.
+`assets/studio.css` is now the last presentation layer. Do not restore the
+sculpture, cube, pictogram strip or logo symbol. The wordmark is typographic.
+The hero uses four expanding typographic panels; Lab products use typographic
+previews; method and territories use numerals. Case covers are flat compositions.
+Large sans-serif headings, generous spacing and direct pointer/touch response
+replace the prior decorative vocabulary. This supersedes the visual preservation
+rules below, including their sign mappings and fixed scale restrictions.
+
+Keep the canonical blue, acid, paper and ink tokens. Lab card surfaces also use
+`#22363e` and hover `#2a4048`. Preserve the approved editorial source, career dates,
+no-pricing requirement and BrandOS's exclusive association with Observe.
+No autoplay ornament loops, bouncing logos or scroll hijacking. Keep native touch
+scrolling, reduced-motion switching and JS-off readability. Validate with the
+existing suites plus `node tests/motion.mjs`. The 14 September document below
+records a superseded implementation, not approval of the rejected sculpture.
+
 ### Authorized evolution, 14 September 2026
 
 The owner explicitly requested a Google Labs-inspired visual and motion evolution,

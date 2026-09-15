@@ -429,15 +429,14 @@ test('BrandOS belongs only to Observe in the method and decorative poster is hid
   }
 });
 
-test('BrandOS has one sign and compass is restricted to its three intended contexts', async () => {
+test('the rejected sculpture and legacy pictograms never appear in the redesigned pages', async () => {
   for(const p of pages){
     const html=await read(p.path);
-    const expected={'/':2,'/practice':2,'/practice/method':1}[p.basePath]||0;
-    assert.equal((html.match(/src="\/assets\/illustrations\/compass\.svg"/g)||[]).length,expected,p.path);
+    assert.doesNotMatch(html,/src="\/assets\/illustrations\/(?:quantum-aperture[^" ]*|compass\.svg|mark\.svg|observe\.svg|digital\.svg|systems\.svg|learning\.svg)/,p.path);
     if(p.basePath==='/lab'){
       const art=html.split('<div class="lab-product-object" aria-hidden="true">')[1].split('</div>')[0];
-      assert.equal((art.match(/<img /g)||[]).length,1);
-      assert.match(art,/\/mark\.svg/);
+      assert.equal((art.match(/<img /g)||[]).length,0);
+      assert.match(art,/brand-preview/);
       assert.doesNotMatch(art,/compass|product-spark/);
     }
   }

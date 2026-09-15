@@ -2,11 +2,14 @@
 const preference = matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
 const root = document.documentElement;
-const stages = [...document.querySelectorAll('.kinetic-stage,.method-grid>article,.visual-territory,.lab-card,.case-art,.visual-founder-poster')];
+const stages = [...document.querySelectorAll('.visual-scene,.kinetic-stage,.method-grid>article,.visual-territory,.lab-card,.case-art,.visual-founder-poster')];
 const visible = new Set();
 const played = new WeakSet();
 const reveals = new Set();
 const pendingPointers = new Map();
+const gallery = document.querySelector('.process-gallery');
+const processCards = [...document.querySelectorAll('[data-process]')];
+let activePointer = null;
 let frame = 0;
 let observer;
 
@@ -50,6 +53,38 @@ for (const el of stages) {
   el.addEventListener('pointercancel', () => resetPointer(el));
 }
 
+// A decorative counterpart to the fully readable method below. Horizontal
+// scrubbing directly opens panels; vertical touch scrolling stays native.
+function selectProcess(index) {
+  processCards.forEach((card,i) => card.classList.toggle('is-selected', i === index));
+}
+function scrubProcess(event) {
+  if (!allowed() || !gallery) return;
+  if (event.pointerType !== 'mouse' && activePointer !== event.pointerId) return;
+  const hit=document.elementFromPoint(event.clientX,event.clientY)?.closest('[data-process]');
+  if (hit && gallery.contains(hit)) selectProcess(Number(hit.dataset.process));
+}
+gallery?.addEventListener('pointermove', scrubProcess, {passive:true});
+gallery?.addEventListener('pointerdown', event => {
+  if (!allowed() || event.button !== 0) return;
+  activePointer=event.pointerId;
+  gallery.setPointerCapture(event.pointerId);
+  gallery.classList.add('is-dragging');
+  scrubProcess(event);
+});
+function releaseProcess() {
+  const pointer = activePointer;
+  activePointer=null;
+  if (pointer !== null && gallery?.hasPointerCapture(pointer)) gallery.releasePointerCapture(pointer);
+  gallery?.classList.remove('is-dragging');
+}
+gallery?.addEventListener('pointerup', releaseProcess);
+gallery?.addEventListener('pointercancel', releaseProcess);
+gallery?.addEventListener('lostpointercapture', releaseProcess);
+document.querySelectorAll('.brief-form textarea,.brief-form input').forEach(field => {
+  field.addEventListener('input', () => { field.dataset.filled=String(Boolean(field.value.trim())); });
+});
+
 function reveal(el) {
   if (played.has(el) || !allowed() || !el.animate) return;
   played.add(el);
@@ -62,6 +97,7 @@ function reveal(el) {
 }
 
 function configure() {
+  releaseProcess();
   observer?.disconnect();
   cancelAnimationFrame(frame); frame = 0;
   pendingPointers.clear(); visible.clear();
