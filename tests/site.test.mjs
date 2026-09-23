@@ -196,13 +196,13 @@ test('structured data is valid JSON-LD with the right type per page', async () =
     const block = html.split('<script type="application/ld+json">')[1].split('</script>')[0];
     const data = JSON.parse(block);
     const types = data['@graph'].map(node => node['@type']);
-    assert.ok(types.includes('ProfessionalService') && types.includes('Person'), `${page.path}: entity graph`);
+    assert.ok(types.includes('Organization') && types.includes('Person'), `${page.path}: entity graph`);
     assert.ok(types.includes(page.type), `${page.path}: expected ${page.type}`);
     if (page.path !== '/' && page.path !== '/fr') assert.ok(types.includes('BreadcrumbList'), `${page.path}: breadcrumb`);
   }
   const article = JSON.parse((await read('/thinking/the-collapse')).split('<script type="application/ld+json">')[1].split('</script>')[0]);
   const node = article['@graph'].find(n => n['@type'] === 'Article');
-  assert.equal(node.author['@id'], `${origin}/#nizzar`);
+  assert.equal(node.author['@id'], 'https://nizzar.com/#person');
   assert.match(node.datePublished, /^\d{4}-\d{2}-\d{2}$/);
 });
 
@@ -450,7 +450,7 @@ test('confirmed career dates appear on work and about in both languages', async 
       const row=[...html.matchAll(/<(?:article|li)>[\s\S]*?<\/(?:article|li)>/g)].map(m=>m[0]).find(row=>row.includes(name));
       assert.ok(row?.includes(date),route+': '+name);
     }
-    assert.ok(html.includes(route.startsWith('/fr')?'2023 - aujourd’hui':'2023 - present'),route);
+    assert.ok(html.includes(route.startsWith('/fr')?'2024 - aujourd’hui':'2024 - present'),route);
     assert.doesNotMatch(html,/2020 - 2022|Diesel/,route+': ambiguous dates must await confirmation');
   }
 });

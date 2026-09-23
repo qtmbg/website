@@ -4,13 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.mjs",
+    "build": "node scripts/brochures.mjs && node scripts/build.mjs",
     "assets": "node scripts/images.mjs && node scripts/brochures.mjs",
     "images": "node scripts/images.mjs",
     "brochures": "node scripts/brochures.mjs",
     "start": "node scripts/build.mjs && node server.mjs",
     "dev": "node scripts/build.mjs && node --watch server.mjs",
-    "test": "node scripts/build.mjs && node --test tests/site.test.mjs",
+    "test": "npm run build && node --test tests/site.test.mjs",
     "test:browser": "node tests/browser.mjs",
     "test:visual": "node tests/visual.mjs",
     "test:restoration": "node tests/restoration.mjs"

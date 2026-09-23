@@ -78,25 +78,28 @@ function breadcrumbs(basePath, lang) {
 
 const person = {
   '@type': 'Person',
-  '@id': `${origin}/#nizzar`,
+  '@id': 'https://nizzar.com/#person',
   name: 'Nizzar Ben Chekroune',
-  jobTitle: 'Independent brand and business practitioner',
+  jobTitle: 'Brand Strategist',
   url: 'https://nizzar.com',
-  worksFor: { '@id': `${origin}/#practice` },
+  worksFor: { '@id': `${origin}/#organization` },
   sameAs: [
-    'https://nizzar.com',
-    'https://www.linkedin.com/in/nizzarbenchekroune',
-    'https://artsandculture.google.com/story/meet-the-judges-of-the-global-design-graduate-show-global-design-graduate-show/IAUxkXdAFpJIsA?hl=en'
-  ]
+    'https://www.linkedin.com/in/nizzar/'
+  ],
+  subjectOf: {
+    '@type': 'CreativeWork',
+    url: 'https://artsandculture.google.com/story/meet-the-judges-of-the-global-design-graduate-show-global-design-graduate-show/IAUxkXdAFpJIsA?hl=en'
+  }
 };
 
 const practice = {
-  '@type': 'ProfessionalService',
-  '@id': `${origin}/#practice`,
+  '@type': 'Organization',
+  '@id': `${origin}/#organization`,
   name: 'Quantum Branding',
+  foundingDate: '2024',
   url: origin,
   email: contactEmail,
-  founder: { '@id': `${origin}/#nizzar` },
+  founder: { '@id': 'https://nizzar.com/#person' },
   knowsLanguage: ['en', 'fr'],
   slogan: 'Making got cheap. Deciding didn’t.'
 };
@@ -104,7 +107,7 @@ const practice = {
 function jsonLd(page) {
   const { basePath, lang, title, description, type } = page;
   const url = canonical(basePath, lang);
-  const graph = [practice, person];
+  const graph = [practice, person, { '@type': 'SoftwareApplication', '@id': 'https://quantumbranding.ai/#software', name: 'BrandOS', url: 'https://quantumbranding.ai', publisher: { '@id': `${origin}/#organization` } }];
 
   const main = {
     '@type': type,
@@ -116,15 +119,15 @@ function jsonLd(page) {
     inLanguage: lang === 'fr' ? 'fr-FR' : 'en',
     isPartOf: { '@type': 'WebSite', '@id': `${origin}/#website`, name: 'Quantum Branding', url: origin },
     image: `${origin}/og/${ogSlug(basePath, lang)}.png`,
-    publisher: { '@id': `${origin}/#practice` }
+    publisher: { '@id': `${origin}/#organization` }
   };
   if (type === 'Article') {
-    main.author = { '@id': `${origin}/#nizzar` };
+    main.author = { '@id': 'https://nizzar.com/#person' };
     main.datePublished = page.date;
     main.dateModified = page.date;
     main.mainEntityOfPage = url;
   }
-  if (type === 'CreativeWork') main.creator = { '@id': `${origin}/#nizzar` };
+  if (type === 'CreativeWork') main.creator = { '@id': 'https://nizzar.com/#person' };
   graph.push(main);
 
   const chain = ancestors(basePath);

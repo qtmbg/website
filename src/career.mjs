@@ -8,7 +8,7 @@ export const career = [
   {name:'Diptyk',start:2020,end:2021},
   {name:'Inception',start:2021,end:2023},
   {name:'BnanaCorp',start:2021,end:2023},
-  {name:'Quantum Branding',start:2023,end:null}
+  {name:'Quantum Branding',start:2024,end:null}
 ];
 
 export function careerPeriod(entry,lang){
