@@ -11,7 +11,7 @@ export const method=[
 ];
 export const cases=[
  {slug:'selvaggi',name:'Selvaggi',type:['Brand · Digital · Commercial','Marque · Digital · Commercial'],summary:['A contractor that builds inside working hospitals. The brand said none of it.','Un constructeur qui intervient dans des hôpitaux en activité. La marque passait cette expertise sous silence.'],fact:['Ongoing engagement.','Mission en cours.'],complete:true},
- {slug:'verne-jewels',name:'Verne Jewels',meta:['Beautiful images where you could not see the jewellery. A production system replaced a rhythm.','De belles images où le bijou devenait illisible. Un système de production a remplacé un rythme.'],type:['Strategy · Jewelry','Stratégie · Joaillerie'],summary:['Beautiful images where you could not see the jewellery.','De belles images où le bijou devenait illisible.'],fact:['Completed engagement, 2026.','Mission terminée, 2026.'],complete:true},
+ {slug:'verne-jewels',name:'Verne Jewels',meta:['Beautiful images where you could not see the jewellery. A production system replaced a rhythm.','De belles images où le bijou devenait illisible. Un système de production a remplacé un rythme.'],type:['Strategy · Jewelry','Stratégie · Joaillerie'],summary:['Beautiful images where you could not see the jewellery.','De belles images où le bijou devenait illisible.'],fact:['April 2025–August 2026. Completed engagement, including handover.','Avril 2025–août 2026. Mission terminée, passation comprise.'],complete:true},
 ];
 export const publishTestimonials=true;
 export const reviews=[
