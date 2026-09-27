@@ -6,7 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { articles } from '../src/articles.mjs';
 import { makePages } from '../src/pages.mjs';
-import { contactEmail, esc, method, origin, route } from '../src/shared.mjs';
+import { contactEmail, esc, method, origin, route, territories } from '../src/shared.mjs';
 import { ancestors, canonical, crumbLabels, ogSlug, routeSection, routeSlug } from './meta.mjs';
 import { present } from './presentation.mjs';
 
@@ -80,11 +80,15 @@ const person = {
   '@type': 'Person',
   '@id': 'https://nizzar.com/#person',
   name: 'Nizzar Ben Chekroune',
+  alternateName: ['Nizzar', 'thenizzar'],
   jobTitle: 'Brand Strategist',
   url: 'https://nizzar.com',
   worksFor: { '@id': `${origin}/#organization` },
   sameAs: [
-    'https://www.linkedin.com/in/nizzar/'
+    'https://www.linkedin.com/in/nizzar/',
+    'https://instagram.com/thenizzar',
+    'https://sessionize.com/nizzar/',
+    'https://www.imdb.com/name/nm8517643/'
   ],
   subjectOf: {
     '@type': 'CreativeWork',
@@ -96,8 +100,12 @@ const practice = {
   '@type': 'Organization',
   '@id': `${origin}/#organization`,
   name: 'Quantum Branding',
+  alternateName: 'The Quantum Branding',
+  description: 'Independent founder-led practice of Nizzar Ben Chekroune across Brand × AI × Business.',
   foundingDate: '2024',
   url: origin,
+  sameAs: ['https://www.linkedin.com/company/thequantumbranding/'],
+  knowsAbout: territories.map(([name]) => name),
   email: contactEmail,
   founder: { '@id': 'https://nizzar.com/#person' },
   knowsLanguage: ['en', 'fr'],
@@ -107,7 +115,7 @@ const practice = {
 function jsonLd(page) {
   const { basePath, lang, title, description, type } = page;
   const url = canonical(basePath, lang);
-  const graph = [practice, person, { '@type': 'SoftwareApplication', '@id': 'https://quantumbranding.ai/#software', name: 'BrandOS', url: 'https://quantumbranding.ai', publisher: { '@id': `${origin}/#organization` } }];
+  const graph = [practice, person, { '@type': 'SoftwareApplication', '@id': 'https://quantumbranding.ai/#software', name: 'BrandOS', alternateName: 'BrandOS by Quantum Branding', applicationCategory: 'BusinessApplication', operatingSystem: 'Web', url: 'https://quantumbranding.ai', publisher: { '@id': `${origin}/#organization` } }];
 
   const main = {
     '@type': type,
