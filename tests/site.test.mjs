@@ -116,7 +116,7 @@ test('French routes are French in the static HTML, with no JavaScript required',
   assert.match(html, /<html lang="fr">/);
   assert.match(html, /Créer coûte moins/);
   assert.match(html, /Bien décider reste rare/);
-  assert.match(html, /Pour les entreprises qui ont quelque chose d’important/);
+  assert.match(html, /quelque chose d’important à améliorer/);
   const withoutScripts = html.replace(/<script[\s\S]*?<\/script>/g, '');
   assert.match(withoutScripts, /Que faut-il changer/);
   assert.match(await read('/fr/practice/method'), /Observer/);
@@ -325,17 +325,25 @@ test('defensive qualifications and the retired visual furniture are gone', async
   }
 });
 
-test('the hero carries exactly a headline, a positioning line and one call to action', async () => {
-  for (const [route, headline, cta] of [
-    ['/', /Making got cheap/, /Tell me what needs to change/],
-    ['/fr', /Créer coûte moins/, /Dites-moi ce qui doit changer/]
+test('the hero says what the practice is before the thesis, with two actions', async () => {
+  for (const [route, eyebrow, headline, founder, areas, ctas, thesis] of [
+    ['/', /An independent strategy practice/, /Brand × AI × Business/, /independent practice of Nizzar Ben Chekroune/, /Marketing &amp; Sales/, [/Start a project/, /See the work/], /Making got cheap/],
+    ['/fr', /Une pratique indépendante de stratégie/, /Brand × AI × Business/, /pratique indépendante de Nizzar Ben Chekroune/, /Marketing &amp; Ventes/, [/Démarrer un projet/, /Voir le travail/], /Créer coûte moins/]
   ]) {
-    const hero = (await read(route)).split('<section class="hero wrap">')[1].split('</section>')[0];
+    const html = await read(route);
+    const hero = html.split('<section class="hero wrap">')[1].split('</section>')[0];
     assert.equal((hero.match(/<h1>/g) || []).length, 1);
-    assert.equal((hero.match(/<p /g) || []).length, 1);
-    assert.equal((hero.match(/<a /g) || []).length, 1);
+    assert.equal((hero.match(/<a /g) || []).length, 2);
+    assert.match(hero, eyebrow);
     assert.match(hero, headline);
-    assert.match(hero, cta);
+    assert.match(hero, founder);
+    assert.match(hero, areas);
+    for (const cta of ctas) assert.match(hero, cta);
+    assert.doesNotMatch(hero, thesis, `${route}: the thesis belongs after the definition`);
+    assert.doesNotMatch(hero, /process-gallery/, `${route}: the method belongs after the definition`);
+    const order = ['class="hero', 'home-territories', 'case-grid', 'thesis', 'home-method', 'perceptual-composition', 'class="text-link" href="https://quantumbranding.ai"', 'closing-fork'].map(n => html.indexOf(n, html.indexOf('<main')));
+    assert.ok(order.every(i => i > 0), `${route}: a homepage block is missing`);
+    assert.deepEqual([...order].sort((a, b) => a - b), order, `${route}: homepage order changed`);
   }
 });
 

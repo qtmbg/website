@@ -3,6 +3,25 @@
 The practice website for Nizzar Ben Chekroune. Static, bilingual, generated
 from `src/` into `dist/`. Read `README.md` for the build and the file layout.
 
+## Homepage clarity pass, 3 October 2026 (owner brief)
+
+Clarity first, depth second. The homepage reads in this order and the tests lock it:
+1. Hero: what the practice is (independent strategy practice), the territory
+   (Brand × AI × Business), Nizzar named as the person behind it, the value line
+   ("I help companies see what is true, decide what matters and make it real"),
+   the five areas, then two actions (Start a project, See the work).
+2. The six territories. 3. Selected work and references.
+4. The thesis: "Making got cheap. Deciding didn't." It is the thesis, not the definition.
+5. How I work: The Collapse (Observe, Collapse, Build, Hold). The four expanding
+   panels now live here, not in the hero.
+6. Behind the practice: Nizzar, then Perceptual Composition as the background
+   intellectual layer, linking to https://nizzar.com/perceptual-composition.
+   Never present Perceptual Composition as a Quantum Branding method or merge it
+   with The Collapse. Its full text belongs on nizzar.com only.
+7. From the Lab: BrandOS. 8. Thinking. 9. Contact fork.
+The restoration fixture `editorial-2026-10-03-clarity.json` records this pass;
+`editorial-2026-09-14-career.json` stays as the historical baseline.
+
 ## Identité visuelle canonique
 
 ### Owner correction, 15 September 2026 — current direction
@@ -11,7 +30,7 @@ The owner rejected the circular blue sculpture and the old illustrated icons,
 and explicitly extended the Google Labs-inspired direction to every page family.
 `assets/studio.css` is now the last presentation layer. Do not restore the
 sculpture, cube, pictogram strip or logo symbol. The wordmark is typographic.
-The hero uses four expanding typographic panels; Lab products use typographic
+The four expanding typographic panels sit with the method on the homepage (moved from the hero on 3 October 2026); Lab products use typographic
 previews; method and territories use numerals. Case covers are flat compositions.
 Large sans-serif headings, generous spacing and direct pointer/touch response
 replace the prior decorative vocabulary. This supersedes the visual preservation

@@ -30,19 +30,18 @@ function decorateCases(html) {
 export function present(page) {
   const {basePath,lang} = page;
   if (['/','/work'].includes(basePath) && (page.body.match(/<div class="case-art">/g)||[]).length !== 2) throw new Error(`Case presentation targets changed: ${basePath}`);
-  if (['/','/practice','/practice/method'].includes(basePath) && (page.body.match(/class="method-mark /g)||[]).length !== 4) throw new Error(`Method presentation targets changed: ${basePath}`);
+  if (['/practice','/practice/method'].includes(basePath) && (page.body.match(/class="method-mark /g)||[]).length !== 4) throw new Error(`Method presentation targets changed: ${basePath}`);
   let html = decorateCases(page.body);
   html = html.replace(/(<div class="method-mark mark-([0-3])" aria-hidden="true">)/g,(_,tag,i)=>`${tag}<b>0${Number(i)+1}</b>`);
   if (basePath === '/') {
-    const end = html.indexOf('</section>');
-    if (end < 0 || !html.startsWith('<section class="hero wrap">')) throw new Error('Home hero target changed');
-    html = html.slice(0,end) + scene() + html.slice(end);
+    // The method panels sit with the method, after the visitor knows what the practice is.
+    html = replaceOnce(html,'<div class="method-stage"></div>',`<div class="method-stage">${scene()}</div>`,'home method stage');
   }
-  if (basePath === '/practice') {
+  if (['/','/practice'].includes(basePath)) {
     let i = 0;
     const start = html.indexOf('<div class="history-list">');
     const end = html.indexOf('</div>',start);
-    if (start < 0 || end < 0) throw new Error('Practice territories target changed');
+    if (start < 0 || end < 0) throw new Error(`Territories target changed: ${basePath}`);
     const original = html.slice(start,end+6);
     const decorated = original.replace(/<article>/g,()=>`<article class="visual-territory"><div class="territory-object" aria-hidden="true"><span>0${++i}</span><i></i></div>`);
     if (i !== 6) throw new Error(`Expected six territories; found ${i}`);

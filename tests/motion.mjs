@@ -21,6 +21,8 @@ try {
  await expect.poll(()=>scene.evaluate(e=>e.style.getPropertyValue('--pointer-x'))).not.toBe('');
  await cards.nth(1).hover();
  await expect(cards.nth(1)).toHaveClass(/is-selected/);
+ // The panels sit with the method, below the fold: settle the scroll before measuring.
+ await scene.evaluate(e=>e.scrollIntoView({block:'center',behavior:'instant'}));
  const box=await scene.boundingBox();
  await page.mouse.move(box.x+50,box.y+120);
  await page.mouse.down();

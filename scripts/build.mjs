@@ -82,6 +82,7 @@ const person = {
   name: 'Nizzar Ben Chekroune',
   alternateName: ['Nizzar', 'thenizzar'],
   jobTitle: 'Brand Strategist',
+  description: 'Brand Strategist and founder of Quantum Branding, working across Brand × AI × Business. His way of working is Perceptual Composition.',
   url: 'https://nizzar.com',
   worksFor: { '@id': `${origin}/#organization` },
   sameAs: [
@@ -101,7 +102,7 @@ const practice = {
   '@id': `${origin}/#organization`,
   name: 'Quantum Branding',
   alternateName: 'The Quantum Branding',
-  description: 'Independent founder-led practice of Nizzar Ben Chekroune across Brand × AI × Business.',
+  description: 'Independent strategy practice of Nizzar Ben Chekroune across Brand × AI × Business: brand and positioning, marketing and sales, digital and experience, AI, and business.',
   foundingDate: '2024',
   url: origin,
   sameAs: ['https://www.linkedin.com/company/thequantumbranding/'],
