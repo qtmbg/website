@@ -1,4 +1,5 @@
-// Editorial baseline: owner-approved copy and career updates, 14 September 2026.
+// Editorial baseline: owner-approved homepage clarity pass, 3 October 2026.
+// Previous baseline kept as history: fixtures/editorial-2026-09-14-career.json.
 // Changes to this fixture require an explicit editorial change, never a redesign.
 import {chromium} from '@playwright/test';
 import assert from 'node:assert/strict';
@@ -17,7 +18,7 @@ export function editorialFingerprint(html){
 
 if(process.argv[1]===fileURLToPath(import.meta.url)){
  const base=process.env.BASE_URL||'http://localhost:3017';
- const fixtureUrl=new URL('./fixtures/editorial-2026-09-14-career.json',import.meta.url);
+ const fixtureUrl=new URL('./fixtures/editorial-2026-10-03-clarity.json',import.meta.url);
  const record=process.argv.includes('--record-editorial');
  const fixture=record?{}:JSON.parse(await readFile(fixtureUrl,'utf8'));
  const browser=await chromium.launch({channel:'chrome',headless:true});

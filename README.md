@@ -4,7 +4,8 @@ Static, bilingual site for Nizzar Ben Chekroune’s independent practice.
 Every route is generated as plain HTML: no framework, no runtime dependency,
 no content injected after hydration.
 
-- **Positioning** — *Making got cheap. Deciding didn’t.* / *Créer coûte moins. Bien décider reste rare.*
+- **What it is** — an independent strategy practice, Brand × AI × Business, founded by Nizzar Ben Chekroune.
+- **Thesis** — *Making got cheap. Deciding didn’t.* / *Créer coûte moins. Bien décider reste rare.*
 - **Method** — The Collapse: Observe → Collapse → Build → Hold.
 - **Contact** — me@qtmbg.com. The first conversation is free; scope and price are defined after it. No prices appear on the site.
 - **Product** — the product at quantumbranding.ai is called **BrandOS by Quantum Branding**. This repository never touches it.
