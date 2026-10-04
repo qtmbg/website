@@ -37,7 +37,7 @@ export function present(page) {
     // The method panels sit with the method, after the visitor knows what the practice is.
     html = replaceOnce(html,'<div class="method-stage"></div>',`<div class="method-stage">${scene()}</div>`,'home method stage');
   }
-  if (['/','/practice'].includes(basePath)) {
+  if (basePath === '/practice') {
     let i = 0;
     const start = html.indexOf('<div class="history-list">');
     const end = html.indexOf('</div>',start);

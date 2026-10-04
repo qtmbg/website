@@ -144,3 +144,13 @@
 .link-row{display:flex;flex-wrap:wrap;gap:14px 28px}
 @media(max-width:800px){.hero>.button{justify-self:start}.section-heading{align-items:flex-start}}
 @media(max-width:540px){.hero .hero-eyebrow{text-align:left;font-size:12px;margin:0 0 14px}.hero .hero-description{margin:22px 0 12px}.hero .hero-areas{font-size:14px;margin:0 0 20px}.hero>.button{align-self:flex-start}.hero>.button.secondary{margin-top:10px}.method-caption{font-size:16px}.prose .triad{font-size:26px}}
+
+/* The homepage gives the six territories a concise introduction; /practice retains the full treatment. */
+.home-territories .history-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 30px;border-top:1px solid var(--line);padding-top:28px}
+.home-territories .history-list article{display:block;border:0;padding:0}
+.home-territories .history-list h3{font-size:25px;letter-spacing:-.03em;margin-bottom:10px}
+.home-territories .history-list p{font-size:15px}
+.home-territories>.text-link{margin-top:28px}
+.case-info .case-evidence{margin-top:16px}
+@media(max-width:800px){.home-territories .history-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.home-territories .history-list{grid-template-columns:1fr;gap:22px}}

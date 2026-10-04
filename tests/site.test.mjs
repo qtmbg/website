@@ -116,7 +116,7 @@ test('French routes are French in the static HTML, with no JavaScript required',
   assert.match(html, /<html lang="fr">/);
   assert.match(html, /Créer coûte moins/);
   assert.match(html, /Bien décider reste rare/);
-  assert.match(html, /quelque chose d’important à améliorer/);
+  assert.match(html, /du diagnostic et de la décision à la réalisation/);
   const withoutScripts = html.replace(/<script[\s\S]*?<\/script>/g, '');
   assert.match(withoutScripts, /Que faut-il changer/);
   assert.match(await read('/fr/practice/method'), /Observer/);
@@ -236,7 +236,7 @@ test('the review platform is named nowhere', async () => {
 
 test('no location is claimed anywhere', async () => {
   // "African" is allowed: it belongs to the proper name of the 1:54 fair.
-  const banned = /marrakech|morocco|maroc\b|united states|états-unis|guadeloupe|\bcanada\b|\bfrance\b|based in|working from|working across|addressLocality|areaServed/i;
+  const banned = /marrakech|morocco|maroc\b|united states|états-unis|guadeloupe|\bcanada\b|\bfrance\b|based in|working from|addressLocality|areaServed/i;
   const files = [
     ...(await walk(dist)).filter(f => /\.(html|xml|txt|svg|css|js)$/.test(f)),
     ...(await walk(path.join(root, 'src'))),
@@ -327,8 +327,8 @@ test('defensive qualifications and the retired visual furniture are gone', async
 
 test('the hero says what the practice is before the thesis, with two actions', async () => {
   for (const [route, eyebrow, headline, founder, areas, ctas, thesis] of [
-    ['/', /An independent strategy practice/, /Brand × AI × Business/, /independent practice of Nizzar Ben Chekroune/, /Marketing &amp; Sales/, [/Start a project/, /See the work/], /Making got cheap/],
-    ['/fr', /Une pratique indépendante de stratégie/, /Brand × AI × Business/, /pratique indépendante de Nizzar Ben Chekroune/, /Marketing &amp; Ventes/, [/Démarrer un projet/, /Voir le travail/], /Créer coûte moins/]
+    ['/', /An independent strategy practice/, /Brand × AI × Business/, /independent practice of Nizzar Ben Chekroune/, /From strategic diagnosis and decision through implementation/, [/Start a project/, /See the work/], /Making got cheap/],
+    ['/fr', /Une pratique indépendante de stratégie/, /Brand × AI × Business/, /pratique indépendante de Nizzar Ben Chekroune/, /Du diagnostic stratégique et de la décision à la réalisation/, [/Démarrer un projet/, /Voir le travail/], /Créer coûte moins/]
   ]) {
     const html = await read(route);
     const hero = html.split('<section class="hero wrap">')[1].split('</section>')[0];

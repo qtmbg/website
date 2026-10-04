@@ -9,7 +9,7 @@ Clarity first, depth second. The homepage reads in this order and the tests lock
 1. Hero: what the practice is (independent strategy practice), the territory
    (Brand × AI × Business), Nizzar named as the person behind it, the value line
    ("I help companies see what is true, decide what matters and make it real"),
-   the five areas, then two actions (Start a project, See the work).
+   an explicit line from strategic diagnosis and decision through implementation, then two actions (Start a project, See the work).
 2. The six territories. 3. Selected work and references.
 4. The thesis: "Making got cheap. Deciding didn't." It is the thesis, not the definition.
 5. How I work: The Collapse (Observe, Collapse, Build, Hold). The four expanding
@@ -19,7 +19,8 @@ Clarity first, depth second. The homepage reads in this order and the tests lock
    Never present Perceptual Composition as a Quantum Branding method or merge it
    with The Collapse. Its full text belongs on nizzar.com only.
 7. From the Lab: BrandOS. 8. Thinking. 9. Contact fork.
-The restoration fixture `editorial-2026-10-03-clarity.json` records this pass;
+The restoration fixture `editorial-2026-10-04-independent-clarity.json` records the independent clarity pass authorized on 4 October;
+`editorial-2026-10-03-clarity.json` records the preceding pass;
 `editorial-2026-09-14-career.json` stays as the historical baseline.
 
 ## Identité visuelle canonique
