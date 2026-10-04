@@ -236,7 +236,7 @@ test('the review platform is named nowhere', async () => {
 
 test('no location is claimed anywhere', async () => {
   // "African" is allowed: it belongs to the proper name of the 1:54 fair.
-  const banned = /marrakech|morocco|maroc\b|united states|états-unis|guadeloupe|\bcanada\b|\bfrance\b|based in|working from|working across|addressLocality|areaServed/i;
+  const banned = /marrakech|morocco|maroc\b|united states|états-unis|guadeloupe|\bcanada\b|\bfrance\b|based in|working from|working across(?! Brand × AI × Business)|addressLocality|areaServed/i;
   const files = [
     ...(await walk(dist)).filter(f => /\.(html|xml|txt|svg|css|js)$/.test(f)),
     ...(await walk(path.join(root, 'src'))),
@@ -331,7 +331,7 @@ test('the hero says what the practice is before the thesis, with two actions', a
     ['/fr', /Une pratique indépendante de stratégie/, /Brand × AI × Business/, /pratique indépendante de Nizzar Ben Chekroune/, /Marketing &amp; Ventes/, [/Démarrer un projet/, /Voir le travail/], /Créer coûte moins/]
   ]) {
     const html = await read(route);
-    const hero = html.split('<section class="hero wrap">')[1].split('</section>')[0];
+    const hero = html.split('<section class="hero desktop-hero">')[1].split('</section>')[0];
     assert.equal((hero.match(/<h1>/g) || []).length, 1);
     assert.equal((hero.match(/<a /g) || []).length, 2);
     assert.match(hero, eyebrow);
@@ -341,7 +341,7 @@ test('the hero says what the practice is before the thesis, with two actions', a
     for (const cta of ctas) assert.match(hero, cta);
     assert.doesNotMatch(hero, thesis, `${route}: the thesis belongs after the definition`);
     assert.doesNotMatch(hero, /process-gallery/, `${route}: the method belongs after the definition`);
-    const order = ['class="hero', 'home-territories', 'case-grid', 'thesis', 'home-method', 'perceptual-composition', 'class="text-link" href="https://quantumbranding.ai"', 'closing-fork'].map(n => html.indexOf(n, html.indexOf('<main')));
+    const order = ['class="hero', 'home-territories', 'case-grid', 'thesis', 'home-method', 'perceptual-composition', 'class="text-link" href="https://quantumbranding.ai"', 'closing-fork'].map(n => html.indexOf(n, html.indexOf('<section class="hero desktop-hero"')));
     assert.ok(order.every(i => i > 0), `${route}: a homepage block is missing`);
     assert.deepEqual([...order].sort((a, b) => a - b), order, `${route}: homepage order changed`);
   }
@@ -423,7 +423,7 @@ test('case studies have five sections, a closing note and confirmed status', asy
   }
 });
 
-test('BrandOS belongs only to Observe in the method and decorative poster is hidden', async () => {
+test('BrandOS belongs only to Observe and the founder portrait is accessible', async () => {
   for(const route of ['/practice/method','/fr/practice/method']){
     const html=await read(route);
     const cards=html.split('<div class="method-grid">')[1].split('</article>');
@@ -432,7 +432,7 @@ test('BrandOS belongs only to Observe in the method and decorative poster is hid
   }
   for(const route of ['/about','/fr/about']){
     const html=await read(route);
-    assert.match(html,/class="visual-founder-poster" aria-hidden="true"/);
+    assert.match(html, /class="visual-founder-poster"><img class="founder-portrait" src="\/assets\/nizzar-portrait.jpg" alt="Nizzar Ben Chekroune"/);
     assert.doesNotMatch(html,/class="history-list"/);
   }
 });

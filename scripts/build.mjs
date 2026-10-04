@@ -9,6 +9,7 @@ import { makePages } from '../src/pages.mjs';
 import { contactEmail, esc, method, origin, route, territories } from '../src/shared.mjs';
 import { ancestors, canonical, crumbLabels, ogSlug, routeSection, routeSlug } from './meta.mjs';
 import { present } from './presentation.mjs';
+import { desktopPage, desktopDock } from './desktop.mjs';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const dist = path.join(root, 'dist');
@@ -38,13 +39,15 @@ function header(lang, basePath) {
     .map(([p, en, f]) => `<a href="${route(p, lang)}"${here(p)}>${t(en, f)}</a>`)
     .join('');
   const other = fr ? 'en' : 'fr';
-  return `<header class="site-header">
-<a class="wordmark" href="${route('/', lang)}" aria-label="${t('Quantum Branding, home', 'Quantum Branding, accueil')}"><span class="wordmark-type"><span>QUANTUM</span><span>BRANDING</span></span></a>
+  return `<header class="site-header menu-bar">
+<a class="wordmark" href="${route('/', lang)}" aria-label="${t('Quantum Branding, home', 'Quantum Branding, accueil')}"><span class="menu-q">Q<span>·</span></span><span class="menu-brand">Quantum Branding</span></a>
+<span class="menu-role">${t('Independent practice', 'Pratique indépendante')}</span>
 <nav id="site-nav" aria-label="${t('Main navigation', 'Navigation principale')}">${links}</nav>
 <div class="header-actions">
 <a class="language-link" href="${route(basePath, other)}" hreflang="${other}" lang="${other}">${fr ? 'EN' : 'FR'}</a>
 <a class="contact-link" href="${route('/start', lang)}">${t('Let’s talk', 'Parlons-en')}</a>
 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">${t('Menu', 'Menu')}</button>
+<time class="menu-time"></time>
 </div>
 </header>`;
 }
@@ -183,7 +186,7 @@ function document_(page, pages) {
 <title>${esc(fullTitle)}</title>
 <meta name="description" content="${esc(desc)}">
 <meta name="author" content="Nizzar Ben Chekroune">
-<meta name="theme-color" content="#f4f6f8">
+<meta name="theme-color" content="#eeeeef">
 <link rel="canonical" href="${url}">
 ${alternates}
 ${xDefault}
@@ -207,21 +210,19 @@ ${xDefault}
 <link rel="preload" as="font" type="font/ttf" href="/assets/fonts/instrument-serif-latin-400-normal.ttf" crossorigin>
 <link rel="preload" as="font" type="font/ttf" href="/assets/fonts/dm-sans-latin-variable-normal.ttf" crossorigin>
 <link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/assets/visual-restoration.css">
-<link rel="stylesheet" href="/assets/kinetic.css">
-<link rel="stylesheet" href="/assets/studio.css">
+<link rel="stylesheet" href="/desktop.css">
 <script type="application/ld+json">${jsonLd(page)}</script>
 <script type="module" src="/app.js" defer></script>
-<script type="module" src="/assets/motion.mjs"></script>
+<script src="/desktop.js" defer></script>
 </head>
-<body data-page="${esc(routeSlug(basePath))}" data-section="${esc(routeSection(basePath))}">
+<body class="desktop-site ${basePath === '/' ? 'desktop-home' : 'desktop-document'}" data-page="${esc(routeSlug(basePath))}" data-section="${esc(routeSection(basePath))}">
 <a class="skip-link" href="#main">${fr ? 'Aller au contenu' : 'Skip to content'}</a>
 ${header(lang, basePath)}
 <main id="main">
-${breadcrumbs(basePath, lang)}
-${present(page)}
+${desktopPage(page, present(page), breadcrumbs(basePath, lang))}
 </main>
 ${footer(lang)}
+${desktopDock(lang)}
 </body>
 </html>
 `;
@@ -292,7 +293,7 @@ for (const page of pages) {
 }
 
 // Static assets
-for (const file of ['styles.css', 'app.js', 'favicon.svg']) {
+for (const file of ['styles.css', 'app.js', 'desktop.css', 'desktop.js', 'favicon.svg']) {
   await cp(path.join(root, file), path.join(dist, file));
 }
 await copyIfPresent(path.join(root, 'assets'), path.join(dist, 'assets'));

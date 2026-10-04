@@ -12,14 +12,14 @@ no content injected after hydration.
 
 ## Run
 
-Node.js 22+. Serving the site and running unit tests need no installation.
+Node.js 22+. Serving the site needs no installation. Run `npm ci` for the acceptance and browser suites.
 Browser tests use the locked Playwright dev dependency and an installed Google Chrome.
 
 ```sh
 npm start                                     # build, then serve dist/ on :3017
 npm test                                      # build, then the acceptance suite
 BASE_URL=http://localhost:3017 npm run test:browser
-BASE_URL=http://localhost:3017 npm run test:visual
+BASE_URL=http://localhost:3017 npm run test:restoration
 ```
 
 ## Layout
@@ -33,7 +33,10 @@ BASE_URL=http://localhost:3017 npm run test:visual
 | `scripts/meta.mjs` | Route identity: canonical URLs, OG slugs, breadcrumb chains. |
 | `scripts/images.mjs` | One 1200×630 sharing image per route → `public/og/` (committed). |
 | `scripts/brochures.mjs` | The two brochure PDFs → `public/downloads/` (committed). |
-| `styles.css`, `app.js` | Warm paper, near-black ink, one vermillion accent. Instrument Serif + DM Sans, no monospace. `app.js` handles only the mobile menu and the brief. |
+| `styles.css`, `desktop.css` | Structural styles plus the desktop presentation: folder navigation, document windows, widgets and responsive dock. |
+| `scripts/desktop.mjs`, `desktop.js` | Bilingual presentation shell, Casablanca clock/calendar, scroll entrances and draggable clock. All editorial strings remain in `src/`. Reduced motion and print are supported. |
+| `app.js` | Mobile navigation and the brief builder. |
+| `assets/nizzar-portrait.jpg` | Owner-supplied portrait, unchanged; cropped only by CSS on the homepage and About pages. |
 | `server.mjs` | Local preview of `dist/`, mirroring Vercel’s `cleanUrls`. |
 
 `public/og/*.png` and `public/downloads/*.pdf` are generated locally and committed,
@@ -53,7 +56,8 @@ after changing brand copy, then rebuild.
 - Navigation is Work · Practice · Thinking · Lab · About, with a persistent “Let’s talk”.
 - No dead `#` anchors; every internal link resolves.
 - Canonical, reciprocal hreflang, Open Graph, Twitter Card and JSON-LD on every page.
-- The hero carries exactly three things and fits the first screen at 380px.
+- The hero defines the practice, names its areas and provides two actions before the thesis.
+- Desktop presentation adds navigation while retaining the editorial baseline on all 38 pages.
 - Fiverr is named only in `/notes`; the product is called BrandOS.
 - The brief instrument never transmits anything on its own.
 

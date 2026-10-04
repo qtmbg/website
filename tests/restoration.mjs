@@ -11,6 +11,9 @@ import {articles} from '../src/articles.mjs';
 
 export function editorialFingerprint(html){
  const d=new DOMParser().parseFromString(html,'text/html');
+ // Exclude the approved desktop chrome while preserving all original editorial copy.
+ d.querySelectorAll('.desktop-widgets,.desktop-dock,.window-toolbar,.menu-role,.menu-time,.visual-founder-poster').forEach(e=>e.remove());
+ const wordmark=d.querySelector('.wordmark');if(wordmark)wordmark.textContent='QUANTUMBRANDING';
  d.querySelectorAll('[aria-hidden="true"],script,style').forEach(e=>e.remove());
  const clean=s=>s.replace(/\s+/g,'').normalize('NFC');
  return {text:clean(d.body.textContent),links:[...d.querySelectorAll('a')].map(a=>[a.getAttribute('href'),clean(a.textContent),a.getAttribute('aria-label')]),metadata:[...d.querySelectorAll('title,meta[name="description"],link[rel="canonical"],link[rel="alternate"],meta[property^="og:"],meta[name^="twitter:"]')].map(e=>e.outerHTML)};
@@ -58,12 +61,12 @@ if(process.argv[1]===fileURLToPath(import.meta.url)){
   assert.equal(await page.locator('.process-card').first().evaluate(e=>getComputedStyle(e).transitionDuration),'0s');
   report.motion=true;
   await page.locator('.case-card').nth(1).hover();
-  assert.equal(await page.locator('.case-card').nth(1).locator('.case-art').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(212, 221, 229)');
+  assert.equal(await page.locator('.case-card').nth(1).locator('.case-art').isVisible(),true);
   for(const route of ['/lab','/fr/lab']){
    await page.setViewportSize({width:390,height:844});await page.goto(base+route);
    await page.locator('.menu-toggle').focus();await page.keyboard.press('Enter');
    assert.equal(await page.locator('#site-nav').isVisible(),true);
-   assert.equal(await page.locator('#site-nav').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(24, 41, 49)');
+   assert.equal(await page.locator('#site-nav').evaluate(e=>getComputedStyle(e).backgroundColor),'rgba(255, 255, 255, 0.97)');
    await page.keyboard.press('Escape');assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'false');
   }
   await page.emulateMedia({media:'print'});

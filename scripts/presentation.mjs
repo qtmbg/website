@@ -53,9 +53,9 @@ export function present(page) {
     html = replaceOnce(html,`<a class="lab-card" href="${lang==='fr'?'/fr':''}/lab/signal-scan">`,`<a class="lab-card" href="${lang==='fr'?'/fr':''}/lab/signal-scan"><div class="signal-preview" aria-hidden="true"><span>Signal<br>Scan</span><div>${Array.from({length:16},(_,i)=>`<i style="--i:${i}"></i>`).join('')}</div></div>`,'signal art');
   }
   if (basePath === '/about') {
-    // Repeat existing copy decoratively; do not add historic slogans or claims.
+    // The supplied portrait accompanies the existing founder copy.
     const heading = esc(page.title).replace(' Nizzar.', '<br>Nizzar.');
-    const poster = `<div class="visual-founder-poster" aria-hidden="true"><span class="poster-name">Nizzar Ben Chekroune</span><span class="poster-heading">${heading}</span><span class="poster-brand">Quantum Branding</span></div>`;
+    const poster = `<div class="visual-founder-poster"><img class="founder-portrait" src="/assets/nizzar-portrait.jpg" alt="Nizzar Ben Chekroune" width="955" height="1024" loading="lazy" decoding="async"><span class="poster-name">Nizzar Ben Chekroune</span><span class="poster-heading">${heading}</span><span class="poster-brand">Quantum Branding</span></div>`;
     const match=html.match(/<div class="split"><h2>([\s\S]*?)<\/h2><div class="prose">/);
     if(!match)throw new Error('About layout target changed');
     html=replaceOnce(html,match[0],`<div class="split founder-split"><div class="founder-visual-column"><h2>${match[1]}</h2>${poster}</div><div class="prose">`,'founder layout');
