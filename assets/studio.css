@@ -128,3 +128,19 @@
  .process-card{transition:none!important}.process-gallery{cursor:default}
 }
 @media print{.process-gallery,.brief-preview,.signal-preview,.brand-preview{display:none!important}.hero{display:block}.method-mark b,.territory-object span{color:var(--ink)}.lab-card,.lab-card:first-child{background:none;color:var(--ink)}.lab-card .text-link{background:none}.hero h1{font-size:56pt}.wordmark-symbol{display:none}}
+/* October 3: clarity pass. The hero says what the practice is before any thesis or method. */
+.hero{grid-template-rows:auto auto auto auto;row-gap:18px}
+.hero .hero-eyebrow{grid-column:1/-1;grid-row:1;text-align:center;margin:0;font-size:14px;color:var(--muted)}
+.hero h1{grid-row:2}.hero h1 em{color:var(--blue)}
+.hero .hero-description{grid-column:1;grid-row:3;margin-top:22px}
+.hero .hero-areas{grid-column:1;grid-row:4;margin:0;font-size:15px;font-weight:500;letter-spacing:-.01em}
+.hero>.button{grid-column:2;grid-row:3;align-self:end;justify-self:end;margin-top:22px}
+.hero>.button.secondary{grid-row:4;align-self:start;margin-top:0;background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.hero>.button.secondary:hover{background:var(--ink);color:var(--paper)}
+.thesis h2 em{font:inherit;color:var(--blue);letter-spacing:inherit}
+.method-stage .visual-scene.process-gallery{margin:10px 0 0}
+.method-caption{max-width:760px;margin:28px 0 22px;font-size:18px;line-height:1.55}
+.prose .triad{font:500 clamp(26px,2.4vw,34px)/1.2 var(--sans);letter-spacing:-.03em;margin:28px 0}
+.link-row{display:flex;flex-wrap:wrap;gap:14px 28px}
+@media(max-width:800px){.hero>.button{justify-self:start}.section-heading{align-items:flex-start}}
+@media(max-width:540px){.hero .hero-eyebrow{text-align:left;font-size:12px;margin:0 0 14px}.hero .hero-description{margin:22px 0 12px}.hero .hero-areas{font-size:14px;margin:0 0 20px}.hero>.button{align-self:flex-start}.hero>.button.secondary{margin-top:10px}.method-caption{font-size:16px}.prose .triad{font-size:26px}}
