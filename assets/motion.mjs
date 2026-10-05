@@ -9,6 +9,11 @@ const reveals = new Set();
 const pendingPointers = new Map();
 const gallery = document.querySelector('.process-gallery');
 const processCards = [...document.querySelectorAll('[data-process]')];
+const railHost = document.querySelector('.rail');
+const railSections = [...document.querySelectorAll('main .page-head, main .section.wrap')];
+const railTicks = railHost && railSections.length
+  ? (railHost.innerHTML = railSections.map(() => '<span class="rail-tick"></span>').join(''), [...railHost.children])
+  : [];
 let activePointer = null;
 let frame = 0;
 let observer;
@@ -36,6 +41,12 @@ function update() {
     el.style.setProperty('--tilt-y', `${point.y * -3}deg`);
   }
   pendingPointers.clear();
+  if (railTicks.length) {
+    const ref = innerHeight * .3;
+    let activeIndex = 0;
+    railSections.forEach((el, i) => { if (el.getBoundingClientRect().top <= ref) activeIndex = i; });
+    railTicks.forEach((tick, i) => tick.classList.toggle('is-active', i === activeIndex));
+  }
 }
 function resetPointer(el, resetDepth = false) {
   ['--pointer-x','--pointer-y','--tilt-x','--tilt-y'].forEach(key => el.style.removeProperty(key));
@@ -89,9 +100,9 @@ function reveal(el) {
   if (played.has(el) || !allowed() || !el.animate) return;
   played.add(el);
   const animation = el.animate([
-    {opacity:.4, transform:'translateY(12px)'},
-    {opacity:1, transform:'translateY(0)'}
-  ], {duration:480, easing:'cubic-bezier(.16,1,.3,1)'});
+    {opacity:.4, transform:'translateY(12px)', filter:'blur(6px)'},
+    {opacity:1, transform:'translateY(0)', filter:'blur(0)'}
+  ], {duration:560, easing:'cubic-bezier(.16,1,.3,1)'});
   reveals.add(animation);
   animation.finished.catch(() => {}).finally(() => reveals.delete(animation));
 }
@@ -150,3 +161,18 @@ finePointer.addEventListener('change', () => stages.forEach(el => resetPointer(e
 addEventListener('pagehide', () => { cancelAnimationFrame(frame); frame = 0; });
 addEventListener('pageshow', visibility);
 configure(); visibility();
+
+// A restrained magnetic pull on primary calls to action: fine pointers only,
+// capped displacement, no effect on the logo or navigation structure.
+const magnets = [...document.querySelectorAll('.button,.lab-card .text-link')];
+magnets.forEach(el => {
+  el.classList.add('magnetic-ready');
+  el.addEventListener('pointermove', event => {
+    if (!allowed() || !finePointer.matches || event.pointerType !== 'mouse') return;
+    const box = el.getBoundingClientRect();
+    const x = event.clientX - (box.left + box.width / 2);
+    const y = event.clientY - (box.top + box.height / 2);
+    el.style.transform = `translate(${Math.max(-8, Math.min(8, x * .28))}px, ${Math.max(-8, Math.min(8, y * .28))}px)`;
+  }, {passive:true});
+  el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+});

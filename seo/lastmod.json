@@ -1,0 +1,834 @@
+{
+  "https://thequantumbranding.com/": {
+    "hash": "0534038c06d165486e6e2cf3c2ba5c6f",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/about": {
+    "hash": "3f80dddeaed392b346e0054b6295fcbf",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr": {
+    "hash": "45a7333c9fb36798e3cdfdf8067c730e",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/about": {
+    "hash": "7c565961ef0385374ff48e712d347bdc",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/lab": {
+    "hash": "bfd467a1381fd3f6ad8959e8402802d9",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/lab/signal-scan": {
+    "hash": "bc802275295daab65f1a8aefd4e01979",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/lab/the-brief-before-the-brief": {
+    "hash": "0e5f4f7663a613bf3ab14f7ca66395c2",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/notes": {
+    "hash": "de977c302b8029e9cf1a97476e5dec53",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/practice": {
+    "hash": "92f3d2f5e0f3047921636b083a0b015f",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/practice/method": {
+    "hash": "5cdcbf3e15af96c406dc3199fcc394c1",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/start": {
+    "hash": "4a6cf2e1674f921e2e50fb6696e0623c",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/thinking": {
+    "hash": "f993e863d0a5ecb172ccc18a401e563f",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/thinking/diagnosis-before-prescription": {
+    "hash": "a79439fe7cece00ffe39b9dbb832b3a7",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/thinking/holding-a-decision": {
+    "hash": "1bf03f3d2335f6ea165de70f9faf43b8",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/thinking/one-page-many-arguments": {
+    "hash": "4eaabb36bed7e5b558d65d6c0c86034b",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/thinking/the-brief-before-the-brief": {
+    "hash": "6f3217a419f1cd3a21d09d08dd19f43b",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/thinking/the-collapse": {
+    "hash": "ffa03e2b38eeaebb8d3ffb645b7c97c2",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/thinking/what-automation-should-earn": {
+    "hash": "724ab4a8ae421eaa2504916cc23af216",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work": {
+    "hash": "1b6327c0b1fff9a1be3fdb436b524110",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/3kool": {
+    "hash": "931c46e657631b58413c66da9cc1a87e",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/africa-business-school": {
+    "hash": "1458f78f3f0ce642c9da7c2d97022bf8",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/anderson-silva": {
+    "hash": "a8ee243e466f8eb6e2562aaf5744b0d0",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/arroz-con-pollo": {
+    "hash": "04790ab143c4aed5e966e6fb13c9fbff",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/arts-dao": {
+    "hash": "4d650db1cff65c0c5eaf1c42b90e6011",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/arts-thread-gdgs": {
+    "hash": "d8633573675d8c4b6051c5e2a7242b0f",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/audi-driven-by-art": {
+    "hash": "49c25cc2e63c9c1e07e0813950520895",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/baccarat": {
+    "hash": "3e63275e543087e3fa868e37be3c9604",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/bananaconf": {
+    "hash": "a8d1efdd66a3bc2967265002c0441329",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/bananacorp": {
+    "hash": "c57e898847f41622c52f360a73e533b0",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/beachcomber": {
+    "hash": "9c79594018abe219e9bb79b5646f5747",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/beyond-catstore": {
+    "hash": "1f96d528a2630947d48a937d77b7bd95",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/brandos": {
+    "hash": "5ebf6660f1a26de272ab1e9972e353f2",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/bugatti-asprey-nft": {
+    "hash": "3b60853861ea638c9ae20fc94d9f178f",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/charly-palmer": {
+    "hash": "a358c877fa8b9590611227c5d94832d1",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/creative-forum-ljubljana-2018": {
+    "hash": "298ff006c07c3fd4ce043e299d35552d",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/destination-evasion-maroc": {
+    "hash": "e1480f3282173226f00c4eeb47dee05d",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/diesel": {
+    "hash": "fcc8d2eb6249ab6ad2055019653c0b72",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/diptyk": {
+    "hash": "e61a0ba383e6cda735dac534158f26a7",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/doc-hygiene-usa": {
+    "hash": "8710b75dd52314b44f2da28476e226fe",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/dubai-holding": {
+    "hash": "315951f383192a52bf4e78efce320937",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/energy-cube": {
+    "hash": "d6ef223a04deed023c489698856c2460",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/es-saadi-theatro": {
+    "hash": "fafbe058584450445ec14c4697c87824",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/eu-unido-creative-mediterranean": {
+    "hash": "fff58c339b346233effcce61715ca4e5",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/european-web3-organization": {
+    "hash": "265338e9d6d68ca26cba625baf9f2a2e",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/french-tennis-federation": {
+    "hash": "5db6efbf327ec2c341bf3c27ba972e86",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/hanoot": {
+    "hash": "0e3c07c7b70fa8ddbcc789245e83ffcb",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/harvest-festival": {
+    "hash": "84b310861664647eb367230c73bdaf6c",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/high-atlas-foundation": {
+    "hash": "dc6abb7074383aa03c9848e4bfdf882c",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/hivos-african-crossroads": {
+    "hash": "168f7e0d8c6f222f148009c7e731ff9d",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/hiya-magazine-paris": {
+    "hash": "0eb2671470e5513a003992fcb9b5ea4f",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/houna-design-talks": {
+    "hash": "f8b938212504cb81f474061143bf3a51",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/hult-prize": {
+    "hash": "d36eb72c4afefc39765ee7145e0a96dd",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/index": {
+    "hash": "8c9f0ac91e8a22dee391b49748fe9fef",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/iom-compass": {
+    "hash": "bdf10b91e6c6093fef13f0b6e27706a1",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/jolt-qatar": {
+    "hash": "97d8ff87294f1af0caac33702dc7718c",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/kareem-abdul-jabbar": {
+    "hash": "4189792ead8651f58d27dda3a4af8b25",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/kechnight": {
+    "hash": "dfe549f7e0ff8fe3ed9a0315d61ea49a",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/kleanops": {
+    "hash": "213f36c0e8b951adb5a3d2f25160d297",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/la-cuisine-de-mami-bahia": {
+    "hash": "813d8299c50690c57168d0393b2d76b8",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/la-lakers": {
+    "hash": "d3eec48333a9bf2c0ae853aefb210bdc",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/la-minute-creative": {
+    "hash": "bda00f72e61828b90a21ffbae62e7cdb",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/laly-couture": {
+    "hash": "56bfeaac3db3c9667860884c2bd298a7",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/lamanche": {
+    "hash": "ff08c327336114765aa22f08c1b4e231",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/lit-action-usa": {
+    "hash": "a3b7c56f8823eaf023e16c620bc93797",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/marrakech-creative-interiors-cluster": {
+    "hash": "15afbf639ff7ecac982e0c065c8ff691",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/marrakech-du-rire": {
+    "hash": "8feb28021e43802430c13d94d445307d",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/marrakech-poker-open": {
+    "hash": "7f1da3afadce4302282b5d6863dcc7fb",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/mobile-photography": {
+    "hash": "83a638d54d5bdadc3055248856446190",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/moodys-medicinals": {
+    "hash": "56b81b38e85fa178fb7b6c927ef70692",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/myah-bay": {
+    "hash": "8299235988e970e1bdd70259454c6a43",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/mysticspur": {
+    "hash": "f12e83bb8683dab8c54db2702e6eced3",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/nception": {
+    "hash": "dba4a50e6f2d7e3c355ee0d5137dde54",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/nepad": {
+    "hash": "ce20d8af01a212995396018b9badf860",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/nft-liverpool": {
+    "hash": "33ef5fde27ce0d91a746a4842db005d8",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/nft-nyc": {
+    "hash": "5323d9a0eae2a47f8366bafd1035d3a6",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/oasis-festival": {
+    "hash": "f3b50d0bd3b7c20f717b12e7061d635e",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/ocp": {
+    "hash": "4f92bd3fc30467cbd96f6e1de91dde74",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/oif-francophonie": {
+    "hash": "eabb5c14f52cdd9519864ff3c4a3c3e7",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/qisas-rbati": {
+    "hash": "16be9541d3bc437bea0a1ddf7d739f73",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/quantum-branding": {
+    "hash": "25d4fcd42d943ff32f2582c1d0c20c0f",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/rbmg": {
+    "hash": "b21c08f6582d8b0fc81407c5d0f718aa",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/red-cross": {
+    "hash": "f26e176def5848f26d4bbff27bb4329c",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/selvaggi": {
+    "hash": "1fb3078e403b39da5abc913fefb200c0",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/sergine": {
+    "hash": "e3130c216b18a5f554a7556bb3516763",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/stan-wawrinka": {
+    "hash": "3ad3e1da7c8327835bb030038c399c03",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/street-view-inside": {
+    "hash": "efcea580b297cab90c2f0b4d9a3512f0",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/suite-club": {
+    "hash": "5935073a4b5cce9635f39c5ce78166bf",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/technikart": {
+    "hash": "96b988422857c58f2a23203f7f85ec0b",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/the-future-fashion": {
+    "hash": "a32eca66144587df6c83100422d379c1",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/time-web3": {
+    "hash": "9bc1eb2d92a7a3449e5cbe395409f207",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/timeline": {
+    "hash": "2ccdd1d3e89ebdf47846787334f41b48",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/tribalist-africa": {
+    "hash": "17279b15b733f9e635d8b1295c62002c",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/trnscnd": {
+    "hash": "f4e2958170d42251d12248bb2dabdcdb",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/tv5-monde": {
+    "hash": "97975f87128bfbb9fbfb5f9cf0e49992",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/un-women-pwe": {
+    "hash": "b04e85061afb5ecfafa46570b23b2a38",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/unido-creative-mediterranean": {
+    "hash": "49f6ddb404f06e4905ebfdfd8cc423bc",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/unitar": {
+    "hash": "5e08c7d00a114ed529879068eaebd7d6",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/unlimitart": {
+    "hash": "5eea3f3c9f48bc4175789ddc84851e40",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/unov": {
+    "hash": "b4c7d1df0271851e08f8171db4300dbd",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/usaid-career-centers": {
+    "hash": "049f74a3c4163739bd8a5aec0670f335",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/verne-jewels": {
+    "hash": "6f6dd49ef3b181bf0c503719d295a5b4",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/water-hackathon": {
+    "hash": "6d473841f57a8b3323a56d82ad3062db",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/fr/work/who": {
+    "hash": "ca1536d93ff349bd4d78a9759109b7da",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/would-jamaa-el-fna": {
+    "hash": "e140c810782f65cf587d6ed6bed86d0c",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/wow-protein-donuts": {
+    "hash": "73be76a37a3ae2acb9887913fb4a4835",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/fr/work/zone-aire": {
+    "hash": "0534125a21255998e39474e2cb81976e",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/lab": {
+    "hash": "ee5e0039b6c04dac7deb37a57bee1a54",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/lab/signal-scan": {
+    "hash": "bdb175b4e3376180dada66a80822a591",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/lab/the-brief-before-the-brief": {
+    "hash": "e2af271afbe4a5f703b29e3ad6753cd0",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/notes": {
+    "hash": "8ff75e8bff93b90f4bb5047685ca0ec1",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/practice": {
+    "hash": "34052d6392f403191015077f17341881",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/practice/method": {
+    "hash": "deffcfb002678d640fd4a01203d83479",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/start": {
+    "hash": "a02d8023d7a020fb5c60d1bcab908f37",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/thinking": {
+    "hash": "21fe6ce879e3fc2737e352b0c6c2c71b",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/thinking/diagnosis-before-prescription": {
+    "hash": "6af9ec15cb8242805323a4f1a27d9fc7",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/thinking/holding-a-decision": {
+    "hash": "541c1ed64378c44ddaf32874077c1118",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/thinking/one-page-many-arguments": {
+    "hash": "8ce9d143f4e5a62d66fb943f13af3d8e",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/thinking/the-brief-before-the-brief": {
+    "hash": "7a671b079108276ea41a026002f4b532",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/thinking/the-collapse": {
+    "hash": "39e87296df0b90a6e6a50360aeac2c4c",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/thinking/what-automation-should-earn": {
+    "hash": "4938ec00d91d5715148610caab0e1ac9",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work": {
+    "hash": "4769b9bdad7a0208c8e1dfae3de60d4b",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/3kool": {
+    "hash": "af4909e33faa1fc6f053d36c058d845c",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/africa-business-school": {
+    "hash": "a057ac24e825676a62a260a254b5dc87",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/anderson-silva": {
+    "hash": "0e82494e79e31b61021de52a3c863e6e",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/arroz-con-pollo": {
+    "hash": "b5df010c585b2522618b94f76520b2df",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/arts-dao": {
+    "hash": "4ecfec579003f24efa25ad924e77f7ff",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/arts-thread-gdgs": {
+    "hash": "2c086e500867c865d700353f8bc8c825",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/audi-driven-by-art": {
+    "hash": "44bddb7d473a1bc4361c0e0412c020a8",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/baccarat": {
+    "hash": "9845338a74243dc7369299efd364bc9e",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/bananaconf": {
+    "hash": "6e31b2a5eb0a86b1c05b13b9f8bc41ca",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/bananacorp": {
+    "hash": "2a9cb77728e4316c094918fd6881c0d2",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/beachcomber": {
+    "hash": "e9e5bba8fe0260399f648e85e9a0b08f",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/beyond-catstore": {
+    "hash": "ac9e8b7a576372cd30324105a36524f9",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/brandos": {
+    "hash": "834b9b29576be36c1506ff06fe7ba70d",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/bugatti-asprey-nft": {
+    "hash": "75023ac017f46c30be3154b9317193b4",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/charly-palmer": {
+    "hash": "5f3bdd38791d681a56e53b764db40b85",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/creative-forum-ljubljana-2018": {
+    "hash": "3e7d7b661c51547b585193caaf261b59",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/destination-evasion-maroc": {
+    "hash": "9a41c2e831939af71de90aaf408ca997",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/diesel": {
+    "hash": "785a5fe5c241d859b12c1a7264e6ffc7",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/diptyk": {
+    "hash": "fe9dc6094727b73a8466b9400768e313",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/doc-hygiene-usa": {
+    "hash": "bbb0ffe2281caf76360bf7c77b841dff",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/dubai-holding": {
+    "hash": "38131b21a73e364c481a8919ddb2aaa3",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/energy-cube": {
+    "hash": "bbe606f6a56faff35387b2300e362879",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/es-saadi-theatro": {
+    "hash": "0ad3d9f4ea581f965b3de9273bb6d0e0",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/eu-unido-creative-mediterranean": {
+    "hash": "071ec82a6d520827711bc02f0269ff56",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/european-web3-organization": {
+    "hash": "62fc626cf4ecb3b724b43cb96ac83e09",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/french-tennis-federation": {
+    "hash": "a01a910644902c3fea4350883c7249e6",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/hanoot": {
+    "hash": "99627eda539ca9bdf2c715ec04de819a",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/harvest-festival": {
+    "hash": "f3190267ddb792b763473e138c69697f",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/high-atlas-foundation": {
+    "hash": "0e64c1283d09b41b418db76ec2a54326",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/hivos-african-crossroads": {
+    "hash": "f43db1ea4f82c290eeb6ec6fb2b53b36",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/hiya-magazine-paris": {
+    "hash": "81171b00a758d2be575b407e08252cb0",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/houna-design-talks": {
+    "hash": "46b0d7f7279e47289f7a3b524bb41903",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/hult-prize": {
+    "hash": "72b3c8c1e0431f942aca08b13e5935a9",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/index": {
+    "hash": "4bf65376ba6afde76c72782831d632e6",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/iom-compass": {
+    "hash": "2bbaf5bf294750128befa4701b5f5210",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/jolt-qatar": {
+    "hash": "84e846b5f5d72da1645d798a3f3fc1ba",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/kareem-abdul-jabbar": {
+    "hash": "7253dc62ba7f340699f1fe7d168d1a5f",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/kechnight": {
+    "hash": "85ebf18e5add502c17b2c51e49593258",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/kleanops": {
+    "hash": "c05b0bacac5496dc7d67962ee66119a9",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/la-cuisine-de-mami-bahia": {
+    "hash": "f3fb7e8288d61995025641553dc67d42",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/la-lakers": {
+    "hash": "80913249e33900f57b11bafd5f81267a",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/la-minute-creative": {
+    "hash": "61566bac040cfdeaaffa804318f22ab2",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/laly-couture": {
+    "hash": "3d9e2596fce4baa012f298ea144d1664",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/lamanche": {
+    "hash": "c1ba11ea621fb168c7e6d3d6a253d7b8",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/lit-action-usa": {
+    "hash": "8adf220b9c1a77d6040ddec0e4d798be",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/marrakech-creative-interiors-cluster": {
+    "hash": "8e06d8866edec228ec8d9c8cc4f2abba",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/marrakech-du-rire": {
+    "hash": "cee71c6e5338e4ba45bbdfd156e84f55",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/marrakech-poker-open": {
+    "hash": "c26c4bf895d7bdd8a22f2d6faa06d0fb",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/mobile-photography": {
+    "hash": "a33a2e75cc13aa502b4bc80bf5b592e1",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/moodys-medicinals": {
+    "hash": "58db836328f4188fd32705d127aaf4c8",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/myah-bay": {
+    "hash": "91ed4ef1dfd581d94be673d1a351bff3",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/mysticspur": {
+    "hash": "c3f5807ba01804c16483128fbf371448",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/nception": {
+    "hash": "51f4d6ec87df65ab5c560ab1a0aa7b6b",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/nepad": {
+    "hash": "4975758e6a251b53948191327aa8fdea",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/nft-liverpool": {
+    "hash": "8915a2a1532f9fc12ad311a5fabe310d",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/nft-nyc": {
+    "hash": "5d64f0dbeacfb5d17acde94f67a5c2c8",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/oasis-festival": {
+    "hash": "a2abe58433fe11cc2454bdc961746cf6",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/ocp": {
+    "hash": "63fa00527f0e08d176de65ac2cfa1241",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/oif-francophonie": {
+    "hash": "99ef6387a38704bfe8f5b73e9cd92152",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/qisas-rbati": {
+    "hash": "f53b8b13107d02ee6b7b5918383c818c",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/quantum-branding": {
+    "hash": "1c1bbeb2883acca705cbc7bcb30861ce",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/rbmg": {
+    "hash": "f926c8e1bd8426a1ad30343b9010a5f6",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/red-cross": {
+    "hash": "d498757beefd4e2c15c15209f727e9d8",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/selvaggi": {
+    "hash": "0b73a3abf1f373ab8c34f146c1bc8491",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/sergine": {
+    "hash": "e26a9a7ee552eed6a974d9019f0ba75f",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/stan-wawrinka": {
+    "hash": "0029bac6b4f7d62ca1274543bb549906",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/street-view-inside": {
+    "hash": "cfff45fdc1e44f8e6eaa0f19778daa16",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/suite-club": {
+    "hash": "99c3200e1f0027699b59868a05f71c9a",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/technikart": {
+    "hash": "7f015d28f0eeff401a862cc71df530d9",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/the-future-fashion": {
+    "hash": "cedd63889b8635c9e26ded7dbc0cbf32",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/time-web3": {
+    "hash": "411080ebdbcce2dd99461b01474c8eec",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/timeline": {
+    "hash": "191b2a6232c4ae9a8f9e9d7e19831091",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/tribalist-africa": {
+    "hash": "89a5cf815931846d2d1df8650c8fc378",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/trnscnd": {
+    "hash": "d02ff5698580b04b03cf37b33746c629",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/tv5-monde": {
+    "hash": "e40136be62e6092b971ff7e36f8352da",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/un-women-pwe": {
+    "hash": "8d4442ad2ad60a4f6e0f5467fe5bbae1",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/unido-creative-mediterranean": {
+    "hash": "8149ecbeed2fb19de0749bac36992ecf",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/unitar": {
+    "hash": "3c4277488b4ad8cbcf30c4634f150a1d",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/unlimitart": {
+    "hash": "98bf984ba2ec1121028fcdd74da103fa",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/unov": {
+    "hash": "426b9ea96ac03508447f2c6a2187adbb",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/usaid-career-centers": {
+    "hash": "e50ee4617524f94ba08493c7c08d0d6b",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/verne-jewels": {
+    "hash": "279b86b5482fddc7467fa269dce277bf",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/water-hackathon": {
+    "hash": "b2f4eda217679cdc7af0766c7042ee44",
+    "date": "2026-10-04"
+  },
+  "https://thequantumbranding.com/work/who": {
+    "hash": "c11d0cc348ab9bfd92dc84d4532b6296",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/would-jamaa-el-fna": {
+    "hash": "85a2fd2d56d829bada289e758dfe4a58",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/wow-protein-donuts": {
+    "hash": "5ebe58e98af05240050777c9f86d8d7c",
+    "date": "2026-10-05"
+  },
+  "https://thequantumbranding.com/work/zone-aire": {
+    "hash": "45c1f31f7a9baf90da244d7e49b30391",
+    "date": "2026-10-05"
+  }
+}

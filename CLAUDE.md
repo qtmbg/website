@@ -3,9 +3,52 @@
 The practice website for Nizzar Ben Chekroune. Static, bilingual, generated
 from `src/` into `dist/`. Read `README.md` for the build and the file layout.
 
+## Governing evidence policy, 4 October 2026
+
+Owner-attested SOT is canonical; first-party files substantiate; public corroboration strengthens authority; retrievability measures discoverability. Missing public evidence never downgrades owner-attested facts. Use canonical SOT dates over old public dates, record discrepancies internally. Flag only unresolved unsuperseded owner-owner conflicts. Confidential is not the same as uncorroborated. Inclusion remains the default; Nizzar makes the final cut. See `archive/EVIDENCE-POLICY.md`.
+
+## Owner handoff and wording correction, 4 October 2026
+
+Continue the recovered visual career archive locally. Inclusion is the default;
+Nizzar makes the final editorial cut. Preserve exact relationships, studio credits,
+private media status and unresolved facts. Internal canonical evidence may retain
+geography, source platform names and verified historical financial results.
+Inherited presentation restrictions must not delete that evidence.
+
+Use “since 2006” / “depuis 2006” for experience, per the owner's latest correction.
+Do not infer individual project dates from that career starting point.
+The current handoff authorizes local research, implementation, assets and QA;
+it explicitly withholds deployment, external publication, outreach and commits.
+Existing September editorial snapshots are retained as history; the authorized
+archive and experience changes receive an October baseline.
+
 ## Identité visuelle canonique
 
-### Owner correction, 15 September 2026 — current direction
+### Owner direction, 4 October 2026 — current direction
+
+The owner asked for the site to take the design of https://elenagonci.com/
+without losing any information. `assets/desktop.css` is now the only stylesheet
+and `assets/desktop.mjs` the only motion module; the earlier layers are no
+longer referenced. The typeface is Bricolage Grotesque (SIL OFL, the 14pt optical
+size the reference serves, self-hosted in `assets/fonts/`). The vocabulary is the
+reference's: a home desktop with menu bar, widgets, folders and app grid; the
+header as a macOS dock; pillar folders with notes; achievement tiles; windows,
+case transcripts and venture-list rows. Measurements, the colour mapping and
+every departure are in `DESKTOP-DESIGN-2026-10-04.md`. This supersedes the
+15 and 14 September directions below.
+
+Unchanged: the canonical palette (no colour was added; the reference's roles map
+onto paper, ink, muted, line, blue, acid, soft and the Lab surfaces), the
+editorial baseline (all 38 pages keep their text, links and metadata), the
+no-pricing, no-location and first-person rules, and BrandOS's association with
+Observe only. No autoplay loops, no city labels, no second hand. Everything the
+presentation layer adds is a wrapper or an aria-hidden duplicate of existing
+copy or links, and no "QB" text node is added (monograms are CSS with empty
+alternative text). Keep JS-off readability and live reduced-motion switching.
+Validate with the existing suites plus `node tests/motion.mjs`, which now covers
+the dock, dragging, reveals, touch and JS-off reading.
+
+### Owner correction, 15 September 2026 (superseded)
 
 The owner rejected the circular blue sculpture and the old illustrated icons,
 and explicitly extended the Google Labs-inspired direction to every page family.
@@ -74,7 +117,8 @@ The same palette is hard-coded in `scripts/images.mjs` (sharing images) and
 in both leaves the site and its artefacts disagreeing.
 
 **No session chooses a colour, a typeface or a scale.** If a value is missing,
-ask for it.
+ask for it. The typeface and scale now come from the owner's 4 October direction
+(the reference's own values); the palette is unchanged.
 
 ## Checks
 

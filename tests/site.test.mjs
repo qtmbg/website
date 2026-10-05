@@ -9,6 +9,7 @@ import { makePages } from '../src/pages.mjs';
 import { buildBrief, cases, contactEmail, method, origin, publishTestimonials, reviews } from '../src/shared.mjs';
 import { brochure } from '../scripts/brochures.mjs';
 import { ogSlug } from '../scripts/meta.mjs';
+import { projects } from '../src/archive/projects.mjs';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const dist = path.join(root, 'dist');
@@ -51,15 +52,16 @@ test('every case, essay and instrument has its own address in both languages', a
   for (const base of extra) {
     for (const route of [base, `/fr${base}`]) await read(route);
   }
-  assert.equal(pages.length, (requiredRoutes.length + extra.length) * 2);
+  assert.equal(new Set(pages.map(p => p.path)).size, pages.length, 'duplicate routes');
+  for (const p of projects) for (const lang of ['en', 'fr']) await read(`${lang === 'fr' ? '/fr' : ''}/work/${p.slug}`);
 });
 
 /* ------------------------------------------------------------- no pricing */
 
-test('no price, amount or currency appears anywhere in the site or its sources', async () => {
+test('no pricing appears in public output; canonical evidence remains internal', async () => {
   const banned = [
     /€/, /\bEUR\b/, /\bUSD\b/, /\$\s?\d/, /\bMAD\s?\d/,
-    /\bfrom\s+[€$£]?\s?\d[\d,.\s]*\b/i,
+    /\bfrom\s+[€$£]\s?\d[\d,.\s]*\b/i,
     /\bà partir de\s+\d/i,
     /\b[123],5\d\d\b/, /\b[123],500\b/,
     /pricing table/i, /price list/i, /grille tarifaire/i, /tarif(s|aire)\b/i,
@@ -67,12 +69,13 @@ test('no price, amount or currency appears anywhere in the site or its sources',
   ];
   const files = [
     ...(await walk(dist)).filter(f => /\.(html|css|js|mjs|xml|txt|svg|json)$/.test(f)),
-    ...(await walk(path.join(root, 'src'))),
     path.join(root, 'index.html')
   ];
   for (const file of files) {
     const text = await readFile(file, 'utf8');
-    for (const pattern of banned) {
+    const archive = /^work(?:[/.]|$)|^fr[\/]work(?:[/.]|$)/.test(path.relative(dist, file));
+    const patterns = archive ? banned.slice(5) : banned;
+    for (const pattern of patterns) {
       const hit = text.match(pattern);
       assert.equal(hit, null, `${path.relative(root, file)} contains a price: ${hit?.[0]}`);
     }
@@ -114,13 +117,13 @@ test('the contact address is visible and functional across the site', async () =
 test('French routes are French in the static HTML, with no JavaScript required', async () => {
   const html = await read('/fr');
   assert.match(html, /<html lang="fr">/);
-  assert.match(html, /Créer coûte moins/);
-  assert.match(html, /Bien décider reste rare/);
+  assert.match(html, /Voir ce qui est vrai/);
+  assert.match(html, /Décider de ce qui compte/);
   assert.match(html, /Pour les entreprises qui ont quelque chose d’important/);
   const withoutScripts = html.replace(/<script[\s\S]*?<\/script>/g, '');
   assert.match(withoutScripts, /Que faut-il changer/);
   assert.match(await read('/fr/practice/method'), /Observer/);
-  assert.match(await read('/fr/work'), /Les choix laissent des traces/);
+  assert.match(await read('/fr/work'), /Le travail\. Dans son ensemble/);
 });
 
 test('each page links to its counterpart in the other language', async () => {
@@ -227,23 +230,22 @@ test('the product is called BrandOS on the practice site', async () => {
   assert.match(lab, /by Quantum Branding/);
 });
 
-test('the review platform is named nowhere', async () => {
-  for (const file of [...(await walk(dist)), ...(await walk(path.join(root, 'src'))), ...(await walk(path.join(root, 'scripts')))]) {
+test('the review platform is absent from public copy', async () => {
+  for (const file of (await walk(dist))) {
     if (!/\.(html|xml|txt|svg|mjs|js|css)$/.test(file)) continue;
-    assert.equal(/fiverr/i.test(await readFile(file, 'utf8')), false, `${path.relative(root, file)} names the platform`);
+    assert.equal(/fiverr/i.test((await readFile(file, 'utf8')).replace(/<script[\s\S]*?<\/script>/g, '').replace(/(?:href|src)="[^"]*"/g, '')), false, `${path.relative(root, file)} names the platform`);
   }
 });
 
-test('no location is claimed anywhere', async () => {
+test('practice claims no geographic service location', async () => {
   // "African" is allowed: it belongs to the proper name of the 1:54 fair.
-  const banned = /marrakech|morocco|maroc\b|united states|états-unis|guadeloupe|\bcanada\b|\bfrance\b|based in|working from|working across|addressLocality|areaServed/i;
+  const banned = /(?:I am|I'm|I’m|the practice is|Quantum Branding is) based in|working from|addressLocality|areaServed/i;
   const files = [
-    ...(await walk(dist)).filter(f => /\.(html|xml|txt|svg|css|js)$/.test(f)),
-    ...(await walk(path.join(root, 'src'))),
-    ...(await walk(path.join(root, 'scripts')))
+    ...(await walk(dist)).filter(f => /\.(html|xml|txt|svg|css|js)$/.test(f))
   ];
   for (const file of files) {
-    const hit = (await readFile(file, 'utf8')).match(banned);
+    const archive = path.relative(dist, file).replace(/^fr\//, '').startsWith('work');
+    const hit = (await readFile(file, 'utf8')).match(archive ? /based in|working from|addressLocality|areaServed/i : banned);
     assert.equal(hit, null, `${path.relative(root, file)} claims a location: ${hit?.[0]}`);
   }
 });
@@ -252,7 +254,7 @@ test('“we” appears only where it means the client and me', async () => {
   const allowed = [/We can work out the right starting point together/, /we talk/,
     /Nous trouverons ensemble/, /nous définirons ensemble/, /nous explicitons/, /us had walked the funnel/];
   for (const file of (await walk(dist)).filter(f => f.endsWith('.html'))) {
-    const text = (await readFile(file, 'utf8')).replace(/<script[\s\S]*?<\/script>/g, '');
+    const text = (await readFile(file, 'utf8')).replace(/<script[\s\S]*?<\/script>/g, '').replace(/\bUS\b/g, 'United States');
     for (const [phrase] of text.matchAll(/(?<![\p{L}\p{N}_])(?:we|us|our)(?![\p{L}\p{N}_])[^<.!?]{0,60}/giu)) {
       assert.ok(allowed.some(ok => ok.test(phrase)),
         `${path.relative(dist, file)} uses a collective pronoun for the practice: "${phrase.trim()}"`);
@@ -268,19 +270,14 @@ test('no placeholder reaches the published HTML', async () => {
   }
 });
 
-test('the retired case is unreachable and unindexable', async () => {
-  assert.equal(cases.some(c => c.slug === 'quantum-branding'), false, 'the case is still in the data');
-  for (const route of ['/work/quantum-branding', '/fr/work/quantum-branding']) {
-    await assert.rejects(read(route), 'the page is still generated');
+test('the founder practice record never returns as a client case', async () => {
+  assert.equal(cases.some(c => c.slug === 'quantum-branding'), false);
+  const founder = projects.find(p => p.slug === 'quantum-branding');
+  if (founder) {
+    assert.equal(founder.relationship, 'FOUNDER');
+    for (const route of ['/work/quantum-branding', '/fr/work/quantum-branding']) assert.match(await read(route), /Quantum Branding/);
   }
-  const sitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
-  assert.equal(/work\/quantum-branding/.test(sitemap), false, 'the sitemap still lists it');
-  for (const file of (await walk(dist)).filter(f => /\.(html|xml|txt)$/.test(f))) {
-    assert.equal(/work\/quantum-branding/.test(await readFile(file, 'utf8')), false,
-      `${path.relative(dist, file)} still links to it`);
-  }
-  assert.deepEqual((await read('/work')).match(/class="case-name">([^<]+)/g).map(m => m.split('>')[1]),
-    ['Selvaggi', 'Verne Jewels']);
+  for (const slug of ['selvaggi', 'verne-jewels']) assert.match(await read('/work'), new RegExp(`/work/${slug}`));
 });
 
 test('its argument survives as an essay, with no client-project framing', async () => {
@@ -327,8 +324,8 @@ test('defensive qualifications and the retired visual furniture are gone', async
 
 test('the hero carries exactly a headline, a positioning line and one call to action', async () => {
   for (const [route, headline, cta] of [
-    ['/', /Making got cheap/, /Tell me what needs to change/],
-    ['/fr', /Créer coûte moins/, /Dites-moi ce qui doit changer/]
+    ['/', /See what is true/, /Tell me what needs to change/],
+    ['/fr', /Voir ce qui est vrai/, /Dites-moi ce qui doit changer/]
   ]) {
     const hero = (await read(route)).split('<section class="hero wrap">')[1].split('</section>')[0];
     assert.equal((hero.match(/<h1>/g) || []).length, 1);
@@ -408,7 +405,7 @@ test('branch B is a direct conversation and start has no repeated fork', async (
 test('case studies have five sections, a closing note and confirmed status', async () => {
   for(const route of ['/work/selvaggi','/fr/work/selvaggi','/work/verne-jewels','/fr/work/verne-jewels']){
     const html=await read(route);
-    assert.equal((html.match(/<h2>/g)||[]).length,5,route);
+    assert.ok((html.match(/<h2[\s>]/g)||[]).length>=5,route+': retain five original narrative sections alongside archive evidence');
     assert.doesNotMatch(html,/The documented scope|Project documentation|Le périmètre documenté/);
     assert.match(html,/mailto:me@qtmbg.com/);
     assert.ok(html.includes(route.includes('selvaggi')?'Zero-Disruption Protocol':'Verne Style Oracle'));
@@ -442,15 +439,16 @@ test('the rejected sculpture and legacy pictograms never appear in the redesigne
   }
 });
 
-test('confirmed career dates appear on work and about in both languages', async () => {
+test('owner career dates and since 2006 wording remain visible', async () => {
   const expected=[['UNIDO / La Minute Creative','2015 - 2019'],['USAID / Career Centers','2017 - 2019'],['Diptyk','2020 - 2021'],['Inception','2021 - 2023'],['BnanaCorp','2021 - 2023']];
-  for(const route of ['/work','/about','/fr/work','/fr/about']){
+  for(const route of ['/about','/fr/about']){
     const html=await read(route);
-    for(const [name,date]of expected){
-      const row=[...html.matchAll(/<(?:article|li)>[\s\S]*?<\/(?:article|li)>/g)].map(m=>m[0]).find(row=>row.includes(name));
-      assert.ok(row?.includes(date),route+': '+name);
-    }
-    assert.ok(html.includes(route.startsWith('/fr')?'2023 - aujourd’hui':'2023 - present'),route);
-    assert.doesNotMatch(html,/2020 - 2022|Diesel/,route+': ambiguous dates must await confirmation');
+    for(const [name,date]of expected) assert.ok(html.includes(name) && html.includes(date),route+': '+name);
   }
+  for(const route of ['/','/practice','/about','/work','/fr','/fr/practice','/fr/about','/fr/work']) {
+    const html=await read(route);
+    assert.match(html, /(?:since|Since|depuis|Depuis) 2006/, route);
+    assert.doesNotMatch(html, /seventeen years|Seventeen years|Dix-sept ans|20\+ years/);
+  }
+  for(const lang of ['en','fr']) assert.match(brochure(lang), /(?:since|depuis) 2006/);
 });

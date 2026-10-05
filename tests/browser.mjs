@@ -2,6 +2,9 @@
 import { chromium } from '@playwright/test';
 import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
+import { projects } from '../src/archive/projects.mjs';
+import { makePages } from '../src/pages.mjs';
+import { articles } from '../src/articles.mjs';
 import { contactEmail } from '../src/shared.mjs';
 
 const base = (process.env.BASE_URL || 'http://localhost:3017').replace(/\/$/, '');
@@ -13,7 +16,7 @@ const routes = [
   '/thinking', '/thinking/the-collapse', '/thinking/one-page-many-arguments',
   '/lab', '/lab/the-brief-before-the-brief', '/about', '/start', '/notes'
 ];
-const all = [...routes, ...routes.map(r => (r === '/' ? '/fr' : `/fr${r}`))];
+const all = makePages(articles).map(p=>p.path);
 
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
 const problems = [];
@@ -33,14 +36,15 @@ try {
   /* ---------------------------------------------- every route, two widths */
   for (const [width, height, tag] of [[1440, 1000, 'desktop'], [380, 780, 'mobile']]) {
     const page = await browser.newPage({ viewport: { width, height }, reducedMotion: 'reduce' });
+    watch(page, tag);
     for (const route of all) {
-      watch(page, `${tag} ${route}`);
+
       const response = await page.goto(base + route, { waitUntil: 'networkidle' });
       assert.equal(response.status(), 200, `${route} returned ${response.status()}`);
       await page.evaluate(() => document.fonts.ready);
 
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
-      if (overflow > 1) problems.push(`${route} @${window?.innerWidth ?? width}px: document overflows by ${overflow}px`);
+      if (overflow > 1) problems.push(`${route} @${width}px: document overflows by ${overflow}px`);
 
       const lang = await page.locator('html').getAttribute('lang');
       assert.equal(lang, route.startsWith('/fr') ? 'fr' : 'en', `${route}: wrong lang attribute`);
@@ -55,7 +59,8 @@ try {
   const probe = await browser.newPage();
   for (const gone of ['/work/quantum-branding', '/fr/work/quantum-branding']) {
     const response = await probe.goto(base + gone, { waitUntil: 'domcontentloaded' });
-    assert.equal(response.status(), 404, `${gone} answered ${response.status()}, expected 404`);
+    const expected = projects.some(p=>p.slug==='quantum-branding') ? 200 : 404;
+    assert.equal(response.status(), expected, `${gone} answered ${response.status()}, expected ${expected}`);
   }
   await probe.close();
 

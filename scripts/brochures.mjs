@@ -2,6 +2,7 @@
 // Content comes from src/shared.mjs so the brochure and the site cannot drift.
 import { chromium } from '@playwright/test';
 import { mkdir, writeFile } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import {
@@ -10,71 +11,81 @@ import {
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const out = path.join(root, 'public', 'downloads');
-const font = name => pathToFileURL(path.join(root, 'assets', 'fonts', name)).href;
 
+// Bricolage Grotesque travels inside the document as data: a page made with
+// setContent may not load file:// resources, and the fallback would be used
+// silently (which is what happened to the earlier editions).
+const bricolage = `data:font/woff2;base64,${readFileSync(path.join(root, 'assets', 'fonts', 'bricolage-grotesque-latin-variable.woff2')).toString('base64')}`;
+
+// The desktop direction of 4 October 2026, set for A4: Bricolage Grotesque,
+// the canonical palette, folder notes and app tiles from the site.
 const styles = `
-@font-face{font-family:"Instrument Serif";src:url("${font('instrument-serif-latin-400-normal.ttf')}");font-weight:400;font-style:normal}
-@font-face{font-family:"Instrument Serif";src:url("${font('instrument-serif-latin-400-italic.ttf')}");font-weight:400;font-style:italic}
-@font-face{font-family:"DM Sans";src:url("${font('dm-sans-latin-variable-normal.ttf')}");font-weight:100 1000}
+@font-face{font-family:"Bricolage Grotesque";src:url("${bricolage}") format("woff2");font-weight:200 800}
 @page{size:A4;margin:0}
 *{box-sizing:border-box;margin:0}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-body{font-family:"DM Sans",Arial,sans-serif;color:#1b252b;background:#f4f6f8;font-size:10.5pt;line-height:1.6}
-.sheet{width:210mm;height:297mm;padding:20mm 18mm 16mm;background:#f4f6f8;position:relative;
+body{font-family:"Bricolage Grotesque",Arial,sans-serif;color:#1b252b;background:#f4f6f8;font-size:9.6pt;line-height:1.6}
+.sheet{width:210mm;height:297mm;padding:18mm 18mm 15mm;background:#fff;position:relative;
  display:flex;flex-direction:column;page-break-after:always;overflow:hidden}
 .sheet:last-child{page-break-after:auto}
-h1,h2,h3{font-weight:400;letter-spacing:-.03em}
-h1,h2{font-family:"Instrument Serif",Georgia,serif;line-height:1.03}
+h1,h2,h3{font-weight:800;letter-spacing:-.025em}
+h1,h2{line-height:1.06}
 .rule{border:0;border-top:.5pt solid #cdd4d9;margin:0}
-.top{display:flex;justify-content:space-between;align-items:flex-start;font-size:8.5pt;
- letter-spacing:.05em;font-weight:500;padding-bottom:5mm;border-bottom:.5pt solid #1b252b}
-.top .kicker{color:#59666e;letter-spacing:.05em}
-.wordmark b{display:block;font-weight:500}
-.foot{margin-top:auto;padding-top:5mm;border-top:.5pt solid #cdd4d9;display:flex;
- justify-content:space-between;font-size:8pt;color:#59666e;letter-spacing:.02em}
-.cover{justify-content:space-between}
-.cover h1{font-size:46pt;letter-spacing:-.04em;max-width:15ch}
-.cover h1 em{font-style:italic}
-.cover .lede{font-size:13pt;line-height:1.45;max-width:44ch;margin-top:9mm;color:#1b252b}
-.cover .signature{font-size:10pt;line-height:1.6}
-.cover .signature strong{font-weight:500}
-.states{display:flex;gap:4mm;align-items:center;margin:10mm 0 0}
-.states i{display:block;width:13mm;height:13mm;border:.75pt solid #1b252b}
-.states i:last-child{background:#3158df;border-color:#3158df}
-h2.title{font-size:30pt;margin-bottom:4mm;max-width:20ch}
-.standfirst{font-size:11.5pt;line-height:1.5;max-width:58ch;color:#1b252b;margin-bottom:8mm}
+.top{display:flex;justify-content:space-between;align-items:center;margin:-18mm -18mm 0;padding:0 18mm;height:10mm;
+ font-size:7.6pt;font-weight:500;color:rgb(27 37 43/.55);background:#f4f6f8;border-bottom:.5pt solid rgb(27 37 43/.1)}
+.top .wordmark{display:flex;gap:4mm;font-weight:600;color:rgb(27 37 43/.75)}
+.top .wordmark b{font-weight:500;color:rgb(27 37 43/.4)}
+.top .kicker{color:rgb(27 37 43/.55)}
+.foot{margin-top:auto;padding-top:4mm;border-top:.5pt solid #cdd4d9;display:flex;
+ justify-content:space-between;font-size:7.6pt;color:#59666e}
+.cover{justify-content:space-between;background:#f4f6f8}
+.cover .top{background:#fff}
+.cover h1{font-size:40pt;max-width:14ch}
+.cover h1 em{font-style:normal;color:#3158df}
+.cover .lede{font-size:12.5pt;line-height:1.5;max-width:40ch;margin-top:8mm;color:#59666e}
+.cover .signature{font-size:9.6pt;line-height:1.6;color:#59666e}
+.cover .signature strong{font-weight:700;color:#1b252b}
+.states{display:flex;gap:3mm;align-items:center;margin:10mm 0 0;padding:2.6mm 3.2mm;width:max-content;border-radius:4mm;
+ background:rgb(255 255 255/.7);box-shadow:0 2mm 6mm rgb(27 37 43/.12)}
+.states i{display:block;width:10mm;height:10mm;border-radius:24%;background:#fff;box-shadow:0 .4mm 1.2mm rgb(27 37 43/.25)}
+.states i:nth-child(1){background:#3158df}.states i:nth-child(2){background:#1b252b}
+.states i:nth-child(3){background:#e8fa64}.states i:nth-child(4){background:#22363e}
+h2.title{font-size:27pt;margin-bottom:4mm;max-width:20ch}
+.standfirst{font-size:11pt;line-height:1.5;max-width:58ch;color:#59666e;margin-bottom:7mm}
 .body p{max-width:64ch}
-.body p+p{margin-top:3.4mm}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:7mm 9mm;margin-top:6mm}
-.item{border-top:.5pt solid #cdd4d9;padding-top:3.2mm}
-.item h3{font-size:11.5pt;margin-bottom:1.6mm;font-weight:500;font-family:"DM Sans",Arial,sans-serif}
-.item p{font-size:9.5pt;line-height:1.55;color:#59666e}
-.movements{margin-top:7mm}
-.movement{display:grid;grid-template-columns:11mm 42mm 1fr;gap:0 7mm;align-items:start;
- border-top:.5pt solid #cdd4d9;padding:4.5mm 0}
-.movement .no{font-size:8.5pt;color:#59666e;padding-top:2mm}
-.movement h3{font-family:"Instrument Serif",Georgia,serif;font-size:21pt;line-height:1.05}
-.movement h3 small{display:block;font-family:"DM Sans",Arial,sans-serif;font-size:8.5pt;
- color:#59666e;letter-spacing:.03em;margin-top:1.5mm}
-.movement p{font-size:9.5pt;line-height:1.6;color:#59666e;padding-top:1.5mm}
+.body p+p{margin-top:3.2mm}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:6mm 8mm;margin-top:5mm}
+.item{border-top:.5pt solid #cdd4d9;padding-top:3mm}
+.item h3{font-size:10.5pt;font-weight:700;letter-spacing:0;margin-bottom:1.4mm}
+.item p{font-size:9pt;line-height:1.55;color:#59666e}
+.movements{margin-top:6mm}
+.movement{display:grid;grid-template-columns:10mm 40mm 1fr;gap:0 6mm;align-items:start;
+ border-top:.5pt solid #cdd4d9;padding:4mm 0}
+.movement .no{font-size:7.6pt;font-weight:600;letter-spacing:.15em;color:#59666e;padding-top:1.6mm}
+.movement h3{font-size:16pt;line-height:1.1}
+.movement h3 small{display:block;font-size:7.6pt;font-weight:600;color:#59666e;letter-spacing:.12em;margin-top:1.4mm}
+.movement p{font-size:9pt;line-height:1.6;color:#59666e;padding-top:1mm}
 .movement.pick h3{color:#3158df}
-.arc{font-size:9pt;color:#59666e;letter-spacing:.06em;margin-top:5mm}
-.rows{margin-top:6mm}
-.row{display:grid;grid-template-columns:52mm 1fr;gap:7mm;border-top:.5pt solid #cdd4d9;padding:3.6mm 0}
-.row h3{font-size:11pt;font-weight:500;font-family:"DM Sans",Arial,sans-serif}
-.row p{font-size:9.5pt;line-height:1.55;color:#59666e}
-.row .note{font-size:8.5pt;color:#59666e;margin-top:1.2mm}
-.quotes{margin-top:6mm;display:grid;gap:5mm}
-blockquote{font-family:"Instrument Serif",Georgia,serif;font-size:14pt;line-height:1.2;
- letter-spacing:-.02em;border-top:.5pt solid #cdd4d9;padding-top:3.4mm;max-width:70ch}
-figcaption{font-size:8pt;color:#59666e;margin-top:2.4mm;letter-spacing:.02em}
-.callout{border:.75pt solid #1b252b;padding:7mm;margin-top:7mm}
-.callout h3{font-family:"Instrument Serif",Georgia,serif;font-size:19pt;margin-bottom:2.5mm}
-.callout p{font-size:10pt;max-width:62ch;line-height:1.55}
-.contact{margin-top:7mm;border-top:.75pt solid #1b252b;padding-top:6mm}
-.contact .mail{font-family:"Instrument Serif",Georgia,serif;font-size:26pt;letter-spacing:-.02em;color:#3158df}
-.contact p{font-size:9.5pt;color:#59666e;margin-top:2.5mm;max-width:60ch}
-.small{font-size:8.5pt;color:#59666e;line-height:1.6;max-width:74ch;margin-top:5mm}
+.arc{font-size:7.6pt;font-weight:600;color:#59666e;letter-spacing:.15em;margin-top:4mm}
+.rows{margin-top:5mm}
+.row{display:grid;grid-template-columns:50mm 1fr;gap:6mm;border-top:.5pt solid #cdd4d9;padding:3.2mm 0}
+.row h3{font-size:10.5pt;font-weight:700;letter-spacing:0}
+.row p{font-size:9pt;line-height:1.55;color:#59666e}
+.row .note{font-size:7.8pt;color:#59666e;margin-top:1mm}
+.quotes{margin-top:5mm;display:grid;grid-template-columns:1fr 1fr;gap:5mm;align-items:start}
+.quotes figure{padding:4.4mm;background:#e8fa64;box-shadow:0 2.4mm 4mm -1.6mm rgb(27 37 43/.3)}
+.quotes figure:nth-child(1){transform:rotate(-1deg)}.quotes figure:nth-child(2){transform:rotate(.8deg)}
+blockquote{font-size:9.6pt;line-height:1.45;font-weight:600;letter-spacing:0}
+figcaption{font-size:7.6pt;font-weight:600;color:rgb(27 37 43/.7);margin-top:2.4mm}
+.callout{margin-top:6mm;border-radius:2.4mm;overflow:hidden;box-shadow:0 0 0 .6pt rgb(27 37 43/.15),0 2.4mm 6mm rgb(27 37 43/.08)}
+.callout::before{content:"";display:block;height:5.4mm;background:#f4f6f8;border-bottom:.5pt solid rgb(27 37 43/.1);
+ background-image:radial-gradient(circle at 4.6mm 50%,#cdd4d9 1mm,transparent 1.1mm),radial-gradient(circle at 8.4mm 50%,#cdd4d9 1mm,transparent 1.1mm),radial-gradient(circle at 12.2mm 50%,#cdd4d9 1mm,transparent 1.1mm)}
+.callout h3{font-size:14pt;margin:5mm 6mm 2mm}
+.callout p{font-size:9.4pt;max-width:62ch;line-height:1.55;margin:0 6mm 5mm;color:#59666e}
+.contact{margin-top:6mm;border-top:.75pt solid #1b252b;padding-top:5mm}
+.contact .mail{font-size:22pt;font-weight:800;letter-spacing:-.025em;color:#3158df}
+.contact p{font-size:9pt;color:#59666e;margin-top:2.4mm;max-width:60ch}
+.small{font-size:7.8pt;color:#59666e;line-height:1.6;max-width:74ch;margin-top:4mm}
 `;
 
 export function brochure(lang) {
@@ -96,7 +107,7 @@ export function brochure(lang) {
 <section class="sheet cover">
   <div class="top"><span class="wordmark">QUANTUM<b>BRANDING</b></span><span class="kicker">${t('Independent practice', 'Pratique indépendante')}</span></div>
   <div>
-    <h1>${t('Making got cheap.<br><em>Deciding didn’t.</em>', 'Créer coûte moins.<br><em>Bien décider reste rare.</em>')}</h1>
+    <h1>${t('See what is true.<br>Decide what matters.<br><em>Make it real.</em>', 'Voir ce qui est vrai.<br>Décider de ce qui compte.<br><em>Le concrétiser.</em>')}</h1>
     <p class="lede">${t('For companies with something important to improve, launch, rethink or build.', 'Pour les entreprises qui ont quelque chose d’important à améliorer, lancer, repenser ou construire.')}</p>
     <div class="states"><i></i><i></i><i></i><i></i></div>
   </div>
@@ -115,7 +126,7 @@ export function brochure(lang) {
     <p class="standfirst">${t('I bring strategy, design and implementation into the same conversation. You work directly with me. I bring in specialists when the scope calls for them.', 'Je réunis stratégie, design et réalisation dans une même conversation. Vous travaillez directement avec moi. Je fais intervenir des spécialistes selon le périmètre.')}</p>
     <div class="body">
       <p>${t('A company rarely experiences its problem as a discipline. The offer may be hard to explain. The website may obstruct a sale. A new technology may change the work before anyone has agreed what it should improve.', 'Une entreprise vit rarement son problème comme une discipline. L’offre se raconte difficilement. Le site freine la vente. Une technologie change le travail avant même que l’on ait décidé ce qu’elle doit améliorer.')}</p>
-      <p>${t('I start there. I work across brand, marketing, digital products and intelligent systems, with seventeen years of experience informing the connections I make. I also build AI products. Production is fast now. The question before production is worth more than it has ever been: what deserves to exist here.', 'Je pars de là. Je travaille entre marque, marketing, produits digitaux et systèmes intelligents, avec dix-sept ans d’expérience pour nourrir les liens que je fais. Je construis aussi des produits d’IA. La production est rapide désormais. La question qui la précède vaut plus que jamais : qu’est-ce qui mérite d’exister ici.')}</p>
+      <p>${t('I start there. I work across brand, marketing, digital products and intelligent systems, with experience since 2006 informing the connections I make. I also build AI products. Production is fast now. The question before production is worth more than it has ever been: what deserves to exist here.', 'Je pars de là. Je travaille entre marque, marketing, produits digitaux et systèmes intelligents, avec une expérience depuis 2006 pour nourrir les liens que je fais. Je construis aussi des produits d’IA. La production est rapide désormais. La question qui la précède vaut plus que jamais : qu’est-ce qui mérite d’exister ici.')}</p>
     </div>
     <h3 style="font-size:9pt;letter-spacing:.06em;color:#59666e;margin-top:9mm;font-weight:500">${t('WHERE THE WORK TAKES SHAPE', 'LES TERRAINS DU TRAVAIL')}</h3>
     <div class="grid2">${territories.map(a => `<div class="item"><h3>${esc(t(a[0], a[1]))}</h3><p>${esc(t(a[2], a[3]))}</p></div>`).join('')}</div>

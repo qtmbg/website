@@ -1,0 +1,229 @@
+/* September 29: an unreleased exploration layered last, on top of studio.css.
+   Same tokens, same DOM, same tested mechanics — the craft pushed further. */
+:root{
+  --atomic-ease:cubic-bezier(.16,1,.3,1);
+  --atomic-spring:cubic-bezier(.34,1.56,.64,1);
+  --ink-04:color-mix(in srgb,var(--ink) 4%,transparent);
+  --ink-08:color-mix(in srgb,var(--ink) 8%,transparent);
+  --ink-14:color-mix(in srgb,var(--ink) 14%,transparent);
+  --ink-28:color-mix(in srgb,var(--ink) 28%,transparent);
+  --blue-12:color-mix(in srgb,var(--blue) 12%,transparent);
+  --blue-45:color-mix(in srgb,var(--blue) 45%,transparent);
+}
+
+/* ------------------------------------------------------------------ rail */
+/* A persistent, scroll-aware index down the margin — replaces the idea of a
+   centred single column with a document that visibly has a spine and a
+   current position in it. Only where there is real margin to hold it. */
+.rail{display:none;pointer-events:none}
+@media(min-width:1560px){
+  .rail:not(:empty){
+    display:flex;flex-direction:column;gap:14px;
+    position:fixed;left:28px;top:50%;transform:translateY(-50%);z-index:5;
+  }
+  .rail-tick{width:9px;height:1px;background:var(--line);transition:width .35s var(--atomic-ease),height .35s,background .35s}
+  .rail-tick.is-active{width:24px;height:2px;background:var(--blue)}
+  body[data-page="lab"] .rail-tick{background:#50616a}
+}
+@media print{.rail{display:none}}
+
+/* --------------------------------------------------------------- surface */
+::selection{background:var(--acid);color:var(--ink)}
+html{scrollbar-color:var(--line) transparent}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line);border:3px solid var(--paper);border-radius:20px}
+::-webkit-scrollbar-thumb:hover{background:var(--muted)}
+
+body{position:relative}
+body::before{
+  content:'';position:fixed;inset:0;z-index:1;pointer-events:none;
+  opacity:.035;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+:focus-visible{outline-offset:3px;outline-color:var(--blue)}
+
+h1,h2,.page-head h1,.section-heading h2{text-wrap:balance}
+.prose p,.article-body p,.hero-description{text-wrap:pretty}
+
+/* ---------------------------------------------------------------- header */
+.site-header nav a{transition:color .2s}
+.site-header nav a::after{transition:transform .45s var(--atomic-ease)}
+.contact-link{transition:background .25s var(--atomic-ease),color .25s,translate .25s var(--atomic-ease)}
+body::after{height:2px;background:linear-gradient(90deg,var(--blue),var(--acid))}
+.wordmark{font-size:22px;letter-spacing:-.055em}
+@media(max-width:800px){.wordmark{font-size:17px}}
+
+/* ----------------------------------------------------------------- hero */
+@media(min-width:1401px){
+  .hero h1{font-size:clamp(96px,8vw,150px)}
+}
+.hero h1{will-change:transform,opacity}
+.hero-description{color:var(--muted)}
+
+/* --------------------------------------------------------------- scale */
+@media(min-width:1100px){
+  .page-head h1{font-size:clamp(70px,8.6vw,132px)}
+  .section-heading h2,.section.wrap>h2,.split>h2,.split>div>h2{font-size:clamp(52px,6.2vw,96px)}
+  .closing-fork .section-heading h2{font-size:clamp(66px,8vw,128px)}
+  .lab-card:first-child h2{font-size:86px}
+  .territory-object span{font-size:96px}
+  .history-list .visual-territory h3{font-size:30px}
+}
+
+/* ---------------------------------------------------------- method grid */
+/* Observe / Collapse / Build / Hold: the same four colours as the hero panels,
+   repeated everywhere the method appears so the code reads as one system. */
+.method-grid{border:0;gap:2px;background:var(--line)}
+.method-grid>article,.method-grid>article+article{border:0;background:var(--soft)}
+.method-grid>article:nth-child(1){background:var(--soft)}
+.method-grid>article:nth-child(2){background:var(--blue);color:var(--paper)}
+.method-grid>article:nth-child(3){background:var(--acid)}
+.method-grid>article:nth-child(4){background:#182931;color:var(--paper)}
+.method-grid>article:nth-child(2) .method-mark b,.method-grid>article:nth-child(4) .method-mark b{color:var(--acid)}
+.method-grid>article:nth-child(1) .method-mark b,.method-grid>article:nth-child(3) .method-mark b{color:var(--blue)}
+.method-grid>article:nth-child(2) p,.method-grid>article:nth-child(4) p{color:color-mix(in srgb,var(--paper) 78%,transparent)}
+.method-grid>article:hover{transform:translateY(-3px)}
+.method-grid h3{font-size:clamp(26px,2.6vw,38px)}
+
+/* ----------------------------------------------------------- testimonials */
+.section:has(>.quote-grid){position:relative;isolation:isolate;color:var(--paper)}
+.section:has(>.quote-grid)::before{content:'';position:absolute;z-index:-1;inset:0 calc(-1*var(--gutter));background:var(--blue)}
+.section:has(>.quote-grid) h2{color:var(--paper)}
+.section:has(>.quote-grid) .quote-grid figure,
+.section:has(>.quote-grid) .quote-grid figure:first-child{
+  background:transparent;color:var(--paper);
+  border:0;border-top:1px solid color-mix(in srgb,var(--paper) 28%,transparent);
+  border-radius:0;padding-top:28px;
+}
+.section:has(>.quote-grid) .quote-grid blockquote{color:var(--paper)}
+.section:has(>.quote-grid) .quote-grid figcaption{color:color-mix(in srgb,var(--paper) 68%,transparent)}
+.section:has(>.quote-grid) .text-link{color:var(--paper);border-color:var(--paper)}
+
+/* -------------------------------------------------------------- territories */
+.history-list .visual-territory{background:var(--paper)}
+.history-list .visual-territory:hover{background:var(--soft)}
+.territory-object span{font-size:96px}
+.history-list .visual-territory h3{font-size:30px}
+
+/* -------------------------------------------------------------- buttons */
+.button{position:relative;overflow:hidden;isolation:isolate;transition:transform .35s var(--atomic-spring),background .2s,color .2s,box-shadow .35s var(--atomic-ease)}
+.button::before{content:'';position:absolute;inset:0;z-index:-1;background:var(--blue);transform:translateY(101%);transition:transform .4s var(--atomic-ease)}
+.button:hover{box-shadow:0 14px 30px -12px var(--ink-28)}
+.button:hover::before{transform:translateY(0)}
+.button:active{transform:scale(.96)!important}
+@media(prefers-reduced-motion:reduce){.button::before{display:none}}
+
+/* ----------------------------------------------------------------- cards */
+.lab-card,.method-grid>article,.history-list .visual-territory,.case-art,.fork-option,.quote-grid figure{
+  transition:transform .5s var(--atomic-ease),box-shadow .5s var(--atomic-ease),background .3s;
+}
+.lab-card:hover{box-shadow:0 24px 48px -24px rgba(0,0,0,.45);transform:translateY(-4px)}
+.case-card:hover .case-art{box-shadow:0 30px 60px -30px var(--ink-28)}
+.essay-list>a{transition:background .3s var(--atomic-ease),padding .3s var(--atomic-ease)}
+
+/* ------------------------------------------------------------ footer */
+.site-footer{position:relative}
+.site-footer::before{content:'';position:absolute;top:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--ink),transparent 65%)}
+.site-footer .footer-author{font-family:var(--serif);font-size:19px;letter-spacing:-.01em}
+
+/* ------------------------------------------------------------ reveal polish */
+.motion-ready .kinetic-stage{transition:filter .1s}
+.kinetic-stage[data-reveal]{will-change:opacity,transform,filter}
+
+/* ------------------------------------------------------- process gallery */
+/* The panels don't just widen — the ones not chosen visibly recede, so the
+   interaction itself performs what "Collapse" means: many options, one held. */
+.process-card.is-selected{flex:3.1}
+.process-card{transition:flex .65s var(--atomic-ease),transform .2s var(--atomic-ease),box-shadow .5s var(--atomic-ease),opacity .4s var(--atomic-ease),filter .4s var(--atomic-ease)}
+.process-card.is-selected{box-shadow:0 30px 60px -28px var(--ink-28)}
+.process-gallery:hover .process-card:not(.is-selected),
+.process-gallery.is-dragging .process-card:not(.is-selected){
+  opacity:.72;filter:saturate(.55) brightness(.96);
+}
+.process-arrow{transition:opacity .3s,transform .45s var(--atomic-spring)}
+@media(prefers-reduced-motion:reduce){
+  .process-gallery:hover .process-card:not(.is-selected){opacity:1;filter:none}
+}
+
+/* -------------------------------------------------------- running index */
+/* A quiet colophon: every argument on the page gets a number, the way a
+   contract or a brief would number its clauses. Pure CSS, no markup change. */
+/* Attached to the section itself, never to its first child: that child is
+   sometimes a grid or flex container, and a ::before there becomes a real
+   grid/flex item and silently reflows the layout (caught on the Lab forms). */
+body{counter-reset:qb-section}
+.section.wrap{counter-increment:qb-section}
+.section.wrap:not(.closing-fork)::before{
+  content:counter(qb-section,decimal-leading-zero);
+  display:block;font:600 12px/1 var(--sans);letter-spacing:.1em;
+  color:var(--blue);margin-bottom:16px;
+}
+
+/* ----------------------------------------------------- method group-hover */
+.method-grid:has(>article:hover)>article:not(:hover){opacity:.6;filter:saturate(.65)}
+.method-grid>article{transition:transform .5s var(--atomic-ease),opacity .4s,filter .4s}
+
+/* ---------------------------------------------------------- case studies */
+.case-card{counter-increment:qb-case}
+.case-card .case-art{position:relative}
+.case-card .case-art::after{
+  content:counter(qb-case,decimal-leading-zero);
+  position:absolute;top:24px;right:26px;z-index:2;
+  font:600 13px/1 var(--sans);letter-spacing:.08em;color:inherit;opacity:.65;
+}
+.case-grid{counter-reset:qb-case}
+.case-card:hover .case-art{transform:translateY(-6px)}
+.case-art{transition:transform .5s var(--atomic-ease)}
+/* Lead story vs. second story: the grid stops being uniform rows and
+   becomes an editorial hierarchy — one case is the headline, not two equals. */
+@media(min-width:900px){
+  .case-card:first-child{grid-template-columns:1.85fr 1fr}
+  .case-card:first-child .case-art{aspect-ratio:1.7}
+  .case-card:first-child .case-name{font-size:clamp(64px,7vw,120px)}
+}
+
+/* --------------------------------------------------------- media-ready frames */
+/* No photography exists yet, so these stay flat colour — but the corner
+   marks and aspect-ratio are built now so a real photo or video drops in
+   behind the existing background without any layout change later. */
+.case-art,.visual-founder-poster{position:relative}
+.case-art::before,.visual-founder-poster::before{
+  content:'';display:block;position:absolute;inset:18px;z-index:1;pointer-events:none;
+  border:1px solid color-mix(in srgb,currentColor 22%,transparent);
+  -webkit-mask:
+    linear-gradient(#000,#000) top left/26px 1px no-repeat,
+    linear-gradient(#000,#000) top left/1px 26px no-repeat,
+    linear-gradient(#000,#000) top right/26px 1px no-repeat,
+    linear-gradient(#000,#000) top right/1px 26px no-repeat,
+    linear-gradient(#000,#000) bottom left/26px 1px no-repeat,
+    linear-gradient(#000,#000) bottom left/1px 26px no-repeat,
+    linear-gradient(#000,#000) bottom right/26px 1px no-repeat,
+    linear-gradient(#000,#000) bottom right/1px 26px no-repeat;
+  mask:
+    linear-gradient(#000,#000) top left/26px 1px no-repeat,
+    linear-gradient(#000,#000) top left/1px 26px no-repeat,
+    linear-gradient(#000,#000) top right/26px 1px no-repeat,
+    linear-gradient(#000,#000) top right/1px 26px no-repeat,
+    linear-gradient(#000,#000) bottom left/26px 1px no-repeat,
+    linear-gradient(#000,#000) bottom left/1px 26px no-repeat,
+    linear-gradient(#000,#000) bottom right/26px 1px no-repeat,
+    linear-gradient(#000,#000) bottom right/1px 26px no-repeat;
+}
+
+/* -------------------------------------------------------------- essays */
+.essay-list>a{position:relative}
+.essay-number{transition:color .3s,transform .35s var(--atomic-spring)}
+.essay-list>a:hover .essay-number{color:var(--blue);transform:scale(1.12)}
+.essay-list>a:hover h3{color:var(--blue)}
+.essay-list h3{transition:color .25s}
+
+/* --------------------------------------------------------------- magnetic */
+.magnetic-ready{transition:transform .5s var(--atomic-spring)}
+
+@media(prefers-reduced-motion:reduce){
+  body::before{display:none}
+  .lab-card,.method-grid>article,.history-list .visual-territory,.case-art,.fork-option,.quote-grid figure,.button,.process-card{transition:none!important}
+}
+@media print{body::before{display:none}}

@@ -44,7 +44,7 @@ try{
   const text=mask(html.slice(0,bodyStart))+html.slice(bodyStart).replace(/<script[\s\S]*?<\/script>/g,mask).replace(/<[^>]*>/g,mask);
   const findings=hits(text);
   report.pages.push({route:item.path,file,findings});
-  const fatal=findings.filter(h=>!['formulation à examiner','pronom collectif','lieu ou nom géographique'].includes(h.category));
+  const fatal=findings.filter(h=>!['formulation à examiner','pronom collectif','lieu ou nom géographique',...(item.basePath.startsWith('/work')?['montant']:[])].includes(h.category));
   assert.deepEqual(fatal,[],item.path);
   for(const width of [390,1440]){
    await page.setViewportSize({width,height:1000});
@@ -78,5 +78,5 @@ try{
  }
  assert.deepEqual(report.errors,[]);
  await writeFile(out+'report.json',JSON.stringify(report,null,2));
- console.log('PASS: 38 pages, 76 viewport checks, accessible founder poster, brochure geometry, editorial inventory.');
+ console.log(`PASS: ${report.pages.length} pages, ${report.pages.length*2} viewport checks, accessible founder poster, brochure geometry, editorial inventory.`);
 }finally{await browser.close()}

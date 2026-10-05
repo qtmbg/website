@@ -17,6 +17,8 @@ export const crumbLabels = {
   '/practice': ['Practice', 'La pratique'],
   '/practice/method': ['The Collapse', 'The Collapse'],
   '/work': ['Work', 'Le travail'],
+  '/work/index': ['Full index', 'Index complet'],
+  '/work/timeline': ['Timeline', 'Chronologie'],
   '/thinking': ['Thinking', 'Les idées'],
   '/lab': ['Lab', 'Le Lab'],
   '/about': ['About', 'À propos'],

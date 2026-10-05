@@ -1,0 +1,1042 @@
+{
+  "/": {
+    "text": "ebfecbe2c9bbfa764b130d7b02426ad505e28d9d56fb9b46231f8fd24326dcb9",
+    "links": "57be5c9b60716b84733228fd6539cd8341d96e068bfbbe99780834855a6030b3",
+    "metadata": "bb86ae964ffb25fe62c8ebb2395c4496e9fe22863d0beb58ad1cf30757a2447a"
+  },
+  "/practice": {
+    "text": "5e797d95df84d81790c600bdcf3141dc0292ac13cc8a5da025a16dcbd382146c",
+    "links": "eb93b3cc64fb48a2ab654b34a39ab9e7caff6e56f4e5956b93ea05ad193fd9b3",
+    "metadata": "9eb7dd0cae35744d1ed53102170874926dac16f1927306368ace29a1fd07503e"
+  },
+  "/practice/method": {
+    "text": "18f9b1e17cae6ec3dca36b98a9b34886d4856b2e52b7acd6a2e3d2e3bed6df3e",
+    "links": "1d3a5daa70d85dba8be7c23c6754f69e3d04bfdbc342b0c856fb65097361676e",
+    "metadata": "ea9e0a9dad33a9dc68900e05bd3295ebaa62b09bbb0346c5e2a68a7e997729dd"
+  },
+  "/work": {
+    "text": "72990932c47cb14b3ca8dca0a01f02ab05a4297628b4035566b80d4299f75e94",
+    "links": "fac19792710065d746ebfc833f6839cd6428ef8ee1416a93b5ef9c64cb9981ae",
+    "metadata": "c09b28f4d5a6d5b71a282b89a46e8fc9a98009f03f96835cae73ca839441841b"
+  },
+  "/work/index": {
+    "text": "212abe4cb890cadbe1d57966c8bf144bdf76ee0f3077d5489cad2bd64f185d4d",
+    "links": "4d45534002733d140bc72c96ebd2cb1963c277c2bc05391541ddba69cc539f2e",
+    "metadata": "29d7a9ad665e0ae2161aba0170e6a991d0377986a156ba25db4c300d55e31a5d"
+  },
+  "/work/timeline": {
+    "text": "8f9ed7eba2db6b80d997f55b38f7477f2bb59cb3cab442c3ef392572ac9248d5",
+    "links": "040f2d4604e50db9444c16db77ff6d0ad514352e87c8479fef9706bd50bc6b2f",
+    "metadata": "3d4686fd82e73ba3bf67bf0fa94a24b87c27557d2aa30c3f7113a34c2c604a81"
+  },
+  "/work/diptyk": {
+    "text": "46fe2cfbb021e0e706fcf5d62885b416db3b4f769662b2fc69d479ffb89367e2",
+    "links": "8dc129ec09e6778a7f0a31e0fabc86782cb12ee34fd2d36e4b5d507c5d7b3dba",
+    "metadata": "817f968c1af29243f95dd29969a71cc6332787755e91addd83f4cbb495003e0f"
+  },
+  "/work/la-minute-creative": {
+    "text": "324a803033caa298d624354c97faf95febd5b5eadfac169772f1417a63ebe42d",
+    "links": "98c86677a3a1ef02bc5387c56ca5b4bce1ffb35bd40f338b777f12467d55af6d",
+    "metadata": "da196c13bb409f3c54aa072c31461a77008eb6e5e295f7aca445ae8000aaf619"
+  },
+  "/work/diesel": {
+    "text": "b31b497de5e6dc0ae3222d673b5a420e8d17763f8edf33de54cfad4967c0de17",
+    "links": "d7a22be489a29cce7b1d7300dd364bfa8c51a8822c88bf0eb0c18069fe574703",
+    "metadata": "4f9aeafb9fb5f12896584a4c32152a233ea6fa34219c1767fced56d7ffb81f20"
+  },
+  "/work/audi-driven-by-art": {
+    "text": "df94ba7a73740a77f8a9bd51966887c3f628da332b7f7b6be9bd7aeb6b58be39",
+    "links": "513a90283b8e15ac57a6fcf200cdecd7b41ecf9a28102bcd1a6ed3da78247b67",
+    "metadata": "e3060910755545a85e7b08cb9e2d71bc7d8496d3e289c7e6753fcbfc3920d577"
+  },
+  "/work/africa-business-school": {
+    "text": "eb52613fb212b27bc0d90d1921639a7659bc4e351b7ba10d7da83e237b999356",
+    "links": "6061c682df37c28a72c7200d900f86c207f70a8e15139ad1a355b340427f0842",
+    "metadata": "4da8a1c8f7f9ab55cdd8cde61aca5917329798ad842fc5b25edb0edf6af6ff95"
+  },
+  "/work/energy-cube": {
+    "text": "0ad2efd342e897decc9fc00fd5feb725daee8c223cbe983b986fa10f4d25020f",
+    "links": "20d26f6d86547ea927bccbb74f6a97435965d997edb74e00a17ee197d8cf2c54",
+    "metadata": "26e261ca3ef82faa42b1fa538800d70b71d767c2e23bf5082ebf20c8100bce04"
+  },
+  "/work/zone-aire": {
+    "text": "7097f4a5192968209e7c1c3b78da2cdd5422ff675f48d5664444ea84f17c7f7f",
+    "links": "105e339513e2a25d4c1995061a5082647a851d8a32bbb843b8e7017cf214ae16",
+    "metadata": "cdf0a5b83cd5d197506eda8d08a5311b886bfd41cc07636f865193baf25c49db"
+  },
+  "/work/stan-wawrinka": {
+    "text": "99309cc9cdde32146c3138979986e7023c6a158c48f640c28677bba86eab37cd",
+    "links": "6806f556cb559a262a4d3986d4fcef5a9dec91e0963f59a1da0d4275734fd6b1",
+    "metadata": "d7ee8a3e3586acf5bc546883c3e857b68cc7cfad8e2176f4341b1a283f73cba9"
+  },
+  "/work/baccarat": {
+    "text": "d02ce3e2773f2fafe369bec53fbd07c8fb0ea1edef378e2512c9d123d2d8ac6e",
+    "links": "ba2d876067210ae21be8a337322369a8cf9b86aac059d5c9a99f9b87f0e933f2",
+    "metadata": "2f2750f15c655a73d8a24f791880ec82989f387032585c9f101c14c19ae2486f"
+  },
+  "/work/bugatti-asprey-nft": {
+    "text": "e7f1db1c9cb2039ced047a433a724d900ac65b3d14521581c4fd7449201de863",
+    "links": "5740b2bece5b1cc34af6dd171b16ab784524a0c66ae453b6dbf7d98e4ab274eb",
+    "metadata": "7c004bc19bbe50bd38cbd9c72f4ccf3cd0f87eb2f9726c931bbc754f86165c81"
+  },
+  "/work/kareem-abdul-jabbar": {
+    "text": "730655df4d6d1a04a51b004344c31d7ca1d1991d6da8eb41519cb530e7e677e1",
+    "links": "45b4c53ad1337d4d10dd1a75bdafd45048946545ef8c06e4a70fead75daef19d",
+    "metadata": "8792104fd6ad001e16db1bffb9d5c6eb9e6750af3805374f8ec6dc3eea8f9821"
+  },
+  "/work/french-tennis-federation": {
+    "text": "88ac3f7c83703d58d14077ce7356b8fb07febee71c2fb092d3f585abdef438b9",
+    "links": "68a59b1b19756f6d2209ff777f044fd2fd6c1eb5ceb44dc6c447be2a78376426",
+    "metadata": "d10414f5052df5d626e4a3e0e77783c0c93e4efd6621b953f9decbf9e6223740"
+  },
+  "/work/la-lakers": {
+    "text": "b84b51b7a15a6c0c04cadda63715b8609ecae8e5ebd2416efc331fbd34466305",
+    "links": "7767c6c0501391d11377c1aba0aba90eb3ba11c631e2863b82cc7343e0791548",
+    "metadata": "4c52677e8ebe47c82bc4b4e3d3ed55fc0480a719563420109240880061d9a47d"
+  },
+  "/work/unlimitart": {
+    "text": "c15d7cff7c58b791a7a8e0cba1157f8b8278f3010f9c02787bbc662fc4f92c2c",
+    "links": "4607c14b119365c2da4b77b4ff757bf9f79537fc95e9a00f897da65e22fb64a5",
+    "metadata": "4b2bf0e11488464fbc6d1a8594be2cf572bf3dd8d382607b68a0fabc0ddf6a04"
+  },
+  "/work/nception": {
+    "text": "bdb47f756bdc9b5e86030cf936395cd95512c4db0109956ba5d3ac290b765bfd",
+    "links": "40cf1ecb51ee349d4f50fdd791ea2c7f39e2a2bde4b2ec068196b04e40abdf39",
+    "metadata": "01f5af3e0328c568ac83ceb9c1f52be7eb863ac3ef6cc959025bcb3b73510e58"
+  },
+  "/work/bananacorp": {
+    "text": "c62043635da04b66a293fec45b1358235817b6c4516230925a9fa7214efd5cf0",
+    "links": "9253679c47d98ad2b67327aedbf4d5344d37d2bc87be7f73a406c5d65abdd32e",
+    "metadata": "5e689872bc332327f06d6996fb6bb16097a00eb4ffc6be4e0b0c484014b2cd2d"
+  },
+  "/work/bananaconf": {
+    "text": "832b68fcbb8e4390044c698dbc07c8106bd31570902f5cdf0607da30b159fb4d",
+    "links": "ea65f4cc1cc17bafc535ff78cc0fbe4c1e60002f2e6ea443d21e8e1b0e9240b0",
+    "metadata": "9f96b1ef2dfc5dd120b0519f509fb37c124d6aff6b3a62e9d7d3ccf057646a43"
+  },
+  "/work/the-future-fashion": {
+    "text": "205cdf369935ec2083f949e2a1a4397b988ede5f1dbfc294a8885250feada367",
+    "links": "8d3adb2c0404b52715083837737481fdab7603d03074dff45e28571825c01949",
+    "metadata": "7ea887343d1faff80f85da8a12caa8c34a9765d8a2054375b7e82b820de021d1"
+  },
+  "/work/dubai-holding": {
+    "text": "ba78303fac4cf16aaeb6794bd53bbb9ba69042d86cf607b1ccd56f325a761009",
+    "links": "857bc02f322723a2d35117d21eabd4b06d92c2d4e6d99ea474e6408e3079e341",
+    "metadata": "4be998db5209cc64d737254ddae37fafeaaf893008b49e859876dff47609b0cb"
+  },
+  "/work/unitar": {
+    "text": "1867ae19cd33e57703bab3e2ce4c71c8f04adffc021eb939f216b6d9a7beb369",
+    "links": "bbf95bab87fa9a29f1f34bfdc1cf6f3c3d09f53fc184d1ab8b80da9d6152a2c3",
+    "metadata": "8b9eed2d816641d9fa5e417034b0132a7692f4a9bf9acfc1bdb064825cdf2b83"
+  },
+  "/work/arts-thread-gdgs": {
+    "text": "e5e6c18560262ed8ca2d907de46bf04f3cd5db1e851212f571ca793a4e8a5f32",
+    "links": "f7f2cf3739ae10dea33ff173ea0279bfe46c71be7fa22be1eb44de3ffb662752",
+    "metadata": "93ffc9eb3861cd37a86e55c7fb9c12137228f30658e2e5923a1bf44953100634"
+  },
+  "/work/unido-creative-mediterranean": {
+    "text": "185c6cdf46b3f6a88db181fd5125f5f2a57d1bf8982545d5b2f20fcc9f701f6f",
+    "links": "e5a1ad55e3a1d867509fde14eda185ebc0b759e41dbfe70b1653d111e3082586",
+    "metadata": "033d0c6bb471b807c3c60385c087477df1aedb17adfb0a97d128bdbba01b188a"
+  },
+  "/work/eu-unido-creative-mediterranean": {
+    "text": "2437a5e78a4b4cbfaa0bc383386ad61213a6d2e5c41973b48ea934e0a071e951",
+    "links": "2dfaa5c208168e079e8f2c4c6ea216915bc229d5f1022f3b2654c305a13003a2",
+    "metadata": "37d7daa275c10c8d481ad6564c5227fcd61228e1cf939d84fe7a73e54eb68476"
+  },
+  "/work/marrakech-creative-interiors-cluster": {
+    "text": "8bc61612aae22922c31793fe03e12cc193d72f53efbb511b1810136860ae1120",
+    "links": "b705f9fa660c8cd6af8aef1944515343d396efe96135e1ec08c174a1e6ba2192",
+    "metadata": "e750948b925e483dcb48a5917ff8665041cc69718105c998201efbedb083ce22"
+  },
+  "/work/un-women-pwe": {
+    "text": "af128c919b11551fbb51426d23a49b9ba0e88b8bcd9bcf2dd2660480aa1a154a",
+    "links": "ddc4f01b2425d017bf17f40ab1fa47fe15981fcfd53929e91f4713224d3818ca",
+    "metadata": "5ab14a45a122ad3342f1ef21ae89bce03c6ff61caf42c3491056417eec229c3a"
+  },
+  "/work/usaid-career-centers": {
+    "text": "156cd067fb216cf034d6b0c787327a1510dee6120aaa44b3f12ab0c5096b2358",
+    "links": "39da63fd4eae277d1618b18bd4ee2d760503791612d9b898edce60620df9004d",
+    "metadata": "33c6ab12f67446a13d56945aafe4742fd0a0649b55c1289a56917735d4a522d4"
+  },
+  "/work/iom-compass": {
+    "text": "2c721abfa463b49159495db9aa90c7aa528eb793ee84dfda321b6a2ce39ff61f",
+    "links": "1b09a3053e4f37db105ef3fca159df889ee3365896ed28a4ab506857dab13b7c",
+    "metadata": "b3409c54d519d32d2799406c7eb1451f8f60cfb4eefd71d3a2c01709096402eb"
+  },
+  "/work/oif-francophonie": {
+    "text": "76989e347fd4da1192a47071fc637d0d341c07f801fd2171898b9bdecc565639",
+    "links": "1e142e2d08ade033b152a9d2d205a1a70d8d090fe493b6c00825d55b19819943",
+    "metadata": "2516551771aa1e87c3f38ffe64e96111abc7cd4cde8aa900de25916a747741f0"
+  },
+  "/work/nepad": {
+    "text": "0ad0719ecce26e738647889482ee16415a05e5d1454ed9ad40d42d6f500b70cf",
+    "links": "e64a821af85d0fe77a00f9570427732b9d29eb1d16f2d4bae64eadc94c2187c6",
+    "metadata": "b138713d0f65cf44262216093bc926e2592a05e2467fc134f9e860a965e1945c"
+  },
+  "/work/houna-design-talks": {
+    "text": "a5efdb4c401f429636001c9adb405e749869552dc1eed9bbb0faefdc55596399",
+    "links": "0940dcd2efdc0ecdf0c2fafc38d63af951437c65c1ea70769e947b61ae7a6104",
+    "metadata": "bc45588778e1673a520a9ee120934beedeca1096ab1975a07b3d34b20a0266e0"
+  },
+  "/work/creative-forum-ljubljana-2018": {
+    "text": "81b28d702201ac6f75f5ab578b19f11b90495bbe57f09115eff0c0c722b04b40",
+    "links": "72a67c4a9850579c751ab59a19fe01e99146d0b7aa670357eb39ae123a294ec8",
+    "metadata": "1b3053b32f4673b326accdb6aabac9d9c38f9d67ba8b0b7cab023cc9a6de1752"
+  },
+  "/work/oasis-festival": {
+    "text": "d40b10c546dec6b20cab291028e82c4c2a9ad2cf29cc7b28626f14d4ab227624",
+    "links": "a1c554ed4cf430f921187b62bafacba5d4569e1f5421f295f7b2e9ddbf562e9d",
+    "metadata": "ca86d57d6e035b6325bcd61901f9f246429e427c6b356106a11497540238f816"
+  },
+  "/work/arroz-con-pollo": {
+    "text": "e9d54130c6cf40d4949d9d36ceaaee0841d92c60e79fe4e4fbf4654b3f446446",
+    "links": "034760bf3e219355b2fb33c6889d1f0f9ce4f51e923e2f65450899c5e197194f",
+    "metadata": "69a464fbe7009078bb7fb9b6686e5834b544313aa9f8dc29ecee07f3e3a7ced5"
+  },
+  "/work/street-view-inside": {
+    "text": "ec311fed88520396dfc5b01ebaf5fbcd0933e49ed903a811d7ebad9f219e43f1",
+    "links": "1612d28d6754771867aa753d2172b12eb00a2ecffefbb64e18f94d944417626d",
+    "metadata": "c4866b8c7284a0d8badff64708b8ecc9cee5499f6d606b6c818e160a049efd2c"
+  },
+  "/work/la-cuisine-de-mami-bahia": {
+    "text": "15df1b18a1ca846b2b0437c0ff5e1faace5c4848d26c9997c24dd403ef41839e",
+    "links": "bd6b13207895047b567c15cfe8feb32e370500d275b47a1769488d28cdb4a032",
+    "metadata": "b120a5caadacd83760d0eeb6d101e17780ddae03f3e04d5f59adae548dc2736b"
+  },
+  "/work/quantum-branding": {
+    "text": "7a08ccfee1a55d40b03957068598782e2cdc5118fb6c9c61f1ab6f5f04579a62",
+    "links": "7c44f13784e2f964534ba6647ecc2e62f9e333c9007d1c8fe3dab82b6e05ac48",
+    "metadata": "5f94ffb630337f92b029dbd83aeb57898ab4e9c4fd5e92981db5036d3b256e21"
+  },
+  "/work/brandos": {
+    "text": "0d3104e3391bc3f351b0ef9434c2b43436687862492751261925991994a40a32",
+    "links": "2fe310f207a2c442998a2470c017c7089f764554ab6cde3a9a2e38d278995853",
+    "metadata": "84aaf5da8bb97232a4be912322b04c8725cf64b1370f11c2792c9eecaa3f2b75"
+  },
+  "/work/rbmg": {
+    "text": "013fd7c7db6a53bba64b433b7a7bfd1222ab2b89199762241c1f9284ea9429ca",
+    "links": "526d42aecec7d4050abb8fc234c234bf7510d1505cda40ee8c1869aa0a673afa",
+    "metadata": "16db93c3d0cfc930b9b6eebe8395c8a4890a274ee841a36ef35b93337d015456"
+  },
+  "/work/technikart": {
+    "text": "cb2804cb76603e4ab48d5917e8dc9fbccba4fcf4e8820ed3edf95727d140a8ca",
+    "links": "9d696cf8667b44be11b05e672dd0496853657ad490e0679d1239c969242630af",
+    "metadata": "0a612eca4109826d02d6c93228695c04e3160d1d0304ba9f774a5e7cf406d442"
+  },
+  "/work/unov": {
+    "text": "49f502a3fb78176eeb92080ad8dea169a0948209ef0733f3eb747b87ef258123",
+    "links": "f29e4edd696d03271cbb0a42f16eb4045e3c1d5d22063f3871f9a598c2be12fd",
+    "metadata": "de5d9e7f43d70521c32cbf3f88c8e66b8212edadeae9783ce55877ae0f6e1561"
+  },
+  "/work/beachcomber": {
+    "text": "3fdc641479ab1bbae002a4abbca58573c9f03db081855c2033c14a7aba4e34d1",
+    "links": "18f881993e9c7d5f6ef05db9e79001ae050ec67104f6b3471af41dc2207279a6",
+    "metadata": "fe44ec568dd147b1f53282a905e4a696506cf711b79dbd9ab584c31b23c22fa0"
+  },
+  "/work/es-saadi-theatro": {
+    "text": "4de284753eff013f73b3689d273ea26a7b3a31daef613185e9a164d903371c75",
+    "links": "bc19dcdb84c887ef6864e4aeb5b611174fcc22b57c57bbb131e2660033810c64",
+    "metadata": "19fe5f9eb2961ad5de45541b1e123770de5fc149b217db167250725bc764b9ba"
+  },
+  "/work/hanoot": {
+    "text": "539040320fc54eef40e7989f063fb8562a1940678ca174006610ca9f82f03b04",
+    "links": "20669c988cfdb7060115a1b1ac9f06301e489a5b0feb85a13e1fd8da052d0f8d",
+    "metadata": "442945544130fab7a5b0afc8c67fc87192f5bde3defc4351fb7f64d53c7b8dc9"
+  },
+  "/work/myah-bay": {
+    "text": "39e735faca016189ee33931bce943757b2ca30eea4beab2b6db7b91e187bdd4e",
+    "links": "9902fc366a0000a60edd5ea6c967d007c3079b420c700c8e17858b8c661f6cfc",
+    "metadata": "75228659ff234b7ea57a60080b17486b165eede9a8a1b6bd49bd157ca9450f5f"
+  },
+  "/work/destination-evasion-maroc": {
+    "text": "196d24172db9d3ab12f25cc0339df1fce07a0ae12dc5bc1e7184a6e34cee561f",
+    "links": "29814d43a86f209408415f554d67f0a9f54784b9686e166f03df09baeaea52dd",
+    "metadata": "c09353c3a82013b9836f3905e5e2dbe4a7b983e74eab450ae1643954502d6bde"
+  },
+  "/work/kechnight": {
+    "text": "da1b4278d93105e04d24c51755c0cd0c82fc2159027ac32b8d86f3166c6e3b35",
+    "links": "c368140d3c4bcada3d414e17a7196853db7a34645203723558e510f48edb4adc",
+    "metadata": "03bc9274c3ef2b3efebe8327fca2945ef65ae86bee0f4264ea7b1dec0b53b591"
+  },
+  "/work/suite-club": {
+    "text": "02de21158b6893c677a476265c4fd2da7b1c6378481458f4e766f7ca953a1abd",
+    "links": "48c7e7562ab2a2b98a1b5a629815749a24ed517b863026272dfa5a024d7a2ca5",
+    "metadata": "0b4bb029af7fe7177a12849b2258ddd19425ae1d20a40b2c1a84252073af4e2b"
+  },
+  "/work/marrakech-du-rire": {
+    "text": "b8aac9118c00cb2e4273566ccbe413458de0a9245b673a29635881fc9865cae7",
+    "links": "cfdf8505c0ea186260e4e3bde40ef11595a82d5071b9f77088e243d5b0deebb0",
+    "metadata": "1b4835f249b99bc0382c68beaf9821c320072ac9beec89fc29edfeccbd7cc235"
+  },
+  "/work/hivos-african-crossroads": {
+    "text": "7a1d94edb0657629bbb78036002238d8f508cd390dc88720d025fd94cf9ceee0",
+    "links": "cae57d4c3c4de4f42945ebcd3133f1e3141833ea06f3420b1b77fffa02b4ea9b",
+    "metadata": "cbe189c5edea6adb53acb5af31b2235ba43697a0421254bc785f1fccf4208e58"
+  },
+  "/work/high-atlas-foundation": {
+    "text": "1c9c9eb8112b64ba27076a79205dd6a5cb90b69ed4f96fce3f9fd6786caddcd3",
+    "links": "f0e4cf6aba137657a21cf3b88847e4e5938c3d67703786a104219ad1c00308d8",
+    "metadata": "7df948222128fd44d111721f86a88062b71933aa0b98c1d0bb2cee5d05ec4103"
+  },
+  "/work/hult-prize": {
+    "text": "827f9c1780b5a159189bc23625e5c0abcf2a30d0a83f203445f15dff54c505fc",
+    "links": "4541f159f1b1268ad23717ffd09f317d8487da2b1ede81a1a053416feabc1b28",
+    "metadata": "824c5bed0f77faeddee480180384994add054c8627a309ea66ac4ba7a7ac287b"
+  },
+  "/work/water-hackathon": {
+    "text": "afd3a2c7c60e17936293dc3fde1f325304a77f4135c215b0b9002c23656940c9",
+    "links": "1c05c6eade90a6b22228ad16ca5bde44c91ea59b03cda810a263f7f0d8e08682",
+    "metadata": "1c4c590f7c0d749c6f93e93f00c85d7c1a32f22e37ba42c98db673b775d0a232"
+  },
+  "/work/arts-dao": {
+    "text": "c44734fd8c706f1948f80cc63ead5c1f096623ab8980c262950929577572cdd7",
+    "links": "1597195b03143b2e080ce1417960ce901b5419e287a3cae797d9db1f764cb308",
+    "metadata": "68035de79b7021ff6dda369f576b74b559a2c881f2317de99c7d9da113d1aa3a"
+  },
+  "/work/european-web3-organization": {
+    "text": "4dba7d5ce9354788c4d4fff80345bdefd2e42018b7340b346162f00ef1c53834",
+    "links": "f0b95d34de33293ff2a1b23cd42cb6fb95f4580fd2a3f3a62222f1435a7e72c6",
+    "metadata": "c6a99ce4a7f4e988da5513f205bdbc4ef4a7310733822deb54a9e5b6fcacd5ce"
+  },
+  "/work/would-jamaa-el-fna": {
+    "text": "e5ecda0dc8b114d89bd91d09cc1acbdbb29968abe6a5d6c3844750bd25fa558e",
+    "links": "917f896633eb8cf9c9335338e4f7239ce572b7e34d071d785d47ea2b69d18f89",
+    "metadata": "450ea38f738d73657ee589a72da71a6398fa226c3e80d5199d52a1917070132c"
+  },
+  "/work/mobile-photography": {
+    "text": "e48631dfdf444ef148274bd432ee9d976141d55767e7dd4f34c7279320ab79cd",
+    "links": "ff64a8404bf4e180e554863f4a298899fb40f0e6b733707ad99049e661551794",
+    "metadata": "c427dc5360c13265d6a2816f5762532c2c0e91d16a54709c3ca2c06678d73127"
+  },
+  "/work/nft-nyc": {
+    "text": "a190ec63f6f29707317dc489c17c50d5d9a686db31d5f0c6d96681aff032245a",
+    "links": "7b6eea10b69260f9405fbc30c8cc000ae7e86e5830f60233d45d867ca4b5e193",
+    "metadata": "e56b1f0d23bdcd9a4ef71de39da9340904133278a8da27414c990e33d034edc1"
+  },
+  "/work/nft-liverpool": {
+    "text": "d51fa5c61ae7559da28c29a41f8c2d5a3a5139e92746d3151008b7e980347b30",
+    "links": "60ca4654eedc75b4c2521610deefa7bebc468c89fe942e089a67f04e6cb63bfb",
+    "metadata": "151a83cf1a3fbe35fa745454e70c64df175c2e7526c6bee4759c403bcc519d16"
+  },
+  "/work/time-web3": {
+    "text": "e8bd485fa6f518b61d31634d7c6cf315877748bf5a9ef6ccdf6471d85d4c01bc",
+    "links": "951023b15a8d0d5cceb3bfd1e6e99c11f3f68f269147a848ee0527272ac0d6e2",
+    "metadata": "e1f62d6a17ba877fc7f11afef5b72fca94e8aa2293a529febbe1e9b9e223a0eb"
+  },
+  "/work/laly-couture": {
+    "text": "643a4bc61dab808f09b070627ada5268ddd258e78e74d7caa98b4557e3015101",
+    "links": "5a039d572643758d9ad727231cc4907f704be26fa8bf45f06fa2a006ba74e225",
+    "metadata": "19915177061603ef48fdda65df82bac94b4c11b292976bd7203d816d02d31e51"
+  },
+  "/work/lamanche": {
+    "text": "4ef9de04c17330ff01d2ea2f8b7a70014e8b6a469173d5eaaeda3b8cece62cc9",
+    "links": "bc685077dcb1a82414b2d85065d2e85748768d0c5c5d24eb3da5fe140fbba9fd",
+    "metadata": "c90e5fe775614339212dc3ccb4a18b8b8a0e2761d19e222d8bb95c40dee1e458"
+  },
+  "/work/mysticspur": {
+    "text": "5ec352183cb2e81314c355a2da428c97bea0d40b88aee61d26ed48499f0d6cc8",
+    "links": "b4b331b43596d515c14f377291e29a0c132f4d8081c9fa132e594f57a8230f89",
+    "metadata": "5b280f89a2e8ffd8538ea29ba4cc42faf6084b7325a5bf965b19834b7025e25c"
+  },
+  "/work/hiya-magazine-paris": {
+    "text": "162d0dc83341ed60ecdc88ab335afd051290a1c41e83479400544f47e0d7534b",
+    "links": "bcef548cb3cec4690588fdae2ccdff6d2ed54285fb33bf5f674b75898a66af2f",
+    "metadata": "914deaf225c748e0df2407e4b1a2909978fc2e0a0469430602c793720a606f13"
+  },
+  "/work/beyond-catstore": {
+    "text": "5e7416f2ff994416a63c8d76acb38fdf38d180e3b77aab9ea4ca0d4a443d454d",
+    "links": "352c4408a12aecb5445486860f9d15a0060db47ef9c6bfd9cf5c84c1a548ac20",
+    "metadata": "a3c247310eaa272c422af163bda5ce423bcbdba7c46d788da972805f08fb067b"
+  },
+  "/work/tribalist-africa": {
+    "text": "a85b522752d438cb701fdacd8f686bf9a2b1513464162645f5cbfa017d607860",
+    "links": "01134ae8eb8bed0b83c1f828d20d40f9ca88313826b86a5f66a15194ef19f825",
+    "metadata": "1d3556ec8760a21e69488489ca5bc35863822f64c84376201911fbc1d7597b3f"
+  },
+  "/work/jolt-qatar": {
+    "text": "fb2dff02de75bd9ba5e7cc43d7775dd03af71c9568941c472306562738ae3d9d",
+    "links": "cfe5fe148de998e9cd1dcb9b27c12653b767b1adbae0797c9790009f0c448462",
+    "metadata": "10991a25b60a3d8ebd4384e434ec1bd3ce2902e220df09c00b4dca681ad2726b"
+  },
+  "/work/lit-action-usa": {
+    "text": "a78aec3febfd8141035f31927c207c7cabfade59e4cd7685e32f299c521bc680",
+    "links": "15a5108018c733e4e840d1f4b7fe929a310976a3d14a14fa368d8a12745d4808",
+    "metadata": "34130bd6e6ed9efcdcee1fdb33f36207531ba522d98486f567cb2d47050560c5"
+  },
+  "/work/doc-hygiene-usa": {
+    "text": "14801e9824e3bbbf0608c76c982a492725b73f18d0dad432bca3f34eeab49960",
+    "links": "14739700f0bdd97e88a4173aaf30ece5b5b8b39e9711ca5b1575a8c60d599bef",
+    "metadata": "b7e17ff06a324dc5ba8a65d8398e7fe770c3f621bd976eba2f53320ecf150cd3"
+  },
+  "/work/moodys-medicinals": {
+    "text": "cc8ac90d97de712bc5d71ae96697dca94d060a108d3979c631b3a99dce0fb143",
+    "links": "7947518671c0f4c442223c1179d7e08dd7219b0ad3e8c7102f5cb7e57d613e7c",
+    "metadata": "d14230829430d78eb27969c82b1057857bf62483fc632d17498ac05d84f66d67"
+  },
+  "/work/marrakech-poker-open": {
+    "text": "3385675840b80b837c7eeb30b9f2a83830c006de0e7a0f7303ea488be4d49469",
+    "links": "5604860bf52916bc29d7c8136518f79de88bdc5ab47896e5f47c3cfccf4c2b05",
+    "metadata": "9f603ad95560f8829b83f66f6bca46bb0c8330791da6d2a9eec91e7dbfaf8560"
+  },
+  "/work/ocp": {
+    "text": "aef32d77d4c9ba9d6e269e1b68cf9a393ba503b6edb85f3c59080144d981d5cc",
+    "links": "58a3fd71ceff550ecc40e50eded84aaf6d3cc3c76ae9e8f91a6d02b9997f6acc",
+    "metadata": "e2ef50175d1fa661383793804d380096623ca3d34ab328372a0b90d6657a96e9"
+  },
+  "/work/sergine": {
+    "text": "092a7ddbf66b0295ff0f40f733e9ec7ebe41ead2fd760bad1c796565d8ac303e",
+    "links": "075fcd8fe762721900f890817973bd5a55e78a814f1ae5303226bc71039d2b61",
+    "metadata": "9ac18ca9481b91c24cff1f0603d4399ed69b727622627e0d77fd5e7fbf24fc9c"
+  },
+  "/work/kleanops": {
+    "text": "166704a814e5913c4922fec3e7c08dfea46b512f4a09df30a9872930785b450c",
+    "links": "9a7bad1dd746d20f3253404199ff6c99060a6c5327515fd8f1d69d8d7e278497",
+    "metadata": "aa2d47b113b37290a9efe28d0024465168a6699246c5ebb79bc7250058bf3547"
+  },
+  "/work/trnscnd": {
+    "text": "7d0ddf9ed9fa1d7e5c7d2e6a7c2a981f085b0126cb1b8dcd6985233addf5426a",
+    "links": "8265eb7bc7aa76b8e2bded7201ae677a333a2c17e3298bbec7c0ac2c8af85d77",
+    "metadata": "8baa29b85eec5a9a0ea30260572eb36e6526ca36db9b358faf180619963f4ce5"
+  },
+  "/work/wow-protein-donuts": {
+    "text": "36c82cc9b120d512c5c1aa6948c13fa5f1c4d674e9fa6550459613939523b55c",
+    "links": "f7f3e96913cc5aee5036b7becdd3ce98ee2409efd361656fc9bc5761f7400bf8",
+    "metadata": "6dd7c923524b60050c7e8ca0f60bad58e2e21094293737e29c0edb86b412b12b"
+  },
+  "/work/harvest-festival": {
+    "text": "0433c16ed2aa3803d998afeeeef64bccd6c0fb6f1e783e66ab46ca1ced57752b",
+    "links": "895280136220c559b9381fd366f2725bff2cc81f663ec93fb92a7cac3c759cab",
+    "metadata": "7b00c25301df47a4a10568a53610b0ff3d3a5a5f87b15dd5f942511be2f86242"
+  },
+  "/work/qisas-rbati": {
+    "text": "12cfb96b19d07ac2f3647c06571cfa7e8a3094d3b2c409f9e353e47da0cc7f0e",
+    "links": "0d0d8920d1c2c346b8e3994e85b7434bae2459391489d945d62f20f026918ad9",
+    "metadata": "41446b40a2866ded976aafadf9d42f3655004c5f85d1babd1f03fd13b4051708"
+  },
+  "/work/3kool": {
+    "text": "338fd5a8ca4fe956ea45abddefcc52e356e75ecf6664b8789de15396de753e8a",
+    "links": "643df70fb1f0245fb24a2e435bc9280d1c5034ce38d60f45b38beb9cb835d841",
+    "metadata": "ba7a7f953df0cd4e07c9f9889a8d97f3252fa65243e8949db05de5a8457c5d7d"
+  },
+  "/work/anderson-silva": {
+    "text": "1e3402e54c55b886628c2e70dc8d0ebc65f0aa9fe8165316baa6f9ea85ba7dd5",
+    "links": "5b5d51e048d62fb1cc4ece04dca6290b4b6c1211be48c1a8197b705bbe69eb8c",
+    "metadata": "5857fd1c035671ab82b428938c8ceffb852e14e309a329946dd6a5a26390be03"
+  },
+  "/work/charly-palmer": {
+    "text": "23fd670c342f8696d21059c21ca4b0d173c1d08aa9822eb12a350084304103bb",
+    "links": "e36c336287849b65060362b275629e641ea4761ff6b8e05917200bb6262f92a5",
+    "metadata": "8a83c1c73372a9d1a61440b2f6bdfc6064d21f45d515b9394097656d01bb5603"
+  },
+  "/work/red-cross": {
+    "text": "14b9405fa8f6c243bc070c3281b0763fdb720c4e7c1a6d929afdc3f52a0cd9f2",
+    "links": "e1c3e95316fd288d159b1efb0b99cd987305d7206345e49554893c57b1dddb9a",
+    "metadata": "d706baa390c9463e6b99c8d9e617ddb7a92141be43d5fbf298b3c861d737a238"
+  },
+  "/work/who": {
+    "text": "ad0b85a7ca1955522deac25706d8430a6da58e89017504de664a606c67aa4629",
+    "links": "ae16e30cce79d8f3e95e7cf73d08a24960659db1fddf6b0bf4746258331acca3",
+    "metadata": "21c0f2b01529f10c7a7653f78fafaac65d387aefaf68aec4b97a9045f6be4bc9"
+  },
+  "/work/tv5-monde": {
+    "text": "68013f67503febfd03dd130f8393a6303eaae1a204821a41ccc9d6bcc8037c20",
+    "links": "b7b72762fb9742178c4e1304e934a671fd54151478a635ba18aeeee208d4e56e",
+    "metadata": "997db703cf43bced4d5aa648eeff6c6d690d38b879d1bcbbe8d3fdc553b70fdd"
+  },
+  "/work/selvaggi": {
+    "text": "48dc381888c69936206702be5dab0f6c81ec959818f7659923c11e3f71303ebc",
+    "links": "7428152bcc0ed8225653399f60e0641a49f60e732a699c0683f6c0e5cf2003a7",
+    "metadata": "8594a420b8b336d68a3b0f58afd160ad9985729970190d197a8c7b323845ddc8"
+  },
+  "/work/verne-jewels": {
+    "text": "b6b3c80f4a8b7b7cda8820bd66152414811eb16e6e356dec225ca50e5883c7d5",
+    "links": "88beaeec17f28d96f53f36e1ce393486d2be03474d686eaf441d9656a9cc64d7",
+    "metadata": "c260befdc84d68c48a76a73f50d8c21cee307d7357d01b6b156fc9f0472a0acd"
+  },
+  "/thinking": {
+    "text": "536b0d4a3df7976b53fa941ece16562c9af75fc2513f982dbb3c37ac4a696634",
+    "links": "7a0c5368dd6b6ed84e49e7dfedd8a845661696afa281999f716f6e9c4a4de988",
+    "metadata": "1a7b047f217ac8e2eb2e2baad1c36acb56cd560bbec7064052f89233d3aa7583"
+  },
+  "/thinking/the-collapse": {
+    "text": "9579617a71234d619874050ebb3e6250340a94913a69ac65eea3f827a18106d6",
+    "links": "d73c8c5efe13737528e2a9fb898888422094b77a20e08aae3ff8e7f2f7a972a2",
+    "metadata": "3aaa8a265383a9ccf3595efd4f39cfab7396ade8e45eb7318315d288edadc588"
+  },
+  "/thinking/the-brief-before-the-brief": {
+    "text": "0a16e0d47ae9f8955db981c47b3516234969e58be94923b50d9e3cf5a9de9680",
+    "links": "0785cd4ad07fdbbf539369a389f85898088b049e1124ee8560481e66ef8db48f",
+    "metadata": "fa11fd3496ec45ef79b48cc7148b871b74aa917da15b03ecab0c3d216d44c2dd"
+  },
+  "/thinking/diagnosis-before-prescription": {
+    "text": "9492fa85414109fb3638162d3ad9a7abcb6048d8507aa0d1bf2b9bc9fe2fccad",
+    "links": "0b32fdd406c83d5771fa3749b4805fbadde6ca3704efbf4ba43449ca3012fe50",
+    "metadata": "431b3297c78cde353bab9ef432f7986315b2c2bf364cbcdde6a947bd770623e6"
+  },
+  "/thinking/what-automation-should-earn": {
+    "text": "5759549255ff0923c19643ea725c898c2d81c7f95833faa500620835aee2363f",
+    "links": "c857b5a08301fdb89542c629144bf57e23ffadadb759f25873ed5e035221b871",
+    "metadata": "8f8bee2bb31b4df1da77e5d02bf5baa19d2444e689f8baab97325553817d6137"
+  },
+  "/thinking/holding-a-decision": {
+    "text": "09155062d45dbdcc6a8ea1213abe276caeecca1d6b2573e3a4c5a06954ed6cc9",
+    "links": "019cf39eeaf9681a8ea34ac335f8cc572d537b7d11b8dd3d9ddbaeda46b979b8",
+    "metadata": "f89be879c3779fdce9d304e7df20a212f890c61710e8eb3a54c0a82d526429a6"
+  },
+  "/thinking/one-page-many-arguments": {
+    "text": "942ddb1c1123604329efe52ca1e6b8f5af9ace55a5e4c7843a01e2b27a83b8a9",
+    "links": "6de00eda8f14bac83f8d776b243a30a8eb63f62851c9665b23265ff2c227abc7",
+    "metadata": "7f073a2e0ce13d3f4914f20de5e6163b397996fe358314943fe656468aadbe93"
+  },
+  "/lab": {
+    "text": "90a848d7606f4237b5bc87c33df8e20cc0cd4fc0ec6ea4c7255e5f3147265497",
+    "links": "e33636cd2ddd747df7a949540386033e7496adb4b89b53aa3d56c04bd314ebf2",
+    "metadata": "0f38e4b15dfc36aa38db574d6c350d17af113db93d2e3f77f8bc52f6f31c2b27"
+  },
+  "/lab/signal-scan": {
+    "text": "f925ce1647a06224b55ed028234d909999fe70b821302d016fe59021357134ae",
+    "links": "1b087310d1aac679c22aebe4c9f4b05b945b9bfe622b5f230bf55deb5b4e85f2",
+    "metadata": "8ce5b778a5ffeb3d681c4df6ebeb5f41149020208ec6d7f2d9c9185e6af165f3"
+  },
+  "/lab/the-brief-before-the-brief": {
+    "text": "4bea9b00dfc503ea364d8be1727d84ab3c048e95d49b4007baafeac4150689fe",
+    "links": "9b658660ee361e8794728f50b2775b7e86249df00cc6f42a39c09d9d5bb5ef6e",
+    "metadata": "2e1753b2a9d7924008df2381f0db09b1cbf9aadd5c7def2c1ac8fded6e78e88b"
+  },
+  "/about": {
+    "text": "d387f8d1cfbaf7ef094dc9fb1e269480ac59bf53761fbd163a6ed522113197fb",
+    "links": "dd8984d0cb69bf17ed8663ff312e0936566d8ecf58c4ed82a8e1649d441900a1",
+    "metadata": "8ed911886dd130ef369a10450b126efa41f4ef79c2f4322a43e185c95419cac7"
+  },
+  "/start": {
+    "text": "80ba771cf209c0427e23f8cb09e618e459fc674fbd5cbc9230657b81a705c102",
+    "links": "63879fb2409fa1f2f4a9a5c0712bb73ee4a507dc3cd6b8d547e5594084a901e5",
+    "metadata": "2238e87301e915898c178f56c660bba91cbdae4db3690340a917e6213836fc71"
+  },
+  "/notes": {
+    "text": "45f5c6defbdf346257643ab59c08338642406edb745ff0955f5e10e20062a027",
+    "links": "b3ac7b3a72798144bbe1446d7aa20892be46d056234018fbf35ea456ca4a4ce8",
+    "metadata": "c7043cf19dcfe04f8480bddd77c592f1c939f6b528ff23aee7f1886525fcbea3"
+  },
+  "/fr": {
+    "text": "40817d5e5ef2347b3961cef8c4804ba6003758ab305c6a670c7c80afcf5db436",
+    "links": "7a3ae2243e201b2fecd928f124dd53aa755577aa72b162e7e430d9b31d42bc70",
+    "metadata": "cd885b0fb6489ee488c1e489233977849578577695d90245f6c1e103fcaf4930"
+  },
+  "/fr/practice": {
+    "text": "ee52791c600b87042343cf8992b5556e91f28b1ccb3b6dbb30294c5dc831fd6e",
+    "links": "59a76fbdd900bb05001f428349ad7db8c55745e80b9d95480ae96b88f5e5217a",
+    "metadata": "d75abbadfac5164695f1838481c885869a8956b0640adf360f11d9b63a95f43c"
+  },
+  "/fr/practice/method": {
+    "text": "f55651a8f103558912d572b5605cf1a07884dadd4f9721f24c1f6c4dca6fd581",
+    "links": "317a2044073a1c67158dd7a9fe214dfd07898b8affba6add824a601fa18947c9",
+    "metadata": "451a95bc9d37bcae0254f569918966a6cad0c8ca6bd886d4ed9074b53642468a"
+  },
+  "/fr/work": {
+    "text": "ed3e9ae69367cfbcc2af9581babc612df52b11944fb67729e88e770c45b32717",
+    "links": "cbe17307dba9255d530f8b4ae9ef6e2faf0e0d404f3a3e5be4b7a8dacb1e662f",
+    "metadata": "58e5bae7389d958d97cc9332a7bca0ff6a8901a055d5646729d403a22456661f"
+  },
+  "/fr/work/index": {
+    "text": "b13268f3099404b4613c9fac47a415ed18d87f8fa7c4dd73ad7623cf2dfb4706",
+    "links": "bfc8dff5ba1db7e8bf8178c9b602a40e3db55d55e06a2838fd6c647835f1a824",
+    "metadata": "db2aece09554fb8823b1da2e9f967ce6d440f4dbb31b0be55e65919c743b6868"
+  },
+  "/fr/work/timeline": {
+    "text": "2c6f3636ff1eb71b54fe5e9d264c80add368b37d1dbad6cb152314327e8210e0",
+    "links": "8788de25437464e3bf1cacf8f0b8dabb323a9f18dfae1c237432d0fd0a048fce",
+    "metadata": "5b9800f6be954e12afeb301a80f921a645aa5bf3ef34afae61ed29e59645c3c4"
+  },
+  "/fr/work/diptyk": {
+    "text": "8b71b32ee2627765f7e8e1fcee36c0fa3eb095043a84745a2abfbc2add616bc1",
+    "links": "de192620b39ef119ac2c3c66c226a90e4b0d82c425633fe82061989b217d475f",
+    "metadata": "5cb6e3084710c7b53af5a2d9087c2f6ad37645f216440d0eb947dc79f05efe26"
+  },
+  "/fr/work/la-minute-creative": {
+    "text": "14f2107043b10cda7d0a3f0dbe5eccd5505d46183764e72168ce813bca9144d4",
+    "links": "77f599e3f41b7dc27f59c688d5556a75696d8a67ceeaf695a6e4b0fc054e76ee",
+    "metadata": "f4e8cd3e1f0856aab5063019ad49bbcb57804662b6ab03b23557961ddadd40ed"
+  },
+  "/fr/work/diesel": {
+    "text": "aa83c9b4e06cd5147fa1963685c3fe5d2ea121e734aa4164c8c2ccd5ce745c18",
+    "links": "76683a64aa76614ac30f737b5d3dd82761924574584c53c08e4ec9f17a416351",
+    "metadata": "60459e81cda6d18e3d0b5e440e0dc527ab008e65dcec4632914ca819682728fb"
+  },
+  "/fr/work/audi-driven-by-art": {
+    "text": "81ffae566a39b384cd0032242038d1239a9f35c3dd6cac9c40e9b7747067fcec",
+    "links": "9fb7282e7c025fe289a7df9b32bb06599b29a1b75fe8a1402d8a60510706097e",
+    "metadata": "21866dfc78559bc48a41af01e8dd0a0c0b2616d62dde86cf7901c61fe90d65ce"
+  },
+  "/fr/work/africa-business-school": {
+    "text": "50f9454d93f8b229bbbcc4f7e2831c4f89720039c29b2fe1fdf29f67786d41e9",
+    "links": "85a0133d2b2f12b6317d1392098e1d326c2a473ef7f1c5cedffe2e6add99cb99",
+    "metadata": "f364ea923daaecfb2978d5c38acf096d94478815794205f2bd246cf89adc7f59"
+  },
+  "/fr/work/energy-cube": {
+    "text": "f97ca104218414d030c74f1d084b7e03161af43062875e813e0c626ed051ebba",
+    "links": "64a3b49da32230ba77a05963f243582ee3105ba6f9f0fd00781b37db0a7c3727",
+    "metadata": "fbf04f545515f46895b3a9a2514f1a9aba8e1f8dd26971752379780bcebb0a55"
+  },
+  "/fr/work/zone-aire": {
+    "text": "9cfc19b789338fbca811ece1fb0a6de70956de9f90280d6058224f78f3608cb9",
+    "links": "1f4b53be46c3a3a9261857a9e65613f652955323156fece52a38c8bbc0df2b17",
+    "metadata": "644ba04885269eed16362a1169dc4ecb671baf05de9c5325b2c1d471ffd525ba"
+  },
+  "/fr/work/stan-wawrinka": {
+    "text": "8feda60813c5320bd163f9aeaeaa5a131e67c985fc465623d4e9eadb2a98d942",
+    "links": "e702a1871b19880ab6749d16deb1ea62749fdea37e4dc88068fa94a06d8e23cd",
+    "metadata": "a0b1669c5ad64c85311a5378fc19187c01bb831337cbab3e711fe241225c708f"
+  },
+  "/fr/work/baccarat": {
+    "text": "d9e650f08aaee4a52f305a33426d84e89b0987f8bc126d4b1fa677d088d20db2",
+    "links": "7d35cbe9ad3c143e1c4ef65248be7442796ca54f4f60e43f7cd0806af4407fb6",
+    "metadata": "0eba639d534f9c326bb8b536d6745cce5d8a3c7e432886dfeefacf95ecba3555"
+  },
+  "/fr/work/bugatti-asprey-nft": {
+    "text": "b1f99a87a4f9f12500c46462d6c4b39e4814d57a102630eeff10aac938640ea3",
+    "links": "07e5846928836bc3e6e0788cf0db769495a0ca146726749271a7629956251cb8",
+    "metadata": "2f3a050265766b42fbf1afab7e9fef980582c6f8b713bd65e7dce0bf844a8522"
+  },
+  "/fr/work/kareem-abdul-jabbar": {
+    "text": "c7cf23ddf8f377f15957879cf60760308736710506d6be4ca8bcd33f03598dc2",
+    "links": "6b4636f56572bfe9e27b7e439010283b91391016a70fe274b417b01034728108",
+    "metadata": "f9b4aed312239e8a510b913418e1e3b5bfc6e3e27629ffed2b2ef4b0427d85b8"
+  },
+  "/fr/work/french-tennis-federation": {
+    "text": "b3ceb000fdcc67364ac7861eef6afa58a35da4142651f619ceb0a6483bd3bec1",
+    "links": "0bf40dca877a186b47a59672c42326c10b76bc14546db1db2722c6f4fd094cce",
+    "metadata": "59622f004f0e548a192019778041c451cd1298fd65c60b49d6a96413b9bfd537"
+  },
+  "/fr/work/la-lakers": {
+    "text": "040dbbfbc6b1205400c8e8879656627b15a2d74d008590bf9089bdae51a7ce14",
+    "links": "03fa3cae76c8fe50db31b60e43d0fbe8b753d11c826acb3092aa346d82edb62e",
+    "metadata": "3e5e614d3d53d8b4e31996d305b759efb039bde4f8b1edc6ca49081f5dd7109f"
+  },
+  "/fr/work/unlimitart": {
+    "text": "352a7db174712cb71145d76404711aa748e3c3baf7f6bd6d817a341da99020c8",
+    "links": "3823a89149d3d2501c2e66f3cabcfb64f36416ca8cd4426ec6af5cd16b2fed7d",
+    "metadata": "a3e0c9f7c8703a89049bba1314d4f0116b7f1e338e76f38c1d30ad786c1f2fb2"
+  },
+  "/fr/work/nception": {
+    "text": "8a085eeb8275749b7551468fb308e4112c36378d0055b4ea5c78c6d1294cee63",
+    "links": "4c76d7d6577be39d9f9efd49e127f8c7fe805e66b7a8fe8104d2dfb0ee4a94cf",
+    "metadata": "346e40069c690d0b999f83782d9b2cc50789f9f26109ca2ea7f1ceefdf8b0aed"
+  },
+  "/fr/work/bananacorp": {
+    "text": "08788b326dc840ab972cea6b09429bb3a0a93c148d39a62e3b908cfcbc6473d3",
+    "links": "bedaef0031e48025c9e3a88d05281905f27632ae1e5f01f46635e618c603a009",
+    "metadata": "596efd30f0defacd0b0f14e98829592d3d71eac7b36443d972c18e1f30d1083b"
+  },
+  "/fr/work/bananaconf": {
+    "text": "f3d8b3ec3ad3a588f42dd4a35490e8da1dc6381dd3e124a2fd1bad724f6cd94a",
+    "links": "009bdf60ae0e0eae16f39c93442a7ee7a387ecaf927191160c8b8b9004142e79",
+    "metadata": "ac522121f873ebb04d5393c5f64c509866b0c044ed5ba898184f726bf6008efa"
+  },
+  "/fr/work/the-future-fashion": {
+    "text": "2be0e61feb3147e98bfbc0347554185eee325f323a13028b8615b70a4a48a727",
+    "links": "864417a29d94abc9a8fb6d60d3f624d08845ded21b539d7a74c727bf0c119e47",
+    "metadata": "b49e4a605077d5acd0ab4c40054118714983351c1ed7587366d53612245f427c"
+  },
+  "/fr/work/dubai-holding": {
+    "text": "ade38f872a4bc37639607045d0112d37b8c0ca58f5907c74550b8ddcf95f3f26",
+    "links": "65816577fe9cb4ff762173580b61be4dfc018e6d58c02a154f4c057f7a4e2038",
+    "metadata": "0de701eb29817da507894ccc6bea019bcb1979b46a6573b460fea4887fc7db7a"
+  },
+  "/fr/work/unitar": {
+    "text": "451674b7d2595a967fa40a02ab6ec79682930d8a37d7eae0a4693c428ada36a8",
+    "links": "83d4fe1805911d858a5853f286b3ac3b77ed7b9a03656f3bca62abed0981a2cc",
+    "metadata": "58cac8d256bc449ccea56d51ac203c4cfe7f74848b1a0463a740c6323dfdb399"
+  },
+  "/fr/work/arts-thread-gdgs": {
+    "text": "9a45a34cea689136a45d6dee51dd21658a36ea8a933c3e94b8b810f0ecbb8088",
+    "links": "7aa8dc1624eee5818934b160d44a684081092c49c8b405fda5339b40b7ae1ef3",
+    "metadata": "450d27e617a0fa8db4f57251221b7a444d52aaeb12217b99adaa715a5a1c4fae"
+  },
+  "/fr/work/unido-creative-mediterranean": {
+    "text": "16af4616e4b3b9a467bc132784c36ec4a06574d76caac8a073f41968a77bdb36",
+    "links": "a5a020270fef253f664bb5b685dc5606e07c57753f9ce4daf55934ea15a923c7",
+    "metadata": "dd6175e3e769746ae6c808d5dac5121da59bdc20fc1940b8534c7f94bbcf08b8"
+  },
+  "/fr/work/eu-unido-creative-mediterranean": {
+    "text": "eef3a970325f5859f772bf073b2a497946beed4e0b2be879d4ea338e6d420fda",
+    "links": "7ccd01faa710c419f9af01f3e82a3e72d2ae88d9b0b31bdb0e3bb699310c250a",
+    "metadata": "374468a53ac79c4ff06a3697b771727430dbcc0945b90367ddba0a4af5ebc670"
+  },
+  "/fr/work/marrakech-creative-interiors-cluster": {
+    "text": "c1ac7a47df46a5c8277792e5c28a082141fbc925d0f7c3bf27eff9a5af07a3e9",
+    "links": "040c33ac93153512043212ff62a8f15f45c97fabcbb6ddb86d149f2621c3ac2e",
+    "metadata": "2e2155291ca7b610c577ecb67fde536aa23cab9c60d84e0eaf1e7f69e49c684e"
+  },
+  "/fr/work/un-women-pwe": {
+    "text": "79b170191b39390255682b8b10163a78765dbb31943c5171bb7c790e00e91d81",
+    "links": "a231a38b7c674a6ad846cd6727a9ead395c3940bbb979ef173f6ea3562b4c5e2",
+    "metadata": "b6b00aa31faab0855bd5620618453dae67d3d2c02cf6fd0d54e5460354c1dada"
+  },
+  "/fr/work/usaid-career-centers": {
+    "text": "d9ba874e0b4515489b2d75cce158b030309905e223f00687e2ba5739657be847",
+    "links": "3652c38b4e7bca644cf7abfc94dda0cc070a0a6d4730fdc3730b6058008cfade",
+    "metadata": "7bd0c47f14155de9eacaa3f732c12c933864f83260c49d23de0d87be26692304"
+  },
+  "/fr/work/iom-compass": {
+    "text": "4683a812a2601657f5399cf1851845241d5cb49dc5db1362e809eaaab014af3c",
+    "links": "b90deb9019b42c881f5184bdc404ac86bcc16f387ff46d2affeacbeca240424d",
+    "metadata": "92d558aa47bf696869d8ec80ae87b835f5ae1f226e8339f68e8fff0ea2b47e08"
+  },
+  "/fr/work/oif-francophonie": {
+    "text": "714416c38c718905b40c9560f5804ce2e1bcd37f97ad551caae6d85599d52291",
+    "links": "7c5a6d2f71dbc2028cf0d5aff248a375ffd6ef5b942fc0c23b3b773c78575770",
+    "metadata": "459106d31a351e09ac3366c387922c5bc8cd0282cedd50ad69a5b517ff6b572e"
+  },
+  "/fr/work/nepad": {
+    "text": "9efc8bf84fb9f1cc7c91ad5c51715382b0915943ac745847beb91ac2d809d2e1",
+    "links": "7fd056c34f878782f68a87463167b8e4491983c5f84394bb6a326e8f87fdff2e",
+    "metadata": "b2c1ee5e0b7b6864e045b4c684c3274ad6dff2a1189a84d1895b7e3cf4dc587d"
+  },
+  "/fr/work/houna-design-talks": {
+    "text": "861466b688e064fe19c2977177b569430a3e91a30156b5863f29a35c0e60ca77",
+    "links": "38a566c242e9982d83c8a797202de5589a6ed48fdf6345aa758a50a5204a311f",
+    "metadata": "f7d7006951f582d9da1aa4cc0f6e84def8ca74f6af79a6891c4991f89d6b0aac"
+  },
+  "/fr/work/creative-forum-ljubljana-2018": {
+    "text": "ee4f402ebd8fdf6238d3ff5bb966cf12c6b6828df5978a76f6f8625a6984e981",
+    "links": "a1381b69b0fd95abfebae8e4ac565293248db627258a80cffdeda084c393ce97",
+    "metadata": "67d943655e0bb9650766a8cd319fa35bcb20476e502ab20e1e65541ada37f931"
+  },
+  "/fr/work/oasis-festival": {
+    "text": "e1ec3321a5051ddb6500cbe9571b7d711be6fa672246897da97db3037fa731c3",
+    "links": "9633f1d46d8185198a6ea2954d92f968f1665e6a25152786c2c8aa655f0f57ad",
+    "metadata": "bdae461ffcb2ee98e2507cc08986988662c34192c433e5a70a62e1d7c9069ed9"
+  },
+  "/fr/work/arroz-con-pollo": {
+    "text": "bf22629124b12629344e140a69788e6c0201534c998d8663fa85c334836f6449",
+    "links": "b5df235d9e4b130d84c757a1966b07a68781c1ad5b53c99662179ef4588d81f6",
+    "metadata": "68aadf52463c0ca5844e32898db1fde20e96656c6aa854403b04ef88514649fb"
+  },
+  "/fr/work/street-view-inside": {
+    "text": "02cc23132a91e8d4014badaf38cf6dcd18864f41bbbe1897ad0bfc0eebe66f1e",
+    "links": "85271a75a4ed359f3e125ecd9479f13da6bbcd5941de3c6ab3872b2e37b862f5",
+    "metadata": "dad8e5f76ce4770fda6214e8cd297dbe2a2fcac65f0299b4066b9a90f20051ed"
+  },
+  "/fr/work/la-cuisine-de-mami-bahia": {
+    "text": "c8d779071ce4b244c50c8358f4c1961c3a6a6e5f33023babc8b3be85f6bf8b1e",
+    "links": "86fb96541ea81f130201b33af55697315f0eda124d027240d83f5efbbcd6595e",
+    "metadata": "78125fe8ca0884a6cfed43ff097bd3fcc7795d35808df01bc3ef9976a87e0542"
+  },
+  "/fr/work/quantum-branding": {
+    "text": "033711dea05c22e7b41637d5a2351de87d101e90f9243d4da25a8c42e4f15c35",
+    "links": "0d26e5ad6101e5c40a45e5d3dafc49c3a51a6453d19baee97583d489834dd9e2",
+    "metadata": "8be492924e9d60d94cfdd2d7bdbdaf6e05f3bdadb7b54072543ad056e190925b"
+  },
+  "/fr/work/brandos": {
+    "text": "97f8ae8e59d0dfa9abd9b2cd4132043a1bf6d05234cb081f762fc8400af83a69",
+    "links": "eb9ef8d158645b29c4d3b4872f21bced8448a87ba5ce4a11bc7985293334b7d6",
+    "metadata": "3fffc7c86ddad2d4508f96fff5a92b8eeb4d4974ae8123779fc54be40cf16269"
+  },
+  "/fr/work/rbmg": {
+    "text": "1ec7a694807953ed931b899ac3b2ac81456095d5e18961642c53815e0ca6877f",
+    "links": "447f53c5b8ccb00d180f855c619ef346dae81dd4552204b412e814dccdb33d36",
+    "metadata": "0479bb828c547328a4dcfd507ca87fcaa252e028277768206620f05d461dd8c4"
+  },
+  "/fr/work/technikart": {
+    "text": "0647ee1d300fda92a58e23adf81d96ea53836817dc117904e292b854532e581f",
+    "links": "8614daffc52979b8ba2c8703401c6c3f9b1104e8690a180008bc45183a597ea6",
+    "metadata": "bb2b4f3b80089f7b29f6b9a76927315d0314a55aaf4a1a7268e9550365dfd2ed"
+  },
+  "/fr/work/unov": {
+    "text": "144400101c02c9e2ab3e72ba7afe6772d0672dc7ffaaec8d05949a65938f8668",
+    "links": "5e2940ae283939502cf1c10c9aeab9ba8dc2ea81d0d10e3ac0f74575b992c2f6",
+    "metadata": "709baae6a245bbd9b5f0b0f1ebc449110e8af2c03237a699578a9a25733a9f8e"
+  },
+  "/fr/work/beachcomber": {
+    "text": "ef95014021ef463937b90353ace42bce676c3616d621024d8697c5a3b390e199",
+    "links": "a6289c5037177b371a0ee88f6f2efc81e49f2fa0752d35dd38df485b39f79560",
+    "metadata": "23dd9f5b1aef2a9a5cb898dff137ca2abba878c8fdb63f5b814f17b68d4c51d7"
+  },
+  "/fr/work/es-saadi-theatro": {
+    "text": "f55b0ef8691cd1fc2ad6213a3d5f267895c6fea28e1c55ee42174d289d100786",
+    "links": "e19f93519f949a6fc5c30817329a7e4323581a4c7c2e68e99d3ad8b51b3983da",
+    "metadata": "a51f6da8240a7d2eeb09bc2d3ae806aac85ecf201c1c8d8d608bfa4f2f7d2474"
+  },
+  "/fr/work/hanoot": {
+    "text": "54ff4560e04ae1ad60beec541c754e50939f046e51432cf3e5bd3006366ee711",
+    "links": "5b8a01b65070f2f15dc586cefbdccd1a91b950fc60dc83a714d926c66805afd7",
+    "metadata": "e485aad67d6bc0f192a4a2d21032f63129f51c70c7411a12194c41f5f8b20db2"
+  },
+  "/fr/work/myah-bay": {
+    "text": "c2176ef36232bfe1e401fbbfa97cc83e0d3b8435b979ba5ddf3504def6daaff9",
+    "links": "97babed4b50a880ef849647bdbb60b270ef425cc8702368f04265ed8a23049c9",
+    "metadata": "6fe992f0ae36ea19e20afd0b16a05a53810d1e18f26a38afcaa9a1d763a74195"
+  },
+  "/fr/work/destination-evasion-maroc": {
+    "text": "b274ea7f1eb487a0f5cdfbd54e3d73a7ec7354423e5fbdbc92bbd6b783137209",
+    "links": "933368119619369ec29301c2a4ba0335e56de229f5ad059511a363d8fddefa9d",
+    "metadata": "eac718e585f03e842bbd10d0ab3370e3048fa9229704cd011842cbe9b3e01d4e"
+  },
+  "/fr/work/kechnight": {
+    "text": "716f83d3bc69437de389545f7b8ca7993f22631a9519ca48854480902c851152",
+    "links": "f967bc27ac640c49cdd319f12198be48bb501026ba4a19697d11a6f6d40b8706",
+    "metadata": "df2cb3f60f8e78a6df0ff73ac2ed47640c57559342460aa98e8e63406caaf35d"
+  },
+  "/fr/work/suite-club": {
+    "text": "c05127fb0a8a439be6002930a88e01b6300f6536b3aa72145c2521bf4dfd88f7",
+    "links": "fd1884fdd622158594bca7326b07a31642ea8fc6dc2ce5acf79532c6a8276fa8",
+    "metadata": "e2e2bfd72746e27a63a2fb52892d143658962e7597cb1a56810f64195fa574e9"
+  },
+  "/fr/work/marrakech-du-rire": {
+    "text": "45f59efa24b06ddc5f3088262bdc58aa590f02a7e3e64feaf8d7995d54f902db",
+    "links": "02252aad062a3cfca8a8128085dbc8533cf9b2908a320eafe60d22a19a3af9fa",
+    "metadata": "ee7b6a6231daeb4359fdbff33937a0818df6417a879733467f8f9706760ad02a"
+  },
+  "/fr/work/hivos-african-crossroads": {
+    "text": "24cc1eee3e7c0a349cde4e591c3d43069cc08cbd436a22a34412b1015f94f6dd",
+    "links": "4f06e0722d25585915e6c952a46ff793edcc41fe2c7e29c14472cefb4dea047c",
+    "metadata": "8b1bddcef1ae745cb43bc86e934167e32af92444e9524c085863b118f7dea641"
+  },
+  "/fr/work/high-atlas-foundation": {
+    "text": "ff77e00303ef64c8f8504ce160fbdd96a2cc18c3e28022516c62a9d37659d31f",
+    "links": "1311bb21d4a07ece86e8bb2ed456e0e7e8451dd7325e1fb76083d222a66bf026",
+    "metadata": "824ce68782fb58556f54f13f4c57b0e1bddd3f25007b0e6bdd126714c4b1587b"
+  },
+  "/fr/work/hult-prize": {
+    "text": "b223106d353e9980e8192799043ee69a590da1a4909f41b2926f999fe5c6ce82",
+    "links": "17ba9b92053177f903cea2976c0ee08c86ec1e880640d7284330869183867a97",
+    "metadata": "fefe5f68a0621873581decc6ac1c5dc6af512ce4062f668065718f207d3fb786"
+  },
+  "/fr/work/water-hackathon": {
+    "text": "bca47e78e779dac184bbdc5f1ed052ebf21308dcc3213fe8e1e679cf8cc0b273",
+    "links": "3e0a7f968b8a71c0088f3238815d0cd2bcefa992353ade62c769edd454323d4f",
+    "metadata": "a883f08c75e6b04701c3ce8e311c218e68db5bed54bf6542fa4afba94341ccf3"
+  },
+  "/fr/work/arts-dao": {
+    "text": "fe9e6d7bb1e0afd69e84e52aba8c04fd1df5c13a5542cfdde9c93131e2200e27",
+    "links": "97ca0523789931790cc06fd86d376463b2aa9ca5d67d7e721b693b8995e42821",
+    "metadata": "8f9c5df938074dfb7dfe7f53f1b3f64e70a2b6af1743c64e25e3f6c2fedb95a3"
+  },
+  "/fr/work/european-web3-organization": {
+    "text": "7c73486c331d5d36ab579cd5d75f3360cef77932078cc784097da560ea475bc4",
+    "links": "e032b241e4317f49ddbb237c29d99051ccd358d214e41f7aed6af6ab00ab9f47",
+    "metadata": "9d50ce98f26a31e7e90fe18ca3a503f3774f48291af7616276fd6f1ef34a0d1a"
+  },
+  "/fr/work/would-jamaa-el-fna": {
+    "text": "0e9fcc9b6a76fe6b681ba060e632ed1b7143ef0de9d52d353e5e876c73b9c480",
+    "links": "4b648b103f99da1964ba341d09fed8dfb116b770949668c3c0c7f5b2451f1fb5",
+    "metadata": "30bc7ac77fb0db1954903f2d97a00a621a2f3ea34603cc348d7477cf814490ab"
+  },
+  "/fr/work/mobile-photography": {
+    "text": "be31dbad86f2af7bb0735eceb895adf4aa4281c4a08a643e25a6956d5f365422",
+    "links": "54e6880eb93cc1d1d0ba5ba1d6b54d45f924a07eff99b34718c054f9511bf5bd",
+    "metadata": "407d0eaa15da4af7862de81d041dba0940e209939d6c5ff8d973ecf36c275e55"
+  },
+  "/fr/work/nft-nyc": {
+    "text": "70942d2849ff1c6c93058e3dab0db3c462a77cf3183661a45d58cd97d27397ef",
+    "links": "7f75213e789923aee9805d4b11157f5107dbe0e3d01b3597ad406406cd256283",
+    "metadata": "b983722f320d055faac87e83f4e159822307a48fcd4e6cd88fa8d7388c2d0346"
+  },
+  "/fr/work/nft-liverpool": {
+    "text": "d74a31b89255151ef8dad5c72ff6cc302f91110d86e7e025140a0a85c6a6ad1c",
+    "links": "1790d9596f3b402ca60ca2f52798a246c59e4f040c897b713f3d9abdd07414cf",
+    "metadata": "04d48c882e44a6337649857260633a9fe75506e5fcda9ab8e52b96da3acf8cf2"
+  },
+  "/fr/work/time-web3": {
+    "text": "d56aae576e26488f44d2409a91451366eace562f96824b43499b4955ffefca35",
+    "links": "796a4e3c493281dbc3468efcdd67a08a3722bf8f51cd032c2d16978f41b06089",
+    "metadata": "66e4c92759fb809b19556c2e95b5d3c726695e28a0ecab78154919b509d844a6"
+  },
+  "/fr/work/laly-couture": {
+    "text": "d6ca40c0126bee69e04ffec9f5ba9f3867d823b1daa20160ab418bda1683c1fa",
+    "links": "6a5310185460d48cd80c3eed047eb0de7d2a1e2e19dabcb81b742bd79dc1030c",
+    "metadata": "f781a41b14fd7bddf8d54bd61c1abb688fe6ac52e37d2e20fa7cbf3b4fc73589"
+  },
+  "/fr/work/lamanche": {
+    "text": "26798baace15c976103683b1410ed128b10e5684694f407de43e744bdd11e01d",
+    "links": "8830738f98f13aaa6b27a4634c6c9a52b840a9940124b7357b485cbdebe5124a",
+    "metadata": "3332d3a4edf49116af9a29ac355f783be24965e20a81e82cbc676e598cc99125"
+  },
+  "/fr/work/mysticspur": {
+    "text": "008e8a04245cd326607ec9e59fd3812b25a3d12cf400b52914278b2c80c469f9",
+    "links": "69b75ed151b6f173aa2f2a62af6af3364c00edb608bfc4260540ec01ab7b44fe",
+    "metadata": "3abf52c898e526043e38ce07f90f4708b33d15427f23f8c8e9b06d4c52a54cd1"
+  },
+  "/fr/work/hiya-magazine-paris": {
+    "text": "195bd52bff07cee6adc560136ee51ccad289c828dcf0e0128332edb7744cf88e",
+    "links": "9b8d448a2ab37aba456be16e9d9a51c2672b830d8d5bd414a7971318f36c459b",
+    "metadata": "a8e5234cf8cf41aa1698b56fa9795efe160f6d138cd7edff31910ab1c9401e59"
+  },
+  "/fr/work/beyond-catstore": {
+    "text": "9780a2554f9e1362bebd17c5d42999db661d642a5e5d9382b3c48eba7e6fad32",
+    "links": "3145a2b0ddcaebbaea84beb861711b7ad4e13e85fa8a98d4928cfbd95cd025b3",
+    "metadata": "08c9e2b87247da06a121e29ce8ed63a13dda12098e9b55da02a8f950e972c2e8"
+  },
+  "/fr/work/tribalist-africa": {
+    "text": "03eb7585e8895022cb61fbf52c8fab55641338a8f2ee89c9508de8f537bac6ec",
+    "links": "e09fb4ec2cbb5dea31ed178434e561a75fb84c16acfe0245488809cc06d6cec0",
+    "metadata": "99b8a085f2e9458c0dff07bd0a2845a6d9f8e7b1152da1517cc62584ffefe025"
+  },
+  "/fr/work/jolt-qatar": {
+    "text": "697174891506bc5bf1be41071ed6bafe11b8e2ece59c91163b61f9e3b2fdcc82",
+    "links": "b1a57f69ba5e09a2e4bc393eb2236941df31b9fc9640548691080a1efec38d3c",
+    "metadata": "11d009a14597cb3d72c9e3005fd4f84449161e333c69b310c7b0f76f85946de0"
+  },
+  "/fr/work/lit-action-usa": {
+    "text": "f39c48bf9ba8e7ed43c29a5c5ecf9adf7448139c913138b58e799c6c067ec4fd",
+    "links": "f31407f55953820c107e5f4f1fe821f9d24b1e1a1d07d2dc9cf1e8b15c13e6bc",
+    "metadata": "4d569cef5bfb317e1aee8768610004e28165b261888b5912212b49830d6d0d0d"
+  },
+  "/fr/work/doc-hygiene-usa": {
+    "text": "45b1976f9eb870c5826675a4de90be89336bee565f3cbb1ddd00a1a98028ab2f",
+    "links": "b49061d944d7983799d4dfbcdafa549b16d5605d714851fdfe26a0fd12120232",
+    "metadata": "45d7890bcbd8348a8c6bde06c8ee6fea6fab46e2f01b6e98c1752457276bd528"
+  },
+  "/fr/work/moodys-medicinals": {
+    "text": "368c7e81e8e5163c3d3ce7dd7485120fa76b294c4fc967104bd009bf186b7ca7",
+    "links": "fbecf248ac53f3b9b3241aaf5c1bc022288561b9221da1932fff1aeaf56602e1",
+    "metadata": "750bd247ff28cd053868ac897f4298a09a521f8161d75fb36d3998c49ded2cb2"
+  },
+  "/fr/work/marrakech-poker-open": {
+    "text": "01875f6d0a4a53b07f76bab1ab033bc7ed5097f512bd82a0f06714fc14f40ba3",
+    "links": "ddc80f0db9b8dae0776e17fd0f3a92d8be1a260b977251f5337c86a29ecce96e",
+    "metadata": "0bbf751e7386afeba781accd0f9dc7706bc2a18bee52155f2a4dd3334d7247c0"
+  },
+  "/fr/work/ocp": {
+    "text": "0ffff9218cfaf8039d32301c82869b2f66a1048746cf6f97600df4374ee9ae75",
+    "links": "d75a29cccdd6a472161ee4a7d7919191f26de6c767a8bfd95d0aff43f9f6f039",
+    "metadata": "6e2ea713b6685741f5c54c6443e241e47b43f8430d735bb18c9fe27099f3aaa4"
+  },
+  "/fr/work/sergine": {
+    "text": "7db1beaabc673bc453a99f3fc3ba45d51b95525397a65d4a7b8f17a1e5861953",
+    "links": "0f03d4e2a80faf5dc100e3bbfeb283463cedd08a38af4dcb07199e62c40f7ebe",
+    "metadata": "bd763e9ce20d99dc9b17bf947382fa79a0f1378a058c195a9a0f6dce7225b05e"
+  },
+  "/fr/work/kleanops": {
+    "text": "adc1b45b681a20b94e0be825d29ec0c80b34652a9570b636240f360e325c9898",
+    "links": "1423cdddef30241b1d817d4e934a522389f162011a59b14ea75f0b939e13ae16",
+    "metadata": "2379fbb59fab0ee9dc7c00b3d327f14c80588e96609c02479dc67ffad6bdc202"
+  },
+  "/fr/work/trnscnd": {
+    "text": "832f805a86b9c96b29e0fc100efdf6ed340ba3bdee1002ebfe4cf1fb5e0ea1df",
+    "links": "32090bb2b8e9106fc3f4396357c7a1a090761908654c739ebefa22764aedd523",
+    "metadata": "195a382b7aff50bbe9563dd5affccb099208b3306d37e43aa1de62b9427ada51"
+  },
+  "/fr/work/wow-protein-donuts": {
+    "text": "cbcbd62cc308cfe4be5b8f3c0fde4c2e437e17ce6b9bee425a93a548ab69ace2",
+    "links": "249e07ed71b93f4575d7692ca6b0b4b89d4bad3c590e457288fa444ebd4876c6",
+    "metadata": "453f68cd3bd07ba361bf5b9e29dbdc7c54d6f7a2c504108aa9c79e6a7409222b"
+  },
+  "/fr/work/harvest-festival": {
+    "text": "d41ceb4e676a0fa57732f8244037dadd629393b3200bcc34388d9dbf692edda9",
+    "links": "ed7d80cef38b09584381fbff4dff3150e81718142c4698b82d61a66c514f0deb",
+    "metadata": "e0e21a38da2e5edbdc5dbf54f6ee751f4cd1efb9116414293f4aa8ae2c393315"
+  },
+  "/fr/work/qisas-rbati": {
+    "text": "47db7633504eed8ea202383f97c052bda141fdc8c87f8aac0e218f808e3b204e",
+    "links": "22acbc811194751dac7f886243b5ac266c4e567ea7c4241f4fc90216279460eb",
+    "metadata": "ed91a9becf3b7a60150160ecc457f359daa54973dbbae636760839b7002e5793"
+  },
+  "/fr/work/3kool": {
+    "text": "b408a73b23c6b0274e158ca12013873dcc4eeecfa05c75444dec1d1b25564230",
+    "links": "a9b08984d89cc2674df73bb0521b04317ae851fc7c0eb69e9ac2ccb5b67136a4",
+    "metadata": "2ccb2ef684adf2cb2eeae6a582421751da7783acb6171c0ee11ec186c233aee6"
+  },
+  "/fr/work/anderson-silva": {
+    "text": "36e35ff1802c6b9e44e9e19b236e7ad24a8fd3f81f43238f6bae6ff7ffd97bad",
+    "links": "11ef6c9054010fa3cf1e325e0b659f15e41f3032afb80cdadd3fb630997b1061",
+    "metadata": "b5bb69efd7edc0a094069591c9a2c8be45c83abf2d48c874bdc6baa07b669444"
+  },
+  "/fr/work/charly-palmer": {
+    "text": "7cdd3579560ff54b6fa4ce6f7ac21cd5c18da82289302fcb2ff7a8efe9f2923c",
+    "links": "b588009b3805223b7941c98000f816eb37c455638125e0e45cac5e61b3a123f3",
+    "metadata": "c932925227c636b89cd9f29cfe7236095068d4eb835331569f52d6f695b78de8"
+  },
+  "/fr/work/red-cross": {
+    "text": "dc59465871bd5cabc47dc3ea9e2baf9bdbacb4e3d87917aeb3f89d89658fb842",
+    "links": "5246e47bf89e14d515ce718f1a8467931fbbf2842910093427ca958ddb7366eb",
+    "metadata": "7d892176f4dc00e0942b5c3a65d0ffb753c8266652a84eff8cab4e2775890f97"
+  },
+  "/fr/work/who": {
+    "text": "a97a343082355c53a318b9ba260c012cb699027ad5cecc80d369817138494705",
+    "links": "77f7868f7804f246d78c05e0cb8572753d65b87ee0faeb0b375a6902bd60c412",
+    "metadata": "1dac73bdac3f56d31847d172cf068053c94db4d22b910050768079b94e56af8f"
+  },
+  "/fr/work/tv5-monde": {
+    "text": "2b04f91fe3fc5931a16762f1e09d0589f3426301bc4645bad90b5dcf1aa11989",
+    "links": "302094d238f73f8ea9eea2a8a9a290e7d9c0df024b8c423007812d1015ebfe4d",
+    "metadata": "37f102d738c655b6348d5217213f76222dd1e8c78de74fc85608d1c178415202"
+  },
+  "/fr/work/selvaggi": {
+    "text": "139f357e08cad3bb16ff66c2b2df9c2713de34c7789bcf39356784ad94bcd65f",
+    "links": "cb2e3f6cf9217049fb7b46205bea24785ae3ef8435e1056c79377c7dab14f7e4",
+    "metadata": "c0d5f62381d7f469652c5ed26dee66a18b05a3ce1dd82e47c2fe0c6765101c6f"
+  },
+  "/fr/work/verne-jewels": {
+    "text": "628d78c8a387d0e64378ac51f0f1a69936d1b8839295c9e7409b1a55da76c042",
+    "links": "0b16a0105068fa1b9cbe3f4b5393d92a68aefb55f9d672c522cc30a96ea686a6",
+    "metadata": "0f0e0adf8590a12c6e4b0a46532302f91387230027fdc093aee201cdbc9b0c78"
+  },
+  "/fr/thinking": {
+    "text": "098acdb1d66aab9d6a053b8f4676b7189b0343a087d06986499ed70a90df8f25",
+    "links": "cc11097ddd84fa4e0b58467717d11a525b8d086e6a324aee0ea6b6cf292a57ba",
+    "metadata": "bd9ed0bc6988462c8d0783df435b724adbf676bf13bb8583d5a53dc81650752b"
+  },
+  "/fr/thinking/the-collapse": {
+    "text": "91b2ea65c8aacfa9a248ad257758a48aac65eea0cfb72b52131bb7a7eb66531c",
+    "links": "afa5457eca5a4f1637950e8f2a486e7f1ae97640ec03899e1c097904c8bf62a8",
+    "metadata": "cef2ff329b509ffd3318c2a099f70828f2174cd9f5ba215611847947ac48af55"
+  },
+  "/fr/thinking/the-brief-before-the-brief": {
+    "text": "697f5fdeff17868769d02199d5da118b60f5b49f7be2fb786cd264aa072f89cc",
+    "links": "5f9e671b9e7d86edc7f76f1357842e396555ef53f58fa499e722ffe7731b4665",
+    "metadata": "6686f6b7306386b5916a26438d7a504f7e657c2619534983506a76a0c3720cc8"
+  },
+  "/fr/thinking/diagnosis-before-prescription": {
+    "text": "635358b71e3bf3928e37ca1ccb68e01a349c164c3ee6282df85acfd0027ebd78",
+    "links": "e517204e6a10111640f401fac465d6cab299c118168f4c0d4de78fab62d3043b",
+    "metadata": "171e758fadd60835600018fa8f855b6dc846cbdc153b60febcd100a212aa335d"
+  },
+  "/fr/thinking/what-automation-should-earn": {
+    "text": "1cf1ed887b30c075d5c7548e3890ee940a25af6f33bb910456fa5ac1f0f64174",
+    "links": "363e0bd9105a947c1f2935911b6eaa9cb7e85f3b44daf0fd057172d91163e60d",
+    "metadata": "ea2ca31738c8b944000e6ee3af23cb8a3ec2dc9df83212c6f0723cdf401c4b40"
+  },
+  "/fr/thinking/holding-a-decision": {
+    "text": "c91410c44bf4e468f4b3b1de4b6b21e8ec9c62285b944cced2a2d7f664997e55",
+    "links": "5d364e11a4af2b5febf723de234add28d7a5fd5a1e981f851f220c8591b44cf0",
+    "metadata": "29a9360d66d62063317973b03ec290edf8ca1092033a845ba3189546ff1c2f7e"
+  },
+  "/fr/thinking/one-page-many-arguments": {
+    "text": "74a966a8b6c8c8a2d259adab505d8e4e57c5f3f3bc853aa5f101d766dbba3846",
+    "links": "7291cd32241563227e37a40ca7ba554b61a3929432ca7a0f706a01ccb9794aa2",
+    "metadata": "95f8f8661eca0c6311c4a8daaae0e0cce765fa52f7901c81bb10129a446f7cf9"
+  },
+  "/fr/lab": {
+    "text": "93f725a893cb4bef7b37ed99178b8388c80177d0b5764ae493fd85c25cbb5edf",
+    "links": "16d06721ed2b5db4354ec45a551d11a392398c2aa5e5bde9da77425735a05f26",
+    "metadata": "8a8072386dc0a03ee7cc3d57358712022607c9b87ea28149a32b69247bb429f0"
+  },
+  "/fr/lab/signal-scan": {
+    "text": "3e93bc3823b7a7fc6752f789321a2ba1a569a6b01ca8d37d03b520e7d2e8ba38",
+    "links": "486a90c27c3924a9eb23396986e9561723a592bbcc35d6dfabdbe23fab614706",
+    "metadata": "b937ab58c27db2137ce3e92737ab51fe0b5ed3e4f798e504da8315323527f6aa"
+  },
+  "/fr/lab/the-brief-before-the-brief": {
+    "text": "42e604ba245589a5e6f757d36d087b7adfb8f55ed9bdb6c75515224c37abc502",
+    "links": "ac8c8f5ad7124a70a2464f8847de7c047feff36ada505438a650a689322d8832",
+    "metadata": "2b6b7c5c68fbdae0f259ecb9156afdba33fc61bd15fbc6806aac800e6eb5313f"
+  },
+  "/fr/about": {
+    "text": "ad45a36c8f3406399a66337066104d6309ae26a8d7e569a49cc21d8338973b5c",
+    "links": "79bec6378f318bcc84e77c7418bff1740bfd7243a35ef7d2ad063a6ccbc48f48",
+    "metadata": "6504f82a889ad8c2c8efb4274131189f1b0bc19d0e4b226d8ece449cdcdfa63e"
+  },
+  "/fr/start": {
+    "text": "4661524c62df59831446689401ab330d1d2529c07808ea9f110f7e89652049f7",
+    "links": "6d88b940cbbd4fb89718da74334e69b09c3114e86b96d4e993d7a08d8104fbb9",
+    "metadata": "4be8c56778fcc298cc79911fc72b77759ed303d5c5f990136d692eca4c8683f1"
+  },
+  "/fr/notes": {
+    "text": "42b8637e6e76df9a08262a013c94fee8bbc92f5ddc644eecdf1cb7aa086d74b5",
+    "links": "d5184818ea476532e57646cb42ffaba199e46d1cd23ddd71eb016e12423ca5e7",
+    "metadata": "beead05d543dfe7672016f012390fdaa8b0168bda2ed011659e1f0ac7612622b"
+  }
+}

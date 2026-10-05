@@ -2,22 +2,22 @@
   "/": {
     "text": "03625289a0b7784fa329f5592908bd5425f9cdef64202272958ce5674449b2b6",
     "links": "be27670a5af58aa8abce762fa16858b671851de16b093cdf7efb65c39eb1f8a1",
-    "metadata": "f8cc97908871b22d317f1d168a944b05ecad61cb226f3e3f4f59bdb46e3f3901"
+    "metadata": "f41cd4165bf934f1c30a6c1333ee3a2c8a3080057953f97681da86cfede93e1c"
   },
   "/practice": {
     "text": "3b923b729973d90fdd6f32abca6c942fd179fb1c08363ac30ec6e3a605d92ae3",
     "links": "eb93b3cc64fb48a2ab654b34a39ab9e7caff6e56f4e5956b93ea05ad193fd9b3",
-    "metadata": "893bdb1937f0a2bf3896e623b5db8ce3c207c4381974717a619741f976c18ac3"
+    "metadata": "9eb7dd0cae35744d1ed53102170874926dac16f1927306368ace29a1fd07503e"
   },
   "/practice/method": {
     "text": "18f9b1e17cae6ec3dca36b98a9b34886d4856b2e52b7acd6a2e3d2e3bed6df3e",
     "links": "1d3a5daa70d85dba8be7c23c6754f69e3d04bfdbc342b0c856fb65097361676e",
-    "metadata": "0507e0e872cb39c55b08afbc2c4dcbdb3a0bd31765f21dcedee02a73990da68b"
+    "metadata": "ea9e0a9dad33a9dc68900e05bd3295ebaa62b09bbb0346c5e2a68a7e997729dd"
   },
   "/work": {
     "text": "4dcd75ab801ec0bf7276c5002e0e2fb04884e70477b5720c7c3d0ba034b44bb7",
     "links": "c22c38864b65cfc3cc809323aadc22c86acf4cfdaf330155b89faebb51402ee6",
-    "metadata": "2d3202063e93a0962aace3a68c2bf58368595da2d05bb69b2877388ff63cc3eb"
+    "metadata": "af7444ab6406cd094d71cfbda217de88f712a8adc4cc2822a5be15c43f240b99"
   },
   "/work/selvaggi": {
     "text": "504fcc206f756f5ef135e10fc1d870511a2644add4c8bedeb2a09b50cff5dcd6",
@@ -32,7 +32,7 @@
   "/thinking": {
     "text": "536b0d4a3df7976b53fa941ece16562c9af75fc2513f982dbb3c37ac4a696634",
     "links": "7a0c5368dd6b6ed84e49e7dfedd8a845661696afa281999f716f6e9c4a4de988",
-    "metadata": "22d95706a934a97b3ecaa8cd52534ca48449c9caf9b5b41a1b24ccdf3bffd57a"
+    "metadata": "1a7b047f217ac8e2eb2e2baad1c36acb56cd560bbec7064052f89233d3aa7583"
   },
   "/thinking/the-collapse": {
     "text": "9579617a71234d619874050ebb3e6250340a94913a69ac65eea3f827a18106d6",
@@ -67,27 +67,27 @@
   "/lab": {
     "text": "90a848d7606f4237b5bc87c33df8e20cc0cd4fc0ec6ea4c7255e5f3147265497",
     "links": "e33636cd2ddd747df7a949540386033e7496adb4b89b53aa3d56c04bd314ebf2",
-    "metadata": "766a2442a80e69c948f6e1e5fdf68b20cb832c574ecceb4bf473847f34e9c4a5"
+    "metadata": "0f38e4b15dfc36aa38db574d6c350d17af113db93d2e3f77f8bc52f6f31c2b27"
   },
   "/lab/signal-scan": {
     "text": "f925ce1647a06224b55ed028234d909999fe70b821302d016fe59021357134ae",
     "links": "1b087310d1aac679c22aebe4c9f4b05b945b9bfe622b5f230bf55deb5b4e85f2",
-    "metadata": "924c803febeef3f4810309c3c1c36953313b2edf220a26d6529e89593fc05e23"
+    "metadata": "8ce5b778a5ffeb3d681c4df6ebeb5f41149020208ec6d7f2d9c9185e6af165f3"
   },
   "/lab/the-brief-before-the-brief": {
     "text": "4bea9b00dfc503ea364d8be1727d84ab3c048e95d49b4007baafeac4150689fe",
     "links": "9b658660ee361e8794728f50b2775b7e86249df00cc6f42a39c09d9d5bb5ef6e",
-    "metadata": "3ae14bc87e40a4936237f242dd28a4da796c0dbe4c5a628f4157f4e2de633995"
+    "metadata": "2e1753b2a9d7924008df2381f0db09b1cbf9aadd5c7def2c1ac8fded6e78e88b"
   },
   "/about": {
     "text": "4af061dd2d7618bfe130b3295abf13371adba35d856ef98330c9354fec9c87ea",
     "links": "dd8984d0cb69bf17ed8663ff312e0936566d8ecf58c4ed82a8e1649d441900a1",
-    "metadata": "fd1b9a9249f3c1a72453e59718b4e7b4736eef07420a8465e11b1bca93e178ef"
+    "metadata": "f3c78864967fcfb5dbc8e66481481b771ed6ae00fe69733102751e204eb31a50"
   },
   "/start": {
     "text": "80ba771cf209c0427e23f8cb09e618e459fc674fbd5cbc9230657b81a705c102",
     "links": "63879fb2409fa1f2f4a9a5c0712bb73ee4a507dc3cd6b8d547e5594084a901e5",
-    "metadata": "7e3d0ea4e5de857d8784ea62afbd0a9128f288f2aa9867f1c02c09c00621bdc9"
+    "metadata": "2238e87301e915898c178f56c660bba91cbdae4db3690340a917e6213836fc71"
   },
   "/notes": {
     "text": "45f5c6defbdf346257643ab59c08338642406edb745ff0955f5e10e20062a027",
@@ -97,22 +97,22 @@
   "/fr": {
     "text": "f8abf37b7299ddd97d6d356556e05af0bb20be4778c81d4beb9646dbff687bde",
     "links": "b677e14d5c86fc282ba046c35996648a3033c7fb25ce78e66e6bcdd1b19890ce",
-    "metadata": "8ec870ae195cc5cf496436e6525fa36cc51640042beb6d59ded513e8b901c2b5"
+    "metadata": "5e3c7dc40578bebeb99b89c0a829d9e1b028fc34e206b62faea095c0916cf7de"
   },
   "/fr/practice": {
     "text": "457679ba3e40fea2004809ef1f54d8f377cbb6b7bbc0a978a52038f181c3dc34",
     "links": "59a76fbdd900bb05001f428349ad7db8c55745e80b9d95480ae96b88f5e5217a",
-    "metadata": "318fe4353b558c74a6b0a3b81eae89d6217104c4a31d57efebccb1e55dac66db"
+    "metadata": "d75abbadfac5164695f1838481c885869a8956b0640adf360f11d9b63a95f43c"
   },
   "/fr/practice/method": {
     "text": "f55651a8f103558912d572b5605cf1a07884dadd4f9721f24c1f6c4dca6fd581",
     "links": "317a2044073a1c67158dd7a9fe214dfd07898b8affba6add824a601fa18947c9",
-    "metadata": "3344ec135b9d464915833fb7567205aa4faf459b326ff35d6e67eae13260f781"
+    "metadata": "451a95bc9d37bcae0254f569918966a6cad0c8ca6bd886d4ed9074b53642468a"
   },
   "/fr/work": {
     "text": "c94c51a9dc110d00331fd9816c11146b91d2261c7cc674d31462b90708633fe3",
     "links": "bae3f2098546baaf683109b4ffc5df32263dbf0521d018497a4c0702d39e9c75",
-    "metadata": "8767a42230dbb764319a0b00469062fc12f74807474bc3b14d87778e4dc9b584"
+    "metadata": "3b8754e1ae79bbe1a5bd65bf8ccedc6a223d3e347fb010d3f5bf3a6a27b015c2"
   },
   "/fr/work/selvaggi": {
     "text": "c7b9138adc7620bc794659f41ab1407e3dd449a85d741c700b76c2925a79ac90",
@@ -127,7 +127,7 @@
   "/fr/thinking": {
     "text": "098acdb1d66aab9d6a053b8f4676b7189b0343a087d06986499ed70a90df8f25",
     "links": "cc11097ddd84fa4e0b58467717d11a525b8d086e6a324aee0ea6b6cf292a57ba",
-    "metadata": "51d702cf76b453553df03eb71ded5c723b9c054238108b1c5da0293179a4c5ce"
+    "metadata": "bd9ed0bc6988462c8d0783df435b724adbf676bf13bb8583d5a53dc81650752b"
   },
   "/fr/thinking/the-collapse": {
     "text": "91b2ea65c8aacfa9a248ad257758a48aac65eea0cfb72b52131bb7a7eb66531c",
@@ -162,27 +162,27 @@
   "/fr/lab": {
     "text": "93f725a893cb4bef7b37ed99178b8388c80177d0b5764ae493fd85c25cbb5edf",
     "links": "16d06721ed2b5db4354ec45a551d11a392398c2aa5e5bde9da77425735a05f26",
-    "metadata": "44320fe52805b56d61038a4f0236e3d730b859815cd1052fd6745083c70860a1"
+    "metadata": "8a8072386dc0a03ee7cc3d57358712022607c9b87ea28149a32b69247bb429f0"
   },
   "/fr/lab/signal-scan": {
     "text": "3e93bc3823b7a7fc6752f789321a2ba1a569a6b01ca8d37d03b520e7d2e8ba38",
     "links": "486a90c27c3924a9eb23396986e9561723a592bbcc35d6dfabdbe23fab614706",
-    "metadata": "f5cd8282a7e7e7799e983f659c6906b314df07db8fdc33b05a334367950d173a"
+    "metadata": "b937ab58c27db2137ce3e92737ab51fe0b5ed3e4f798e504da8315323527f6aa"
   },
   "/fr/lab/the-brief-before-the-brief": {
     "text": "42e604ba245589a5e6f757d36d087b7adfb8f55ed9bdb6c75515224c37abc502",
     "links": "ac8c8f5ad7124a70a2464f8847de7c047feff36ada505438a650a689322d8832",
-    "metadata": "d2be1a470fd0c328bc20761d9c2689587ecad376768c7c77b3dbad6ab687fcdb"
+    "metadata": "2b6b7c5c68fbdae0f259ecb9156afdba33fc61bd15fbc6806aac800e6eb5313f"
   },
   "/fr/about": {
     "text": "61b85977d175b26d9aadaf4202389a9ba224813f22f40451fe3198ce8accae3a",
     "links": "79bec6378f318bcc84e77c7418bff1740bfd7243a35ef7d2ad063a6ccbc48f48",
-    "metadata": "c70353af7b84fe3e947df4a4c225534b67c00cfdbe714a217cbf5d4475a52a0f"
+    "metadata": "303fcb60485c43b8bea526c9d7b9c3bf00a2cd48427ce52aed16136425171b15"
   },
   "/fr/start": {
     "text": "4661524c62df59831446689401ab330d1d2529c07808ea9f110f7e89652049f7",
     "links": "6d88b940cbbd4fb89718da74334e69b09c3114e86b96d4e993d7a08d8104fbb9",
-    "metadata": "ac6219f1d3c2f433c2ea68e57bbada544667b57982ad6a75326160e383b6daf7"
+    "metadata": "4be8c56778fcc298cc79911fc72b77759ed303d5c5f990136d692eca4c8683f1"
   },
   "/fr/notes": {
     "text": "42b8637e6e76df9a08262a013c94fee8bbc92f5ddc644eecdf1cb7aa086d74b5",
