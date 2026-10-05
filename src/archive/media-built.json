@@ -1,0 +1,3227 @@
+{
+  "diptyk-01": {
+    "width": 1944,
+    "height": 1210,
+    "colour": "#a08171",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 299,
+        "src": "/work/media/diptyk/diptyk-01-480.webp",
+        "bytes": 19762
+      },
+      {
+        "width": 960,
+        "height": 598,
+        "src": "/work/media/diptyk/diptyk-01-960.webp",
+        "bytes": 53668
+      },
+      {
+        "width": 1600,
+        "height": 996,
+        "src": "/work/media/diptyk/diptyk-01-1600.webp",
+        "bytes": 107202
+      },
+      {
+        "width": 1600,
+        "height": 996,
+        "src": "/work/media/diptyk/diptyk-01-1600.webp",
+        "bytes": 107202
+      }
+    ],
+    "type": "image",
+    "sha256": "49a2f3274ac252e52a53313538266106bc59fd8754ff4579bfedee80a777987e"
+  },
+  "diptyk-02": {
+    "width": 1194,
+    "height": 1192,
+    "colour": "#5f3e53",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 479,
+        "src": "/work/media/diptyk/diptyk-02-480.webp",
+        "bytes": 13464
+      },
+      {
+        "width": 960,
+        "height": 958,
+        "src": "/work/media/diptyk/diptyk-02-960.webp",
+        "bytes": 48926
+      },
+      {
+        "width": 1194,
+        "height": 1192,
+        "src": "/work/media/diptyk/diptyk-02-1194.webp",
+        "bytes": 84176
+      }
+    ],
+    "type": "image",
+    "sha256": "333a5c4a978697206d9d9f1eaf705de79f0b65b41a8497a47cd59ff865b97fd4"
+  },
+  "diptyk-03": {
+    "width": 1000,
+    "height": 1000,
+    "colour": "#dfcdc1",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/diptyk/diptyk-03-480.webp",
+        "bytes": 6218
+      },
+      {
+        "width": 960,
+        "height": 960,
+        "src": "/work/media/diptyk/diptyk-03-960.webp",
+        "bytes": 15220
+      },
+      {
+        "width": 1000,
+        "height": 1000,
+        "src": "/work/media/diptyk/diptyk-03-1000.webp",
+        "bytes": 16374
+      }
+    ],
+    "type": "image",
+    "sha256": "38e6ac710cc05f995b3062cd2ab2157c70e5e6e234405ce44c2fa875df0bf275"
+  },
+  "diptyk-05": {
+    "width": 1242,
+    "height": 1530,
+    "colour": "#9d897d",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 591,
+        "src": "/work/media/diptyk/diptyk-05-480.webp",
+        "bytes": 58434
+      },
+      {
+        "width": 960,
+        "height": 1183,
+        "src": "/work/media/diptyk/diptyk-05-960.webp",
+        "bytes": 188198
+      },
+      {
+        "width": 1242,
+        "height": 1530,
+        "src": "/work/media/diptyk/diptyk-05-1242.webp",
+        "bytes": 275754
+      }
+    ],
+    "type": "image",
+    "sha256": "89462ded8c41a29514226620594d6ea01f50779eac78028086e72432c2fb14ad"
+  },
+  "diptyk-06": {
+    "width": 1216,
+    "height": 1216,
+    "colour": "#96959b",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/diptyk/diptyk-06-480.webp",
+        "bytes": 8590
+      },
+      {
+        "width": 960,
+        "height": 960,
+        "src": "/work/media/diptyk/diptyk-06-960.webp",
+        "bytes": 28374
+      },
+      {
+        "width": 1216,
+        "height": 1216,
+        "src": "/work/media/diptyk/diptyk-06-1216.webp",
+        "bytes": 50742
+      }
+    ],
+    "type": "image",
+    "sha256": "1b31c930ed496f994d3af621337a520de6297e798c9d834f160891e7e707fc16"
+  },
+  "diptyk-07": {
+    "width": 1242,
+    "height": 1523,
+    "colour": "#a39a97",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 589,
+        "src": "/work/media/diptyk/diptyk-07-480.webp",
+        "bytes": 30526
+      },
+      {
+        "width": 960,
+        "height": 1177,
+        "src": "/work/media/diptyk/diptyk-07-960.webp",
+        "bytes": 72936
+      },
+      {
+        "width": 1242,
+        "height": 1523,
+        "src": "/work/media/diptyk/diptyk-07-1242.webp",
+        "bytes": 101294
+      }
+    ],
+    "type": "image",
+    "sha256": "c82e299e90dbca2e08a59f235560a7641599f34c018a6c671b8104a9ac32098f"
+  },
+  "diptyk-08": {
+    "width": 1242,
+    "height": 1530,
+    "colour": "#aca399",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 591,
+        "src": "/work/media/diptyk/diptyk-08-480.webp",
+        "bytes": 41818
+      },
+      {
+        "width": 960,
+        "height": 1183,
+        "src": "/work/media/diptyk/diptyk-08-960.webp",
+        "bytes": 110794
+      },
+      {
+        "width": 1242,
+        "height": 1530,
+        "src": "/work/media/diptyk/diptyk-08-1242.webp",
+        "bytes": 157648
+      }
+    ],
+    "type": "image",
+    "sha256": "a1b057ec8278599c3ffe71a36544f2f64c9dac0cd4ccaa319df58505f3562a1f"
+  },
+  "diptyk-11": {
+    "width": 1210,
+    "height": 1212,
+    "colour": "#868280",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 481,
+        "src": "/work/media/diptyk/diptyk-11-480.webp",
+        "bytes": 26496
+      },
+      {
+        "width": 960,
+        "height": 962,
+        "src": "/work/media/diptyk/diptyk-11-960.webp",
+        "bytes": 71886
+      },
+      {
+        "width": 1210,
+        "height": 1212,
+        "src": "/work/media/diptyk/diptyk-11-1210.webp",
+        "bytes": 132294
+      }
+    ],
+    "type": "image",
+    "sha256": "2235f272749efb56bb77e04c74642e65c5fff1f0b912771110860a9d95aa7421"
+  },
+  "diptyk-12": {
+    "width": 1212,
+    "height": 1214,
+    "colour": "#555755",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 481,
+        "src": "/work/media/diptyk/diptyk-12-480.webp",
+        "bytes": 3822
+      },
+      {
+        "width": 960,
+        "height": 962,
+        "src": "/work/media/diptyk/diptyk-12-960.webp",
+        "bytes": 13018
+      },
+      {
+        "width": 1212,
+        "height": 1214,
+        "src": "/work/media/diptyk/diptyk-12-1212.webp",
+        "bytes": 54092
+      }
+    ],
+    "type": "image",
+    "sha256": "bfa4134f3b5f026bd105934783bad20ea23d947123be282ca9a9edaf0004d91b"
+  },
+  "diptyk-13": {
+    "width": 1208,
+    "height": 1202,
+    "colour": "#b4b1b4",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 478,
+        "src": "/work/media/diptyk/diptyk-13-480.webp",
+        "bytes": 7882
+      },
+      {
+        "width": 960,
+        "height": 955,
+        "src": "/work/media/diptyk/diptyk-13-960.webp",
+        "bytes": 24322
+      },
+      {
+        "width": 1208,
+        "height": 1202,
+        "src": "/work/media/diptyk/diptyk-13-1208.webp",
+        "bytes": 46550
+      }
+    ],
+    "type": "image",
+    "sha256": "fdc31688dee44c842cc1a0165bbad80ee4d3dd9b54d1ad69a630649dfcf18359"
+  },
+  "audi-driven-by-art-01": {
+    "width": 2500,
+    "height": 1400,
+    "colour": "#a1978f",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 269,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-01-480.webp",
+        "bytes": 16580
+      },
+      {
+        "width": 960,
+        "height": 538,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-01-960.webp",
+        "bytes": 41462
+      },
+      {
+        "width": 1600,
+        "height": 896,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-01-1600.webp",
+        "bytes": 75778
+      },
+      {
+        "width": 1600,
+        "height": 896,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-01-1600.webp",
+        "bytes": 75778
+      }
+    ],
+    "type": "image",
+    "sha256": "9f67e864cd32565d7286d0c69a98bd5078530c9f28b5556f3bd2d0555eaa70c5"
+  },
+  "audi-driven-by-art-02": {
+    "width": 778,
+    "height": 389,
+    "colour": "#ffffff",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 240,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-02-480.webp",
+        "bytes": 5038
+      },
+      {
+        "width": 778,
+        "height": 389,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-02-778.webp",
+        "bytes": 6830
+      }
+    ],
+    "type": "image",
+    "sha256": "f59a15d32d13e54416094ed05847e5d87e50fafb36b95c9e15642bbfd9981e85"
+  },
+  "audi-driven-by-art-03": {
+    "width": 2500,
+    "height": 1875,
+    "colour": "#9a8d85",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-03-480.webp",
+        "bytes": 25228
+      },
+      {
+        "width": 960,
+        "height": 720,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-03-960.webp",
+        "bytes": 80474
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-03-1600.webp",
+        "bytes": 216626
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-03-1600.webp",
+        "bytes": 216626
+      }
+    ],
+    "type": "image",
+    "sha256": "309801c50651354b65ac986301273872d9f08dcb044f5c996eb324c0b704dd42"
+  },
+  "audi-driven-by-art-04": {
+    "width": 2500,
+    "height": 1875,
+    "colour": "#d7d0cb",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-04-480.webp",
+        "bytes": 10424
+      },
+      {
+        "width": 960,
+        "height": 720,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-04-960.webp",
+        "bytes": 32472
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-04-1600.webp",
+        "bytes": 71350
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-04-1600.webp",
+        "bytes": 71350
+      }
+    ],
+    "type": "image",
+    "sha256": "37d65300f1bb08f8ad33667cd3d05aa5d550c1f090abf594b6cd67feb3db2321"
+  },
+  "harvest-festival-02": {
+    "width": 778,
+    "height": 389,
+    "colour": "#ffffff",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 240,
+        "src": "/work/media/harvest-festival/harvest-festival-02-480.webp",
+        "bytes": 5496
+      },
+      {
+        "width": 778,
+        "height": 389,
+        "src": "/work/media/harvest-festival/harvest-festival-02-778.webp",
+        "bytes": 7260
+      }
+    ],
+    "type": "image",
+    "sha256": "9b4a42db2a9eb923542fb59a7b9edd46fc60140de7e30ae348bd07ebd96ded56"
+  },
+  "harvest-festival-03": {
+    "width": 2500,
+    "height": 1875,
+    "colour": "#d1bbab",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/harvest-festival/harvest-festival-03-480.webp",
+        "bytes": 3820
+      },
+      {
+        "width": 960,
+        "height": 720,
+        "src": "/work/media/harvest-festival/harvest-festival-03-960.webp",
+        "bytes": 11880
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/harvest-festival/harvest-festival-03-1600.webp",
+        "bytes": 28374
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/harvest-festival/harvest-festival-03-1600.webp",
+        "bytes": 28374
+      }
+    ],
+    "type": "image",
+    "sha256": "df71ec4ae4a85b5b9998e7a25711568c3b5385b547692d1bf734d943e24941a3"
+  },
+  "harvest-festival-04": {
+    "width": 2500,
+    "height": 1875,
+    "colour": "#dedace",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/harvest-festival/harvest-festival-04-480.webp",
+        "bytes": 6334
+      },
+      {
+        "width": 960,
+        "height": 720,
+        "src": "/work/media/harvest-festival/harvest-festival-04-960.webp",
+        "bytes": 17584
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/harvest-festival/harvest-festival-04-1600.webp",
+        "bytes": 37514
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/harvest-festival/harvest-festival-04-1600.webp",
+        "bytes": 37514
+      }
+    ],
+    "type": "image",
+    "sha256": "4b978d993f47738290b5f3148dc4357ccaa3a3ac6809b8edd4b3bfea7319377f"
+  },
+  "harvest-festival-05": {
+    "width": 2500,
+    "height": 1875,
+    "colour": "#cdc1bb",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/harvest-festival/harvest-festival-05-480.webp",
+        "bytes": 8786
+      },
+      {
+        "width": 960,
+        "height": 720,
+        "src": "/work/media/harvest-festival/harvest-festival-05-960.webp",
+        "bytes": 25074
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/harvest-festival/harvest-festival-05-1600.webp",
+        "bytes": 51414
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/harvest-festival/harvest-festival-05-1600.webp",
+        "bytes": 51414
+      }
+    ],
+    "type": "image",
+    "sha256": "7345aad8b10d719617a62bc448dde8d8b69c0424dfc312247599326d6e4db6b9"
+  },
+  "harvest-festival-06": {
+    "width": 2500,
+    "height": 1875,
+    "colour": "#c0a795",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/harvest-festival/harvest-festival-06-480.webp",
+        "bytes": 21862
+      },
+      {
+        "width": 960,
+        "height": 720,
+        "src": "/work/media/harvest-festival/harvest-festival-06-960.webp",
+        "bytes": 58906
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/harvest-festival/harvest-festival-06-1600.webp",
+        "bytes": 127154
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/harvest-festival/harvest-festival-06-1600.webp",
+        "bytes": 127154
+      }
+    ],
+    "type": "image",
+    "sha256": "938820e5e202e1a7b74de920b920b6408a32f8f230fafd334609bc62518885dc"
+  },
+  "harvest-festival-07": {
+    "width": 2500,
+    "height": 1405,
+    "colour": "#c88d7e",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 270,
+        "src": "/work/media/harvest-festival/harvest-festival-07-480.webp",
+        "bytes": 5260
+      },
+      {
+        "width": 960,
+        "height": 540,
+        "src": "/work/media/harvest-festival/harvest-festival-07-960.webp",
+        "bytes": 13268
+      },
+      {
+        "width": 1600,
+        "height": 899,
+        "src": "/work/media/harvest-festival/harvest-festival-07-1600.webp",
+        "bytes": 26742
+      },
+      {
+        "width": 1600,
+        "height": 899,
+        "src": "/work/media/harvest-festival/harvest-festival-07-1600.webp",
+        "bytes": 26742
+      }
+    ],
+    "type": "image",
+    "sha256": "40c30e0c9c9c8566fe80af42667baf8db6ad52c10bf7ec817bbeab1eb163b746"
+  },
+  "harvest-festival-08": {
+    "width": 2500,
+    "height": 1405,
+    "colour": "#8e95a8",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 270,
+        "src": "/work/media/harvest-festival/harvest-festival-08-480.webp",
+        "bytes": 9520
+      },
+      {
+        "width": 960,
+        "height": 540,
+        "src": "/work/media/harvest-festival/harvest-festival-08-960.webp",
+        "bytes": 28982
+      },
+      {
+        "width": 1600,
+        "height": 899,
+        "src": "/work/media/harvest-festival/harvest-festival-08-1600.webp",
+        "bytes": 62924
+      },
+      {
+        "width": 1600,
+        "height": 899,
+        "src": "/work/media/harvest-festival/harvest-festival-08-1600.webp",
+        "bytes": 62924
+      }
+    ],
+    "type": "image",
+    "sha256": "33608d861f0ca39d0da56916a42feb284369c1e9e70146021258bf7be2cbc4a4"
+  },
+  "kleanops-01": {
+    "width": 2500,
+    "height": 1500,
+    "colour": "#837e89",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 288,
+        "src": "/work/media/kleanops/kleanops-01-480.webp",
+        "bytes": 4750
+      },
+      {
+        "width": 960,
+        "height": 576,
+        "src": "/work/media/kleanops/kleanops-01-960.webp",
+        "bytes": 12838
+      },
+      {
+        "width": 1600,
+        "height": 960,
+        "src": "/work/media/kleanops/kleanops-01-1600.webp",
+        "bytes": 27574
+      },
+      {
+        "width": 1600,
+        "height": 960,
+        "src": "/work/media/kleanops/kleanops-01-1600.webp",
+        "bytes": 27574
+      }
+    ],
+    "type": "image",
+    "sha256": "e945b8d11c7ed5d3aff1a6031823e3ddd21796184864b15106559788d5727f37"
+  },
+  "kleanops-02": {
+    "width": 668,
+    "height": 668,
+    "colour": "#d9c7dd",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/kleanops/kleanops-02-480.webp",
+        "bytes": 6370
+      },
+      {
+        "width": 668,
+        "height": 668,
+        "src": "/work/media/kleanops/kleanops-02-668.webp",
+        "bytes": 9254
+      }
+    ],
+    "type": "image",
+    "sha256": "060f06a1cc84c9f682ecc8ed6a554835384d8655f7835757f2380c36804b4bf4"
+  },
+  "kleanops-03": {
+    "width": 668,
+    "height": 668,
+    "colour": "#d29cc9",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/kleanops/kleanops-03-480.webp",
+        "bytes": 21708
+      },
+      {
+        "width": 668,
+        "height": 668,
+        "src": "/work/media/kleanops/kleanops-03-668.webp",
+        "bytes": 32794
+      }
+    ],
+    "type": "image",
+    "sha256": "c9f7f4fd91709fed4fd1413bff3526863dd505a40e69acea9b723e935fd6630e"
+  },
+  "kleanops-04": {
+    "width": 666,
+    "height": 666,
+    "colour": "#d6cbe9",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/kleanops/kleanops-04-480.webp",
+        "bytes": 7684
+      },
+      {
+        "width": 666,
+        "height": 666,
+        "src": "/work/media/kleanops/kleanops-04-666.webp",
+        "bytes": 12466
+      }
+    ],
+    "type": "image",
+    "sha256": "d26f5cee4774247c43017c3ab42391bcc89eb8302ecd504ca5d3fab6322ddc68"
+  },
+  "kleanops-05": {
+    "width": 668,
+    "height": 668,
+    "colour": "#c9caed",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/kleanops/kleanops-05-480.webp",
+        "bytes": 4106
+      },
+      {
+        "width": 668,
+        "height": 668,
+        "src": "/work/media/kleanops/kleanops-05-668.webp",
+        "bytes": 6342
+      }
+    ],
+    "type": "image",
+    "sha256": "c8515ba72b4d07f7204887e7b9210b54d8627365ecfa454d52f707b1b74b679b"
+  },
+  "kleanops-06": {
+    "width": 668,
+    "height": 668,
+    "colour": "#d2dee2",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/kleanops/kleanops-06-480.webp",
+        "bytes": 5128
+      },
+      {
+        "width": 668,
+        "height": 668,
+        "src": "/work/media/kleanops/kleanops-06-668.webp",
+        "bytes": 7960
+      }
+    ],
+    "type": "image",
+    "sha256": "ea0d0087078a996a808ea9d8a657162707eb282fde6d58ea2dd6bccc50c91b7b"
+  },
+  "kleanops-07": {
+    "width": 668,
+    "height": 668,
+    "colour": "#bcbce6",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/kleanops/kleanops-07-480.webp",
+        "bytes": 4462
+      },
+      {
+        "width": 668,
+        "height": 668,
+        "src": "/work/media/kleanops/kleanops-07-668.webp",
+        "bytes": 7228
+      }
+    ],
+    "type": "image",
+    "sha256": "0bc9a3aa4818042e28a91c05ec251016724918148a191ee41937b0bbd30450e7"
+  },
+  "ocp-01": {
+    "width": 2500,
+    "height": 1405,
+    "colour": "#68625c",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 270,
+        "src": "/work/media/ocp/ocp-01-480.webp",
+        "bytes": 23470
+      },
+      {
+        "width": 960,
+        "height": 540,
+        "src": "/work/media/ocp/ocp-01-960.webp",
+        "bytes": 60786
+      },
+      {
+        "width": 1600,
+        "height": 899,
+        "src": "/work/media/ocp/ocp-01-1600.webp",
+        "bytes": 106362
+      },
+      {
+        "width": 1600,
+        "height": 899,
+        "src": "/work/media/ocp/ocp-01-1600.webp",
+        "bytes": 106362
+      }
+    ],
+    "type": "image",
+    "sha256": "56491183400e23b1622e18d25f8f9770a172b21224950206872f5744c631b1ab"
+  },
+  "oif-01": {
+    "width": 2500,
+    "height": 1500,
+    "colour": "#616063",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 288,
+        "src": "/work/media/oif/oif-01-480.webp",
+        "bytes": 20154
+      },
+      {
+        "width": 960,
+        "height": 576,
+        "src": "/work/media/oif/oif-01-960.webp",
+        "bytes": 69744
+      },
+      {
+        "width": 1600,
+        "height": 960,
+        "src": "/work/media/oif/oif-01-1600.webp",
+        "bytes": 170524
+      },
+      {
+        "width": 1600,
+        "height": 960,
+        "src": "/work/media/oif/oif-01-1600.webp",
+        "bytes": 170524
+      }
+    ],
+    "type": "image",
+    "sha256": "9da3f81e208cd097f37f4dae81b92d01286e292710dffb6821bfd674625f083c"
+  },
+  "qisas-rbati-02": {
+    "width": 778,
+    "height": 389,
+    "colour": "#ffffff",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 240,
+        "src": "/work/media/qisas-rbati/qisas-rbati-02-480.webp",
+        "bytes": 16072
+      },
+      {
+        "width": 778,
+        "height": 389,
+        "src": "/work/media/qisas-rbati/qisas-rbati-02-778.webp",
+        "bytes": 10554
+      }
+    ],
+    "type": "image",
+    "sha256": "0bfa4051686609738fba6d938082cc78af03693b4e2e2a056e44a5b85a8a1027"
+  },
+  "qisas-rbati-03": {
+    "width": 2500,
+    "height": 1875,
+    "colour": "#e7e6e5",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/qisas-rbati/qisas-rbati-03-480.webp",
+        "bytes": 8576
+      },
+      {
+        "width": 960,
+        "height": 720,
+        "src": "/work/media/qisas-rbati/qisas-rbati-03-960.webp",
+        "bytes": 25116
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/qisas-rbati/qisas-rbati-03-1600.webp",
+        "bytes": 54876
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/qisas-rbati/qisas-rbati-03-1600.webp",
+        "bytes": 54876
+      }
+    ],
+    "type": "image",
+    "sha256": "08f439ef72d65d7d261a0f9a8ec2a810895f18b870f55760f40fdfe41325f33d"
+  },
+  "qisas-rbati-04": {
+    "width": 2500,
+    "height": 1875,
+    "colour": "#7fc1a0",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/qisas-rbati/qisas-rbati-04-480.webp",
+        "bytes": 4380
+      },
+      {
+        "width": 960,
+        "height": 720,
+        "src": "/work/media/qisas-rbati/qisas-rbati-04-960.webp",
+        "bytes": 10452
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/qisas-rbati/qisas-rbati-04-1600.webp",
+        "bytes": 19450
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/qisas-rbati/qisas-rbati-04-1600.webp",
+        "bytes": 19450
+      }
+    ],
+    "type": "image",
+    "sha256": "e9f327320109dd9f3400d2e51df0a90c838c5ef409b344331bd9c45767bfd9fc"
+  },
+  "qisas-rbati-05": {
+    "width": 2500,
+    "height": 1875,
+    "colour": "#6c4b97",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/qisas-rbati/qisas-rbati-05-480.webp",
+        "bytes": 6214
+      },
+      {
+        "width": 960,
+        "height": 720,
+        "src": "/work/media/qisas-rbati/qisas-rbati-05-960.webp",
+        "bytes": 14764
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/qisas-rbati/qisas-rbati-05-1600.webp",
+        "bytes": 27024
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/qisas-rbati/qisas-rbati-05-1600.webp",
+        "bytes": 27024
+      }
+    ],
+    "type": "image",
+    "sha256": "ebd4ce3a6c3d7ca462a5c86828a338d86635a8291f056248aa707edb61dcaf1e"
+  },
+  "sergine-01": {
+    "width": 2500,
+    "height": 1875,
+    "colour": "#9d7b69",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/sergine/sergine-01-480.webp",
+        "bytes": 23528
+      },
+      {
+        "width": 960,
+        "height": 720,
+        "src": "/work/media/sergine/sergine-01-960.webp",
+        "bytes": 59462
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/sergine/sergine-01-1600.webp",
+        "bytes": 139518
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/sergine/sergine-01-1600.webp",
+        "bytes": 139518
+      }
+    ],
+    "type": "image",
+    "sha256": "97eb615007586b28bc5f14545fcc6c09afd3ca2d6eee50e8b62da64343ee805d"
+  },
+  "sergine-02": {
+    "width": 778,
+    "height": 389,
+    "colour": "#f4f4f4",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 240,
+        "src": "/work/media/sergine/sergine-02-480.webp",
+        "bytes": 5626
+      },
+      {
+        "width": 778,
+        "height": 389,
+        "src": "/work/media/sergine/sergine-02-778.webp",
+        "bytes": 9260
+      }
+    ],
+    "type": "image",
+    "sha256": "377e4e60b11e4786e35671ba31cf7281cb841e6ac0a6112b4cb8d77e42ddb52e"
+  },
+  "sergine-03": {
+    "width": 2500,
+    "height": 1875,
+    "colour": "#e6e6e6",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/sergine/sergine-03-480.webp",
+        "bytes": 5594
+      },
+      {
+        "width": 960,
+        "height": 720,
+        "src": "/work/media/sergine/sergine-03-960.webp",
+        "bytes": 15072
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/sergine/sergine-03-1600.webp",
+        "bytes": 28408
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/sergine/sergine-03-1600.webp",
+        "bytes": 28408
+      }
+    ],
+    "type": "image",
+    "sha256": "9b8e0b5a59533de72405a8aa6c77168eb66a8d2fba4dd8d5be3915012c9b8a5a"
+  },
+  "sergine-04": {
+    "width": 2500,
+    "height": 1875,
+    "colour": "#949ea9",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/sergine/sergine-04-480.webp",
+        "bytes": 23390
+      },
+      {
+        "width": 960,
+        "height": 720,
+        "src": "/work/media/sergine/sergine-04-960.webp",
+        "bytes": 65724
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/sergine/sergine-04-1600.webp",
+        "bytes": 144738
+      },
+      {
+        "width": 1600,
+        "height": 1200,
+        "src": "/work/media/sergine/sergine-04-1600.webp",
+        "bytes": 144738
+      }
+    ],
+    "type": "image",
+    "sha256": "9579e42c32f56aeec70f6d21d757f394c6c59d64ebe0618b584d37e5fa43117c"
+  },
+  "arroz-con-pollo-02": {
+    "width": 1306,
+    "height": 780,
+    "colour": "#807570",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 287,
+        "src": "/work/media/arroz-con-pollo/arroz-con-pollo-02-480.webp",
+        "bytes": 11076
+      },
+      {
+        "width": 960,
+        "height": 573,
+        "src": "/work/media/arroz-con-pollo/arroz-con-pollo-02-960.webp",
+        "bytes": 25592
+      },
+      {
+        "width": 1306,
+        "height": 780,
+        "src": "/work/media/arroz-con-pollo/arroz-con-pollo-02-1306.webp",
+        "bytes": 38356
+      }
+    ],
+    "type": "image",
+    "sha256": "50607ccba14cd0a22d1afa8328caca4ffe8fbd3b5dc47d55146ee56491f0337c"
+  },
+  "arroz-con-pollo-03": {
+    "width": 1306,
+    "height": 780,
+    "colour": "#b78f6f",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 287,
+        "src": "/work/media/arroz-con-pollo/arroz-con-pollo-03-480.webp",
+        "bytes": 27002
+      },
+      {
+        "width": 960,
+        "height": 573,
+        "src": "/work/media/arroz-con-pollo/arroz-con-pollo-03-960.webp",
+        "bytes": 98642
+      },
+      {
+        "width": 1306,
+        "height": 780,
+        "src": "/work/media/arroz-con-pollo/arroz-con-pollo-03-1306.webp",
+        "bytes": 206884
+      }
+    ],
+    "type": "image",
+    "sha256": "b3a7352431f49d26cfafa0fb9fc1cf63a11568f0ddbb6090755ca348efa4a1a6"
+  },
+  "arroz-con-pollo-04": {
+    "width": 1306,
+    "height": 780,
+    "colour": "#727876",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 287,
+        "src": "/work/media/arroz-con-pollo/arroz-con-pollo-04-480.webp",
+        "bytes": 15086
+      },
+      {
+        "width": 960,
+        "height": 573,
+        "src": "/work/media/arroz-con-pollo/arroz-con-pollo-04-960.webp",
+        "bytes": 47246
+      },
+      {
+        "width": 1306,
+        "height": 780,
+        "src": "/work/media/arroz-con-pollo/arroz-con-pollo-04-1306.webp",
+        "bytes": 78408
+      }
+    ],
+    "type": "image",
+    "sha256": "6813438272affb0ec4e62cedb47eabdd3d238e4494feff26af2ea203cadff800"
+  },
+  "arroz-con-pollo-05": {
+    "width": 1160,
+    "height": 688,
+    "colour": "#87684f",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 285,
+        "src": "/work/media/arroz-con-pollo/arroz-con-pollo-05-480.webp",
+        "bytes": 30784
+      },
+      {
+        "width": 960,
+        "height": 569,
+        "src": "/work/media/arroz-con-pollo/arroz-con-pollo-05-960.webp",
+        "bytes": 78214
+      },
+      {
+        "width": 1160,
+        "height": 688,
+        "src": "/work/media/arroz-con-pollo/arroz-con-pollo-05-1160.webp",
+        "bytes": 110936
+      }
+    ],
+    "type": "image",
+    "sha256": "678933c139a217400e85167e78ec95c3c7121102e78886795be7f5692e9ad22e"
+  },
+  "trnscnd-01": {
+    "width": 2500,
+    "height": 1500,
+    "colour": "#4d505d",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 288,
+        "src": "/work/media/trnscnd/trnscnd-01-480.webp",
+        "bytes": 4782
+      },
+      {
+        "width": 960,
+        "height": 576,
+        "src": "/work/media/trnscnd/trnscnd-01-960.webp",
+        "bytes": 13080
+      },
+      {
+        "width": 1600,
+        "height": 960,
+        "src": "/work/media/trnscnd/trnscnd-01-1600.webp",
+        "bytes": 28716
+      },
+      {
+        "width": 1600,
+        "height": 960,
+        "src": "/work/media/trnscnd/trnscnd-01-1600.webp",
+        "bytes": 28716
+      }
+    ],
+    "type": "image",
+    "sha256": "8f45deeb3a492ac296625fc1ef703f1848939c0e2c04ff1883845150c9262346"
+  },
+  "trnscnd-02": {
+    "width": 666,
+    "height": 666,
+    "colour": "#a4bfce",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/trnscnd/trnscnd-02-480.webp",
+        "bytes": 22932
+      },
+      {
+        "width": 666,
+        "height": 666,
+        "src": "/work/media/trnscnd/trnscnd-02-666.webp",
+        "bytes": 43324
+      }
+    ],
+    "type": "image",
+    "sha256": "b4c2574c87a9a0ca21f8f166ba92dec52eeb48899a296f024f60d80b9ff8c475"
+  },
+  "trnscnd-03": {
+    "width": 1196,
+    "height": 1198,
+    "colour": "#9a8def",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 481,
+        "src": "/work/media/trnscnd/trnscnd-03-480.webp",
+        "bytes": 25254
+      },
+      {
+        "width": 960,
+        "height": 962,
+        "src": "/work/media/trnscnd/trnscnd-03-960.webp",
+        "bytes": 104050
+      },
+      {
+        "width": 1196,
+        "height": 1198,
+        "src": "/work/media/trnscnd/trnscnd-03-1196.webp",
+        "bytes": 175324
+      }
+    ],
+    "type": "image",
+    "sha256": "4b5827964c61e732e9570ad7cce4c93fca16a3c359112b514a088494621170c0"
+  },
+  "trnscnd-04": {
+    "width": 1196,
+    "height": 1196,
+    "colour": "#6fbbe7",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/trnscnd/trnscnd-04-480.webp",
+        "bytes": 32688
+      },
+      {
+        "width": 960,
+        "height": 960,
+        "src": "/work/media/trnscnd/trnscnd-04-960.webp",
+        "bytes": 108964
+      },
+      {
+        "width": 1196,
+        "height": 1196,
+        "src": "/work/media/trnscnd/trnscnd-04-1196.webp",
+        "bytes": 175272
+      }
+    ],
+    "type": "image",
+    "sha256": "7329090e5701b459799f976c6d584595e425a8651a2327bc2237f9c4bda29d61"
+  },
+  "trnscnd-05": {
+    "width": 1196,
+    "height": 1196,
+    "colour": "#d5c9eb",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/trnscnd/trnscnd-05-480.webp",
+        "bytes": 4504
+      },
+      {
+        "width": 960,
+        "height": 960,
+        "src": "/work/media/trnscnd/trnscnd-05-960.webp",
+        "bytes": 10864
+      },
+      {
+        "width": 1196,
+        "height": 1196,
+        "src": "/work/media/trnscnd/trnscnd-05-1196.webp",
+        "bytes": 14466
+      }
+    ],
+    "type": "image",
+    "sha256": "805f817ef2358a4632494985093cc256f48ae392e9f7fe68477e8a789afb8f70"
+  },
+  "trnscnd-06": {
+    "width": 1194,
+    "height": 1194,
+    "colour": "#c0a1de",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/trnscnd/trnscnd-06-480.webp",
+        "bytes": 11874
+      },
+      {
+        "width": 960,
+        "height": 960,
+        "src": "/work/media/trnscnd/trnscnd-06-960.webp",
+        "bytes": 39162
+      },
+      {
+        "width": 1194,
+        "height": 1194,
+        "src": "/work/media/trnscnd/trnscnd-06-1194.webp",
+        "bytes": 56272
+      }
+    ],
+    "type": "image",
+    "sha256": "4b08ecba284750b33e23f07398ec1320d5b0ec116e9194b9fd91c67670763876"
+  },
+  "trnscnd-07": {
+    "width": 1194,
+    "height": 1196,
+    "colour": "#d7c7ed",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 481,
+        "src": "/work/media/trnscnd/trnscnd-07-480.webp",
+        "bytes": 4354
+      },
+      {
+        "width": 960,
+        "height": 962,
+        "src": "/work/media/trnscnd/trnscnd-07-960.webp",
+        "bytes": 10378
+      },
+      {
+        "width": 1194,
+        "height": 1196,
+        "src": "/work/media/trnscnd/trnscnd-07-1194.webp",
+        "bytes": 14176
+      }
+    ],
+    "type": "image",
+    "sha256": "02a34c287dcba75f0d3db0e79d2cfa8a67a027a875c993266a86f661f648989e"
+  },
+  "wow-protein-donuts-01": {
+    "width": 2500,
+    "height": 1500,
+    "colour": "#3d3f48",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 288,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-01-480.webp",
+        "bytes": 4776
+      },
+      {
+        "width": 960,
+        "height": 576,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-01-960.webp",
+        "bytes": 13348
+      },
+      {
+        "width": 1600,
+        "height": 960,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-01-1600.webp",
+        "bytes": 29876
+      },
+      {
+        "width": 1600,
+        "height": 960,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-01-1600.webp",
+        "bytes": 29876
+      }
+    ],
+    "type": "image",
+    "sha256": "596bb7a68050bdb8a7209d98f59815c1fd5074d6ab2ccd1f87a58de465097ad0"
+  },
+  "wow-protein-donuts-02": {
+    "width": 668,
+    "height": 668,
+    "colour": "#f17d89",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-02-480.webp",
+        "bytes": 5632
+      },
+      {
+        "width": 668,
+        "height": 668,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-02-668.webp",
+        "bytes": 8588
+      }
+    ],
+    "type": "image",
+    "sha256": "7ffbf8b3a738c2699a39b91a73bccec6caf053cdbebe2f3d96bd804b4704f7ac"
+  },
+  "wow-protein-donuts-03": {
+    "width": 666,
+    "height": 668,
+    "colour": "#8ac5e2",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 481,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-03-480.webp",
+        "bytes": 8876
+      },
+      {
+        "width": 666,
+        "height": 668,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-03-666.webp",
+        "bytes": 14386
+      }
+    ],
+    "type": "image",
+    "sha256": "5b383c2161b9cdb50b02ea32235987a2f93b81ee9a3c7f41ff492df68ea20e24"
+  },
+  "wow-protein-donuts-04": {
+    "width": 668,
+    "height": 668,
+    "colour": "#df81a3",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-04-480.webp",
+        "bytes": 7848
+      },
+      {
+        "width": 668,
+        "height": 668,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-04-668.webp",
+        "bytes": 10864
+      }
+    ],
+    "type": "image",
+    "sha256": "226b89bec37bbb53bbd87f90c9bf9fc178065a7e1c2719ee80e7858dbfd958dc"
+  },
+  "wow-protein-donuts-05": {
+    "width": 668,
+    "height": 668,
+    "colour": "#d390ad",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-05-480.webp",
+        "bytes": 10628
+      },
+      {
+        "width": 668,
+        "height": 668,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-05-668.webp",
+        "bytes": 17162
+      }
+    ],
+    "type": "image",
+    "sha256": "bb8dc473162fccbe4dc4f2bbe748a365eaff178ef753a54abdfd53465d848029"
+  },
+  "wow-protein-donuts-06": {
+    "width": 668,
+    "height": 668,
+    "colour": "#c3a5b9",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-06-480.webp",
+        "bytes": 24074
+      },
+      {
+        "width": 668,
+        "height": 668,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-06-668.webp",
+        "bytes": 40824
+      }
+    ],
+    "type": "image",
+    "sha256": "c3dd7a36c7ac3aab976f63b78e89cff464e9611e31773b544a63a025c5c24465"
+  },
+  "wow-protein-donuts-07": {
+    "width": 1196,
+    "height": 1196,
+    "colour": "#a9abd0",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-07-480.webp",
+        "bytes": 6938
+      },
+      {
+        "width": 960,
+        "height": 960,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-07-960.webp",
+        "bytes": 15926
+      },
+      {
+        "width": 1196,
+        "height": 1196,
+        "src": "/work/media/wow-protein-donuts/wow-protein-donuts-07-1196.webp",
+        "bytes": 21708
+      }
+    ],
+    "type": "image",
+    "sha256": "c8cf772bcf47e57494da433823f5287cb521d8edc0d29823f6665df3d18b2acf"
+  },
+  "arts-thread-gdgs-01": {
+    "width": 1079,
+    "height": 1079,
+    "colour": "#ae856d",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 480,
+        "src": "/work/media/arts-thread-gdgs/arts-thread-gdgs-01-480.webp",
+        "bytes": 17946
+      },
+      {
+        "width": 960,
+        "height": 960,
+        "src": "/work/media/arts-thread-gdgs/arts-thread-gdgs-01-960.webp",
+        "bytes": 36042
+      },
+      {
+        "width": 1079,
+        "height": 1079,
+        "src": "/work/media/arts-thread-gdgs/arts-thread-gdgs-01-1079.webp",
+        "bytes": 43718
+      }
+    ],
+    "type": "image",
+    "sha256": "6688547a9f20c8141e3281ab163aaf10523ece0bc73266589e3e77905ed9abd3"
+  },
+  "audi-driven-by-art-06": {
+    "width": 640,
+    "height": 360,
+    "colour": "#89867e",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 270,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-06-480.webp",
+        "bytes": 14980
+      },
+      {
+        "width": 640,
+        "height": 360,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-06-640.webp",
+        "bytes": 20574
+      }
+    ],
+    "type": "image",
+    "sha256": "c77b5a05fec8551b08d891658d34ed68329724592926a80fe28a887d856b4265"
+  },
+  "baccarat-01": {
+    "width": 1988,
+    "height": 990,
+    "colour": "#d2daf1",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 239,
+        "src": "/work/media/baccarat/baccarat-01-480.webp",
+        "bytes": 28502
+      },
+      {
+        "width": 960,
+        "height": 478,
+        "src": "/work/media/baccarat/baccarat-01-960.webp",
+        "bytes": 85328
+      },
+      {
+        "width": 1600,
+        "height": 797,
+        "src": "/work/media/baccarat/baccarat-01-1600.webp",
+        "bytes": 170082
+      },
+      {
+        "width": 1600,
+        "height": 797,
+        "src": "/work/media/baccarat/baccarat-01-1600.webp",
+        "bytes": 170082
+      }
+    ],
+    "type": "image",
+    "sha256": "a249089b4ed4098185b7a27028b467c70ab1592aeabc417d8e5efdc66f0d826b"
+  },
+  "social-media-design-01": {
+    "width": 3800,
+    "height": 2500,
+    "colour": "#4b8041",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 316,
+        "src": "/work/media/social-media-design/social-media-design-01-480.webp",
+        "bytes": 28346
+      },
+      {
+        "width": 960,
+        "height": 632,
+        "src": "/work/media/social-media-design/social-media-design-01-960.webp",
+        "bytes": 95326
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-01-1600.webp",
+        "bytes": 274888
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-01-1600.webp",
+        "bytes": 274888
+      }
+    ],
+    "type": "image",
+    "sha256": "eae0f394a2c6ec3667a2185c6bfe7da6cd643d17b969acd139ad68534c360c29"
+  },
+  "social-media-design-02": {
+    "width": 3800,
+    "height": 2500,
+    "colour": "#87295a",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 316,
+        "src": "/work/media/social-media-design/social-media-design-02-480.webp",
+        "bytes": 22552
+      },
+      {
+        "width": 960,
+        "height": 632,
+        "src": "/work/media/social-media-design/social-media-design-02-960.webp",
+        "bytes": 64214
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-02-1600.webp",
+        "bytes": 138878
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-02-1600.webp",
+        "bytes": 138878
+      }
+    ],
+    "type": "image",
+    "sha256": "d9f6b85ba131089de6060519e758a97b01e3d3aed831d44731050cabbfc53793"
+  },
+  "social-media-design-03": {
+    "width": 3800,
+    "height": 2500,
+    "colour": "#86914d",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 316,
+        "src": "/work/media/social-media-design/social-media-design-03-480.webp",
+        "bytes": 21234
+      },
+      {
+        "width": 960,
+        "height": 632,
+        "src": "/work/media/social-media-design/social-media-design-03-960.webp",
+        "bytes": 61848
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-03-1600.webp",
+        "bytes": 138792
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-03-1600.webp",
+        "bytes": 138792
+      }
+    ],
+    "type": "image",
+    "sha256": "c1e3dc466d1114e259c6fa564ff376111b1bc113b3a7c7c9a4490ba226365127"
+  },
+  "social-media-design-04": {
+    "width": 3800,
+    "height": 2500,
+    "colour": "#c09bb2",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 316,
+        "src": "/work/media/social-media-design/social-media-design-04-480.webp",
+        "bytes": 21644
+      },
+      {
+        "width": 960,
+        "height": 632,
+        "src": "/work/media/social-media-design/social-media-design-04-960.webp",
+        "bytes": 58152
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-04-1600.webp",
+        "bytes": 124474
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-04-1600.webp",
+        "bytes": 124474
+      }
+    ],
+    "type": "image",
+    "sha256": "1822d4b9673efb5e4507e8dd77148cbadf6c5602818c5dd0c4c9ec0092107504"
+  },
+  "social-media-design-05": {
+    "width": 3800,
+    "height": 2500,
+    "colour": "#89519f",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 316,
+        "src": "/work/media/social-media-design/social-media-design-05-480.webp",
+        "bytes": 24608
+      },
+      {
+        "width": 960,
+        "height": 632,
+        "src": "/work/media/social-media-design/social-media-design-05-960.webp",
+        "bytes": 69420
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-05-1600.webp",
+        "bytes": 150526
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-05-1600.webp",
+        "bytes": 150526
+      }
+    ],
+    "type": "image",
+    "sha256": "a51c216c8b04306f4b6f3681e9af5b19ed24bddf2c993823bd6c25fd6cd76135"
+  },
+  "social-media-design-06": {
+    "width": 3800,
+    "height": 2500,
+    "colour": "#a15938",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 316,
+        "src": "/work/media/social-media-design/social-media-design-06-480.webp",
+        "bytes": 24840
+      },
+      {
+        "width": 960,
+        "height": 632,
+        "src": "/work/media/social-media-design/social-media-design-06-960.webp",
+        "bytes": 76452
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-06-1600.webp",
+        "bytes": 178162
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-06-1600.webp",
+        "bytes": 178162
+      }
+    ],
+    "type": "image",
+    "sha256": "8d6ca4ffc50cc784e95088220753641186b276605556264dabc5fb65935de3c6"
+  },
+  "social-media-design-07": {
+    "width": 3800,
+    "height": 2500,
+    "colour": "#4290ad",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 316,
+        "src": "/work/media/social-media-design/social-media-design-07-480.webp",
+        "bytes": 27614
+      },
+      {
+        "width": 960,
+        "height": 632,
+        "src": "/work/media/social-media-design/social-media-design-07-960.webp",
+        "bytes": 81452
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-07-1600.webp",
+        "bytes": 181400
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-07-1600.webp",
+        "bytes": 181400
+      }
+    ],
+    "type": "image",
+    "sha256": "5fe1850967941453ff41e6b5f21569567aa91535ddfedfc9907e4399cd59ab85"
+  },
+  "social-media-design-08": {
+    "width": 2917,
+    "height": 11503,
+    "colour": "#d7d5d0",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 1893,
+        "src": "/work/media/social-media-design/social-media-design-08-480.webp",
+        "bytes": 117592
+      },
+      {
+        "width": 960,
+        "height": 3786,
+        "src": "/work/media/social-media-design/social-media-design-08-960.webp",
+        "bytes": 367418
+      },
+      {
+        "width": 1600,
+        "height": 6309,
+        "src": "/work/media/social-media-design/social-media-design-08-1600.webp",
+        "bytes": 808716
+      },
+      {
+        "width": 1600,
+        "height": 6309,
+        "src": "/work/media/social-media-design/social-media-design-08-1600.webp",
+        "bytes": 808716
+      }
+    ],
+    "type": "image",
+    "sha256": "511b08b6f86b142bed276534399318683a903b2e855fdc3e7b8ffacc6fd24436"
+  },
+  "social-media-design-09": {
+    "width": 3800,
+    "height": 2500,
+    "colour": "#65738c",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 316,
+        "src": "/work/media/social-media-design/social-media-design-09-480.webp",
+        "bytes": 19728
+      },
+      {
+        "width": 960,
+        "height": 632,
+        "src": "/work/media/social-media-design/social-media-design-09-960.webp",
+        "bytes": 56764
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-09-1600.webp",
+        "bytes": 122468
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-09-1600.webp",
+        "bytes": 122468
+      }
+    ],
+    "type": "image",
+    "sha256": "ea5266928dabf763bff47eaddd5a9167624109bb5afb77f9de6b94dcbcd0e718"
+  },
+  "social-media-design-10": {
+    "width": 3800,
+    "height": 2500,
+    "colour": "#a9adae",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 316,
+        "src": "/work/media/social-media-design/social-media-design-10-480.webp",
+        "bytes": 15684
+      },
+      {
+        "width": 960,
+        "height": 632,
+        "src": "/work/media/social-media-design/social-media-design-10-960.webp",
+        "bytes": 43738
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-10-1600.webp",
+        "bytes": 94126
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-10-1600.webp",
+        "bytes": 94126
+      }
+    ],
+    "type": "image",
+    "sha256": "aa6ca8423263eaec5930d85b5cdf344f622c5ce003457c53766f2592abb22e66"
+  },
+  "social-media-design-11": {
+    "width": 3800,
+    "height": 2500,
+    "colour": "#97c9a6",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 316,
+        "src": "/work/media/social-media-design/social-media-design-11-480.webp",
+        "bytes": 17844
+      },
+      {
+        "width": 960,
+        "height": 632,
+        "src": "/work/media/social-media-design/social-media-design-11-960.webp",
+        "bytes": 51712
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-11-1600.webp",
+        "bytes": 117694
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-11-1600.webp",
+        "bytes": 117694
+      }
+    ],
+    "type": "image",
+    "sha256": "38bcf1bbd1fd9a1016a137e1d0bb0f1b81ea921da6644906bd724ecc5498debe"
+  },
+  "social-media-design-12": {
+    "width": 3800,
+    "height": 2500,
+    "colour": "#6284a9",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 316,
+        "src": "/work/media/social-media-design/social-media-design-12-480.webp",
+        "bytes": 20302
+      },
+      {
+        "width": 960,
+        "height": 632,
+        "src": "/work/media/social-media-design/social-media-design-12-960.webp",
+        "bytes": 59858
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-12-1600.webp",
+        "bytes": 135654
+      },
+      {
+        "width": 1600,
+        "height": 1053,
+        "src": "/work/media/social-media-design/social-media-design-12-1600.webp",
+        "bytes": 135654
+      }
+    ],
+    "type": "image",
+    "sha256": "db144d0ba399292e2f68d87acf1029923d969fe18191b5487dbccbc9aaca07f6"
+  },
+  "beyond-catstore-01": {
+    "width": 12000,
+    "height": 6000,
+    "colour": "#97938b",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 240,
+        "src": "/work/media/beyond-catstore/beyond-catstore-01-480.webp",
+        "bytes": 25636
+      },
+      {
+        "width": 960,
+        "height": 480,
+        "src": "/work/media/beyond-catstore/beyond-catstore-01-960.webp",
+        "bytes": 76402
+      },
+      {
+        "width": 1600,
+        "height": 800,
+        "src": "/work/media/beyond-catstore/beyond-catstore-01-1600.webp",
+        "bytes": 170828
+      },
+      {
+        "width": 1600,
+        "height": 800,
+        "src": "/work/media/beyond-catstore/beyond-catstore-01-1600.webp",
+        "bytes": 170828
+      }
+    ],
+    "type": "image",
+    "sha256": "b44ddd177d43103ecd17c530e74b6ec0720a0c15e91fa1b64ec57fb01c28e4d1"
+  },
+  "bugatti-asprey-nft-01": {
+    "width": 448,
+    "height": 560,
+    "colour": "#d3cece",
+    "sizes": [
+      {
+        "width": 448,
+        "height": 560,
+        "src": "/work/media/bugatti-asprey-nft/bugatti-asprey-nft-01-448.webp",
+        "bytes": 7934
+      }
+    ],
+    "type": "image",
+    "sha256": "34833f0b0035304c4da88056a7affe08ccd21686d2a95d607d7d654aafd9ac67"
+  },
+  "diesel-01": {
+    "width": 2536,
+    "height": 1570,
+    "colour": "#2933a0",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 297,
+        "src": "/work/media/diesel/diesel-01-480.webp",
+        "bytes": 9268
+      },
+      {
+        "width": 960,
+        "height": 594,
+        "src": "/work/media/diesel/diesel-01-960.webp",
+        "bytes": 25996
+      },
+      {
+        "width": 1600,
+        "height": 991,
+        "src": "/work/media/diesel/diesel-01-1600.webp",
+        "bytes": 52992
+      },
+      {
+        "width": 1600,
+        "height": 991,
+        "src": "/work/media/diesel/diesel-01-1600.webp",
+        "bytes": 52992
+      }
+    ],
+    "type": "image",
+    "sha256": "a9f27e9f556862f8293c85a1ab6aea9108693a0ca17caae9aa9a33137e87bd11"
+  },
+  "diptyk-14": {
+    "width": 2136,
+    "height": 1508,
+    "colour": "#e8cfc5",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 339,
+        "src": "/work/media/diptyk/diptyk-14-480.webp",
+        "bytes": 6070
+      },
+      {
+        "width": 960,
+        "height": 678,
+        "src": "/work/media/diptyk/diptyk-14-960.webp",
+        "bytes": 17634
+      },
+      {
+        "width": 1600,
+        "height": 1130,
+        "src": "/work/media/diptyk/diptyk-14-1600.webp",
+        "bytes": 36158
+      },
+      {
+        "width": 1600,
+        "height": 1130,
+        "src": "/work/media/diptyk/diptyk-14-1600.webp",
+        "bytes": 36158
+      }
+    ],
+    "type": "image",
+    "sha256": "9714c7969498d399d53b971afb6382d2ed31f9a201f0b7cd0d09599434c01d12"
+  },
+  "doc-hygiene-usa-01": {
+    "width": 2490,
+    "height": 1452,
+    "colour": "#cbc8c1",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 280,
+        "src": "/work/media/doc-hygiene-usa/doc-hygiene-usa-01-480.webp",
+        "bytes": 14430
+      },
+      {
+        "width": 960,
+        "height": 560,
+        "src": "/work/media/doc-hygiene-usa/doc-hygiene-usa-01-960.webp",
+        "bytes": 40688
+      },
+      {
+        "width": 1600,
+        "height": 933,
+        "src": "/work/media/doc-hygiene-usa/doc-hygiene-usa-01-1600.webp",
+        "bytes": 78782
+      },
+      {
+        "width": 1600,
+        "height": 933,
+        "src": "/work/media/doc-hygiene-usa/doc-hygiene-usa-01-1600.webp",
+        "bytes": 78782
+      }
+    ],
+    "type": "image",
+    "sha256": "99dbd35c4b36e9ded8a79a0d205802b1e225ad83c2908043d5f04f571a22a255"
+  },
+  "eu-unido-creative-mediterranean-01": {
+    "width": 3508,
+    "height": 2480,
+    "colour": "#8f8780",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 339,
+        "src": "/work/media/eu-unido-creative-mediterranean/eu-unido-creative-mediterranean-01-480.webp",
+        "bytes": 27992
+      },
+      {
+        "width": 960,
+        "height": 679,
+        "src": "/work/media/eu-unido-creative-mediterranean/eu-unido-creative-mediterranean-01-960.webp",
+        "bytes": 79468
+      },
+      {
+        "width": 1600,
+        "height": 1131,
+        "src": "/work/media/eu-unido-creative-mediterranean/eu-unido-creative-mediterranean-01-1600.webp",
+        "bytes": 161076
+      },
+      {
+        "width": 1600,
+        "height": 1131,
+        "src": "/work/media/eu-unido-creative-mediterranean/eu-unido-creative-mediterranean-01-1600.webp",
+        "bytes": 161076
+      }
+    ],
+    "type": "image",
+    "sha256": "d104ada8f56625f4acc7f43acf980dd92ee96f8e712e233dcc6cd66937160b66"
+  },
+  "french-tennis-federation-01": {
+    "width": 1986,
+    "height": 962,
+    "colour": "#608792",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 233,
+        "src": "/work/media/french-tennis-federation/french-tennis-federation-01-480.webp",
+        "bytes": 16328
+      },
+      {
+        "width": 960,
+        "height": 465,
+        "src": "/work/media/french-tennis-federation/french-tennis-federation-01-960.webp",
+        "bytes": 40536
+      },
+      {
+        "width": 1600,
+        "height": 775,
+        "src": "/work/media/french-tennis-federation/french-tennis-federation-01-1600.webp",
+        "bytes": 74280
+      },
+      {
+        "width": 1600,
+        "height": 775,
+        "src": "/work/media/french-tennis-federation/french-tennis-federation-01-1600.webp",
+        "bytes": 74280
+      }
+    ],
+    "type": "image",
+    "sha256": "bb47b04df7a3188d33130d1103630e48339b7b5850ec09df16b7ca5b51048e60"
+  },
+  "arts-thread-gdgs-02": {
+    "width": 2642,
+    "height": 1476,
+    "colour": "#6b645e",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 268,
+        "src": "/work/media/arts-thread-gdgs/arts-thread-gdgs-02-480.webp",
+        "bytes": 33960
+      },
+      {
+        "width": 960,
+        "height": 536,
+        "src": "/work/media/arts-thread-gdgs/arts-thread-gdgs-02-960.webp",
+        "bytes": 85196
+      },
+      {
+        "width": 1600,
+        "height": 894,
+        "src": "/work/media/arts-thread-gdgs/arts-thread-gdgs-02-1600.webp",
+        "bytes": 153782
+      },
+      {
+        "width": 1600,
+        "height": 894,
+        "src": "/work/media/arts-thread-gdgs/arts-thread-gdgs-02-1600.webp",
+        "bytes": 153782
+      }
+    ],
+    "type": "image",
+    "sha256": "6a7f874eb625dd5f0268e47a4e79f6a3742012d7a90a774c6675c54ce1a31639"
+  },
+  "arts-thread-gdgs-03": {
+    "width": 752,
+    "height": 423,
+    "colour": "#523f4a",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 270,
+        "src": "/work/media/arts-thread-gdgs/arts-thread-gdgs-03-480.webp",
+        "bytes": 15452
+      },
+      {
+        "width": 752,
+        "height": 423,
+        "src": "/work/media/arts-thread-gdgs/arts-thread-gdgs-03-752.webp",
+        "bytes": 27320
+      }
+    ],
+    "type": "image",
+    "sha256": "fe811cad9f046230e61bfce48f2083d9df8c25123a6cc4d8fcbbf5cdec7fa46d"
+  },
+  "hanoot-01": {
+    "width": 202,
+    "height": 158,
+    "colour": "#9e8a52",
+    "sizes": [
+      {
+        "width": 202,
+        "height": 158,
+        "src": "/work/media/hanoot/hanoot-01-202.webp",
+        "bytes": 5422
+      }
+    ],
+    "type": "image",
+    "sha256": "544644d030dcd3f64e24d71d746d972e13ce864265ea35349ee08f9f06bd8a72"
+  },
+  "hiya-magazine-paris-01": {
+    "width": 2518,
+    "height": 1496,
+    "colour": "#ad862e",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 285,
+        "src": "/work/media/hiya-magazine-paris/hiya-magazine-paris-01-480.webp",
+        "bytes": 5518
+      },
+      {
+        "width": 960,
+        "height": 570,
+        "src": "/work/media/hiya-magazine-paris/hiya-magazine-paris-01-960.webp",
+        "bytes": 15282
+      },
+      {
+        "width": 1600,
+        "height": 951,
+        "src": "/work/media/hiya-magazine-paris/hiya-magazine-paris-01-1600.webp",
+        "bytes": 30530
+      },
+      {
+        "width": 1600,
+        "height": 951,
+        "src": "/work/media/hiya-magazine-paris/hiya-magazine-paris-01-1600.webp",
+        "bytes": 30530
+      }
+    ],
+    "type": "image",
+    "sha256": "0113e2455c5dbb8536df1f1402eb4bc6d0ee40f900ef5e1d325d26dc52e29fc2"
+  },
+  "iom-compass-01": {
+    "width": 1200,
+    "height": 630,
+    "colour": "#5b6795",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 252,
+        "src": "/work/media/iom-compass/iom-compass-01-480.webp",
+        "bytes": 22898
+      },
+      {
+        "width": 960,
+        "height": 504,
+        "src": "/work/media/iom-compass/iom-compass-01-960.webp",
+        "bytes": 65930
+      },
+      {
+        "width": 1200,
+        "height": 630,
+        "src": "/work/media/iom-compass/iom-compass-01-1200.webp",
+        "bytes": 91698
+      }
+    ],
+    "type": "image",
+    "sha256": "b0a4ac84bdabc4ad30e22da3efda781a5f2c5e88a45f696ed56b708b3b4539a3"
+  },
+  "jolt-qatar-01": {
+    "width": 2526,
+    "height": 1544,
+    "colour": "#96aaed",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 293,
+        "src": "/work/media/jolt-qatar/jolt-qatar-01-480.webp",
+        "bytes": 9334
+      },
+      {
+        "width": 960,
+        "height": 587,
+        "src": "/work/media/jolt-qatar/jolt-qatar-01-960.webp",
+        "bytes": 24130
+      },
+      {
+        "width": 1600,
+        "height": 978,
+        "src": "/work/media/jolt-qatar/jolt-qatar-01-1600.webp",
+        "bytes": 47516
+      },
+      {
+        "width": 1600,
+        "height": 978,
+        "src": "/work/media/jolt-qatar/jolt-qatar-01-1600.webp",
+        "bytes": 47516
+      }
+    ],
+    "type": "image",
+    "sha256": "dd00689ffc9820c8fe6c580a7bd8bc474ccc3e0b6835e96cced0714be59d57ea"
+  },
+  "la-lakers-01": {
+    "width": 1172,
+    "height": 1144,
+    "colour": "#77605d",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 469,
+        "src": "/work/media/la-lakers/la-lakers-01-480.webp",
+        "bytes": 41260
+      },
+      {
+        "width": 960,
+        "height": 937,
+        "src": "/work/media/la-lakers/la-lakers-01-960.webp",
+        "bytes": 102354
+      },
+      {
+        "width": 1172,
+        "height": 1144,
+        "src": "/work/media/la-lakers/la-lakers-01-1172.webp",
+        "bytes": 129480
+      }
+    ],
+    "type": "image",
+    "sha256": "0cca3148abaf5e6890a07ed91fa696d188e774d2678594b9b03672a7d10dc59f"
+  },
+  "la-minute-creative-02": {
+    "width": 480,
+    "height": 360,
+    "colour": "#564b40",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/la-minute-creative/la-minute-creative-02-480.webp",
+        "bytes": 12494
+      }
+    ],
+    "type": "image",
+    "sha256": "ea85bd7ec35996ffe5414b25ef0b6a441e480e8172e1028dea56ba45bbac2ba0"
+  },
+  "la-minute-creative-03": {
+    "width": 480,
+    "height": 360,
+    "colour": "#54463a",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/la-minute-creative/la-minute-creative-03-480.webp",
+        "bytes": 11336
+      }
+    ],
+    "type": "image",
+    "sha256": "21f3a3e1085372000e1d605e9605f1a127a2b8b5a3150fbba5facf95737555e6"
+  },
+  "la-minute-creative-04": {
+    "width": 480,
+    "height": 360,
+    "colour": "#5e5547",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/la-minute-creative/la-minute-creative-04-480.webp",
+        "bytes": 13796
+      }
+    ],
+    "type": "image",
+    "sha256": "12dabde34d2b639a4a29454553d65b31c57df37ddfc95a9040145c5d31717cc5"
+  },
+  "la-minute-creative-05": {
+    "width": 480,
+    "height": 360,
+    "colour": "#8a8788",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/la-minute-creative/la-minute-creative-05-480.webp",
+        "bytes": 11450
+      }
+    ],
+    "type": "image",
+    "sha256": "e94c9d9b335de7dcfb290ee58670a6486dfb0d329b8294e28680e769213467f5"
+  },
+  "la-minute-creative-06": {
+    "width": 480,
+    "height": 360,
+    "colour": "#6e6b68",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/la-minute-creative/la-minute-creative-06-480.webp",
+        "bytes": 23118
+      }
+    ],
+    "type": "image",
+    "sha256": "407532dbc1c78b2141f9d36d39f3b11f55e8cddca9e320f5d6e0301c6f3475a1"
+  },
+  "laly-couture-01": {
+    "width": 1780,
+    "height": 1264,
+    "colour": "#937c70",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 341,
+        "src": "/work/media/laly-couture/laly-couture-01-480.webp",
+        "bytes": 26828
+      },
+      {
+        "width": 960,
+        "height": 682,
+        "src": "/work/media/laly-couture/laly-couture-01-960.webp",
+        "bytes": 66224
+      },
+      {
+        "width": 1600,
+        "height": 1136,
+        "src": "/work/media/laly-couture/laly-couture-01-1600.webp",
+        "bytes": 114534
+      },
+      {
+        "width": 1600,
+        "height": 1136,
+        "src": "/work/media/laly-couture/laly-couture-01-1600.webp",
+        "bytes": 114534
+      }
+    ],
+    "type": "image",
+    "sha256": "836588fe0411aaae2a54ad56d750b05e19dcfa50e816367d7c9ebca2b8c3a93a"
+  },
+  "lamanche-01": {
+    "width": 1024,
+    "height": 1280,
+    "colour": "#b6afb2",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 600,
+        "src": "/work/media/lamanche/lamanche-01-480.webp",
+        "bytes": 10400
+      },
+      {
+        "width": 960,
+        "height": 1200,
+        "src": "/work/media/lamanche/lamanche-01-960.webp",
+        "bytes": 28410
+      },
+      {
+        "width": 1024,
+        "height": 1280,
+        "src": "/work/media/lamanche/lamanche-01-1024.webp",
+        "bytes": 31096
+      }
+    ],
+    "type": "image",
+    "sha256": "552939cdc6222a94021be9aab90decda55c76bde747cd2aa45863a07ce428c51"
+  },
+  "lit-action-usa-01": {
+    "width": 2524,
+    "height": 1446,
+    "colour": "#d75a58",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 275,
+        "src": "/work/media/lit-action-usa/lit-action-usa-01-480.webp",
+        "bytes": 8088
+      },
+      {
+        "width": 960,
+        "height": 550,
+        "src": "/work/media/lit-action-usa/lit-action-usa-01-960.webp",
+        "bytes": 24902
+      },
+      {
+        "width": 1600,
+        "height": 917,
+        "src": "/work/media/lit-action-usa/lit-action-usa-01-1600.webp",
+        "bytes": 56084
+      },
+      {
+        "width": 1600,
+        "height": 917,
+        "src": "/work/media/lit-action-usa/lit-action-usa-01-1600.webp",
+        "bytes": 56084
+      }
+    ],
+    "type": "image",
+    "sha256": "4f2591d44d938783c1b72943c3c19105bd5a9e457db073c0fcc3783685c87ef8"
+  },
+  "marrakech-creative-interiors-cluster-01": {
+    "width": 480,
+    "height": 360,
+    "colour": "#3f3b34",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/marrakech-creative-interiors-cluster/marrakech-creative-interiors-cluster-01-480.webp",
+        "bytes": 10850
+      }
+    ],
+    "type": "image",
+    "sha256": "299bf95c5f71dc8c7a864ebec708bdae9c269c3706f3f2cca1542c09804c68a4"
+  },
+  "marrakech-creative-interiors-cluster-02": {
+    "width": 480,
+    "height": 360,
+    "colour": "#69574b",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/marrakech-creative-interiors-cluster/marrakech-creative-interiors-cluster-02-480.webp",
+        "bytes": 23804
+      }
+    ],
+    "type": "image",
+    "sha256": "26da25079dd95a8982cb26dd8bb0bdd4f39d443ae4db82115b910196e9b2a767"
+  },
+  "marrakech-creative-interiors-cluster-03": {
+    "width": 480,
+    "height": 360,
+    "colour": "#4d353c",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/marrakech-creative-interiors-cluster/marrakech-creative-interiors-cluster-03-480.webp",
+        "bytes": 17442
+      }
+    ],
+    "type": "image",
+    "sha256": "b38478f79a11e4c534f463d758cc6f91251fbacedb82bb5f053fe82ee14414e2"
+  },
+  "marrakech-creative-interiors-cluster-04": {
+    "width": 480,
+    "height": 360,
+    "colour": "#3a2e25",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/marrakech-creative-interiors-cluster/marrakech-creative-interiors-cluster-04-480.webp",
+        "bytes": 20384
+      }
+    ],
+    "type": "image",
+    "sha256": "d2684d39b20df456d4c97cfcc51bf04f738a51c521b925e48c67ae6afed22d0b"
+  },
+  "marrakech-creative-interiors-cluster-05": {
+    "width": 480,
+    "height": 360,
+    "colour": "#363935",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/marrakech-creative-interiors-cluster/marrakech-creative-interiors-cluster-05-480.webp",
+        "bytes": 11016
+      }
+    ],
+    "type": "image",
+    "sha256": "a0bbea02f81f7b4c65da6a988466d0a803b73a57e2447db955f280036a894841"
+  },
+  "marrakech-poker-open-01": {
+    "width": 404,
+    "height": 316,
+    "colour": "#7e9077",
+    "sizes": [
+      {
+        "width": 404,
+        "height": 316,
+        "src": "/work/media/marrakech-poker-open/marrakech-poker-open-01-404.webp",
+        "bytes": 13946
+      }
+    ],
+    "type": "image",
+    "sha256": "b6b99a16721e2a5d93b4a497ae46cf0fee81d4dc4c52a20080cb6e4053bfc3b9"
+  },
+  "moodys-medicinals-01": {
+    "width": 1080,
+    "height": 1920,
+    "colour": "#878368",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 853,
+        "src": "/work/media/moodys-medicinals/moodys-medicinals-01-480.webp",
+        "bytes": 40260
+      },
+      {
+        "width": 960,
+        "height": 1707,
+        "src": "/work/media/moodys-medicinals/moodys-medicinals-01-960.webp",
+        "bytes": 94510
+      },
+      {
+        "width": 1080,
+        "height": 1920,
+        "src": "/work/media/moodys-medicinals/moodys-medicinals-01-1080.webp",
+        "bytes": 108556
+      }
+    ],
+    "type": "image",
+    "sha256": "5fcaf04abc0a5a8c7403164287b79e71df2c1421ab1a94ecb1bac86c4e3a2801"
+  },
+  "mysticspur-01": {
+    "width": 1920,
+    "height": 1080,
+    "colour": "#e8d6b4",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 270,
+        "src": "/work/media/mysticspur/mysticspur-01-480.webp",
+        "bytes": 3470
+      },
+      {
+        "width": 960,
+        "height": 540,
+        "src": "/work/media/mysticspur/mysticspur-01-960.webp",
+        "bytes": 7776
+      },
+      {
+        "width": 1600,
+        "height": 900,
+        "src": "/work/media/mysticspur/mysticspur-01-1600.webp",
+        "bytes": 14494
+      },
+      {
+        "width": 1600,
+        "height": 900,
+        "src": "/work/media/mysticspur/mysticspur-01-1600.webp",
+        "bytes": 14494
+      }
+    ],
+    "type": "image",
+    "sha256": "d3d4e5e0be205694ccf57e9632057b4a4fcde84c117db9c820343c5b75399c3f"
+  },
+  "oif-francophonie-01": {
+    "width": 800,
+    "height": 514,
+    "colour": "#a8afab",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 308,
+        "src": "/work/media/oif-francophonie/oif-francophonie-01-480.webp",
+        "bytes": 13664
+      },
+      {
+        "width": 800,
+        "height": 514,
+        "src": "/work/media/oif-francophonie/oif-francophonie-01-800.webp",
+        "bytes": 22604
+      }
+    ],
+    "type": "image",
+    "sha256": "bd7d9a7a10a02c2cc6ecebd26d9b44567db654c3d4e1c103f6e6244c3e7f7fa9"
+  },
+  "stan-wawrinka-01": {
+    "width": 2768,
+    "height": 1138,
+    "colour": "#1b142d",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 197,
+        "src": "/work/media/stan-wawrinka/stan-wawrinka-01-480.webp",
+        "bytes": 10994
+      },
+      {
+        "width": 960,
+        "height": 395,
+        "src": "/work/media/stan-wawrinka/stan-wawrinka-01-960.webp",
+        "bytes": 29904
+      },
+      {
+        "width": 1600,
+        "height": 658,
+        "src": "/work/media/stan-wawrinka/stan-wawrinka-01-1600.webp",
+        "bytes": 56474
+      },
+      {
+        "width": 1600,
+        "height": 658,
+        "src": "/work/media/stan-wawrinka/stan-wawrinka-01-1600.webp",
+        "bytes": 56474
+      }
+    ],
+    "type": "image",
+    "sha256": "ccba83065287499e3ded555c92f7b7759d409714789f6100af66c72c0366e4a3"
+  },
+  "tribalist-africa-01": {
+    "width": 848,
+    "height": 480,
+    "colour": "#99877d",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 272,
+        "src": "/work/media/tribalist-africa/tribalist-africa-01-480.webp",
+        "bytes": 14528
+      },
+      {
+        "width": 848,
+        "height": 480,
+        "src": "/work/media/tribalist-africa/tribalist-africa-01-848.webp",
+        "bytes": 32270
+      }
+    ],
+    "type": "image",
+    "sha256": "a086a58784f1679108b0c9bea875055bdcfbc3a11b0403f59842516e81afb3ad"
+  },
+  "un-women-pwe-01": {
+    "width": 1200,
+    "height": 675,
+    "colour": "#dbd4df",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 270,
+        "src": "/work/media/un-women-pwe/un-women-pwe-01-480.webp",
+        "bytes": 13638
+      },
+      {
+        "width": 960,
+        "height": 540,
+        "src": "/work/media/un-women-pwe/un-women-pwe-01-960.webp",
+        "bytes": 31406
+      },
+      {
+        "width": 1200,
+        "height": 675,
+        "src": "/work/media/un-women-pwe/un-women-pwe-01-1200.webp",
+        "bytes": 40920
+      }
+    ],
+    "type": "image",
+    "sha256": "f12a397018f2f13f9ba1c45c2d0c7bd75fe4ad7f5a0e978e2324fba8f005ae94"
+  },
+  "unido-creative-mediterranean-01": {
+    "width": 3261,
+    "height": 1404,
+    "colour": "#f4f3f2",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 207,
+        "src": "/work/media/unido-creative-mediterranean/unido-creative-mediterranean-01-480.webp",
+        "bytes": 5740
+      },
+      {
+        "width": 960,
+        "height": 413,
+        "src": "/work/media/unido-creative-mediterranean/unido-creative-mediterranean-01-960.webp",
+        "bytes": 12028
+      },
+      {
+        "width": 1600,
+        "height": 689,
+        "src": "/work/media/unido-creative-mediterranean/unido-creative-mediterranean-01-1600.webp",
+        "bytes": 20116
+      },
+      {
+        "width": 1600,
+        "height": 689,
+        "src": "/work/media/unido-creative-mediterranean/unido-creative-mediterranean-01-1600.webp",
+        "bytes": 20116
+      }
+    ],
+    "type": "image",
+    "sha256": "ed57baacc13c33e108dc900ef5542005317f5e3dd5aab67cf99898315f7b4f8c"
+  },
+  "unido-united-nations-01": {
+    "width": 1920,
+    "height": 1080,
+    "colour": "#d5bfa8",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 270,
+        "src": "/work/media/unido-united-nations/unido-united-nations-01-480.webp",
+        "bytes": 13422
+      },
+      {
+        "width": 960,
+        "height": 540,
+        "src": "/work/media/unido-united-nations/unido-united-nations-01-960.webp",
+        "bytes": 30570
+      },
+      {
+        "width": 1600,
+        "height": 900,
+        "src": "/work/media/unido-united-nations/unido-united-nations-01-1600.webp",
+        "bytes": 52716
+      },
+      {
+        "width": 1600,
+        "height": 900,
+        "src": "/work/media/unido-united-nations/unido-united-nations-01-1600.webp",
+        "bytes": 52716
+      }
+    ],
+    "type": "image",
+    "sha256": "3f642719f2f5fca13ec39a1e6087cec8d545af6222443b6b3662289ee17ac85a"
+  },
+  "usaid-career-centers-01": {
+    "width": 2540,
+    "height": 1568,
+    "colour": "#efcac9",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 296,
+        "src": "/work/media/usaid-career-centers/usaid-career-centers-01-480.webp",
+        "bytes": 11476
+      },
+      {
+        "width": 960,
+        "height": 593,
+        "src": "/work/media/usaid-career-centers/usaid-career-centers-01-960.webp",
+        "bytes": 33194
+      },
+      {
+        "width": 1600,
+        "height": 988,
+        "src": "/work/media/usaid-career-centers/usaid-career-centers-01-1600.webp",
+        "bytes": 66024
+      },
+      {
+        "width": 1600,
+        "height": 988,
+        "src": "/work/media/usaid-career-centers/usaid-career-centers-01-1600.webp",
+        "bytes": 66024
+      }
+    ],
+    "type": "image",
+    "sha256": "510078ec98f203fd17526a5190cf650c9d1b92b08ef322a8c92050cd5776220a"
+  },
+  "selvaggi-local-h": {
+    "width": 1080,
+    "height": 1350,
+    "colour": "#415055",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 600,
+        "src": "/work/media/selvaggi/selvaggi-local-h-480.webp",
+        "bytes": 11822
+      },
+      {
+        "width": 960,
+        "height": 1200,
+        "src": "/work/media/selvaggi/selvaggi-local-h-960.webp",
+        "bytes": 24060
+      },
+      {
+        "width": 1080,
+        "height": 1350,
+        "src": "/work/media/selvaggi/selvaggi-local-h-1080.webp",
+        "bytes": 26564
+      }
+    ],
+    "type": "image",
+    "sha256": "be9690c2e96c28b110c9f5e28e42bcb89456d125dbba38c7fce3aa30eb4c45fe"
+  },
+  "selvaggi-local-j": {
+    "width": 1080,
+    "height": 1350,
+    "colour": "#463628",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 600,
+        "src": "/work/media/selvaggi/selvaggi-local-j-480.webp",
+        "bytes": 17366
+      },
+      {
+        "width": 960,
+        "height": 1200,
+        "src": "/work/media/selvaggi/selvaggi-local-j-960.webp",
+        "bytes": 37704
+      },
+      {
+        "width": 1080,
+        "height": 1350,
+        "src": "/work/media/selvaggi/selvaggi-local-j-1080.webp",
+        "bytes": 44048
+      }
+    ],
+    "type": "image",
+    "sha256": "7adeb520439c02620c19665208613cbce3ff6228589cd520761eca3bcfe30457"
+  },
+  "verne-jewels-local-verne29": {
+    "width": 928,
+    "height": 1152,
+    "colour": "#858d74",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 596,
+        "src": "/work/media/verne-jewels/verne-jewels-local-verne29-480.webp",
+        "bytes": 12198
+      },
+      {
+        "width": 928,
+        "height": 1152,
+        "src": "/work/media/verne-jewels/verne-jewels-local-verne29-928.webp",
+        "bytes": 27682
+      }
+    ],
+    "type": "image",
+    "sha256": "d1fc3ba1c8883aa41345401e381bb69dbe030d49e6d3ba3dec6344a19a02c059"
+  },
+  "diptyk-film-2btynest69i": {
+    "width": 480,
+    "height": 360,
+    "colour": "#2a2a2a",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/diptyk/diptyk-film-2btynest69i-480.webp",
+        "bytes": 9754
+      }
+    ],
+    "type": "image",
+    "sha256": "3317e49633705758d5ef27ebc482064ae1409a4d6f4c350b45fb9e5f4d211489"
+  },
+  "africa-business-school-film-3dq-ttenouw": {
+    "width": 480,
+    "height": 360,
+    "colour": "#1d2c36",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/africa-business-school/africa-business-school-film-3dq-ttenouw-480.webp",
+        "bytes": 18462
+      }
+    ],
+    "type": "image",
+    "sha256": "dadc38d36242b7e09386c14edbc9f0a239361c30d75e38f2c351230e2e27ae8f"
+  },
+  "africa-business-school-film-u-bgd9ha1jq": {
+    "width": 480,
+    "height": 360,
+    "colour": "#627781",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/africa-business-school/africa-business-school-film-u-bgd9ha1jq-480.webp",
+        "bytes": 12060
+      }
+    ],
+    "type": "image",
+    "sha256": "d448cccf7c420bf4d82515eea7a38b14dd873df5815b7b23d417d50146049c53"
+  },
+  "africa-business-school-film-ilqvkol8oka": {
+    "width": 480,
+    "height": 360,
+    "colour": "#6a8285",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/africa-business-school/africa-business-school-film-ilqvkol8oka-480.webp",
+        "bytes": 11676
+      }
+    ],
+    "type": "image",
+    "sha256": "e6647f68b7e2d409bd4e5f880799857566318ac43688e53b52507c86c47448aa"
+  },
+  "bananaconf-film-6w-xn6veqya": {
+    "width": 480,
+    "height": 360,
+    "colour": "#66594e",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/bananaconf/bananaconf-film-6w-xn6veqya-480.webp",
+        "bytes": 34758
+      }
+    ],
+    "type": "image",
+    "sha256": "cee5a5112f5f1c2429bb2ee2a5a742cc76fa2d11177f233b1b9268b7b3f87417"
+  },
+  "bananaconf-film-ggzxjp3ksni": {
+    "width": 480,
+    "height": 360,
+    "colour": "#af987e",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/bananaconf/bananaconf-film-ggzxjp3ksni-480.webp",
+        "bytes": 21358
+      }
+    ],
+    "type": "image",
+    "sha256": "6537f595d3cbf80f5f359daaa2f7aaffba5bae543a0866a5eed20f450bd25ea2"
+  },
+  "unido-creative-mediterranean-film-r-ntc5nbeno": {
+    "width": 480,
+    "height": 360,
+    "colour": "#5c575c",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/unido-creative-mediterranean/unido-creative-mediterranean-film-r-ntc5nbeno-480.webp",
+        "bytes": 16040
+      }
+    ],
+    "type": "image",
+    "sha256": "582931578f8693f7312eddaa617b7783d8ec08aa2ac7c4631a805b7ebbf0c502"
+  },
+  "unido-creative-mediterranean-film-lv80co6dffs": {
+    "width": 480,
+    "height": 360,
+    "colour": "#9c90ac",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/unido-creative-mediterranean/unido-creative-mediterranean-film-lv80co6dffs-480.webp",
+        "bytes": 12590
+      }
+    ],
+    "type": "image",
+    "sha256": "f426a4a34161df776dc4aaae4af566779a21b35cbdb6b193cc4951c200d32bae"
+  },
+  "oif-francophonie-film-hw-gsxz3rv0": {
+    "width": 480,
+    "height": 360,
+    "colour": "#47718b",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/oif-francophonie/oif-francophonie-film-hw-gsxz3rv0-480.webp",
+        "bytes": 6926
+      }
+    ],
+    "type": "image",
+    "sha256": "c5e9e0202beeaa636450cdc442091b57df36271d0f046b05cc058b39822aafd6"
+  },
+  "nft-nyc-film--tza3u88fku": {
+    "width": 480,
+    "height": 360,
+    "colour": "#16162d",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/nft-nyc/nft-nyc-film--tza3u88fku-480.webp",
+        "bytes": 5556
+      }
+    ],
+    "type": "image",
+    "sha256": "f97ca993946f1a13d98d59bc368251874483435a25a07c9dd4a67f6f8307f43d"
+  },
+  "nft-nyc-film-qhlmaxiqg1m": {
+    "width": 480,
+    "height": 360,
+    "colour": "#4c413b",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/nft-nyc/nft-nyc-film-qhlmaxiqg1m-480.webp",
+        "bytes": 19114
+      }
+    ],
+    "type": "image",
+    "sha256": "15bad353c42fb475e4f9563f6b2d65d9e5a27a7b914540ce1625762430640e50"
+  },
+  "nft-nyc-film-g45skazozje": {
+    "width": 480,
+    "height": 360,
+    "colour": "#495054",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/nft-nyc/nft-nyc-film-g45skazozje-480.webp",
+        "bytes": 11926
+      }
+    ],
+    "type": "image",
+    "sha256": "2f3b0e310c5517c6eecedfde1bcbf8c920e86b56c0cacde0ddc3b98809584a76"
+  },
+  "nft-nyc-film-yupgr3txqt4": {
+    "width": 480,
+    "height": 360,
+    "colour": "#596639",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/nft-nyc/nft-nyc-film-yupgr3txqt4-480.webp",
+        "bytes": 15042
+      }
+    ],
+    "type": "image",
+    "sha256": "e28dddc0efac1793084f689775f78aa805a2abff878b1679db094f2ac7f270ea"
+  },
+  "time-web3-film-hwozg5tr-r8": {
+    "width": 480,
+    "height": 360,
+    "colour": "#625b58",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 360,
+        "src": "/work/media/time-web3/time-web3-film-hwozg5tr-r8-480.webp",
+        "bytes": 12666
+      }
+    ],
+    "type": "image",
+    "sha256": "c5939ebc01099d64bbd331428286fe66d4746587c162e2b3b9487fd04eb42396"
+  }
+}
