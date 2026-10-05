@@ -452,3 +452,28 @@ test('owner career dates and since 2006 wording remain visible', async () => {
   }
   for(const lang of ['en','fr']) assert.match(brochure(lang), /(?:since|depuis) 2006/);
 });
+
+test('archive media renders from committed data, so production matches the local build', async () => {
+  // archive/ is not deployed. A renderer that reads it shows images locally
+  // and none on Vercel, which is what happened on 5 October 2026.
+  const renderer = await readFile(path.join(root, 'src', 'archive', 'render.mjs'), 'utf8');
+  assert.doesNotMatch(renderer, /\.\.\/\.\.\/archive\//, 'the renderer must not read the internal archive folder');
+  const records = JSON.parse(await readFile(path.join(root, 'src', 'archive', 'media-public.json'), 'utf8'));
+  const built = JSON.parse(await readFile(path.join(root, 'src', 'archive', 'media-built.json'), 'utf8'));
+  for (const record of records) {
+    for (const key of ['localPath', 'source', 'sha256', 'rightsNotes', 'evidenceUrl']) assert.equal(key in record, false, `${record.id}: internal field ${key} in the public manifest`);
+    assert.ok(['PUBLIC SAFE', 'PUBLIC WITH CREDIT'].includes(record.publishability), `${record.id}: not cleared to publish`);
+  }
+  const ids = new Set(records.map(r => r.id));
+  for (const id of Object.keys(built)) assert.ok(ids.has(id), `${id}: derived but missing from media-public.json (run: node scripts/media-public.mjs)`);
+  for (const route of ['/work', '/fr/work', '/', '/work/diptyk', '/work/la-minute-creative']) {
+    assert.ok(((await read(route)).match(/<img /g) || []).length >= 5, `${route}: archive images missing from the built page`);
+  }
+  for (const file of (await walk(dist)).filter(f => f.endsWith('.html'))) {
+    const html = await readFile(file, 'utf8');
+    for (const [film] of html.matchAll(/<a class="film"[\s\S]*?<\/a>/g)) {
+      assert.match(film, /<img /, `${path.relative(dist, file)}: film without a poster`);
+      assert.match(film, /href="(\/work\/media\/[^"]+\.mp4|https:\/\/www\.youtube\.com\/watch\?v=[\w-]+)"/, `${path.relative(dist, file)}: film must play from the site or YouTube`);
+    }
+  }
+});

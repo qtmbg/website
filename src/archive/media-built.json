@@ -3223,5 +3223,130 @@
     ],
     "type": "image",
     "sha256": "c5939ebc01099d64bbd331428286fe66d4746587c162e2b3b9487fd04eb42396"
+  },
+  "audi-driven-by-art-film": {
+    "width": 640,
+    "height": 360,
+    "colour": "#584b47",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 270,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-film-480.webp",
+        "bytes": 13578
+      },
+      {
+        "width": 640,
+        "height": 360,
+        "src": "/work/media/audi-driven-by-art/audi-driven-by-art-film-640.webp",
+        "bytes": 18926
+      }
+    ],
+    "type": "video",
+    "file": {
+      "src": "/work/media/audi-driven-by-art/audi-driven-by-art-film.mp4",
+      "bytes": 1504800
+    },
+    "sha256": "e695d66573310d0a4cfa4ae044a3abb11fc0c47b839662097d49184331b01bb5"
+  },
+  "lamanche-film": {
+    "width": 576,
+    "height": 720,
+    "colour": "#675e5f",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 600,
+        "src": "/work/media/lamanche/lamanche-film-480.webp",
+        "bytes": 17266
+      },
+      {
+        "width": 576,
+        "height": 720,
+        "src": "/work/media/lamanche/lamanche-film-576.webp",
+        "bytes": 20426
+      }
+    ],
+    "type": "video",
+    "file": {
+      "src": "/work/media/lamanche/lamanche-film.mp4",
+      "bytes": 2040272
+    },
+    "sha256": "3bd1da36e8bb2d26e01896b2f84fd4cd14c094bf75856cc28cb19763c8dffd07"
+  },
+  "mysticspur-film": {
+    "width": 1280,
+    "height": 720,
+    "colour": "#eeeae2",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 270,
+        "src": "/work/media/mysticspur/mysticspur-film-480.webp",
+        "bytes": 3296
+      },
+      {
+        "width": 960,
+        "height": 540,
+        "src": "/work/media/mysticspur/mysticspur-film-960.webp",
+        "bytes": 8354
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "src": "/work/media/mysticspur/mysticspur-film-1280.webp",
+        "bytes": 11896
+      }
+    ],
+    "type": "video",
+    "file": {
+      "src": "/work/media/mysticspur/mysticspur-film.mp4",
+      "bytes": 1145898
+    },
+    "sha256": "2b8b53e186277112ec4597c33e7c40efc6f65b01440198d5938667b48fc1d8d7"
+  },
+  "tribalist-africa-film": {
+    "width": 848,
+    "height": 480,
+    "colour": "#000000",
+    "sizes": [
+      {
+        "width": 480,
+        "height": 272,
+        "src": "/work/media/tribalist-africa/tribalist-africa-film-480.webp",
+        "bytes": 806
+      },
+      {
+        "width": 848,
+        "height": 480,
+        "src": "/work/media/tribalist-africa/tribalist-africa-film-848.webp",
+        "bytes": 1670
+      }
+    ],
+    "type": "video",
+    "file": {
+      "src": "/work/media/tribalist-africa/tribalist-africa-film.mp4",
+      "bytes": 1562180
+    },
+    "sha256": "377a9c5c7c46775681ecdab0b7ccffa15432265544dafe073d643e8341da2c47"
+  },
+  "moodys-medicinals-film": {
+    "width": 404,
+    "height": 720,
+    "colour": "#9cd7db",
+    "sizes": [
+      {
+        "width": 404,
+        "height": 720,
+        "src": "/work/media/moodys-medicinals/moodys-medicinals-film-404.webp",
+        "bytes": 908
+      }
+    ],
+    "type": "video",
+    "file": {
+      "src": "/work/media/moodys-medicinals/moodys-medicinals-film.mp4",
+      "bytes": 304689
+    },
+    "sha256": "eef0321926bc6fc59ff8c8553998a68cbfce988dcf7ad38f91db6dccf186382b"
   }
 }

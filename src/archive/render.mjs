@@ -1,6 +1,6 @@
 // The Work archive, rendered. Records live in src/archive/projects.mjs;
-// media captions and provenance in archive/media.json (internal), derived
-// sizes in src/archive/media-built.json (written by scripts/media.mjs).
+// public media records in src/archive/media-public.json (provenance stays
+// internal in archive/media.json), derived sizes in src/archive/media-built.json.
 // Every visible word comes from those records: nothing here writes copy
 // beyond interface labels.
 import { readFileSync, existsSync } from 'node:fs';
@@ -10,7 +10,10 @@ import { projects, eras, categories, relationships } from './projects.mjs';
 const here = new URL('.', import.meta.url);
 const read = (file, fallback) => (existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : fallback);
 const built = read(new URL('./media-built.json', here), {});
-const mediaList = read(new URL('../../archive/media.json', here), []);
+// Public media records only (written by scripts/media-public.mjs). Never read
+// archive/ here: it is not deployed, and reading it made local builds show
+// images that the deployed build dropped.
+const mediaList = read(new URL('./media-public.json', here), []);
 const mediaById = new Map(mediaList.map(m => [m.id, m]));
 
 const L = lang => (en, fr) => (lang === 'fr' ? fr : en);

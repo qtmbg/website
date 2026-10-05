@@ -605,6 +605,7 @@ export const projects = [
           "fr": "Audi Motors · public portfolio evidence"
         },
         "url": "https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/spr3xadmej335dvab3wr.mp4",
+        "media": "audi-driven-by-art-film",
         "poster": "audi-driven-by-art-06",
         "type": "film"
       },
@@ -4656,6 +4657,7 @@ export const projects = [
           "fr": "Lamanche · public portfolio evidence"
         },
         "url": "https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/mc8iieutah1cgdld7izn.mp4",
+        "media": "lamanche-film",
         "poster": "lamanche-01",
         "type": "film"
       }
@@ -4724,6 +4726,7 @@ export const projects = [
           "fr": "MysticSpur · public portfolio evidence"
         },
         "url": "https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/zk1hx6mgnp5emaonab4r.mp4",
+        "media": "mysticspur-film",
         "poster": "mysticspur-01",
         "type": "film"
       }
@@ -4910,6 +4913,7 @@ export const projects = [
           "fr": "Tribalist Africa · public portfolio evidence"
         },
         "url": "https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/ketxl2wbcqs9nyoh2bbr.mp4",
+        "media": "tribalist-africa-film",
         "poster": "tribalist-africa-01",
         "type": "film"
       }
@@ -5155,6 +5159,7 @@ export const projects = [
           "fr": "Moody's Medicinals · public portfolio evidence"
         },
         "url": "https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/scboaudf5xbottswm4rd.mp4",
+        "media": "moodys-medicinals-film",
         "poster": "moodys-medicinals-01",
         "type": "film"
       }

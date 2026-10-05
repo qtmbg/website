@@ -17,7 +17,8 @@
     "indexnow": "node scripts/indexnow.mjs",
     "test:archive": "node tests/archive.mjs",
     "test:archive-data": "node --test tests/archive-data.test.mjs",
-    "test:media": "node tests/media-safety.mjs"
+    "test:media": "node tests/media-safety.mjs",
+    "media": "node scripts/media.mjs && node scripts/media-public.mjs"
   },
   "engines": {
     "node": ">=22"
