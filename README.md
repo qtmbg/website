@@ -122,3 +122,33 @@ archive intentionally changes Work, home, experience wording and corresponding
 metadata; unrelated pages still compare against the previous approved snapshot.
 The owner's latest wording correction is “since 2006” / “depuis 2006”. It does
 not assign that date to individual projects lacking evidence.
+
+## Work V5 practice generation (local review)
+
+`npm run practice` runs `scripts/gen_practice.py`, assembling the six approved
+KEEP records from the identity workspace's `work/work-v5/practice/` with the
+canonical career facts in the sibling `nizzar-com/content/work/records/`, then
+invokes the existing static build. It writes `src/archive/practice-copy.json`;
+it does not edit source records, career records, URL maps or redirects.
+`src/archive/practice-labels.json` holds localized fact labels and SEO titles.
+
+The public generated JSON is intended to be committed with a reviewed change,
+so `npm run build` works without the identity workspace, Python or private
+archives. Regeneration requires the identity workspace; alternate inputs can be
+supplied with `--records-dir`, `--career-dir`, `--labels` and `--output`.
+`--data-only` skips the HTML build. Existing authored PROOF records in the output
+are preserved. Legacy source date strings are normalized to `start`, `end` and
+`ongoing`; localized display dates are rendered from those fields.
+
+Run `npm run test:practice` for source-preservation, relationship, metadata and
+structured-data checks (requires the identity workspace). With a local server
+running, `BASE_URL=http://localhost:3026 node tests/practice-browser.mjs` checks
+all twelve routes at desktop/phone widths, with JavaScript both on and off.
+The identity workspace's `work/work-v5/qa_practice.py` also writes the full
+route/metadata/link audit to `outputs/work-v5/PRACTICE-QA.json`.
+
+KEEP controls routing, not provider attribution. The provider claim requires an
+explicit Quantum Branding engagement in the career provenance. BrandOS is a
+product, RBMG is a parallel partnership, and undated/private records receive no
+inferred provider or date. `canonicalCareerUrl` is an editorial link: these QB
+pages retain self canonicals and reciprocal EN/FR hreflang.

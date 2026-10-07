@@ -65,8 +65,8 @@ export const projects = [
     ],
     "relationship": "STUDIO CLIENT",
     "role": {
-      "en": "Strategy, marketing and digital content",
-      "fr": "Stratégie, marketing et contenus numériques"
+      "en": "Brand Strategy & Implementation · Arroz Con Pollo co-founder",
+      "fr": "Brand Strategy & Implementation · cofondateur d’Arroz Con Pollo"
     },
     "oneLine": {
       "en": "A magazine transformation spanning print, digital, editorial content and podcast production through Arroz Con Pollo.",
@@ -80,7 +80,7 @@ export const projects = [
         "Une transformation du magazine couvrant le print, le numérique, les contenus éditoriaux et la production de podcasts au sein d’Arroz Con Pollo."
       ]
     },
-    "start": 2020,
+    "start": 2019,
     "end": 2021,
     "context": {
       "en": "DIPTYK",
@@ -153,10 +153,10 @@ export const projects = [
         "type": "text",
         "body": {
           "en": [
-            "On 12 August 2020, The New York Times included @diptykmagazine in its five art accounts to follow on Instagram. This recognition concerned the magazine’s account and the studio’s editorial and digital work."
+            "On 12 August 2020, Diptyk’s Instagram account, @diptykmagazine, was included in Siddhartha Mitter’s “Five Art Accounts to Follow on Instagram Now” in The New York Times. The recognition concerned the magazine’s account and the editorial and digital work Arroz Con Pollo built for it."
           ],
           "fr": [
-            "Le 12 août 2020, The New York Times a inclus @diptykmagazine parmi cinq comptes d’art à suivre sur Instagram. Cette reconnaissance concernait le compte du magazine et le travail éditorial et numérique du studio."
+            "Le 12 août 2020, le compte Instagram de Diptyk, @diptykmagazine, a été retenu dans l’article de Siddhartha Mitter « Five Art Accounts to Follow on Instagram Now » du New York Times. Cette reconnaissance concernait le compte du magazine et le travail éditorial et numérique qu’Arroz Con Pollo avait construit pour lui."
           ]
         },
         "heading": {
@@ -248,8 +248,8 @@ export const projects = [
         "type": "film",
         "youtube": "2BtYNEst69I",
         "title": {
-          "en": "Arroz Con Pollo’s work for Diptyk · New York Times",
-          "fr": "Arroz Con Pollo’s work for Diptyk · New York Times"
+          "en": "Diptyk · Arroz Con Pollo studio film",
+          "fr": "Diptyk · Arroz Con Pollo studio film"
         },
         "poster": "diptyk-film-2btynest69i"
       },
@@ -505,8 +505,8 @@ export const projects = [
         "Stratégie et marketing pour la marque Diesel, avec des travaux historiques numériques et sociaux conservés dans les archives."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2018,
+    "end": 2020,
     "context": {
       "en": "DIESEL",
       "fr": "DIESEL"
@@ -739,8 +739,8 @@ export const projects = [
         "Transformer la réalité des rénovations hospitalières en site occupé en un positionnement clair et un système de marque opérationnel."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2025,
+    "end": "present",
     "context": {
       "en": "SELVAGGI BUILT",
       "fr": "SELVAGGI BUILT"
@@ -935,8 +935,8 @@ export const projects = [
         "Energy Cube / Vetren Energy, une mission de mon parcours professionnel."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2024,
+    "end": 2024,
     "context": {
       "en": "ENERGY CUBE / VETREN ENERGY",
       "fr": "ENERGY CUBE / VETREN ENERGY"
@@ -995,8 +995,8 @@ export const projects = [
         "Zone Aire, une mission de mon parcours professionnel."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2026,
+    "end": 2026,
     "context": {
       "en": "ZONE AIRE",
       "fr": "ZONE AIRE"
@@ -1104,8 +1104,8 @@ export const projects = [
     ],
     "relationship": "ADVISORY",
     "role": {
-      "en": "Strategic advisor · February–June 2023",
-      "fr": "Conseiller stratégique · février–juin 2023"
+      "en": "Web3 strategy through Berexia · February–June 2023",
+      "fr": "Stratégie Web3 via Berexia · février–juin 2023"
     },
     "oneLine": {
       "en": "Research and strategic advisory on digital experiences, community and Web3 for Baccarat.",
@@ -1190,7 +1190,7 @@ export const projects = [
         "Une mission Web3 dans le contexte Bugatti × Asprey, documentée dans son portfolio historique."
       ]
     },
-    "start": null,
+    "start": 2022,
     "end": null,
     "context": {
       "en": "BUGATTI × ASPREY",
@@ -1308,8 +1308,8 @@ export const projects = [
     ],
     "relationship": "CONSULTING",
     "role": {
-      "en": "Web3 strategic consultant",
-      "fr": "Consultant stratégique Web3"
+      "en": "Web3 strategy, through Berexia",
+      "fr": "Stratégie Web3, via Berexia"
     },
     "oneLine": {
       "en": "Rethinking the federation’s NFT model in light of lessons from Stan Wawrinka and Ballman.",
@@ -1323,8 +1323,8 @@ export const projects = [
         "Une mission pour la Fédération française de tennis conservée grâce aux éléments du portfolio historique de Nizzar."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2023,
+    "end": 2023,
     "context": {
       "en": "FRENCH TENNIS FEDERATION",
       "fr": "FRENCH TENNIS FEDERATION"
@@ -1435,15 +1435,15 @@ export const projects = [
       "fr": "Fondateur"
     },
     "oneLine": {
-      "en": "Founded in 2021. $2.7M raised. An eight-figure exit.",
-      "fr": "Fondé en 2021. 2,7 millions de dollars levés. Une sortie à huit chiffres."
+      "en": "Founded in 2021. $2.7M raised.",
+      "fr": "Fondé en 2021. 2,7 millions de dollars levés."
     },
     "summary": {
       "en": [
-        "Founded in 2021. $2.7M raised. An eight-figure exit."
+        "Founded in 2021. $2.7M raised."
       ],
       "fr": [
-        "Fondé en 2021. 2,7 millions de dollars levés. Une sortie à huit chiffres."
+        "Fondé en 2021. 2,7 millions de dollars levés."
       ]
     },
     "start": 2021,
@@ -1472,10 +1472,10 @@ export const projects = [
         "type": "text",
         "body": {
           "en": [
-            "Founded in 2021. $2.7M raised. An eight-figure exit."
+            "Founded in 2021. $2.7M raised."
           ],
           "fr": [
-            "Fondé en 2021. 2,7 millions de dollars levés. Une sortie à huit chiffres."
+            "Fondé en 2021. 2,7 millions de dollars levés."
           ]
         }
       }
@@ -1567,8 +1567,8 @@ export const projects = [
     ],
     "relationship": "CO-FOUNDER",
     "role": {
-      "en": "Co-founder",
-      "fr": "Cofondateur"
+      "en": "Co-founder; board member; head of communications",
+      "fr": "Cofondateur ; membre du conseil ; responsable de la communication"
     },
     "oneLine": {
       "en": "A collaborative Web3 venture and community behind technology, culture and event programmes. Historical spelling: BnanaCorp.",
@@ -1582,8 +1582,8 @@ export const projects = [
         "Un projet collectif Web3 et une communauté à l’origine de programmes réunissant technologies, culture et événements. Ancienne graphie : BnanaCorp."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2022,
+    "end": 2025,
     "context": {
       "en": "BANANACORP",
       "fr": "BANANACORP"
@@ -1708,7 +1708,7 @@ export const projects = [
   },
   {
     "slug": "the-future-fashion",
-    "title": "THE FUTURE FASHION / WEB3 × FASHION",
+    "title": "THE FUTURE FASHION",
     "aliases": [],
     "era": "web3-emerging-tech",
     "categories": [
@@ -1717,24 +1717,24 @@ export const projects = [
       "culture",
       "luxury"
     ],
-    "relationship": "CO-FOUNDER",
+    "relationship": "COLLABORATION",
     "role": {
-      "en": "Co-founder and event programme contributor",
-      "fr": "Cofondateur et contributeur au programme événementiel"
+      "en": "Co-creator and programme contributor · 18 September 2024",
+      "fr": "Cocréateur et contributeur au programme · 18 septembre 2024"
     },
     "oneLine": {
-      "en": "A programme bringing fashion houses and technology builders together, with a 2023 edition alongside Milan Fashion Week.",
-      "fr": "Un programme réunissant maisons de mode et acteurs technologiques, avec une édition 2023 pendant la Fashion Week de Milan."
+      "en": "The Future Fashion, on 18 September 2024 in Milan, was organised by IZY Studio and BananaConf.",
+      "fr": "The Future Fashion, le 18 septembre 2024 à Milan, a été organisé par IZY Studio et BananaConf."
     },
     "summary": {
       "en": [
-        "A programme bringing fashion houses and technology builders together, with a 2023 edition alongside Milan Fashion Week."
+        "The Future Fashion, on 18 September 2024 in Milan, was organised by IZY Studio and BananaConf. Nizzar Ben Chekroune co-created it with Zarina Izy and Sander Gansen and contributed to its programme, which widened the fashion conversation to AI, AR, 3D and physical and digital creation. It followed Web3 × Fashion, a separate event held on 18 September 2023."
       ],
       "fr": [
-        "Un programme réunissant maisons de mode et acteurs technologiques, avec une édition 2023 pendant la Fashion Week de Milan."
+        "The Future Fashion, le 18 septembre 2024 à Milan, a été organisé par IZY Studio et BananaConf. Nizzar Ben Chekroune l’a cocréé avec Zarina Izy et Sander Gansen et a contribué à son programme, qui élargissait la conversation sur la mode à l’IA, à la réalité augmentée, à la 3D et à la création physique et numérique. Il faisait suite à Web3 × Fashion, un événement distinct tenu le 18 septembre 2023."
       ]
     },
-    "start": 2023,
+    "start": 2024,
     "end": 2024,
     "context": {
       "en": "THE FUTURE FASHION / WEB3 × FASHION",
@@ -1760,10 +1760,10 @@ export const projects = [
         "type": "text",
         "body": {
           "en": [
-            "A programme bringing fashion houses and technology builders together, with a 2023 edition alongside Milan Fashion Week."
+            "The Future Fashion, on 18 September 2024 in Milan, was organised by IZY Studio and BananaConf. Nizzar Ben Chekroune co-created it with Zarina Izy and Sander Gansen and contributed to its programme, which widened the fashion conversation to AI, AR, 3D and physical and digital creation. It followed Web3 × Fashion, a separate event held on 18 September 2023."
           ],
           "fr": [
-            "Un programme réunissant maisons de mode et acteurs technologiques, avec une édition 2023 pendant la Fashion Week de Milan."
+            "The Future Fashion, le 18 septembre 2024 à Milan, a été organisé par IZY Studio et BananaConf. Nizzar Ben Chekroune l’a cocréé avec Zarina Izy et Sander Gansen et a contribué à son programme, qui élargissait la conversation sur la mode à l’IA, à la réalité augmentée, à la 3D et à la création physique et numérique. Il faisait suite à Web3 × Fashion, un événement distinct tenu le 18 septembre 2023."
           ]
         }
       }
@@ -1855,8 +1855,8 @@ export const projects = [
     ],
     "relationship": "CONSULTING",
     "role": {
-      "en": "Web3 strategy and certification consultant",
-      "fr": "Consultant en stratégie Web3 et certification"
+      "en": "Web3 strategy and certification: concept phase from 2022, then through Berexia in 2023",
+      "fr": "Stratégie Web3 et certification : phase de conception dès 2022, puis via Berexia en 2023"
     },
     "oneLine": {
       "en": "An blockchain certification system engagement for UNITAR.",
@@ -1870,8 +1870,8 @@ export const projects = [
         "Une mission de système de certification blockchain pour l’UNITAR."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2022,
+    "end": 2023,
     "context": {
       "en": "UNITAR",
       "fr": "UNITAR"
@@ -2461,8 +2461,8 @@ export const projects = [
         "Marque et stratégie des réseaux sociaux pour le programme COMPASS de l’OIM, avec des modèles de contenus réutilisables."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2020,
+    "end": 2020,
     "context": {
       "en": "IOM · COMPASS",
       "fr": "IOM · COMPASS"
@@ -2842,8 +2842,8 @@ export const projects = [
     ],
     "relationship": "CO-FOUNDER",
     "role": {
-      "en": "Co-founder with Nabil Nadifi · left in 2022",
-      "fr": "Cofondateur avec Nabil Nadifi · départ en 2022"
+      "en": "Co-founder with Nabil Nadifi · 2019–2022",
+      "fr": "Cofondateur avec Nabil Nadifi · 2019–2022"
     },
     "oneLine": {
       "en": "A creative studio founded by Nizzar Ben Chekroune and Nabil Nadifi, with work credited to the studio and its contributors. Nizzar left in 2022.",
@@ -2857,8 +2857,8 @@ export const projects = [
         "Un studio créatif fondé par Nizzar Ben Chekroune et Nabil Nadifi, dont les travaux sont attribués au studio et à ses contributeurs. Nizzar l’a quitté en 2022."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2019,
+    "end": 2022,
     "context": {
       "en": "ARROZ CON POLLO",
       "fr": "ARROZ CON POLLO"
@@ -3125,8 +3125,8 @@ export const projects = [
         "Un produit issu de la pratique Quantum Branding, qui encode et augmente certaines dimensions de son travail."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2024,
+    "end": "present",
     "context": {
       "en": "BrandOS",
       "fr": "BrandOS"
@@ -3905,7 +3905,7 @@ export const projects = [
         "Participation au conseil au service de la mission de développement de la High Atlas Foundation."
       ]
     },
-    "start": null,
+    "start": 2023,
     "end": "present",
     "context": {
       "en": "HIGH ATLAS FOUNDATION",
@@ -4157,7 +4157,7 @@ export const projects = [
       ]
     },
     "start": 2023,
-    "end": null,
+    "end": "present",
     "context": {
       "en": "EUROPEAN WEB3 ORGANIZATION",
       "fr": "EUROPEAN WEB3 ORGANIZATION"
@@ -4564,8 +4564,8 @@ export const projects = [
         "Travaux conservés dans le portfolio public historique de Nizzar, avec les éléments visuels d’origine."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2018,
+    "end": 2019,
     "context": {
       "en": "LALY COUTURE",
       "fr": "LALY COUTURE"
@@ -4623,8 +4623,8 @@ export const projects = [
         "Travaux conservés dans le portfolio public historique de Nizzar, avec les éléments visuels d’origine."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2021,
+    "end": 2021,
     "context": {
       "en": "LAMANCHE",
       "fr": "LAMANCHE"
@@ -4692,8 +4692,8 @@ export const projects = [
         "Travaux conservés dans le portfolio public historique de Nizzar, avec les éléments visuels d’origine."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2021,
+    "end": 2021,
     "context": {
       "en": "MYSTICSPUR",
       "fr": "MYSTICSPUR"
@@ -4761,8 +4761,8 @@ export const projects = [
         "Travaux conservés dans le portfolio public historique de Nizzar, avec les éléments visuels d’origine."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2020,
+    "end": 2020,
     "context": {
       "en": "HIYA MAGAZINE PARIS",
       "fr": "HIYA MAGAZINE PARIS"
@@ -4820,8 +4820,8 @@ export const projects = [
         "Travaux conservés dans le portfolio public historique de Nizzar, avec les éléments visuels d’origine."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2020,
+    "end": 2020,
     "context": {
       "en": "BEYOND CATSTORE",
       "fr": "BEYOND CATSTORE"
@@ -4879,8 +4879,8 @@ export const projects = [
         "Travaux conservés dans le portfolio public historique de Nizzar, avec les éléments visuels d’origine."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2019,
+    "end": 2019,
     "context": {
       "en": "TRIBALIST AFRICA",
       "fr": "TRIBALIST AFRICA"
@@ -4948,8 +4948,8 @@ export const projects = [
         "Travaux conservés dans le portfolio public historique de Nizzar, avec les éléments visuels d’origine."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2021,
+    "end": 2021,
     "context": {
       "en": "JOLT QATAR",
       "fr": "JOLT QATAR"
@@ -5007,8 +5007,8 @@ export const projects = [
         "Travaux conservés dans le portfolio public historique de Nizzar, avec les éléments visuels d’origine."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2021,
+    "end": 2021,
     "context": {
       "en": "LIT ACTION USA",
       "fr": "LIT ACTION USA"
@@ -5066,8 +5066,8 @@ export const projects = [
         "Travaux conservés dans le portfolio public historique de Nizzar, avec les éléments visuels d’origine."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2020,
+    "end": 2020,
     "context": {
       "en": "DOC HYGIENE USA",
       "fr": "DOC HYGIENE USA"
@@ -5125,8 +5125,8 @@ export const projects = [
         "Travaux conservés dans le portfolio public historique de Nizzar, avec les éléments visuels d’origine."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2021,
+    "end": 2021,
     "context": {
       "en": "MOODY’S MEDICINALS",
       "fr": "MOODY’S MEDICINALS"
@@ -5194,8 +5194,8 @@ export const projects = [
         "Travaux conservés dans le portfolio public historique de Nizzar, avec les éléments visuels d’origine."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2012,
+    "end": 2012,
     "context": {
       "en": "MARRAKECH POKER OPEN",
       "fr": "MARRAKECH POKER OPEN"
@@ -5438,8 +5438,8 @@ export const projects = [
         "Des contenus sociaux colorés pour une marque de lingettes désinfectantes pendant la pandémie."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2020,
+    "end": 2020,
     "context": {
       "en": "KLEANOPS",
       "fr": "KLEANOPS"
@@ -5529,8 +5529,8 @@ export const projects = [
         "Contenus de lancement pour une agence de stratégie créative et de marketing musical soutenant les artistes indépendants."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2020,
+    "end": 2020,
     "context": {
       "en": "TRNSCND",
       "fr": "TRNSCND"
@@ -5806,8 +5806,8 @@ export const projects = [
         "Un podcast du studio pour la Fondation pour la sauvegarde du patrimoine culturel de Rabat ; participation individuelle de Nizzar non documentée."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2020,
+    "end": 2020,
     "context": {
       "en": "QISAS RBATI",
       "fr": "QISAS RBATI"
@@ -5894,8 +5894,8 @@ export const projects = [
         "Une pratique de marketing KOL Web3 documentée sur sa page publique de fondateur. La liste collective de projets est conservée comme contexte de l’agence dans le registre des sources."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2024,
+    "end": 2024,
     "context": {
       "en": "3KOOL",
       "fr": "3KOOL"
@@ -5953,8 +5953,8 @@ export const projects = [
         "Une relation professionnelle ; le périmètre exact reste à documenter dans ces archives."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2024,
+    "end": 2024,
     "context": {
       "en": "ANDERSON SILVA",
       "fr": "ANDERSON SILVA"
@@ -6012,7 +6012,7 @@ export const projects = [
         "Une relation professionnelle ; le périmètre exact reste à documenter dans ces archives."
       ]
     },
-    "start": null,
+    "start": 2021,
     "end": null,
     "context": {
       "en": "CHARLY PALMER",
@@ -6070,8 +6070,8 @@ export const projects = [
         "Une relation professionnelle ; le périmètre exact reste à documenter dans ces archives."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2023,
+    "end": 2023,
     "context": {
       "en": "RED CROSS / ICRC",
       "fr": "RED CROSS / ICRC"
@@ -6128,8 +6128,8 @@ export const projects = [
         "Une relation professionnelle ; le périmètre exact reste à documenter dans ces archives."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2020,
+    "end": 2020,
     "context": {
       "en": "WORLD HEALTH ORGANIZATION",
       "fr": "WORLD HEALTH ORGANIZATION"
@@ -6189,8 +6189,8 @@ export const projects = [
         "J’ai participé à un documentaire télévisé de TV5."
       ]
     },
-    "start": null,
-    "end": null,
+    "start": 2022,
+    "end": 2022,
     "context": {
       "en": "Television documentary",
       "fr": "Documentaire télévisé"

@@ -12,19 +12,20 @@ const page = await context.newPage();
 const errors=[];
 page.on('pageerror',e=>errors.push(e.message));
 const visible=projects.filter(p=>p.listed!==false);
+// /work is the curated practice landing (owner decision, 7 October 2026): practice engagements,
+// a wall of eight covers and the way to the complete record on nizzar.com. The full career lives there.
+const KEEP_ROWS=6, WALL=8;
+async function curatedLanding(pg){
+ assert.equal(await pg.locator('.essay-list article').count()>=KEEP_ROWS,true,'Practice engagements listed');
+ assert.equal(await pg.locator('.gallery-wall img').count(),WALL,'Curated wall of eight covers');
+ assert.equal(await pg.locator('a[href="https://nizzar.com/work"]').count()>=1,true,'Way to the complete record');
+}
 for(const lang of ['en','fr']){
  const prefix=lang==='fr'?'/fr':'';
  await page.goto(`${base}${prefix}/work`);
- assert.equal(await page.locator('.finder-item').count(),visible.length,'All canonical records in Finder');
- const filter=page.locator('[data-filter="cats"]').first();
- if(await filter.count()){
-  const key=await filter.getAttribute('data-value');
-  await filter.click();
-  const expected=visible.filter(p=>(p.categories||[]).includes(key)).length;
-  assert.equal(await page.locator('.finder-item:visible').count(),expected,'Category filter retains matching projects');
-  await page.locator('[data-filter="all"]').click();
-  assert.equal(await page.locator('.finder-item:visible').count(),visible.length,'Reset reveals complete archive');
- }
+ await curatedLanding(page);
+ await page.evaluate(async()=>{const images=[...document.querySelectorAll('.gallery-wall img')];images.forEach(i=>i.loading='eager');await Promise.all(images.map(i=>i.decode().catch(()=>{})));});
+ assert.equal(await page.locator('.gallery-wall img').evaluateAll(a=>a.filter(i=>i.naturalWidth>0).length),WALL,'Every wall cover loads');
  await page.goto(`${base}${prefix}/work/index`);
  assert.equal(await page.locator('.index-table tbody tr').count(),visible.length,'Full index retains every listed record');
  await page.goto(`${base}${prefix}/work/timeline`);
@@ -36,14 +37,7 @@ for(const width of [1440,768,320]){
  for(const route of routes){
   await page.goto(base+route);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`${route} overflow at ${width}`);
-  if(width===320&&(route==='/work'||route==='/fr/work')){
-   assert.equal(await page.locator('.finder-filter-panel').evaluate(e=>e.open),false,'Phone filters initially collapse');
-   assert.ok(await page.locator('.finder-thumb').first().evaluate(e=>e.getBoundingClientRect().top<900),'Actual work appears on the first phone screen');
-   await page.locator('.finder-filter-panel summary').click();
-   await page.locator('[data-filter=all]').click();
-   assert.equal(await page.locator('.finder-item:visible').count(),visible.length);
-   await page.locator('.finder-filter-panel summary').click();
-  }
+  if(width===320&&(route==='/work'||route==='/fr/work')) await curatedLanding(page);
   if(width!==768){
    await page.evaluate(async()=>{const images=[...document.images];images.forEach(i=>i.loading='eager');await Promise.all(images.map(i=>i.decode().catch(()=>{})));});
    await page.screenshot({path:`${output}${route==='/'?'home':route.slice(1).replaceAll('/','-')}-${width}.png`,fullPage:true});
@@ -76,11 +70,13 @@ console.log(`Genuine project controls: ${realImages} image artifacts, ${realFilm
 const noJs=await browser.newContext({javaScriptEnabled:false,viewport:{width:320,height:900}});
 const reader=await noJs.newPage();
 await reader.goto(base+'/work');
-assert.equal(await reader.locator('.finder-item:visible').count(),visible.length,'JS-off archive stays complete');
+await curatedLanding(reader);
+await reader.goto(base+'/work/index');
+assert.equal(await reader.locator('.index-table tbody tr').count(),visible.length,'JS-off index stays complete');
 await noJs.close();
 await page.emulateMedia({reducedMotion:'reduce'});
 await page.goto(base+'/work');
-assert.equal(await page.locator('.finder-item:visible').count(),visible.length,'Reduced motion stays readable');
+await curatedLanding(page);
 // Isolated interaction fixtures verify media controls even when a project has one artifact.
 await page.setContent(`<html lang="en"><body><figure><a class="artifact-open" href="${base}/favicon.svg"><img alt="First archive artifact"></a><figcaption>First credit</figcaption></figure><figure><a class="artifact-open" href="${base}/favicon.svg?second"><img alt="Second archive artifact"></a><figcaption>Second credit</figcaption></figure><a class="film" data-youtube="fixture" href="https://www.youtube.com/watch?v=fixture"><span class="film-meta">Archive film</span></a></body></html>`);
 await page.route('https://www.youtube-nocookie.com/**',route=>route.fulfill({body:'<!doctype html><title>Video fixture</title>'}));
@@ -101,4 +97,4 @@ await page.locator('.film').click();
 assert.match(await page.locator('iframe').getAttribute('src'),/^https:\/\/www.youtube-nocookie.com\/embed\/fixture/);
 assert.deepEqual(errors,[]);
 await browser.close();
-console.log(`Archive: ${visible.length} records, bilingual filters/index/timeline, 1440/768/320, JS-off, reduced motion, image keyboard/focus, click-to-load video passed. Screenshots: ${output}`);
+console.log(`Archive: curated /work landing EN/FR, ${visible.length} records in index/timeline, 1440/768/320, JS-off, reduced motion, image keyboard/focus, click-to-load video passed. Screenshots: ${output}`);

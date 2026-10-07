@@ -1,0 +1,98 @@
+{
+  "seoSuffix": {
+    "en": "Work · Quantum Branding",
+    "fr": "Le travail · Quantum Branding"
+  },
+  "relationships": {
+    "External expert": {
+      "en": "External expert",
+      "fr": "Expert externe"
+    },
+    "Founder": {
+      "en": "Founder",
+      "fr": "Fondateur"
+    },
+    "Partnership": {
+      "en": "Partnership",
+      "fr": "Partenariat"
+    },
+    "Engagement": {
+      "en": "Professional engagement",
+      "fr": "Mission professionnelle"
+    }
+  },
+  "roles": {
+    "External expert supporting ABS on marketing strategy, emerging technologies and internal team training": {
+      "en": "External expert supporting ABS on marketing strategy, emerging technologies and internal team training",
+      "fr": "Expert externe en stratégie marketing, technologies émergentes et formation des équipes internes d'ABS"
+    },
+    "Founder and Brand Strategist": {
+      "en": "Founder and Brand Strategist",
+      "fr": "Fondateur et stratège de marque"
+    },
+    "Product creator": {
+      "en": "Product creator",
+      "fr": "Créateur du produit"
+    },
+    "Operating Partner": {
+      "en": "Operating partner",
+      "fr": "Associé opérationnel"
+    },
+    "Professional engagement": {
+      "en": "Professional engagement",
+      "fr": "Mission professionnelle"
+    },
+    "Founder": {
+      "en": "Founder",
+      "fr": "Fondateur"
+    }
+  },
+  "provenance": {
+    "Quantum Branding engagement": {
+      "en": "Quantum Branding engagement",
+      "fr": "Mission Quantum Branding"
+    },
+    "Founder": {
+      "en": "Founder",
+      "fr": "Fondateur"
+    },
+    "Partnership alongside Quantum Branding, not a Quantum Branding engagement": {
+      "en": "Partnership alongside Quantum Branding",
+      "fr": "Partenariat en parallèle de Quantum Branding"
+    },
+    "Professional engagement; details private": {
+      "en": "Professional engagement; details private",
+      "fr": "Mission professionnelle ; informations privées"
+    },
+    "Quantum Branding work record": {
+      "en": "Quantum Branding work record",
+      "fr": "Registre de travail de Quantum Branding"
+    }
+  },
+  "seoTitles": {
+    "africa-business-school": {
+      "en": "Africa Business School · AI adoption | Quantum Branding",
+      "fr": "Africa Business School · Adoption de l’IA | Quantum Branding"
+    },
+    "quantum-branding": {
+      "en": "Quantum Branding · The Collapse, Brand × AI × Business",
+      "fr": "Quantum Branding · La pratique et The Collapse"
+    },
+    "brandos": {
+      "en": "BrandOS · AI brand operating system | Quantum Branding",
+      "fr": "BrandOS · Système de marque et IA | Quantum Branding"
+    },
+    "rbmg": {
+      "en": "RBMG · Operating partnership | Nizzar Ben Chekroune",
+      "fr": "RBMG · Partenariat opérationnel | Nizzar Ben Chekroune"
+    },
+    "energy-cube": {
+      "en": "Energy Cube / Vetren Energy · Work | Quantum Branding",
+      "fr": "Energy Cube / Vetren Energy · Mission | Quantum Branding"
+    },
+    "zone-aire": {
+      "en": "Zone Aire · Confidential work | Quantum Branding",
+      "fr": "Zone Aire · Mission confidentielle | Quantum Branding"
+    }
+  }
+}

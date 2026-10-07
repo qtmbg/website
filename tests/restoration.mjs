@@ -17,7 +17,9 @@ export function editorialFingerprint(html){
 
 if(process.argv[1]===fileURLToPath(import.meta.url)){
  const base=process.env.BASE_URL||'http://localhost:3017';
- const fixtureUrl=new URL('./fixtures/editorial-2026-10-04-archive.json',import.meta.url);
+ // 7 October 2026: curated practice Work and canonical career corrections (owner-requested editorial change).
+// Previous baseline kept as history: fixtures/editorial-2026-10-04-archive.json.
+ const fixtureUrl=new URL('./fixtures/editorial-2026-10-07-work-release.json',import.meta.url);
  const previous=JSON.parse(await readFile(new URL('./fixtures/editorial-2026-09-14-career.json',import.meta.url),'utf8'));
  const authorizedChange=route=>route==='/'||route==='/fr'||/^\/(fr\/)?(work(?:\/|$)|practice$|about$)/.test(route);
  const record=process.argv.includes('--record-editorial');

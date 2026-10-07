@@ -123,7 +123,7 @@ test('French routes are French in the static HTML, with no JavaScript required',
   const withoutScripts = html.replace(/<script[\s\S]*?<\/script>/g, '');
   assert.match(withoutScripts, /Que faut-il changer/);
   assert.match(await read('/fr/practice/method'), /Observer/);
-  assert.match(await read('/fr/work'), /Le travail\. Dans son ensemble/);
+  assert.match(await read('/fr/work'), /Le travail, en pratique/);
 });
 
 test('each page links to its counterpart in the other language', async () => {
@@ -174,6 +174,15 @@ test('each page carries canonical, reciprocal hreflang, Open Graph and Twitter t
   for (const page of pages) {
     const html = await read(page.path);
     const sibling = pages.find(p => p.basePath === page.basePath && p.lang !== page.lang);
+    // Archive pages whose canonical home is nizzar.com/work (src/archive/lens.mjs):
+    // canonical to nizzar.com, no hreflang, FR noindex, out of the sitemap.
+    if (page.migrated) {
+      assert.ok(html.includes(`<link rel="canonical" href="${page.canonicalUrl}">`), `${page.path}: canonical to nizzar.com`);
+      assert.ok(page.canonicalUrl.startsWith('https://nizzar.com/work'), `${page.path}: migrated outside nizzar.com/work`);
+      assert.doesNotMatch(html, /rel="alternate" hreflang=/, `${page.path}: migrated page keeps hreflang`);
+      if (page.lang === 'fr') assert.ok(html.includes('content="noindex, follow"'), `${page.path}: FR not noindex`);
+      continue;
+    }
     assert.ok(html.includes(`<link rel="canonical" href="${origin}${page.path}">`), `${page.path}: canonical`);
     assert.ok(html.includes(`hreflang="${page.lang}" href="${origin}${page.path}">`), `${page.path}: self hreflang`);
     assert.ok(html.includes(`hreflang="${sibling.lang}" href="${origin}${sibling.path}">`), `${page.path}: alternate`);
@@ -198,20 +207,26 @@ test('structured data is valid JSON-LD with the right type per page', async () =
     const html = await read(page.path);
     const block = html.split('<script type="application/ld+json">')[1].split('</script>')[0];
     const data = JSON.parse(block);
-    const types = data['@graph'].map(node => node['@type']);
+    const types = data['@graph'].flatMap(node => [].concat(node['@type']));
+    // Shared entity IDs, locked across the three domains.
+    assert.ok(data['@graph'].some(n => n['@id'] === 'https://nizzar.com/#person'), `${page.path}: person id`);
+    assert.ok(data['@graph'].some(n => n['@id'] === `${origin}/#organization`), `${page.path}: organization id`);
     assert.ok(types.includes('ProfessionalService') && types.includes('Person'), `${page.path}: entity graph`);
     assert.ok(types.includes(page.type), `${page.path}: expected ${page.type}`);
     if (page.path !== '/' && page.path !== '/fr') assert.ok(types.includes('BreadcrumbList'), `${page.path}: breadcrumb`);
   }
   const article = JSON.parse((await read('/thinking/the-collapse')).split('<script type="application/ld+json">')[1].split('</script>')[0]);
   const node = article['@graph'].find(n => n['@type'] === 'Article');
-  assert.equal(node.author['@id'], `${origin}/#nizzar`);
+  assert.equal(node.author['@id'], 'https://nizzar.com/#person');
   assert.match(node.datePublished, /^\d{4}-\d{2}-\d{2}$/);
 });
 
 test('sitemap and robots cover both languages', async () => {
   const sitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
-  for (const page of pages) assert.ok(sitemap.includes(`<loc>${origin}${page.path}</loc>`), `sitemap: ${page.path}`);
+  for (const page of pages) {
+    if (page.sitemap === false) assert.ok(!sitemap.includes(`<loc>${origin}${page.path}</loc>`), `sitemap keeps migrated ${page.path}`);
+    else assert.ok(sitemap.includes(`<loc>${origin}${page.path}</loc>`), `sitemap: ${page.path}`);
+  }
   assert.ok(sitemap.includes('hreflang="x-default"'));
   const robots = await readFile(path.join(dist, 'robots.txt'), 'utf8');
   assert.match(robots, /^User-agent: \*$/m);
@@ -440,7 +455,7 @@ test('the rejected sculpture and legacy pictograms never appear in the redesigne
 });
 
 test('owner career dates and since 2006 wording remain visible', async () => {
-  const expected=[['UNIDO / La Minute Creative','2015 - 2019'],['USAID / Career Centers','2017 - 2019'],['Diptyk','2020 - 2021'],['Inception','2021 - 2023'],['BnanaCorp','2021 - 2023']];
+  const expected=[['UNIDO / La Minute Creative','2015 - 2019'],['USAID / Career Centers','2017 - 2019'],['Diptyk','2019 - 2021'],['Inception','2021 - 2023'],['BananaCorp','2022 - 2025']];
   for(const route of ['/about','/fr/about']){
     const html=await read(route);
     for(const [name,date]of expected) assert.ok(html.includes(name) && html.includes(date),route+': '+name);

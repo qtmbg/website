@@ -83,13 +83,18 @@ function breadcrumbs(basePath, lang) {
 
 /* ------------------------------------------------------------- structured */
 
+// Shared entity IDs, locked across nizzar.com, thequantumbranding.com and
+// quantumbranding.ai (identity SOT): the person lives at nizzar.com/#person, the
+// practice at thequantumbranding.com/#organization. Never mint local copies.
+const PERSON_ID = 'https://nizzar.com/#person';
+const ORG_ID = `${origin}/#organization`;
 const person = {
   '@type': 'Person',
-  '@id': `${origin}/#nizzar`,
+  '@id': PERSON_ID,
   name: 'Nizzar Ben Chekroune',
   jobTitle: 'Brand Strategist',
   url: 'https://nizzar.com',
-  worksFor: { '@id': `${origin}/#practice` },
+  worksFor: { '@id': ORG_ID },
   // Verified profiles. The LinkedIn vanity URL is /in/nizzar — Microsoft owns
   // LinkedIn and Bing's entity graph resolves a person through it, so a wrong
   // URL here splits the entity instead of anchoring it.
@@ -98,26 +103,33 @@ const person = {
     'https://www.linkedin.com/in/nizzar',
     'https://www.instagram.com/thenizzar',
     'https://www.imdb.com/name/nm8517643/',
-    'https://sessionize.com/nizzar/',
-    'https://artsandculture.google.com/story/meet-the-judges-of-the-global-design-graduate-show-global-design-graduate-show/IAUxkXdAFpJIsA?hl=en'
-  ]
+    'https://sessionize.com/nizzar/'
+  ],
+  // Press and juries are coverage of the person, not the person.
+  subjectOf: {
+    '@type': 'CreativeWork',
+    url: 'https://artsandculture.google.com/story/meet-the-judges-of-the-global-design-graduate-show-global-design-graduate-show/IAUxkXdAFpJIsA?hl=en'
+  }
 };
 
 const practice = {
-  '@type': 'ProfessionalService',
-  '@id': `${origin}/#practice`,
+  '@type': ['Organization', 'ProfessionalService'],
+  '@id': ORG_ID,
+  alternateName: 'The Quantum Branding',
+  description: 'Independent strategy practice of Nizzar Ben Chekroune across Brand × AI × Business.',
+  foundingDate: '2024',
   name: 'Quantum Branding',
   url: origin,
   email: contactEmail,
-  founder: { '@id': `${origin}/#nizzar` },
-  employee: { '@id': `${origin}/#nizzar` },
+  founder: { '@id': PERSON_ID },
   knowsLanguage: ['en', 'fr'],
   availableLanguage: ['en', 'fr'],
   // Named so that an engine resolving the practice as an entity can see what it
   // answers for. Each term is a territory already stated on /practice.
   knowsAbout: territories.map(([en]) => en),
   slogan: 'See what is true. Decide what matters. Make it real.',
-  sameAs: ['https://nizzar.com', 'https://quantumbranding.ai']
+  sameAs: ['https://www.linkedin.com/company/thequantumbranding/'],
+  owns: { '@id': 'https://quantumbranding.ai/#software' }
 };
 
 const website = {
@@ -126,8 +138,8 @@ const website = {
   name: 'Quantum Branding',
   url: origin,
   inLanguage: ['en', 'fr'],
-  publisher: { '@id': `${origin}/#practice` },
-  copyrightHolder: { '@id': `${origin}/#practice` }
+  publisher: { '@id': ORG_ID },
+  copyrightHolder: { '@id': ORG_ID }
 };
 
 // The method is the thing the practice wants to be looked up by. Declared as a
@@ -140,7 +152,7 @@ function methodTerms(lang) {
     '@id': set,
     name: 'The Collapse',
     url: canonical('/practice/method', lang),
-    creator: { '@id': `${origin}/#nizzar` },
+    creator: { '@id': PERSON_ID },
     hasDefinedTerm: method.map(m => ({ '@id': `${set}-${m.name.toLowerCase()}` }))
   }, ...method.map(m => ({
     '@type': 'DefinedTerm',
@@ -168,7 +180,7 @@ function services(lang) {
         name: fr ? frName : en,
         serviceType: fr ? frName : en,
         description: fr ? frCopy : enCopy,
-        provider: { '@id': `${origin}/#practice` },
+        provider: { '@id': ORG_ID },
         availableLanguage: ['en', 'fr']
       }
     }))
@@ -190,27 +202,61 @@ function jsonLd(page) {
     inLanguage: lang === 'fr' ? 'fr-FR' : 'en',
     isPartOf: { '@id': `${origin}/#website` },
     image: `${origin}/og/${ogSlug(basePath, lang)}.png`,
-    publisher: { '@id': `${origin}/#practice` }
+    publisher: { '@id': ORG_ID }
   };
   if (type === 'Article') {
-    main.author = { '@id': `${origin}/#nizzar` };
+    main.author = { '@id': PERSON_ID };
     main.datePublished = page.date;
     main.dateModified = page.date;
     main.mainEntityOfPage = url;
   }
-  if (type === 'CreativeWork') {
+  if (page.practiceRecord) {
+    const r = page.practiceRecord;
+    const workId = `${url}#work`;
+    main['@type'] = 'WebPage';
+    main.mainEntity = { '@id': workId };
+    const work = {
+      '@type': 'CreativeWork', '@id': workId,
+      name: r.name, description: r[lang].lede,
+      url, inLanguage: main.inLanguage,
+      contributor: { '@id': PERSON_ID },
+      creditText: [r.relationshipLabel[lang], r.role[lang], r.attributionLabel[lang]].join(' · '),
+      isRelatedTo: { '@id': `${r.canonicalCareerUrl}#work` }
+    };
+    if (r.start) work.temporalCoverage = r.ongoing ? `${r.start}/..` : r.end && r.end !== r.start ? `${r.start}/${r.end}` : String(r.start);
+    if (r.practiceEngagement) work.provider = { '@id': ORG_ID };
+    if (r.relationship === 'Founder') work.creator = { '@id': PERSON_ID };
+    if (r.slug === 'quantum-branding') work.about = { '@id': ORG_ID };
+    if (r.slug === 'brandos') work.about = { '@id': 'https://quantumbranding.ai/#software' };
+    if (r.slug !== 'zone-aire') {
+      const citations = (page.archiveProject?.sources || []).filter(s => s.url).map(s => s.url);
+      if (citations.length) work.citation = citations;
+    }
+    graph.push(work);
+  }
+  if (type === 'CreativeWork' && !page.practiceRecord) {
     const project = page.archiveProject;
-    if (!project) main.creator = { '@id': `${origin}/#nizzar` };
+    if (!project) main.creator = { '@id': PERSON_ID };
     else {
       // Archive relationships include juries, institutional mandates and studio
       // work. Participation must never imply sole authorship or a client contract.
-      if (project.ownerParticipation !== false) main.contributor = { '@id': `${origin}/#nizzar` };
+      if (project.ownerParticipation !== false) main.contributor = { '@id': PERSON_ID };
       if (project.studio) main.creator = { '@type': 'Organization', name: project.studio === 'arroz-con-pollo' ? 'Arroz Con Pollo' : project.studio };
-      if (project.relationship === 'FOUNDER' && !project.studio) main.creator = { '@id': `${origin}/#nizzar` };
+      if (project.relationship === 'FOUNDER' && !project.studio) main.creator = { '@id': PERSON_ID };
       const pick = v => v && typeof v === 'object' ? (v[lang] ?? v.en) : v;
       main.creditText = [project.relationship, pick(project.role), ...(project.credits || []).map(c => `${c.name}: ${pick(c.role)}`)].filter(Boolean).join(' · ');
       main.citation = (project.sources || []).filter(s => s.url).map(s => s.url);
       if (project.start) main.temporalCoverage = `${project.start}${project.end ? '/' + (project.end === 'present' ? '..' : project.end) : ''}`;
+    }
+    // Historical attribution (owner decision, 6 October 2026): only practice
+    // engagements carry the practice as provider. Everything else is the career
+    // record of the person, described here and kept in full on nizzar.com.
+    const slug = basePath.split('/').pop();
+    if (page.practiceLens === 'KEEP') main.provider = { '@id': ORG_ID };
+    else {
+      delete main.publisher;
+      main.isBasedOn = { '@id': `https://nizzar.com/work/${slug}#work` };
+      if (!project) main.contributor = { '@id': PERSON_ID };
     }
   }
   // Each argument declared as a part with its own address, so an engine can
@@ -254,23 +300,25 @@ function jsonLd(page) {
 function document_(page, pages) {
   const { basePath, lang, title, description, body } = page;
   const fr = lang === 'fr';
-  const url = canonical(basePath, lang);
-  const siblings = pages.filter(p => p.basePath === basePath);
+  const own = canonical(basePath, lang);
+  // Migrated archive pages (src/archive/lens.mjs): the canonical home is nizzar.com.
+  const url = page.canonicalUrl || own;
+  const siblings = page.migrated ? [] : pages.filter(p => p.basePath === basePath);
   const alternates = siblings
     .map(p => `<link rel="alternate" hreflang="${p.lang}" href="${canonical(p.basePath, p.lang)}">`)
     .join('\n');
-  const xDefault = `<link rel="alternate" hreflang="x-default" href="${canonical(basePath, 'en')}">`;
+  const xDefault = page.migrated ? '' : `<link rel="alternate" hreflang="x-default" href="${canonical(basePath, 'en')}">`;
   const plainTitle = plain(title);
   // A search title, when one is defined, is the complete title tag: it already
   // carries the practice name, so the suffix is not appended a second time.
-  const override = searchTitle(basePath, lang);
+  const override = page.seoTitle || searchTitle(basePath, lang);
   const fullTitle = override
     ? override
     : basePath === '/'
       ? `Quantum Branding — ${plainTitle}`
       : `${plainTitle} — Quantum Branding`;
   const image = `${origin}/og/${ogSlug(basePath, lang)}.png`;
-  const desc = plain(searchDescription(basePath, lang) || description);
+  const desc = plain(page.practiceRecord ? description : searchDescription(basePath, lang) || description);
 
   return `<!doctype html>
 <html lang="${lang}">
@@ -281,7 +329,7 @@ function document_(page, pages) {
 <meta name="description" content="${esc(desc)}">
 <meta name="author" content="Nizzar Ben Chekroune">
 <meta name="theme-color" content="#f4f6f8">
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="robots" content="${page.noindex ? 'noindex, follow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'}">
 <link rel="canonical" href="${url}">
 ${alternates}
 ${xDefault}
@@ -289,7 +337,7 @@ ${xDefault}
 <meta property="og:site_name" content="Quantum Branding">
 <meta property="og:title" content="${esc(fullTitle)}">
 <meta property="og:description" content="${esc(desc)}">
-<meta property="og:url" content="${url}">
+<meta property="og:url" content="${own}">
 <meta property="og:image" content="${image}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -410,7 +458,7 @@ for (const lang of ['en', 'fr']) {
 const bases = [...new Set(pages.map(p => p.basePath))];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${bases.flatMap(base => ['en', 'fr'].map(lang => {
+${bases.filter(base => !pages.some(p => p.basePath === base && p.sitemap === false)).flatMap(base => ['en', 'fr'].map(lang => {
   const alts = ['en', 'fr']
     .map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${canonical(base, l)}"/>`)
     .join('\n');
