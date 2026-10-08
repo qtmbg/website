@@ -176,13 +176,17 @@ if (player) {
     current = (index + tracks.length) % tracks.length;
     tracks.forEach((track, i) => { track.hidden = i !== current; });
     const href = tracks[current].getAttribute('href');
-    links.forEach(link => link.setAttribute('href', href));
+    links.forEach(link => {
+      link.setAttribute('href', href);
+      link.setAttribute('aria-label', `${lang === 'fr' ? 'Lire : ' : 'Read: '}${tracks[current].textContent}`);
+    });
     const label = String(current + 1).padStart(2, '0');
     if (number) number.textContent = label;
     if (position) position.textContent = label;
     progress?.style.setProperty('--p', current + 1);
   };
   player.querySelectorAll('[data-player-step]').forEach(button => {
+    button.disabled = false;
     button.addEventListener('click', () => show(current + Number(button.dataset.playerStep)));
   });
   show(0);
@@ -234,7 +238,7 @@ for (const item of movable) {
   item.addEventListener('lostpointercapture', release);
   // A drag that ends over a link must not follow it.
   item.addEventListener('click', event => {
-    if (!moved) return;
+    if (!moved || event.detail === 0) return;
     event.preventDefault();
     event.stopPropagation();
     moved = false;

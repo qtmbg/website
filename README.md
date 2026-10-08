@@ -58,7 +58,7 @@ after changing brand copy, then rebuild.
 - No dead `#` anchors; every internal link resolves.
 - Canonical, reciprocal hreflang, Open Graph, Twitter Card and JSON-LD on every page.
 - The hero carries exactly three things and fits the first screen at 380px.
-- Fiverr is named only in `/notes`; the product is called BrandOS.
+- Fiverr appears in About, Practice and Notes as the owner-attested Independent Practice history; historical projects retain their original providers. The product is called BrandOS.
 - The brief instrument never transmits anything on its own.
 
 ## Search discovery

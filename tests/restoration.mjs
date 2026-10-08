@@ -1,4 +1,4 @@
-// Editorial baseline: owner-approved copy and career updates, 14 September 2026.
+// Editorial baseline: final ecosystem consolidation, 8 October 2026.
 // Changes to this fixture require an explicit editorial change, never a redesign.
 import {chromium} from '@playwright/test';
 import assert from 'node:assert/strict';
@@ -10,18 +10,18 @@ import {articles} from '../src/articles.mjs';
 
 export function editorialFingerprint(html){
  const d=new DOMParser().parseFromString(html,'text/html');
- d.querySelectorAll('[aria-hidden="true"],script,style').forEach(e=>e.remove());
+ d.querySelectorAll('[aria-hidden="true"],script,style,.desk-scene').forEach(e=>e.remove());
  const clean=s=>s.replace(/\s+/g,'').normalize('NFC');
  return {text:clean(d.body.textContent),links:[...d.querySelectorAll('a')].map(a=>[a.getAttribute('href'),clean(a.textContent),a.getAttribute('aria-label')]),metadata:[...d.querySelectorAll('title,meta[name="description"],link[rel="canonical"],link[rel="alternate"],meta[property^="og:"],meta[name^="twitter:"]')].map(e=>e.outerHTML)};
 }
 
 if(process.argv[1]===fileURLToPath(import.meta.url)){
  const base=process.env.BASE_URL||'http://localhost:3017';
- // 7 October 2026: curated practice Work and canonical career corrections (owner-requested editorial change).
+ // 8 October 2026: owner-authorized origin story, independent practice and accessibility corrections.
 // Previous baseline kept as history: fixtures/editorial-2026-10-04-archive.json.
- const fixtureUrl=new URL('./fixtures/editorial-2026-10-07-work-release.json',import.meta.url);
+ const fixtureUrl=new URL('./fixtures/editorial-2026-10-08-ecosystem.json',import.meta.url);
  const previous=JSON.parse(await readFile(new URL('./fixtures/editorial-2026-09-14-career.json',import.meta.url),'utf8'));
- const authorizedChange=route=>route==='/'||route==='/fr'||/^\/(fr\/)?(work(?:\/|$)|practice$|about$)/.test(route);
+ const authorizedChange=route=>route==='/'||route==='/fr'||/^\/(fr\/)?(work(?:\/|$)|practice(?:\/method)?$|about$|notes$|thinking\/)/.test(route);
  const record=process.argv.includes('--record-editorial');
  const fixture=record?{}:JSON.parse(await readFile(fixtureUrl,'utf8'));
  const browser=await chromium.launch({channel:'chrome',headless:true});

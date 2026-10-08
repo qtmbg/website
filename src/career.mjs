@@ -6,7 +6,7 @@ export const career = [
   {name:'USAID / Career Centers',start:2017,end:2019},
   {name:'Audi / Driven by Art'},
   {name:'Diptyk',start:2019,end:2021},
-  {name:'Inception',start:2021,end:2023},
+  {name:'Nception',start:2021,end:2023},
   {name:'BananaCorp',start:2022,end:2025},
   {name:'Quantum Branding',start:2024,end:null}
 ];

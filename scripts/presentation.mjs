@@ -73,8 +73,8 @@ function replaceOnce(html, needle, replacement, label) {
 // Owner direction, 4 October 2026: the site takes the design language of
 // elenagonci.com. A desktop with widgets and folders, a dock, windows, notes
 // and folder tabs. Everything this file adds is either a wrapper or an
-// aria-hidden duplicate of something the page already says or links to, so
-// the editorial record (text, links, metadata) is unchanged.
+// decorative duplicate or an accessible shortcut to existing page content.
+// Operable widgets keep native link and button semantics.
 
 // Index just past the tag that closes the element opening at `start`.
 function closeOf(html, start, tag) {
@@ -127,17 +127,17 @@ function desktop(page) {
   const essays = articles.map(a => ({ title: a[lang].title, href: u(`/thinking/${a.slug}`) }));
   const count = String(essays.length).padStart(2, '0');
 
-  const menubar = `<div class="menubar"><span class="menubar-brand"><b class="menubar-mark"></b><span class="menubar-name">Quantum Branding</span><span class="menubar-role">Nizzar Ben Chekroune</span></span><span class="menubar-clock" data-menubar-clock></span></div>`;
+  const menubar = `<div class="menubar" aria-hidden="true"><span class="menubar-brand"><b class="menubar-mark"></b><span class="menubar-name">Quantum Branding</span><span class="menubar-role">Nizzar Ben Chekroune</span></span><span class="menubar-clock" data-menubar-clock></span></div>`;
 
-  const clock = `<div class="widget widget-clock" data-clock>${clockFace()}</div>`;
+  const clock = `<div class="widget widget-clock" aria-hidden="true" data-clock>${clockFace()}</div>`;
 
-  const calendar = `<a class="widget widget-calendar" href="${u('/start')}" tabindex="-1" data-calendar><span class="cal-day" data-cal-day></span><span class="cal-date" data-cal-date></span><span class="cal-grid" data-cal-grid></span><span class="cal-hint">${t('Let’s talk', 'Parlons-en')}</span></a>`;
+  const calendar = `<a class="widget widget-calendar" href="${u('/start')}" data-calendar aria-label="${t('Let’s talk', 'Parlons-en')}"><span class="cal-day" data-cal-day></span><span class="cal-date" data-cal-date></span><span class="cal-grid" data-cal-grid></span><span class="cal-hint">${t('Let’s talk', 'Parlons-en')}</span></a>`;
 
-  const player = `<div class="widget widget-player" data-player><a class="player-art" href="${essays[0].href}" tabindex="-1" data-player-link><span class="player-no" data-player-no>01</span></a><span class="player-info"><span class="player-tracks">${essays.map((e, i) => `<a class="player-title" href="${e.href}" tabindex="-1" data-track${i ? ' hidden' : ''}>${esc(e.title)}</a>`).join('')}</span><span class="player-sub">Nizzar Ben Chekroune · ${t('Thinking', 'Les idées')}</span><span class="player-controls"><button class="control control-prev" type="button" tabindex="-1" data-player-step="-1"></button><a class="control control-play" href="${essays[0].href}" tabindex="-1" data-player-link></a><button class="control control-next" type="button" tabindex="-1" data-player-step="1"></button></span></span><span class="player-progress"><i data-player-progress></i></span><span class="player-times"><span data-player-pos>01</span><span>${count}</span></span></div>`;
+  const player = `<div class="widget widget-player" data-player><a class="player-art" href="${essays[0].href}" data-player-link aria-label="${esc(t('Read: ', 'Lire : ') + essays[0].title)}"><span class="player-no" data-player-no>01</span></a><span class="player-info"><span class="player-tracks">${essays.map((e, i) => `<a class="player-title" href="${e.href}" data-track${i ? ' hidden' : ''}>${esc(e.title)}</a>`).join('')}</span><span class="player-sub">Nizzar Ben Chekroune · ${t('Thinking', 'Les idées')}</span><span class="player-controls"><button class="control control-prev" type="button" data-player-step="-1" disabled aria-label="${t('Previous essay', 'Texte précédent')}"></button><a class="control control-play" href="${essays[0].href}" data-player-link aria-label="${esc(t('Read: ', 'Lire : ') + essays[0].title)}"></a><button class="control control-next" type="button" data-player-step="1" disabled aria-label="${t('Next essay', 'Texte suivant')}"></button></span></span><span class="player-progress"><i data-player-progress></i></span><span class="player-times"><span data-player-pos>01</span><span>${count}</span></span></div>`;
 
-  const forecast = `<a class="widget widget-method" href="${u('/practice/method')}" tabindex="-1"><span class="method-title">The Collapse</span><span class="method-days">${method.map((m, i) => `<span class="method-day"><small>0${i + 1}</small>${methodMark(i)}<span>${esc(m.name)}</span></span>`).join('')}</span></a>`;
+  const forecast = `<a class="widget widget-method" href="${u('/practice/method')}"><span class="method-title">The Collapse</span><span class="method-days">${method.map((m, i) => `<span class="method-day"><small>0${i + 1}</small>${methodMark(i)}<span>${esc(m.name)}</span></span>`).join('')}</span></a>`;
 
-  const founder = `<a class="widget widget-founder" href="${u('/about')}" tabindex="-1"><span class="founder-name">Nizzar<br>Ben Chekroune</span><span class="founder-brand">Quantum Branding</span></a>`;
+  const founder = `<a class="widget widget-founder" href="${u('/about')}"><span class="founder-name">Nizzar<br>Ben Chekroune</span><span class="founder-brand">Quantum Branding</span></a>`;
 
   const folders = [
     [u('/work/selvaggi'), 'Selvaggi'],
@@ -146,7 +146,7 @@ function desktop(page) {
     [u('/thinking'), t('Thinking', 'Les idées')],
     [u('/lab'), 'Quantum Lab']
   ];
-  const icons = `<div class="desk-icons">${folders.map(([href, label], i) => `<a class="desk-icon" href="${href}" tabindex="-1" draggable="false" data-drag="${i}"><span class="folder"></span><span class="desk-label">${esc(label)}</span></a>`).join('')}</div>`;
+  const icons = `<div class="desk-icons">${folders.map(([href, label], i) => `<a class="desk-icon" href="${href}" draggable="false" data-drag="${i}"><span class="folder"></span><span class="desk-label">${esc(label)}</span></a>`).join('')}</div>`;
 
   const apps = [
     ['https://quantumbranding.ai', 'BrandOS', 'brandos'],
@@ -160,9 +160,9 @@ function desktop(page) {
     [u('/start'), t('Let’s talk', 'Parlons-en'), 'talk'],
     [u('/notes'), 'Notes', 'notes']
   ];
-  const dock = `<div class="widget widget-apps">${apps.map(([href, title, glyph, download]) => `<a class="app" href="${href}" title="${esc(title)}" tabindex="-1"${download ? ' download' : ''}><span class="app-icon app-${glyph}"></span></a>`).join('')}</div>`;
+  const dock = `<div class="widget widget-apps">${apps.map(([href, title, glyph, download]) => `<a class="app" href="${href}" title="${esc(title)}" aria-label="${esc(title)}"${download ? ' download' : ''}><span class="app-icon app-${glyph}"></span></a>`).join('')}</div>`;
 
-  return `<div class="desk-scene" aria-hidden="true">${menubar}<div class="desk-widgets">${clock}${calendar}${player}${forecast}${founder}</div>${icons}${dock}</div>`;
+  return `<div class="desk-scene">${menubar}<div class="desk-widgets">${clock}${calendar}${player}${forecast}${founder}</div>${icons}${dock}</div>`;
 }
 
 /* ------------------------------------------------------------------ cases */

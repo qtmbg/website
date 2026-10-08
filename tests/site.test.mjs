@@ -245,10 +245,16 @@ test('the product is called BrandOS on the practice site', async () => {
   assert.match(lab, /by Quantum Branding/);
 });
 
-test('the review platform is absent from public copy', async () => {
+test('Fiverr history stays in proportionate origin and source contexts', async () => {
+  const allowed = new Set(['about.html','fr/about.html','notes.html','fr/notes.html','practice.html','fr/practice.html']);
   for (const file of (await walk(dist))) {
-    if (!/\.(html|xml|txt|svg|mjs|js|css)$/.test(file)) continue;
-    assert.equal(/fiverr/i.test((await readFile(file, 'utf8')).replace(/<script[\s\S]*?<\/script>/g, '').replace(/(?:href|src)="[^"]*"/g, '')), false, `${path.relative(root, file)} names the platform`);
+    if (!file.endsWith('.html')) continue;
+    const html=(await readFile(file,'utf8')).replace(/<script[\s\S]*?<\/script>/g,'').replace(/(?:href|src)="[^"]*"/g,'');
+    if (/fiverr/i.test(html)) assert.ok(allowed.has(path.relative(dist,file)),`${file}: platform outside origin/source context`);
+  }
+  for(const route of ['/about','/fr/about']){
+    const html=await read(route);assert.equal((html.match(/285/g)||[]).length,1);
+    assert.match(html,/2013/);assert.match(html,/2020/);assert.match(html,/own reported count|owner-reported|propre décompte|déclaré|atteste/i);
   }
 });
 
@@ -455,7 +461,7 @@ test('the rejected sculpture and legacy pictograms never appear in the redesigne
 });
 
 test('owner career dates and since 2006 wording remain visible', async () => {
-  const expected=[['UNIDO / La Minute Creative','2015 - 2019'],['USAID / Career Centers','2017 - 2019'],['Diptyk','2019 - 2021'],['Inception','2021 - 2023'],['BananaCorp','2022 - 2025']];
+  const expected=[['UNIDO / La Minute Creative','2015 - 2019'],['USAID / Career Centers','2017 - 2019'],['Diptyk','2019 - 2021'],['Nception','2021 - 2023'],['BananaCorp','2022 - 2025']];
   for(const route of ['/about','/fr/about']){
     const html=await read(route);
     for(const [name,date]of expected) assert.ok(html.includes(name) && html.includes(date),route+': '+name);

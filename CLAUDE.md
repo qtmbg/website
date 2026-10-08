@@ -216,3 +216,8 @@ BASE_URL=http://localhost:3017 npm run test:visual
 `public/og/*.png` and `public/downloads/*.pdf` are generated locally and
 committed, so the Vercel build never needs a browser. Regenerating them is a
 deliberate act: check the palette above first.
+
+
+## Owner authority — 8 October 2026
+
+The final ecosystem consolidation explicitly authorizes tested commits, pushes and production deployment for these two websites, superseding earlier local-only release restrictions. Preserve historical provider attribution and the approved designs. Keep LinkedIn and the BrandOS repository untouched, and do not activate the prepared migrated-work redirects. Independent Practice is a parallel career strand. The 285 distinct Fiverr clients are owner-attested, pending full record reconciliation; the recoverable subset is not the total. Account registration in 2013 is distinct from paid delivery beginning in summer 2020 (July or August unresolved). Career experience begins in 2006; Quantum Branding activity begins in late 2023 and formal establishment in 2024. Do not project current AI tools or The Collapse name onto every earlier engagement.

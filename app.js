@@ -42,6 +42,16 @@ if (form && output) {
   const preview = output.querySelector('pre');
   const draft = output.querySelector('[data-email-draft]');
   let brief = '';
+  // Keep the export complete. Mail clients impose differing URI limits; use a
+  // conservative encoded length and offer the full copy/file for longer drafts.
+  const draftHelp = document.createElement('p');
+  draftHelp.id = 'email-draft-help';
+  draftHelp.className = 'field-hint';
+  draft?.parentElement.after(draftHelp);
+  draft?.setAttribute('aria-describedby', draftHelp.id);
+  draft?.addEventListener('click', event => {
+    if (draft.getAttribute('aria-disabled') === 'true') event.preventDefault();
+  });
 
   const say = message => { if (status) status.textContent = message; };
 
@@ -61,11 +71,24 @@ if (form && output) {
     output.hidden = false;
     if (draft && contactEmail) {
       // A draft the visitor sends. Nothing leaves the browser on its own.
-      const body = brief.length > 1600 ? `${brief.slice(0, 1600)}…` : brief;
-      draft.href = `mailto:${contactEmail}?subject=${encodeURIComponent(t('Quantum Branding · starting point', 'Quantum Branding · point de départ'))}&body=${encodeURIComponent(body)}`;
+      const uri = `mailto:${contactEmail}?subject=${encodeURIComponent(t('Quantum Branding · starting point', 'Quantum Branding · point de départ'))}&body=${encodeURIComponent(brief)}`;
+      const fits = uri.length <= 2000;
+      if (fits) {
+        draft.href = uri;
+        draft.removeAttribute('aria-disabled');
+        draftHelp.textContent = t('Opens your email app with the complete brief. You send it yourself.',
+          'Ouvre votre messagerie avec le brief complet. Vous l’envoyez vous-même.');
+      } else {
+        draft.removeAttribute('href');
+        draft.setAttribute('aria-disabled', 'true');
+        draft.setAttribute('tabindex', '0');
+        draftHelp.textContent = t(`This brief is too long for a reliable email link. Copy the complete brief or download the .txt file, then send it to ${contactEmail}.`,
+          `Ce brief est trop long pour un lien email fiable. Copiez le brief complet ou téléchargez le fichier .txt, puis envoyez-le à ${contactEmail}.`);
+      }
+      draft.setAttribute('role', 'link');
     }
-    say(t('Nothing has been sent. Copy it, download it, or open an email you send yourself.',
-      'Rien n’a été envoyé. Copiez-le, téléchargez-le ou ouvrez un email que vous envoyez vous-même.'));
+    say(t('Nothing has been sent. Your complete brief is ready to copy or download.',
+      'Rien n’a été envoyé. Votre brief complet est prêt à être copié ou téléchargé.'));
     output.querySelector('h2')?.focus();
   });
 

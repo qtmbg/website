@@ -153,19 +153,24 @@
         "slug": "unido-creative-mediterranean",
         "name": "UNIDO · Creative Mediterranean",
         "lens": "PROOF"
+      },
+      {
+        "slug": "independent-practice",
+        "name": "Independent Practice",
+        "lens": "PROOF"
       }
     ],
     "en": {
       "title": "Quantum Branding",
-      "lede": "About twenty years of very different mandates showed the same way of working. In 2024 I gave it a name and a structure: Quantum Branding.",
-      "description": "Founded by Nizzar Ben Chekroune in 2024, Quantum Branding gives a name and a structure to twenty years of work across brand, AI and business.",
+      "lede": "My career began in 2006, across institutional roles, ventures and independent consulting. Quantum Branding began taking shape in late 2023 and was formally established in 2024.",
+      "description": "Founded by Nizzar Ben Chekroune in 2024, Quantum Branding brings accumulated institutional, entrepreneurial and independent consulting experience into a structured practice.",
       "context": "Founder",
       "sections": [
         {
           "heading": "A way of working, formalized",
           "body": [
-            "For about twenty years the briefs varied: visibility, sales, a rebrand, content, a launch, market entry, Web3, AI, digital transformation. The movement underneath them repeated. Start from the stated problem and find the real one. Settle identity, value, audience and the decision. Then come back down to alignment, expression, activation and contact with reality.",
-            "That earlier work carries its own attributions: a studio I co-founded, institutional mandates, independent advice. Quantum Branding is the formalization of the method it revealed. The work began in late 2023 and the practice was established in 2024. AI has since made parts of the method systematic, and able to scale beyond one person's hours."
+            "My earlier work spanned institutional roles, ventures I founded or co-founded, and independent consulting. The questions varied: positioning, communication, sales, launches, digital experience and, later, emerging technologies. Working across these contexts developed my judgment about what a situation needs before deciding what to build.",
+            "Those earlier engagements retain their own providers and attributions. Quantum Branding took shape in late 2023 and was established in 2024. The experience informed the later formalization of The Collapse; the named method and today's AI capabilities do not describe every earlier engagement."
           ]
         },
         {
@@ -189,20 +194,20 @@
           ]
         }
       ],
-      "shows": "A company working with Quantum Branding gets a method older than its name: a shared sequence, decisions everyone can see, and a practitioner who has run the same movement for institutions, cultural media, luxury houses, athletes and founders.",
+      "shows": "Quantum Branding brings accumulated experience into a shared working sequence: understand the situation, choose a direction, build what the decision requires, and support it in use. The Collapse formalizes that approach for the current practice.",
       "seoTitle": "Quantum Branding · The Collapse, Brand × AI × Business"
     },
     "fr": {
       "title": "Quantum Branding",
-      "lede": "Une vingtaine d'années de mandats très différents ont fait apparaître une même façon de travailler. En 2024, je lui ai donné un nom et une structure : Quantum Branding.",
-      "description": "Fondée par Nizzar Ben Chekroune en 2024, Quantum Branding donne un nom et une structure à vingt ans de travail entre marque, IA et business.",
+      "lede": "Mon parcours professionnel a commencé en 2006, entre fonctions institutionnelles, entreprises et conseil indépendant. Quantum Branding a pris forme fin 2023 et a été formellement établi en 2024.",
+      "description": "Fondée par Nizzar Ben Chekroune en 2024, Quantum Branding réunit une expérience institutionnelle, entrepreneuriale et de conseil indépendant dans une pratique structurée.",
       "context": "Fondateur",
       "sections": [
         {
           "heading": "Une façon de travailler, formalisée",
           "body": [
-            "Pendant une vingtaine d'années, les demandes ont changé : visibilité, ventes, refonte de marque, contenu, lancement, entrée sur un marché, Web3, IA, transformation digitale. Le mouvement en dessous, lui, revenait. Partir du problème posé pour trouver le vrai. Fixer l'identité, la valeur, le public et la décision. Puis redescendre vers l'alignement, l'expression, l'activation et l'épreuve du réel.",
-            "Ces travaux antérieurs portent leurs propres attributions : un studio cofondé, des mandats institutionnels, du conseil indépendant. Quantum Branding formalise la méthode qu'ils ont révélée. Le travail a commencé fin 2023 et la pratique a été établie en 2024. L'IA a depuis rendu certaines parties de la méthode systématisables, capables d'aller au-delà du temps d'une seule personne."
+            "Mes travaux antérieurs couvrent des fonctions institutionnelles, des entreprises fondées ou cofondées et du conseil indépendant. Les questions variaient : positionnement, communication, ventes, lancements, expérience digitale et, plus tard, technologies émergentes. Ces contextes ont développé mon jugement sur ce dont une situation a besoin avant de décider quoi construire.",
+            "Ces missions antérieures conservent leurs propres prestataires et attributions. Quantum Branding a pris forme fin 2023 et a été établi en 2024. Cette expérience a nourri la formalisation ultérieure de The Collapse ; la méthode nommée et les capacités actuelles de l'IA ne décrivent pas chaque mission passée."
           ]
         },
         {
@@ -226,7 +231,7 @@
           ]
         }
       ],
-      "shows": "Une entreprise qui travaille avec Quantum Branding s'appuie sur une méthode plus ancienne que son nom : une séquence partagée, des décisions visibles par tous, et un praticien qui a mené ce même mouvement pour des institutions, des médias culturels, des maisons de luxe, des athlètes et des fondateurs.",
+      "shows": "Quantum Branding transforme une expérience accumulée en une séquence de travail partagée : comprendre la situation, choisir une direction, construire ce que la décision exige et l'accompagner dans l'usage. The Collapse formalise cette approche pour la pratique actuelle.",
       "seoTitle": "Quantum Branding · La pratique et The Collapse"
     }
   },

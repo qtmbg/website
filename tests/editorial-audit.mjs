@@ -18,7 +18,7 @@ const patterns=[
  ['placeholder',/\[[^\]\n]{3,80}\]/gu],
  ['montant',/[€£]|\$\s*\d|\b(?:USD|EUR|MAD)\b|\d[\d.,]*\s*(?:dollars|euros)\b/giu],
  ['variable non rendue',/\$\{[^}]+\}/gu],
- ['pseudo ou plateforme',/elvinpicardo|tisasen|shelahj|fiverr/giu]
+ ['pseudo ou plateforme',/elvinpicardo|tisasen|shelahj/giu]
 ];
 function hits(text,{templates=false}={}){
  const rows=[];
