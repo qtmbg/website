@@ -1,0 +1,60 @@
+{
+  "items": [
+    {
+      "source_platform": "LinkedIn",
+      "id": "hanane-el-aafifi-2026-10-06",
+      "author_name": "Hanane El Aafifi",
+      "author_role_observed": "Head of Business developpement & Partnership",
+      "date": "2026-10-06",
+      "original_language": "fr",
+      "approved_excerpt": [
+        "Ma rencontre avec Nizar lors d’une formation a changé ma façon de voir l’IA",
+        "l’humain d’abord, la technologie à son service",
+        "Ses contenus donnent des clés pour utiliser l’IA tout en gardant son jugement et sa singularité."
+      ],
+      "source_url": "https://www.linkedin.com/in/nizzar/details/recommendations/?detailScreenTabIndex=0",
+      "source_url_type": "recommendations_section",
+      "source_verified": true,
+      "authorized_placements": [
+        "nizzar.com/work/africa-business-school",
+        "nizzar.com/about",
+        "thequantumbranding.com/work/africa-business-school",
+        "nizzar.com/in-their-words",
+        "thequantumbranding.com/work",
+        "thequantumbranding.com/fr/work",
+        "thequantumbranding.com/practice",
+        "thequantumbranding.com/fr/practice"
+      ],
+      "context_en": "AI training participant · professional recommendation",
+      "context_fr": "Participante à une formation IA · recommandation professionnelle"
+    },
+    {
+      "source_platform": "LinkedIn",
+      "id": "leslie-lentz-2026-09-28",
+      "author_name": "Leslie Lentz",
+      "author_role_observed": "Marketing Director | Building Brands in Healthcare Construction | Strategic Marketing • Trade Shows • Business Development",
+      "date": "2026-09-28",
+      "original_language": "en",
+      "approved_excerpt": [
+        "he has done an exceptional job growing our social media presence and building us a completely new website.",
+        "it's already bringing in results we've never seen before.",
+        "What really stands out is Nizzar's communication and his experience with AI."
+      ],
+      "source_url": "https://www.linkedin.com/in/nizzar/details/recommendations/?detailScreenTabIndex=0",
+      "source_url_type": "recommendations_section",
+      "source_verified": true,
+      "authorized_placements": [
+        "nizzar.com/work/selvaggi",
+        "thequantumbranding.com/work/selvaggi",
+        "nizzar.com/in-their-words",
+        "thequantumbranding.com/work",
+        "thequantumbranding.com/fr/work",
+        "thequantumbranding.com/fr/work/selvaggi"
+      ],
+      "context_en": "Selvaggi Built client · website and social media engagement",
+      "context_fr": "Cliente Selvaggi Built · site web et présence sociale"
+    }
+  ],
+  "registry_sha256": "a657ca1735d270268996c4b03c15971ad6cc0e51abe323e3fd8ff80bd1bd73e5",
+  "generated_from": "outputs/v6/EVIDENCE-REGISTRY.json"
+}

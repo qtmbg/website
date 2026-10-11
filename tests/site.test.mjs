@@ -275,7 +275,8 @@ test('“we” appears only where it means the client and me', async () => {
   const allowed = [/We can work out the right starting point together/, /we talk/,
     /Nous trouverons ensemble/, /nous définirons ensemble/, /nous explicitons/, /us had walked the funnel/];
   for (const file of (await walk(dist)).filter(f => f.endsWith('.html'))) {
-    const text = (await readFile(file, 'utf8')).replace(/<script[\s\S]*?<\/script>/g, '').replace(/\bUS\b/g, 'United States');
+    // Attributed client words are preserved verbatim; this rule governs practice copy.
+    const text = (await readFile(file, 'utf8')).replace(/<script[\s\S]*?<\/script>/g, '').replace(/<blockquote\b[^>]*>[\s\S]*?<\/blockquote>/g, '').replace(/\bUS\b/g, 'United States');
     for (const [phrase] of text.matchAll(/(?<![\p{L}\p{N}_])(?:we|us|our)(?![\p{L}\p{N}_])[^<.!?]{0,60}/giu)) {
       assert.ok(allowed.some(ok => ok.test(phrase)),
         `${path.relative(dist, file)} uses a collective pronoun for the practice: "${phrase.trim()}"`);
@@ -313,18 +314,20 @@ test('its argument survives as an essay, with no client-project framing', async 
   assert.ok((await read('/thinking')).includes('One page, many arguments'), 'the index does not list it');
 });
 
-test('confirmed client names and verbatim excerpts are published', async () => {
+test('historical client records survive while verified commercial excerpts are published', async () => {
   assert.equal(publishTestimonials, true);
   assert.deepEqual(reviews.map(r=>r.name), ['Elvin Picardo','Tisa Esen','Shelah J.']);
   for (const route of ['/work','/fr/work']) {
     const html=await read(route);
-    assert.equal((html.match(/<blockquote>/g)||[]).length,3);
-    for(const r of reviews)assert.ok(html.includes(r.name));
+    assert.equal((html.match(/<blockquote\b/g)||[]).length,2);
+    assert.ok(html.includes('Leslie Lentz'));
+    assert.ok(html.includes('Hanane El Aafifi'));
+    assert.ok(html.includes('recommendations/?detailScreenTabIndex=0'));
   }
   const notes=await read('/notes');
   for(const r of reviews){
     assert.ok(notes.includes(r.name));
-    assert.ok(notes.includes(r.en.replaceAll("'",'&#39;')));
+    assert.ok(!notes.includes(r.en.replaceAll("'",'&#39;')));
   }
 });
 

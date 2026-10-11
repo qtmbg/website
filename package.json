@@ -20,7 +20,8 @@
     "test:media": "node tests/media-safety.mjs",
     "media": "node scripts/media.mjs && node scripts/media-public.mjs",
     "practice": "python3 scripts/gen_practice.py",
-    "test:practice": "node scripts/build.mjs && node --test tests/practice.test.mjs"
+    "test:practice": "node scripts/build.mjs && node --test tests/practice.test.mjs",
+    "prebuild": "node scripts/check-evidence.mjs"
   },
   "engines": {
     "node": ">=22"
