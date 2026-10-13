@@ -3,8 +3,10 @@
 import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
+import { transform as transformCss } from 'lightningcss';
 import { fileURLToPath } from 'node:url';
 import { articles } from '../src/articles.mjs';
+import { preloadPicture } from '../src/archive/render.mjs';
 import { makePages } from '../src/pages.mjs';
 import { searchTitle, searchDescription } from '../src/search-titles.mjs';
 import { contactEmail, esc, method, origin, route, territories } from '../src/shared.mjs';
@@ -350,7 +352,8 @@ ${xDefault}
 <meta name="twitter:image" content="${image}">
 <meta name="twitter:image:alt" content="${esc(plainTitle)} · Quantum Branding">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/bricolage-grotesque-latin-variable.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/bricolage-grotesque-basic-variable.woff2" crossorigin>
+${page.archiveProject?.cover ? preloadPicture(page.archiveProject.cover) : ''}
 <link rel="stylesheet" href="/assets/desktop.css">
 <script>document.documentElement.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion-ready')</script>
 <script type="application/ld+json">${jsonLd(page)}</script>
@@ -445,6 +448,10 @@ for (const file of ['styles.css', 'app.js', 'favicon.svg']) {
   await cp(path.join(root, file), path.join(dist, file));
 }
 await copyIfPresent(path.join(root, 'assets'), path.join(dist, 'assets'));
+// Keep the authored stylesheet readable; ship its equivalent minified bytes.
+const desktopCss = await readFile(path.join(root, 'assets', 'desktop.css'));
+const { code: compactCss } = transformCss({ filename: 'desktop.css', code: desktopCss, minify: true });
+await writeFile(path.join(dist, 'assets', 'desktop.css'), compactCss);
 await copyIfPresent(path.join(root, 'public'), dist);
 await cp(path.join(root, 'src', 'shared.mjs'), path.join(dist, 'assets', 'shared.mjs'));
 
