@@ -40,7 +40,17 @@ export function picture(id, lang, { sizes = '(max-width: 800px) 100vw, 1060px', 
   const largest = b.sizes.at(-1);
   const srcset = b.sizes.map(s => `${s.src} ${s.width}w`).join(', ');
   const small = b.sizes.find(s => s.width >= 960) || largest;
-  return `<img${cls ? ` class="${cls}"` : ''} src="${small.src}" srcset="${srcset}" sizes="${sizes}" width="${largest.width}" height="${largest.height}" alt="${esc(pick(m.alt, lang) || '')}" loading="${eager ? 'eager' : 'lazy'}" decoding="async" style="--ph:${b.colour}">`;
+  return `<img${cls ? ` class="${cls}"` : ''} src="${small.src}" srcset="${srcset}" sizes="${sizes}" width="${largest.width}" height="${largest.height}" alt="${esc(pick(m.alt, lang) || '')}" loading="${eager ? 'eager' : 'lazy'}"${eager ? ' fetchpriority="high"' : ''} decoding="async" style="--ph:${b.colour}">`;
+}
+// Match the exact responsive hero candidate, so the head hint never downloads a second image.
+export function preloadPicture(id) {
+  const b = built[id];
+  const m = mediaById.get(id);
+  if (!b?.sizes?.length || !['PUBLIC SAFE', 'PUBLIC WITH CREDIT'].includes(m?.publishability)) return '';
+  const largest = b.sizes.at(-1);
+  const small = b.sizes.find(s => s.width >= 960) || largest;
+  const srcset = b.sizes.map(s => `${s.src} ${s.width}w`).join(', ');
+  return `<link rel="preload" as="image" href="${small.src}" imagesrcset="${srcset}" imagesizes="(max-width: 800px) 100vw, 1060px" fetchpriority="high">`;
 }
 const hasMedia = id => Boolean(built[id]?.sizes?.length && ['PUBLIC SAFE', 'PUBLIC WITH CREDIT'].includes(mediaById.get(id)?.publishability));
 const largest = id => built[id].sizes.at(-1).src;

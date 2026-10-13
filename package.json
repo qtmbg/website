@@ -27,6 +27,7 @@
     "node": ">=22"
   },
   "devDependencies": {
-    "@playwright/test": "^1.63.0"
+    "@playwright/test": "^1.63.0",
+    "lightningcss": "1.30.2"
   }
 }

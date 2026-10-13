@@ -9,7 +9,8 @@
 
 /* Bricolage Grotesque (SIL OFL 1.1), instanced at the 14pt optical size and
    100% width the reference renders, weight axis 200 to 800 kept. */
-@font-face{font-family:"Bricolage Grotesque";src:url("/assets/fonts/bricolage-grotesque-latin-variable.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
+@font-face{font-family:"Bricolage Grotesque";src:url("/assets/fonts/bricolage-grotesque-basic-variable.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2116,U+2190-2193}
+@font-face{font-family:"Bricolage Grotesque";src:url("/assets/fonts/bricolage-grotesque-extended-variable.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap;unicode-range:U+0100-02FF}
 @font-face{font-family:"Bricolage Grotesque Fallback";src:local(Arial);ascent-override:88.21%;descent-override:25.61%;line-gap-override:0%;size-adjust:105.43%}
 
 :root{
@@ -219,7 +220,7 @@ body:not([data-page="home"])::after{content:"";position:fixed;z-index:40;inset:0
 .site-footer>p:last-child{grid-area:meta}
 .site-footer>p:last-child>a{color:var(--ink-70);font-weight:500;transition:color .15s var(--ease)}
 .site-footer small{display:block;margin-top:16px;font-size:14px;color:var(--muted)}
-.site-footer small a{color:var(--ink-70)}
+.site-footer small a{color:var(--ink-70);text-decoration:underline;text-underline-offset:3px}
 
 /* -------------------------------------------------------------- desktop */
 /* The home page opens on a desktop: a board with a menu bar, widgets, folders
@@ -254,7 +255,7 @@ a.widget,.widget a,.widget button,.desk-icon{-webkit-user-drag:none;user-select:
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1.5px 3px;margin-top:4px;font-size:7.5px;line-height:10px;text-align:center;color:rgb(27 37 43/.5)}
 .cal-grid span:nth-child(-n+7){font-weight:600;color:rgb(27 37 43/.3)}
 .cal-grid .is-today{display:flex;align-items:center;justify-content:center;width:11px;height:11px;margin:0 auto;border-radius:9999px;background:var(--ink);color:var(--white);font-weight:600}
-.cal-hint{display:none;margin-top:6px;font-size:11px;line-height:16.5px;color:var(--ink-45)}
+.cal-hint{display:none;margin-top:6px;font-size:11px;line-height:16.5px;color:var(--ink-70)}
 html:not(.js) .widget-calendar :is(.cal-day,.cal-date,.cal-grid){display:none}
 html:not(.js) .widget-calendar .cal-hint{display:block}
 
@@ -423,7 +424,7 @@ html:not(.js) .widget-calendar .cal-hint{display:block}
   .window:hover .window-lights i:nth-child(2),a:hover>.window-bar .window-lights i:nth-child(2){background:var(--acid)}
   .window:hover .window-lights i:nth-child(3),a:hover>.window-bar .window-lights i:nth-child(3){background:var(--ink)}
 }
-.window-title{position:absolute;left:50%;max-width:calc(100% - 150px);overflow:hidden;transform:translateX(-50%);font-size:12px;line-height:16px;font-weight:500;color:var(--ink-55);white-space:nowrap;text-overflow:ellipsis;user-select:none}
+.window-title{position:absolute;left:50%;max-width:calc(100% - 150px);overflow:hidden;transform:translateX(-50%);font-size:12px;line-height:16px;font-weight:500;color:var(--ink-70);white-space:nowrap;text-overflow:ellipsis;user-select:none}
 .window-body{padding:56px}
 .window-body .split{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
 .window-body .split>h2,.window-body .founder-visual-column>h2{font-size:24px;line-height:30px;font-weight:700;letter-spacing:-.015em}
@@ -720,7 +721,7 @@ body[data-section="work"]:not([data-page="work"]) .section .prose h2{width:max-c
 body[data-section="work"]:not([data-page="work"]) .section .prose h2+p::before,body[data-section="work"]:not([data-page="work"]) .section .prose>p:first-child:not(.eyebrow)::before{content:"Q";content:"Q" / "";position:absolute;left:0;margin-top:-2px;display:grid;place-items:center;width:32px;height:32px;border-radius:24%;background:var(--white);box-shadow:inset 0 0 0 1px var(--ink-10),var(--shadow-md);color:var(--ink);font:800 15px/1 var(--sans)}
 body[data-section="work"]:not([data-page="work"]) .section .prose:has(.button){padding-left:0;text-align:center}
 body[data-section="work"]:not([data-page="work"]) .section .prose:has(.button) .eyebrow{margin:28px 0 12px}
-body[data-section="work"]:not([data-page="work"]) .section .prose .button{display:flex;justify-content:flex-start;width:100%;min-height:46px;margin:0 auto;padding:6px 6px 6px 20px;border:1px solid var(--ink-15);border-radius:9999px;background:var(--white);color:rgb(27 37 43/.45);box-shadow:0 8px 30px rgb(27 37 43/.1);font-size:14px;line-height:20px;font-weight:400;text-align:left}
+body[data-section="work"]:not([data-page="work"]) .section .prose .button{display:flex;justify-content:flex-start;width:100%;min-height:46px;margin:0 auto;padding:6px 6px 6px 20px;border:1px solid var(--ink-15);border-radius:9999px;background:var(--white);color:var(--ink-70);box-shadow:0 8px 30px rgb(27 37 43/.1);font-size:14px;line-height:20px;font-weight:400;text-align:left}
 body[data-section="work"]:not([data-page="work"]) .section .prose .button::after{order:1;width:32px;height:32px;margin-left:auto;border-radius:50%;background:var(--ink);-webkit-mask:none;mask:none}
 body[data-section="work"]:not([data-page="work"]) .section .prose .button::before{content:"";order:2;width:16px;height:16px;margin-left:-24px;margin-right:8px;background:var(--white);-webkit-mask:var(--g-arrowup) center/contain no-repeat;mask:var(--g-arrowup) center/contain no-repeat}
 @media (hover:hover){body[data-section="work"]:not([data-page="work"]) .section .prose .button:hover{color:var(--ink);border-color:var(--ink-25)}}
