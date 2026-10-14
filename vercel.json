@@ -5,6 +5,16 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/work/index",
+      "destination": "https://nizzar.com/work#index",
+      "permanent": true
+    },
+    {
+      "source": "/fr/work/index",
+      "destination": "https://nizzar.com/work#index",
+      "permanent": true
+    },
+    {
       "source": "/",
       "has": [
         {
