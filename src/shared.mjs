@@ -2,7 +2,12 @@ export const origin='https://thequantumbranding.com';
 export const contactEmail='me@qtmbg.com';
 export const contactUrl='https://nizzar.com/contact';
 export const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-export const route=(path,lang)=>(lang==='fr'?'/fr':'')+(path==='/'&&lang==='fr'?'':path);
+// Avoid Vercel's reserved directory-index normalization for this view.
+// The old /work/index entries remain declared migration redirects.
+export const route=(path,lang)=>{
+ const published=path==='/work/index'?'/work/full-index':path;
+ return (lang==='fr'?'/fr':'')+(published==='/'&&lang==='fr'?'':published);
+};
 export const method=[
  {name:'Observe',fr:'Observer',en:'Look at what happens. Listen to customers, examine the work and separate evidence from assumptions.',bodyFr:'Regarder ce qui se passe. Écouter les clients, examiner le travail et distinguer les faits des hypothèses.'},
  {name:'Collapse',fr:'Choisir',en:'Choose the direction that deserves to exist. Make the trade-off explicit and agree on what success will look like.',bodyFr:'Choisir la direction qui mérite d’exister. Expliciter le compromis et définir ensemble le résultat attendu.'},
