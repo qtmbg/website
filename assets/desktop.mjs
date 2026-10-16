@@ -163,33 +163,44 @@ if (dock) {
 }
 
 /* ------------------------------------------------------------ the player */
-// Now reading: the essays, one at a time. Steps only when asked.
-const player = document.querySelector('[data-player]');
-if (player) {
-  const tracks = [...player.querySelectorAll('[data-track]')];
-  const links = [...player.querySelectorAll('[data-player-link]')];
-  const number = player.querySelector('[data-player-no]');
-  const position = player.querySelector('[data-player-pos]');
-  const progress = player.querySelector('.player-progress');
-  let current = 0;
-  const show = index => {
-    current = (index + tracks.length) % tracks.length;
-    tracks.forEach((track, i) => { track.hidden = i !== current; });
-    const href = tracks[current].getAttribute('href');
-    links.forEach(link => {
-      link.setAttribute('href', href);
-      link.setAttribute('aria-label', `${lang === 'fr' ? 'Lire : ' : 'Read: '}${tracks[current].textContent}`);
-    });
-    const label = String(current + 1).padStart(2, '0');
-    if (number) number.textContent = label;
-    if (position) position.textContent = label;
-    progress?.style.setProperty('--p', current + 1);
+// The personal audio introduction. One real recording per language, chosen at
+// build time. Nothing plays on its own: play/pause, seeking and the elapsed and
+// total times are added here. The language link reloads the page, so a change of
+// language starts from a paused player at the right recording.
+const audioWidget = document.querySelector('[data-audio]');
+if (audioWidget) {
+  const audio = audioWidget.querySelector('[data-audio-el]');
+  const toggle = audioWidget.querySelector('[data-audio-toggle]');
+  const seek = audioWidget.querySelector('[data-audio-seek]');
+  const elapsed = audioWidget.querySelector('[data-audio-current]');
+  const total = audioWidget.querySelector('[data-audio-duration]');
+  const names = lang === 'fr'
+    ? { play: 'Écouter la présentation', pause: 'Mettre la présentation en pause' }
+    : { play: 'Play the introduction', pause: 'Pause the introduction' };
+  const clock = value => { const s = Math.max(0, Math.floor(value || 0)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
+  const paint = () => {
+    const duration = audio.duration;
+    if (!Number.isFinite(duration) || duration <= 0) return;
+    const pct = (audio.currentTime / duration) * 100;
+    seek.value = String(pct);
+    seek.style.setProperty('--p', `${pct}%`);
+    elapsed.textContent = clock(audio.currentTime);
   };
-  player.querySelectorAll('[data-player-step]').forEach(button => {
-    button.disabled = false;
-    button.addEventListener('click', () => show(current + Number(button.dataset.playerStep)));
+  audio.addEventListener('loadedmetadata', () => {
+    if (Number.isFinite(audio.duration) && audio.duration > 0) { total.textContent = clock(audio.duration); seek.disabled = false; }
   });
-  show(0);
+  audio.addEventListener('timeupdate', paint);
+  audio.addEventListener('play', () => { toggle.setAttribute('aria-pressed', 'true'); toggle.setAttribute('aria-label', names.pause); });
+  audio.addEventListener('pause', () => { toggle.setAttribute('aria-pressed', 'false'); toggle.setAttribute('aria-label', names.play); });
+  audio.addEventListener('ended', () => { audio.currentTime = 0; paint(); });
+  audio.addEventListener('error', () => { toggle.disabled = true; seek.disabled = true; });
+  toggle.addEventListener('click', () => { if (audio.paused) audio.play().catch(() => {}); else audio.pause(); });
+  seek.addEventListener('input', () => {
+    const duration = audio.duration;
+    if (!Number.isFinite(duration) || duration <= 0) return;
+    audio.currentTime = (Number(seek.value) / 100) * duration;
+    elapsed.textContent = clock(audio.currentTime);
+  });
 }
 
 /* --------------------------------------------------------- the desktop */
