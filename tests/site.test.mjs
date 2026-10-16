@@ -436,7 +436,7 @@ test('case studies have five sections, a closing note and confirmed status', asy
   }
 });
 
-test('BrandOS belongs only to Observe in the method and decorative poster is hidden', async () => {
+test('BrandOS belongs only to Observe in the method and the About portrait is a real photograph', async () => {
   for(const route of ['/practice/method','/fr/practice/method']){
     const html=await read(route);
     const cards=html.split('<div class="method-grid">')[1].split('</article>');
@@ -445,7 +445,8 @@ test('BrandOS belongs only to Observe in the method and decorative poster is hid
   }
   for(const route of ['/about','/fr/about']){
     const html=await read(route);
-    assert.match(html,/class="visual-founder-poster" aria-hidden="true"/);
+    assert.match(html,/class="founder-portrait" src="\/portraits\/nizzar-studio-\d+\.webp"[^>]*alt="[^"]+"/);
+    assert.doesNotMatch(html,/class="visual-founder-poster"/);
     assert.doesNotMatch(html,/class="history-list"/);
   }
 });
