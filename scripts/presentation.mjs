@@ -142,7 +142,9 @@ function desktop(page) {
 
   const forecast = `<a class="widget widget-method" href="${u('/practice/method')}"><span class="method-title">The Collapse</span><span class="method-days">${method.map((m, i) => `<span class="method-day"><small>0${i + 1}</small>${methodMark(i)}<span>${esc(m.name)}</span></span>`).join('')}</span></a>`;
 
-  const founder = `<a class="widget widget-founder" href="${u('/about')}"><span class="founder-name">Nizzar<br>Ben Chekroune</span><span class="founder-brand">Quantum Branding</span></a>`;
+  // The founder card now leads with a real photograph of Nizzar speaking, on the
+  // brand's signature yellow. The name stays legible over a gradient scrim.
+  const founder = `<a class="widget widget-founder" href="${u('/about')}" aria-label="${t('About Nizzar Ben Chekroune', 'À propos de Nizzar Ben Chekroune')}"><img class="founder-photo" src="/portraits/nizzar-speaking-480.webp" srcset="/portraits/nizzar-speaking-320.webp 320w, /portraits/nizzar-speaking-480.webp 480w, /portraits/nizzar-speaking-640.webp 640w" sizes="(max-width:999px) 50vw, 150px" width="480" height="480" alt="Nizzar Ben Chekroune speaking on stage" loading="lazy" decoding="async"><span class="founder-name">Nizzar<br>Ben Chekroune</span><span class="founder-brand">Quantum Branding</span></a>`;
 
   const folders = [
     [u('/work/selvaggi'), 'Selvaggi'],
@@ -162,6 +164,7 @@ function desktop(page) {
     [u('/lab/the-brief-before-the-brief'), t('The Brief Before the Brief', 'Le brief avant le brief'), 'brief'],
     [u('/lab/signal-scan'), 'Signal Scan', 'signal'],
     [u('/work'), t('Work', 'Le travail'), 'folder'],
+    [u('/people'), t('People & Perspectives', 'Rencontres & regards'), 'person'],
     [u('/start'), t('Let’s talk', 'Parlons-en'), 'talk'],
     [u('/notes'), 'Notes', 'notes']
   ];
@@ -292,9 +295,10 @@ export function present(page) {
   }
 
   if (basePath === '/about') {
-    // Repeat existing copy decoratively; do not add historic slogans or claims.
-    const heading = esc(page.title).replace(' Nizzar.', '<br>Nizzar.');
-    const poster = `<div class="visual-founder-poster" aria-hidden="true"><span class="poster-name">Nizzar Ben Chekroune</span><span class="poster-heading">${heading}</span><span class="poster-brand">Quantum Branding</span></div>`;
+    // A real studio portrait replaces the earlier decorative text block, so the
+    // visual column shows the person rather than repeating the name and brand.
+    const portraitAlt = lang === 'fr' ? 'Portrait de Nizzar Ben Chekroune' : 'Portrait of Nizzar Ben Chekroune';
+    const poster = `<figure class="founder-portrait-figure"><img class="founder-portrait" src="/portraits/nizzar-studio-640.webp" srcset="/portraits/nizzar-studio-480.webp 480w, /portraits/nizzar-studio-640.webp 640w, /portraits/nizzar-studio-960.webp 960w" sizes="(max-width:859px) 100vw, 360px" width="640" height="640" alt="${portraitAlt}" loading="lazy" decoding="async"></figure>`;
     const match = html.match(/<div class="split"><h2>([\s\S]*?)<\/h2><div class="prose">/);
     if (!match) throw new Error('About layout target changed');
     html = replaceOnce(html, match[0], `<div class="split founder-split"><div class="founder-visual-column"><h2>${match[1]}</h2>${poster}</div><div class="prose">`, 'founder layout');
@@ -320,6 +324,10 @@ export function present(page) {
 
   if (basePath === '/notes') {
     html = windowize(html, '<div class="prose notes-list">', 'notes.txt', 'notes', 'window-document');
+  }
+
+  if (basePath === '/people') {
+    html = windowize(html, '<div class="people-stream">', 'people.txt', 'people', 'window-document');
   }
 
   if (basePath.startsWith('/work/') && cases.some(c => basePath.endsWith(`/${c.slug}`))) {

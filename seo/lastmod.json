@@ -1,19 +1,19 @@
 {
   "https://thequantumbranding.com/": {
-    "hash": "02a8ca8859a95ef66fd622729b4c8644",
+    "hash": "59bdf7a1d6b30be844b0e75bedca593d",
     "date": "2026-10-16"
   },
   "https://thequantumbranding.com/about": {
-    "hash": "9cbd24877811601ed3b014495683a224",
-    "date": "2026-10-13"
+    "hash": "adba724dffa81a74e76fca1903d43c3e",
+    "date": "2026-10-16"
   },
   "https://thequantumbranding.com/fr": {
-    "hash": "37b670052db7f068c1a9ad064eb6827c",
+    "hash": "64bf70ec43553b37658bfbcf32c9c3cf",
     "date": "2026-10-16"
   },
   "https://thequantumbranding.com/fr/about": {
-    "hash": "0ce4c194bf04b00777c711e38e19a5eb",
-    "date": "2026-10-13"
+    "hash": "44db0576dec893914f6121d9f66d491c",
+    "date": "2026-10-16"
   },
   "https://thequantumbranding.com/fr/lab": {
     "hash": "7bd1c0a7c5e2ad8ad4f7f7c2a0094153",
@@ -30,6 +30,10 @@
   "https://thequantumbranding.com/fr/notes": {
     "hash": "9d104711eb1f6974c998327cc1ed2d2b",
     "date": "2026-10-13"
+  },
+  "https://thequantumbranding.com/fr/people": {
+    "hash": "08f35a6e06315d3720dffd06cfbc69d4",
+    "date": "2026-10-16"
   },
   "https://thequantumbranding.com/fr/practice": {
     "hash": "96ec0c7074685408fd94503f11f8b995",
@@ -438,6 +442,10 @@
   "https://thequantumbranding.com/notes": {
     "hash": "9e1b4b3558b1f51c0529a725e86f50b8",
     "date": "2026-10-13"
+  },
+  "https://thequantumbranding.com/people": {
+    "hash": "706034544e1f98ef310181a1e4a01d71",
+    "date": "2026-10-16"
   },
   "https://thequantumbranding.com/practice": {
     "hash": "f578db7d10dda0d2a0f7aab46a4bdec6",
