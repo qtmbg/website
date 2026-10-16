@@ -65,13 +65,14 @@ try {
       assert.equal(await action.getAttribute('tabindex'), null);
       assert.ok(await action.evaluate(e => (e.getAttribute('aria-label') || e.textContent || '').trim()), 'every desktop action has a name');
     }
-    const next = page.getByRole('button', {name: lang === 'fr' ? 'Texte suivant' : 'Next essay'});
-    await next.focus();
-    await expect(next).toBeFocused();
-    assert.equal(await next.evaluate(e => getComputedStyle(e).outlineStyle), 'solid');
-    await page.keyboard.press('Enter');
-    await expect(page.locator('[data-player-pos]')).toHaveText('02');
-    await expect(page.locator('.control-play')).toHaveAttribute('aria-label', new RegExp(articles[1][lang].title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+    // The personal audio introduction: a real recording per language, no autoplay.
+    const play = page.getByRole('button', {name: lang === 'fr' ? 'Écouter la présentation' : 'Play the introduction'});
+    await play.focus();
+    await expect(play).toBeFocused();
+    assert.equal(await play.evaluate(e => getComputedStyle(e).outlineStyle), 'solid');
+    assert.equal(await play.getAttribute('aria-pressed'), 'false');
+    await expect(page.locator('[data-audio-el] source')).toHaveAttribute('src', `/audio/nizzar-introduction-${lang}.mp3`);
+    assert.equal(await page.locator('[data-audio-el]').evaluate(a => a.paused), true, 'nothing plays on its own');
     const folder = page.locator('.desk-icon').first();
     // A pointer drag must not swallow the next keyboard activation.
     const box = await folder.boundingBox();

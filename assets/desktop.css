@@ -126,6 +126,7 @@ small{font-size:.8em}
   --g-play:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5.4v13.2a.8.8 0 0 0 1.2.7l10.3-6.6a.8.8 0 0 0 0-1.4L9.2 4.7A.8.8 0 0 0 8 5.4z'/%3E%3C/svg%3E");
   --g-prev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='5' y='5.5' width='2.4' height='13' rx='.8'/%3E%3Cpath d='M19 6.3v11.4a.8.8 0 0 1-1.2.7l-8.7-5.7a.8.8 0 0 1 0-1.4l8.7-5.7a.8.8 0 0 1 1.2.7z'/%3E%3C/svg%3E");
   --g-next:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='16.6' y='5.5' width='2.4' height='13' rx='.8'/%3E%3Cpath d='M5 6.3v11.4a.8.8 0 0 0 1.2.7l8.7-5.7a.8.8 0 0 0 0-1.4L6.2 5.6A.8.8 0 0 0 5 6.3z'/%3E%3C/svg%3E");
+  --g-pause:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='6' y='5' width='4' height='14' rx='1'/%3E%3Crect x='14' y='5' width='4' height='14' rx='1'/%3E%3C/svg%3E");
   --g-arrow:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");
   --g-arrowup:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 19V5M6 11l6-6 6 6'/%3E%3C/svg%3E");
 }
@@ -262,7 +263,9 @@ html:not(.js) .widget-calendar .cal-hint{display:block}
 /* now reading: the essays, one at a time, like a track */
 .widget-player{width:320px;height:150px;padding:16px;display:grid;grid-template-columns:72px minmax(0,1fr);grid-template-rows:72px auto auto;column-gap:14px}
 .player-art{display:grid;place-items:center;width:72px;height:72px;border-radius:8px;background:var(--gloss),var(--acid);box-shadow:inset 0 2px 4px rgb(27 37 43/.05),inset 0 0 0 1px rgb(27 37 43/.06);text-decoration:none}
-.player-no{font:800 28px/1 var(--sans);letter-spacing:-.04em;color:var(--ink)}
+.player-wave{display:flex;align-items:center;gap:4px;height:28px}
+.player-wave i{width:4px;border-radius:2px;background:var(--ink)}
+.player-wave i:nth-child(1){height:36%}.player-wave i:nth-child(2){height:72%}.player-wave i:nth-child(3){height:100%}.player-wave i:nth-child(4){height:58%}.player-wave i:nth-child(5){height:28%}
 .player-info{display:flex;flex-direction:column;min-width:0;padding-top:4px}
 .player-title{display:block;overflow:hidden;font-size:13px;line-height:19.5px;font-weight:600;color:var(--ink-85);white-space:nowrap;text-overflow:ellipsis;text-decoration:none}
 .player-sub{display:block;overflow:hidden;font-size:11px;line-height:16.5px;color:var(--ink-45);white-space:nowrap;text-overflow:ellipsis}
@@ -272,8 +275,17 @@ html:not(.js) .widget-calendar .cal-hint{display:block}
 .desk-scene :is(a,button):focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 @media (hover:hover){.control:hover::before{background:var(--ink)}}
 .control-prev{--m:var(--g-prev)}.control-next{--m:var(--g-next)}.control-play{--m:var(--g-play);width:20px;height:20px}
-.player-progress{grid-column:1/-1;display:block;height:3px;margin-top:12px;border-radius:9999px;background:var(--ink-10);overflow:hidden}
-.player-progress i{display:block;width:calc(var(--p,1)/6*100%);height:100%;border-radius:inherit;background:var(--ink-55)}
+.control-play[aria-pressed="true"]{--m:var(--g-pause)}
+.control-play:disabled{opacity:.4}
+/* The seek bar is a native range input, styled as the thin progress line. */
+.player-seek{grid-column:1/-1;-webkit-appearance:none;appearance:none;width:100%;height:14px;margin-top:11px;background:transparent;cursor:pointer}
+.player-seek::-webkit-slider-runnable-track{height:3px;border-radius:9999px;background:linear-gradient(var(--ink-55),var(--ink-55)) 0/var(--p,0%) 100% no-repeat,var(--ink-10)}
+.player-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:11px;height:11px;margin-top:-4px;border-radius:50%;background:var(--ink);box-shadow:0 1px 3px rgb(27 37 43/.28)}
+.player-seek::-moz-range-track{height:3px;border-radius:9999px;background:var(--ink-10)}
+.player-seek::-moz-range-progress{height:3px;border-radius:9999px;background:var(--ink-55)}
+.player-seek::-moz-range-thumb{width:11px;height:11px;border:0;border-radius:50%;background:var(--ink)}
+.player-seek:disabled{cursor:default;opacity:.65}
+.player-seek:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .player-times{grid-column:1/-1;display:flex;justify-content:space-between;margin-top:4px;font-size:9px;line-height:13.5px;color:var(--ink-35);font-variant-numeric:tabular-nums}
 
 /* the method, read like the reference's forecast */
@@ -334,7 +346,9 @@ html:not(.js) .widget-calendar .cal-hint{display:block}
   .hero>.button{margin-top:18px}
   .desk-scene{max-width:640px;margin:16px auto 0;display:grid;gap:24px}
   .desk-widgets{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .widget-clock,.widget-player,.widget-method{display:none}
+  .widget-clock,.widget-method{display:none}
+  /* The personal introduction stays available on a phone: a full-width glass card. */
+  .widget-player{grid-column:1/-1;width:auto;height:auto}
   .widget-calendar,.widget-founder{width:auto;height:112px}
   .widget-calendar{display:flex;flex-direction:column;justify-content:center;padding:16px}
   .widget-calendar .cal-day{font-size:10px;line-height:15px}
@@ -349,7 +363,12 @@ html:not(.js) .widget-calendar .cal-hint{display:block}
 
 /* The desktop proper. */
 @media (min-width:1000px){
-  .desktop{height:100vh;height:100dvh;min-height:600px;display:grid;place-items:center;padding:0 24px;overflow:hidden;overflow:clip}
+  /* Reserve the top widget band (clock/calendar/player sit at top:90 and are 150px tall,
+     so they end at ~240px). Padding shifts the grid-centred hero down into the clear zone
+     below them without moving the absolutely-positioned widgets, so no widget can cover the
+     headline at any width or height. The hero's lower edge stays clear: the app grid and
+     folders are anchored to the right, horizontally disjoint from the centred hero. */
+  .desktop{height:100vh;height:100dvh;min-height:600px;display:grid;place-items:center;padding:88px 24px 0;overflow:hidden;overflow:clip}
   .hero{z-index:0;max-width:768px;padding-inline:0}
   .desk-scene{position:absolute;inset:0;z-index:1;pointer-events:none}
   .desk-scene :is(.widget,.desk-icon,.menubar){pointer-events:auto}

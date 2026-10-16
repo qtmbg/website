@@ -1,6 +1,5 @@
 // Presentation only. All editorial strings and links come from src/pages.mjs.
 import { contactEmail, cases, esc, method, route } from '../src/shared.mjs';
-import { articles } from '../src/articles.mjs';
 import { caseStudies } from '../src/cases.mjs';
 
 /* ------------------------------------------------------------- addressing */
@@ -124,8 +123,6 @@ function desktop(page) {
   const fr = lang === 'fr';
   const t = (en, f) => (fr ? f : en);
   const u = p => route(p, lang);
-  const essays = articles.map(a => ({ title: a[lang].title, href: u(`/thinking/${a.slug}`) }));
-  const count = String(essays.length).padStart(2, '0');
 
   const menubar = `<div class="menubar" aria-hidden="true"><span class="menubar-brand"><b class="menubar-mark"></b><span class="menubar-name">Quantum Branding</span><span class="menubar-role">Nizzar Ben Chekroune</span></span><span class="menubar-clock" data-menubar-clock></span></div>`;
 
@@ -133,7 +130,15 @@ function desktop(page) {
 
   const calendar = `<a class="widget widget-calendar" href="${u('/start')}" data-calendar aria-label="${t('Let’s talk', 'Parlons-en')}"><span class="cal-day" data-cal-day></span><span class="cal-date" data-cal-date></span><span class="cal-grid" data-cal-grid></span><span class="cal-hint">${t('Let’s talk', 'Parlons-en')}</span></a>`;
 
-  const player = `<div class="widget widget-player" data-player><a class="player-art" href="${essays[0].href}" data-player-link aria-label="${esc(t('Read: ', 'Lire : ') + essays[0].title)}"><span class="player-no" data-player-no>01</span></a><span class="player-info"><span class="player-tracks">${essays.map((e, i) => `<a class="player-title" href="${e.href}" data-track${i ? ' hidden' : ''}>${esc(e.title)}</a>`).join('')}</span><span class="player-sub">Nizzar Ben Chekroune · ${t('Thinking', 'Les idées')}</span><span class="player-controls"><button class="control control-prev" type="button" data-player-step="-1" disabled aria-label="${t('Previous essay', 'Texte précédent')}"></button><a class="control control-play" href="${essays[0].href}" data-player-link aria-label="${esc(t('Read: ', 'Lire : ') + essays[0].title)}"></a><button class="control control-next" type="button" data-player-step="1" disabled aria-label="${t('Next essay', 'Texte suivant')}"></button></span></span><span class="player-progress"><i data-player-progress></i></span><span class="player-times"><span data-player-pos>01</span><span>${count}</span></span></div>`;
+  // The personal audio introduction. One real recording per language, selected at
+  // build time; the dock's language link reloads the page, which resets playback.
+  // No autoplay; progressive enhancement adds play/pause, seeking and times.
+  const introTitle = t('A minute with Nizzar', 'Une minute avec Nizzar');
+  const introSub = t('On what I do, and why.', 'Ce que je fais, et pourquoi.');
+  // The real length of each recording, shown before playback. The player updates
+  // it precisely from the audio once it loads, so this is only the first paint.
+  const introDuration = t('1:18', '1:12');
+  const player = `<div class="widget widget-player" data-audio><span class="player-art" aria-hidden="true"><span class="player-wave"><i></i><i></i><i></i><i></i><i></i></span></span><span class="player-info"><span class="player-title">${esc(introTitle)}</span><span class="player-sub">${esc(introSub)}</span><span class="player-controls"><button class="control control-play" type="button" data-audio-toggle aria-label="${t('Play the introduction', 'Écouter la présentation')}" aria-pressed="false"></button></span></span><input class="player-seek" type="range" min="0" max="100" step="0.1" value="0" data-audio-seek aria-label="${t('Playback position', 'Position de lecture')}" disabled><span class="player-times"><span data-audio-current>0:00</span><span data-audio-duration>${introDuration}</span></span><audio data-audio-el preload="none"><source src="/audio/nizzar-introduction-${lang}.mp3" type="audio/mpeg"></audio></div>`;
 
   const forecast = `<a class="widget widget-method" href="${u('/practice/method')}"><span class="method-title">The Collapse</span><span class="method-days">${method.map((m, i) => `<span class="method-day"><small>0${i + 1}</small>${methodMark(i)}<span>${esc(m.name)}</span></span>`).join('')}</span></a>`;
 
