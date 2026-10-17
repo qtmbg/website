@@ -4,7 +4,7 @@
 // Every visible word comes from those records: nothing here writes copy
 // beyond interface labels.
 import { readFileSync, existsSync } from 'node:fs';
-import { esc, route } from '../shared.mjs';
+import { cases, esc, route } from '../shared.mjs';
 import { projects, eras, categories, relationships } from './projects.mjs';
 
 const here = new URL('.', import.meta.url);
@@ -183,11 +183,13 @@ export function projectBody(p, lang, heading) {
 }
 
 /* ------------------------------------------------ home: selected work */
-export function wall(lang, picks) {
-  return `<div class="gallery-wall">${picks.map(([slug, shape]) => {
+export function wall(lang, picks, className='') {
+  return `<div class="gallery-wall${className?' '+esc(className):''}">${picks.map(([slug, shape]) => {
     const p = bySlug.get(slug);
     const cover = p && thumbFor(p);
+    // Rapp & Esen is an authored practice case, outside the historical archive.
+    if(slug==='rapp-esen')return `<a class="wall-item is-featured" href="${route('/work/'+slug,lang)}"><img src="/work/media/rapp-esen/rapp-esen-flatlay-1024.webp" srcset="/work/media/rapp-esen/rapp-esen-flatlay-640.webp 640w, /work/media/rapp-esen/rapp-esen-flatlay-1024.webp 1024w, /work/media/rapp-esen/rapp-esen-flatlay-1600.webp 1600w" sizes="(max-width:599px) 100vw, 360px" width="1920" height="1080" alt="${lang==='fr'?'Rapp & Esen : le flacon, la carte de formule et la boîte':'Rapp & Esen: the bottle, formula card and box'}" loading="lazy" decoding="async"><span>Rapp &amp; Esen<small>${lang==='fr'?'Stratégie de marque · Identité · Parfumerie':'Brand strategy · Identity · Perfumery'}</small></span></a>`;
     if (!cover) return '';
-    return `<a class="wall-item${shape ? ` is-${shape}` : ''}" href="${workPath(slug, lang)}" style="--ph:${built[cover].colour}">${picture(cover, lang, { sizes: '(max-width: 800px) 50vw, 360px' })}<span>${esc(p.title)}<small>${esc([years(p, lang), relation(p, lang)].filter(Boolean).join(' · '))}</small>${mediaById.get(cover)?.credit ? `<small class="finder-credit">${esc(pick(mediaById.get(cover).credit, lang))}</small>` : ''}</span></a>`;
+    return `<a class="wall-item${className&&cases.some(c=>c.slug===slug)?' is-featured':''}${shape ? ` is-${shape}` : ''}" href="${workPath(slug, lang)}" style="--ph:${built[cover].colour}">${picture(cover, lang, { sizes: className&&cases.some(c=>c.slug===slug)?'(max-width:599px) 100vw, 360px':'(max-width: 800px) 50vw, 360px' })}<span>${esc(p.title)}<small>${esc([years(p, lang), relation(p, lang)].filter(Boolean).join(' · '))}</small>${mediaById.get(cover)?.credit ? `<small class="finder-credit">${esc(pick(mediaById.get(cover).credit, lang))}</small>` : ''}</span></a>`;
   }).join('')}</div>`;
 }
