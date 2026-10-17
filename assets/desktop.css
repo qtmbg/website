@@ -458,11 +458,17 @@ html:not(.js) .widget-calendar .cal-hint{display:block}
 /* A document window: essays and notes, a page set inside it. */
 .window-document .window-body{padding:56px clamp(24px,7vw,96px) 72px}
 /* People & Perspectives: quotations given room to read. */
-.people-stream{display:grid;gap:48px;max-width:680px;margin:0 auto}
-.perspective{margin:0;display:grid;gap:22px}
+.perspective-index{max-width:680px;margin:0 auto 40px;display:flex;flex-wrap:wrap;gap:8px 18px;padding-bottom:20px;border-bottom:1px solid var(--ink-10)}
+.perspective-index a{font-size:14px;color:var(--ink-55);text-decoration:none}
+@media (hover:hover){.perspective-index a:hover{color:var(--blue)}}
+.people-stream{display:grid;gap:56px;max-width:680px;margin:0 auto}
+.perspective{margin:0;display:grid;gap:18px;scroll-margin-top:48px}
+.perspective-lens{font-size:11px;line-height:1;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-45)}
 .perspective blockquote{margin:0;display:grid;gap:16px;font-size:19px;line-height:1.6;color:var(--ink-85);font-weight:450}
 .perspective blockquote p:first-child{font-size:23px;line-height:1.42;font-weight:500;color:var(--ink)}
-.perspective figcaption{display:grid;gap:5px;padding-top:20px;border-top:1px solid var(--ink-10)}
+.perspective:not(:first-child) blockquote p:first-child{font-size:21px}
+.perspective figcaption{display:grid;gap:5px;padding-top:18px;border-top:1px solid var(--ink-10)}
+.perspective-links{margin-top:6px;font-size:13px}
 .perspective-author{font-size:16px;font-weight:700;color:var(--ink)}
 .perspective-role{font-size:14px;color:var(--ink-55)}
 .perspective figcaption .field-hint{margin-top:2px}
@@ -749,6 +755,19 @@ body[data-page="lab"] .history-list~p,.lab-relationship{max-width:36rem;margin-t
 @media (hover:hover){.case-toc .note-row:hover span{color:var(--blue)}}
 body[data-section="work"]:not([data-page="work"]) .section{padding-block:16px}
 body[data-section="work"]:not([data-page="work"]) .case-cover+.section{padding-top:64px}
+/* Case-study imagery: a quiet editorial sequence, aspect ratios preserved. */
+.case-figure{margin:0}
+.case-figure img{display:block;width:100%;height:auto;border-radius:5px;background:var(--brume,#f1f4f1)}
+.case-hero-wrap{margin-top:8px}
+.case-hero{width:100%}
+.case-hero img{border-radius:0;width:100%;max-height:78vh;object-fit:cover}
+.case-media{margin-top:28px}
+.case-media .case-figure+.case-figure{margin-top:28px}
+.case-media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.case-media-grid .case-figure+.case-figure{margin-top:0}
+.case-figure figcaption{margin-top:9px;font-size:12px;line-height:1.5;color:var(--ink-45)}
+.people-involved .perspective-compact blockquote p:first-child{font-size:19px;line-height:1.5;font-weight:500;color:var(--ink)}
+@media (max-width:719.98px){.case-media-grid{grid-template-columns:minmax(0,1fr);gap:20px}}
 body[data-section="work"]:not([data-page="work"]) .section .prose{position:relative;max-width:var(--read);margin:0 auto;padding-left:44px;font-size:15px;line-height:24.375px;color:var(--ink-75)}
 body[data-section="work"]:not([data-page="work"]) .section .prose p{color:var(--ink-75)}
 body[data-section="work"]:not([data-page="work"]) .section .prose p+p{margin-top:16px}

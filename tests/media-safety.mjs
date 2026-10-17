@@ -23,7 +23,8 @@ try {
     const failure=await run([{...safe,...patch}]);assert.notEqual(failure.status,0,`${name} must fail closed`);
   }
   execFileSync('ffmpeg',['-y','-loglevel','error','-f','lavfi','-i','color=c=blue:s=32x24:d=1','-f','lavfi','-i','sine=frequency=440:duration=1','-c:v','libx264','-c:a','aac','-shortest',path.join(fixture,'archive/originals/clip.mp4')]);
-  await copyFile('archive/originals/claude-recovery/media-raw/creative-forum-ljubljana-2018/creative_forum_ljubljana_conference_programme.pdf',path.join(fixture,'archive/originals/programme.pdf'));
+  // Use a committed public PDF so this isolated test needs no private archive.
+  await copyFile('public/downloads/quantum-branding-brochure-en.pdf',path.join(fixture,'archive/originals/programme.pdf'));
   const multi=await run([safe,{...safe,id:'clip',type:'video',localPath:'archive/originals/clip.mp4'},{...safe,id:'sound',type:'audio',localPath:'archive/originals/clip.mp4'},{...safe,id:'doc',type:'document',localPath:'archive/originals/programme.pdf',previewApproved:true,page:1}]);
   assert.equal(multi.status,0,multi.stderr);
   const av=JSON.parse(await readFile(path.join(fixture,'src/archive/media-built.json')));

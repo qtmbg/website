@@ -8,6 +8,7 @@ const output = new URL('../test-results/visual/', import.meta.url).pathname;
 await mkdir(output, { recursive: true });
 
 const routes = ['/', '/practice', '/practice/method', '/work', '/work/selvaggi',
+  '/work/rapp-esen', '/people',
   '/thinking', '/thinking/one-page-many-arguments', '/lab', '/lab/the-brief-before-the-brief',
   '/about', '/start', '/notes'];
 const widths = [375, 380, 390, 768, 1024, 1440, 1920];

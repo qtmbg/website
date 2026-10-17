@@ -12,6 +12,12 @@ const page = await context.newPage();
 const errors=[];
 page.on('pageerror',e=>errors.push(e.message));
 const visible=projects.filter(p=>p.listed!==false);
+const config=JSON.parse(await readFile(new URL('../vercel.json',import.meta.url),'utf8'));
+function migratedIndex(prefix){
+ const redirect=config.redirects.find(r=>r.source===`${prefix}/work/index`);
+ assert.equal(redirect?.destination,'https://nizzar.com/work#index','Full index keeps its approved canonical destination');
+ assert.equal(redirect.permanent,true,'Index migration is permanent');
+}
 // /work is the curated practice landing (owner decision, 7 October 2026): practice engagements,
 // a wall of eight covers and the way to the complete record on nizzar.com. The full career lives there.
 const KEEP_ROWS=6, WALL=8;
@@ -26,12 +32,13 @@ for(const lang of ['en','fr']){
  await curatedLanding(page);
  await page.evaluate(async()=>{const images=[...document.querySelectorAll('.gallery-wall img')];images.forEach(i=>i.loading='eager');await Promise.all(images.map(i=>i.decode().catch(()=>{})));});
  assert.equal(await page.locator('.gallery-wall img').evaluateAll(a=>a.filter(i=>i.naturalWidth>0).length),WALL,'Every wall cover loads');
- await page.goto(`${base}${prefix}/work/index`);
+ migratedIndex(prefix);
+ await page.goto(`${base}${prefix}/work/full-index`);
  assert.equal(await page.locator('.index-table tbody tr').count(),visible.length,'Full index retains every listed record');
  await page.goto(`${base}${prefix}/work/timeline`);
  assert.equal(await page.locator('.timeline-rows li').count(),visible.filter(p=>p.start&&/^\d{4}$/.test(String(p.start))).length);
 }
-const routes=['/work','/fr/work','/work/index','/work/timeline','/',...projects.filter(p=>p.flagship||['diesel','la-minute-creative','diptyk','unlimitart','unido-creative-mediterranean','creative-forum-ljubljana-2018','tv5-monde','selvaggi','verne-jewels'].includes(p.slug)).map(p=>`/work/${p.slug}`)];
+const routes=['/work','/fr/work','/work/full-index','/work/timeline','/',...projects.filter(p=>p.flagship||['diesel','la-minute-creative','diptyk','unlimitart','unido-creative-mediterranean','creative-forum-ljubljana-2018','tv5-monde','selvaggi','verne-jewels'].includes(p.slug)).map(p=>`/work/${p.slug}`)];
 for(const width of [1440,768,320]){
  await page.setViewportSize({width,height:1000});
  for(const route of routes){
@@ -71,7 +78,7 @@ const noJs=await browser.newContext({javaScriptEnabled:false,viewport:{width:320
 const reader=await noJs.newPage();
 await reader.goto(base+'/work');
 await curatedLanding(reader);
-await reader.goto(base+'/work/index');
+await reader.goto(base+'/work/full-index');
 assert.equal(await reader.locator('.index-table tbody tr').count(),visible.length,'JS-off index stays complete');
 await noJs.close();
 await page.emulateMedia({reducedMotion:'reduce'});
@@ -97,4 +104,4 @@ await page.locator('.film').click();
 assert.match(await page.locator('iframe').getAttribute('src'),/^https:\/\/www.youtube-nocookie.com\/embed\/fixture/);
 assert.deepEqual(errors,[]);
 await browser.close();
-console.log(`Archive: curated /work landing EN/FR, ${visible.length} records in index/timeline, 1440/768/320, JS-off, reduced motion, image keyboard/focus, click-to-load video passed. Screenshots: ${output}`);
+console.log(`Archive: curated /work landing EN/FR, approved index redirects, ${visible.length} retained records, timeline, 1440/768/320, JS-off, reduced motion, image keyboard/focus, click-to-load video passed. Screenshots: ${output}`);
