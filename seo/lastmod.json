@@ -32,7 +32,7 @@
     "date": "2026-10-13"
   },
   "https://thequantumbranding.com/fr/people": {
-    "hash": "08f35a6e06315d3720dffd06cfbc69d4",
+    "hash": "98863d194ba1b4e9422148e2b032d2eb",
     "date": "2026-10-16"
   },
   "https://thequantumbranding.com/fr/practice": {
@@ -76,8 +76,8 @@
     "date": "2026-10-13"
   },
   "https://thequantumbranding.com/fr/work": {
-    "hash": "6d39a6aa42085f45b8c3d2b50a2439fe",
-    "date": "2026-10-13"
+    "hash": "9ac67b5e3ac9adbd12feb31c96ebb608",
+    "date": "2026-10-16"
   },
   "https://thequantumbranding.com/fr/work/3kool": {
     "hash": "80a8ac1936f55ba452d5bac42b852796",
@@ -323,6 +323,10 @@
     "hash": "dc3565312453a49ebf53303db7b79bc9",
     "date": "2026-10-13"
   },
+  "https://thequantumbranding.com/fr/work/rapp-esen": {
+    "hash": "f72e11cc41252d3bd472a042f2c3675f",
+    "date": "2026-10-16"
+  },
   "https://thequantumbranding.com/fr/work/rbmg": {
     "hash": "5c81e9628375121f8447aca6b3b8b230",
     "date": "2026-10-13"
@@ -444,7 +448,7 @@
     "date": "2026-10-13"
   },
   "https://thequantumbranding.com/people": {
-    "hash": "706034544e1f98ef310181a1e4a01d71",
+    "hash": "8cc86b6139f7bc8941871c9086a86633",
     "date": "2026-10-16"
   },
   "https://thequantumbranding.com/practice": {
@@ -488,8 +492,8 @@
     "date": "2026-10-13"
   },
   "https://thequantumbranding.com/work": {
-    "hash": "ffa157beddcb89299d867f8c58d51f5d",
-    "date": "2026-10-13"
+    "hash": "db9a8384f9367446601fce1a84802b31",
+    "date": "2026-10-16"
   },
   "https://thequantumbranding.com/work/3kool": {
     "hash": "0e58ce0586f095f8852d2ca4e7a4012a",
@@ -734,6 +738,10 @@
   "https://thequantumbranding.com/work/quantum-branding": {
     "hash": "241214eaa56621adc8419b6a63d4bb3d",
     "date": "2026-10-13"
+  },
+  "https://thequantumbranding.com/work/rapp-esen": {
+    "hash": "d1b69a8e7d541f52c53986e5ff3f8d05",
+    "date": "2026-10-16"
   },
   "https://thequantumbranding.com/work/rbmg": {
     "hash": "121a89843a0aa9c47b2712dc03d0af75",

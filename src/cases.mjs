@@ -220,5 +220,136 @@ export const caseStudies = {
         ]
       }
     ]
+  },
+  "rapp-esen": {
+    "cover": { "img": "cover", "alt": "A white veil rising from a pale ground", "w": 1920, "h": 1080 },
+    "en": [
+      {
+        "heading": "The context",
+        "paragraphs": [
+          "Rapp & Esen is a bespoke perfume house in France. Françoise Rapp, the nose of the house, composes one formula for one person, composed once and refilled for life.",
+          "The founders were not adding another fragrance to a shelf. They were building a house around a single idea: that a scent can hold the truth of a person rather than cover it.",
+          "The challenge was the hard kind. A perfume is invisible. A made-to-measure, one-of-one proposition has no range, no familiar category and no shelf to be recognised on. The brand had to make something invisible and singular feel legible, desirable and trustworthy, without borrowing the codes of mass luxury perfumery."
+        ],
+        "media": [{ "img": "paris-window", "alt": "Light falling through a tall Parisian window", "w": 1000, "h": 1491 }]
+      },
+      {
+        "heading": "The discovery",
+        "paragraphs": [
+          "The work began below the surface. Before any typography or colour, I explored the deepest values and intentions of the house, and brought the two founders into alignment on what they were really making.",
+          "What emerged was a philosophy rather than a style: you already are someone. Where others sell a mask, this house reveals. One formula. One person. One intention.",
+          "The emblem followed from the material itself. Not the iris flower, but the root of Iris pallida, the part that holds the scent underground, over years. The house would be built on what lasts, not on what is displayed."
+        ],
+        "media": [
+          { "img": "iris-vase", "alt": "A single iris in a clear vase", "w": 1100, "h": 1648 },
+          { "img": "root-specimen", "alt": "A dried iris root, studied like a specimen", "w": 1800, "h": 1350 }
+        ]
+      },
+      {
+        "heading": "The strategy",
+        "paragraphs": [
+          "The positioning collapsed to one sentence it could defend: the house composes the truth of a scent, for one person, so that who they are can be recognised. Wish for what you have.",
+          "From that centre, the rest could be decided. The product is not a bottle but a relationship: composed once, followed through every stage from the client’s own account, and refilled for life. Three doors all lead to the same person: a bespoke creation, a scent for an occasion, and a scent as an asset for a brand.",
+          "Even the naming holds the position. A formula carries no marketing name. It has a number, a date, and the name of the person it belongs to, engraved in the glass."
+        ],
+        "media": [{ "img": "hands-giving", "alt": "One pair of hands offering to another", "w": 1500, "h": 1438 }]
+      },
+      {
+        "heading": "The translation",
+        "paragraphs": [
+          "A scent cannot be seen, so every object around it was designed to make the invisible work visible. Six signs carry the house.",
+          "Clear glass, so the liquid shows its own colour. Raw brass, kept with the marks of the hand that made it, not gold. The root, as the emblem. A formula card that writes down about eighty percent of the ingredients and leaves the last twenty with the nose. A recorded voice from Françoise, reached through a single link on the card. And a white box with the name embossed on the lid.",
+          "The visual system holds the same restraint: a palette of ink, chalk and ash, a deep green, raw brass and a single ruby accent; a Garamond for the book, a geometric sans for the signs, a monospace for proof, and a handwritten hand wherever the house speaks for itself."
+        ],
+        "media": [
+          { "img": "flatlay", "alt": "The bottle, the formula card and the box, laid out on white", "w": 1920, "h": 1080, "full": true },
+          { "img": "bottle-cut", "alt": "Clear glass showing the colour of the liquid", "w": 723, "h": 773 },
+          { "img": "brass-drop", "alt": "Raw brass, kept with the marks of the hand", "w": 1920, "h": 1080 },
+          { "img": "label", "alt": "A formula card: a number, a date and a name", "w": 1600, "h": 900 }
+        ]
+      },
+      {
+        "heading": "The result",
+        "paragraphs": [
+          "The result is a complete identity and a site that reads like the house itself: the name, the three doors, the process from attunement to refill, the six codes, and a catalogue of one-of-one formulas, each carrying its number, its date and its owner.",
+          "Nothing is arbitrary. Every detail has a reason, and the whole holds together, which is exactly what a house built on recognition has to prove before it asks anyone to trust it with their own."
+        ],
+        "media": [
+          { "img": "bottle-tall", "alt": "The bottle, upright", "w": 1200, "h": 1500 },
+          { "img": "cap", "alt": "The brass cap in close detail", "w": 1400, "h": 787 },
+          { "img": "petals", "alt": "Ruby petals scattered on a pale surface", "w": 1600, "h": 1180 }
+        ]
+      },
+      {
+        "heading": "The client’s perspective",
+        "paragraphs": [
+          "Françoise Rapp composed the house from the inside. Her account connects the strategic clarity with the creative execution, from the values beneath the brand to the typography, colours and bottle it became."
+        ]
+      }
+    ],
+    "fr": [
+      {
+        "heading": "Le contexte",
+        "paragraphs": [
+          "Rapp & Esen est une maison de parfum sur mesure, en France. Françoise Rapp, le nez de la maison, compose une formule pour une seule personne, composée une fois et rechargée à vie.",
+          "Les fondatrices n’ajoutaient pas un parfum de plus sur une étagère. Elles bâtissaient une maison autour d’une seule idée : qu’un parfum peut porter la vérité d’une personne plutôt que la couvrir.",
+          "Le défi était du genre difficile. Un parfum est invisible. Une proposition sur mesure, en pièce unique, n’a ni gamme, ni catégorie familière, ni rayon pour se faire reconnaître. La marque devait rendre quelque chose d’invisible et de singulier lisible, désirable et digne de confiance, sans emprunter les codes de la parfumerie de luxe de masse."
+        ],
+        "media": [{ "img": "paris-window", "alt": "La lumière traversant une haute fenêtre parisienne", "w": 1000, "h": 1491 }]
+      },
+      {
+        "heading": "La découverte",
+        "paragraphs": [
+          "Le travail a commencé sous la surface. Avant toute typographie ou couleur, j’ai exploré les valeurs et les intentions les plus profondes de la maison, et aligné les deux fondatrices sur ce qu’elles faisaient vraiment.",
+          "Ce qui a émergé est une philosophie plutôt qu’un style : vous êtes déjà quelqu’un. Là où d’autres vendent un masque, cette maison révèle. Une formule. Une personne. Une intention.",
+          "L’emblème a suivi la matière elle-même. Non pas la fleur d’iris, mais la racine d’Iris pallida, la partie qui garde le parfum sous terre, pendant des années. La maison se construirait sur ce qui dure, pas sur ce qui se montre."
+        ],
+        "media": [
+          { "img": "iris-vase", "alt": "Un iris dans un vase transparent", "w": 1100, "h": 1648 },
+          { "img": "root-specimen", "alt": "Une racine d’iris séchée, étudiée comme un spécimen", "w": 1800, "h": 1350 }
+        ]
+      },
+      {
+        "heading": "La stratégie",
+        "paragraphs": [
+          "Le positionnement s’est resserré en une phrase défendable : la maison compose la vérité d’un parfum, pour une seule personne, afin que ce qu’elle est puisse être reconnu. Désirer ce que l’on a déjà.",
+          "À partir de ce centre, tout le reste pouvait se décider. Le produit n’est pas un flacon mais une relation : composé une fois, suivi à chaque étape depuis le compte de la cliente, et rechargé à vie. Trois portes mènent toutes à la même personne : une création sur mesure, un parfum pour une occasion, et un parfum comme actif pour une marque.",
+          "Le nom lui-même tient la position. Une formule ne porte pas de nom commercial. Elle a un numéro, une date, et le nom de la personne à qui elle appartient, gravé dans le verre."
+        ],
+        "media": [{ "img": "hands-giving", "alt": "Des mains qui offrent à d’autres mains", "w": 1500, "h": 1438 }]
+      },
+      {
+        "heading": "La traduction",
+        "paragraphs": [
+          "Un parfum ne se voit pas : chaque objet autour de lui a donc été conçu pour rendre visible ce travail invisible. Six signes portent la maison.",
+          "Le verre clair, pour que le liquide montre sa propre couleur. Le laiton brut, gardant les marques de la main qui l’a fait, pas de l’or. La racine, comme emblème. Une carte de formule qui note environ quatre-vingts pour cent des ingrédients et laisse les vingt derniers au nez. Une voix enregistrée de Françoise, atteinte par un lien unique sur la carte. Et une boîte blanche, le nom gravé en relief sur le couvercle.",
+          "Le système visuel garde la même retenue : une palette d’encre, de craie et de cendre, un vert profond, le laiton brut et un seul accent rubis ; un Garamond pour le livre, une linéale géométrique pour les signes, un monospace pour la preuve, et une main manuscrite partout où la maison parle en son nom."
+        ],
+        "media": [
+          { "img": "flatlay", "alt": "Le flacon, la carte de formule et la boîte, posés sur du blanc", "w": 1920, "h": 1080, "full": true },
+          { "img": "bottle-cut", "alt": "Le verre clair montrant la couleur du liquide", "w": 723, "h": 773 },
+          { "img": "brass-drop", "alt": "Le laiton brut, gardant les marques de la main", "w": 1920, "h": 1080 },
+          { "img": "label", "alt": "Une carte de formule : un numéro, une date et un nom", "w": 1600, "h": 900 }
+        ]
+      },
+      {
+        "heading": "Le résultat",
+        "paragraphs": [
+          "Le résultat est une identité complète et un site qui se lit comme la maison elle-même : le nom, les trois portes, le parcours de l’accord à la recharge, les six codes, et un catalogue de formules en pièce unique, chacune portant son numéro, sa date et son propriétaire.",
+          "Rien n’est arbitraire. Chaque détail a une raison, et l’ensemble tient, ce qu’une maison fondée sur la reconnaissance doit précisément prouver avant de demander à quiconque de lui confier la sienne."
+        ],
+        "media": [
+          { "img": "bottle-tall", "alt": "Le flacon, debout", "w": 1200, "h": 1500 },
+          { "img": "cap", "alt": "Le bouchon en laiton, en gros plan", "w": 1400, "h": 787 },
+          { "img": "petals", "alt": "Des pétales rubis dispersés sur une surface claire", "w": 1600, "h": 1180 }
+        ]
+      },
+      {
+        "heading": "Le regard de la cliente",
+        "paragraphs": [
+          "Françoise Rapp a composé la maison de l’intérieur. Son témoignage relie la clarté stratégique à l’exécution créative, des valeurs sous la marque à la typographie, aux couleurs et au flacon qu’elle est devenue."
+        ]
+      }
+    ]
   }
 };
