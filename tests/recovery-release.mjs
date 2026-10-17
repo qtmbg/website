@@ -61,7 +61,7 @@ try {
   const response=await page.request.get(base+`/audio/nizzar-introduction-${lang}.mp3`,{headers:{Range:'bytes=0-1023'}});
   assert.equal(response.status(),206,'Audio supports seeking');
   assert.equal((await response.body()).length,1024);
-  assert.equal(await page.locator('.desk-scene .desk-icon').count(),5);
+  assert.equal(await page.locator('.desk-scene .desk-icon').count(),6);
   assert.equal(await page.locator(`.widget-apps a[href="${prefix}/people"]`).count(),1);
   assert.ok(await page.locator('.widget-calendar').count());
   const founder=page.locator('.widget-founder img');

@@ -149,6 +149,7 @@ function desktop(page) {
   const folders = [
     [u('/work/selvaggi'), 'Selvaggi'],
     [u('/work/verne-jewels'), 'Verne Jewels'],
+    [u('/work/rapp-esen'), 'Rapp & Esen'],
     [u('/practice/method'), 'The Collapse'],
     [u('/thinking'), t('Thinking', 'Les idées')],
     [u('/lab'), 'Quantum Lab']
@@ -181,6 +182,7 @@ function decorateCases(html, lang) {
   return html.replace(/<div class="case-art"><span class="case-name">([^<]+)<\/span><\/div>/g, (whole, name) => {
     const entry = cases.find(c => c.name === name);
     if (!entry) throw new Error(`Unknown case: ${name}`);
+    if(entry.slug==='rapp-esen')return `<div class="case-art visual-rapp-esen"><img src="/work/media/rapp-esen/rapp-esen-flatlay-1024.webp" srcset="/work/media/rapp-esen/rapp-esen-flatlay-640.webp 640w, /work/media/rapp-esen/rapp-esen-flatlay-1024.webp 1024w, /work/media/rapp-esen/rapp-esen-flatlay-1600.webp 1600w" sizes="(max-width:767px) 100vw, 550px" width="1920" height="1080" alt="${lang==='fr'?'Le flacon, la carte de formule et la boîte Rapp & Esen':'The Rapp & Esen bottle, formula card and box'}" loading="lazy" decoding="async"><span class="case-name">${name}</span></div>`;
     const parts = (caseStudies[entry.slug]?.[lang] || []).filter(part => part.heading).slice(2, 5);
     const rows = parts.map(part => `<span class="note-row"><b>${esc(part.heading)}</b><span>${esc(firstSentence(part.paragraphs[0] || ''))}</span></span>`).join('');
     return `<div class="case-art visual-${entry.slug}"><div class="case-decoration" aria-hidden="true">${rows}</div><span class="case-name">${name}</span></div>`;
