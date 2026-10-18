@@ -4418,19 +4418,19 @@ export const projects = [
     ],
     "relationship": "EDITORIAL",
     "role": {
-      "en": "Selected photography and video artist",
-      "fr": "Artiste sélectionné en photographie et vidéo"
+      "en": "Selected photographer",
+      "fr": "Photographe sélectionné"
     },
     "oneLine": {
-      "en": "NFT photography and video selected for NFT Liverpool 2022 by TIME president and TIMEPieces creator Keith Grossman, .",
-      "fr": "Photographie et vidéo NFT sélectionnées pour NFT Liverpool 2022 par Keith Grossman, président de TIME et créateur de TIMEPieces, selon le témoignage de Nizzar."
+      "en": "Two photographs selected for NFT Liverpool 2022 by Keith Grossman, then president of TIME and creator of TIMEPieces.",
+      "fr": "Deux photographies sélectionnées pour NFT Liverpool en 2022 par Keith Grossman, alors président de TIME et créateur de TIMEPieces."
     },
     "summary": {
       "en": [
-        "NFT photography and video selected for NFT Liverpool 2022 by TIME president and TIMEPieces creator Keith Grossman, ."
+        "Two photographs selected for NFT Liverpool 2022 by Keith Grossman, then president of TIME and creator of TIMEPieces."
       ],
       "fr": [
-        "Photographie et vidéo NFT sélectionnées pour NFT Liverpool 2022 par Keith Grossman, président de TIME et créateur de TIMEPieces, selon le témoignage de Nizzar."
+        "Deux photographies sélectionnées pour NFT Liverpool en 2022 par Keith Grossman, alors président de TIME et créateur de TIMEPieces."
       ]
     },
     "start": 2022,
@@ -4457,10 +4457,10 @@ export const projects = [
         "type": "text",
         "body": {
           "en": [
-            "NFT photography and video selected for NFT Liverpool 2022 by TIME president and TIMEPieces creator Keith Grossman, ."
+            "Two photographs selected for NFT Liverpool 2022 by Keith Grossman, then president of TIME and creator of TIMEPieces."
           ],
           "fr": [
-            "Photographie et vidéo NFT sélectionnées pour NFT Liverpool 2022 par Keith Grossman, président de TIME et créateur de TIMEPieces, selon le témoignage de Nizzar."
+            "Deux photographies sélectionnées pour NFT Liverpool en 2022 par Keith Grossman, alors président de TIME et créateur de TIMEPieces."
           ]
         }
       }

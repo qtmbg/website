@@ -120,6 +120,7 @@ const practice = {
   alternateName: 'The Quantum Branding',
   description: 'Independent strategy practice of Nizzar Ben Chekroune across Brand × AI × Business.',
   foundingDate: '2024',
+  areaServed: 'Worldwide',
   name: 'Quantum Branding',
   url: origin,
   email: contactEmail,

@@ -1,3 +1,5 @@
+import {availability} from './availability.mjs';
+
 // Search titles and descriptions.
 //
 // The title tag is a separate surface from the page. A visitor reads the H1;
@@ -69,10 +71,15 @@ export const searchDescriptions = {
     fr: 'Marque et positionnement, marketing et vente, digital et expérience, systèmes intelligents. Stratégie, design et réalisation dans une même conversation.'
   },
   '/about': {
-    en: 'Nizzar Ben Chekroune, Brand Strategist and founder of Quantum Branding. Brand, marketing, institutional programmes, commercial brands and cultural projects since 2006.',
-    fr: 'Nizzar Ben Chekroune, stratège de marque et fondateur de Quantum Branding. Marque, marketing, programmes institutionnels et projets culturels depuis 2006.'
+    en: `Nizzar Ben Chekroune, Brand Strategist and founder of Quantum Branding. ${availability.en}`,
+    fr: `Nizzar Ben Chekroune, stratège de marque et fondateur de Quantum Branding. ${availability.fr}`
+  },
+  '/start': {
+    en: `Start a brand strategy project with Quantum Branding. ${availability.en}`,
+    fr: `Démarrer un projet de stratégie de marque avec Quantum Branding. ${availability.fr}`
   }
 };
+
 
 export const searchTitle = (basePath, lang) => searchTitles[basePath]?.[lang];
 export const searchDescription = (basePath, lang) => searchDescriptions[basePath]?.[lang];
