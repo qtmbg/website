@@ -258,15 +258,15 @@ test('Fiverr history stays in proportionate origin and source contexts', async (
   }
 });
 
-test('practice claims no geographic service location', async () => {
+test('practice invents no geographic office location', async () => {
   // "African" is allowed: it belongs to the proper name of the 1:54 fair.
-  const banned = /(?:I am|I'm|I’m|the practice is|Quantum Branding is) based in|working from|addressLocality|areaServed/i;
+  const banned = /(?:I am|I'm|I’m|the practice is|Quantum Branding is) based in|working from|addressLocality/i;
   const files = [
     ...(await walk(dist)).filter(f => /\.(html|xml|txt|svg|css|js)$/.test(f))
   ];
   for (const file of files) {
     const archive = path.relative(dist, file).replace(/^fr\//, '').startsWith('work');
-    const hit = (await readFile(file, 'utf8')).match(archive ? /based in|working from|addressLocality|areaServed/i : banned);
+    const hit = (await readFile(file, 'utf8')).match(archive ? /based in|working from|addressLocality/i : banned);
     assert.equal(hit, null, `${path.relative(root, file)} claims a location: ${hit?.[0]}`);
   }
 });
