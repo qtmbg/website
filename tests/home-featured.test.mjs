@@ -41,11 +41,13 @@ test('homepages contain exactly the requested ordered original quotes and compac
  }
 });
 
-test('Work retains all three cases and uses the approved Rapp image; People keeps its five accounts',()=>{
+test('Work retains all three cases and uses the approved Rapp image; People leads with its six curated profiles',()=>{
  for(const lang of ['en','fr']){
   const prefix=lang==='fr'?'/fr':'',html=render('/work',lang);
   assert.deepEqual([...html.matchAll(/class="case-card" href="([^\"]+)"/g)].map(m=>m[1]),slugs.map(s=>prefix+'/work/'+s));
   assert.match(html,/class="case-art visual-rapp-esen"[\s\S]*?rapp-esen-flatlay-1024.webp/);
-  assert.equal((render('/people',lang).match(/data-perspective=/g)||[]).length,5);
+  const people=render('/people',lang);
+  assert.equal((people.match(/<article class="perspective profile"/g)||[]).length,6);
+  assert.equal((people.match(/data-perspective=/g)||[]).length,7,'Six profiles plus the Rapp & Esen project account');
  }
 });

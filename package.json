@@ -10,7 +10,7 @@
     "brochures": "node scripts/brochures.mjs",
     "start": "node scripts/build.mjs && node server.mjs",
     "dev": "node scripts/build.mjs && node --watch server.mjs",
-    "test": "node scripts/build.mjs && node --test tests/site.test.mjs",
+    "test": "node scripts/build.mjs && node --test tests/site.test.mjs tests/people-perspectives.test.mjs",
     "test:browser": "node tests/browser.mjs",
     "test:visual": "node tests/visual.mjs",
     "test:restoration": "node tests/restoration.mjs",

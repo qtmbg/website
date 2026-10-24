@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import { chromium } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
-import { perspectives } from '../src/perspectives.mjs';
+import { perspectives, curatedSelection, projectAccounts } from '../src/perspectives.mjs';
 
 const base=(process.env.BASE_URL||'http://127.0.0.1:3017').replace(/\/$/,'');
 const output=new URL('../test-results/recovery/',import.meta.url).pathname;
@@ -23,16 +23,23 @@ try {
    assert.equal(await page.locator('.language-link').getAttribute('href'),(lang==='fr'?'':'/fr')+route);
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
    if(route==='/people') {
-    assert.equal(await page.locator('.people-stream .perspective').count(),5);
-    for(const p of perspectives) {
+    assert.equal(await page.locator('.people-stream .perspective').count(),6);
+    for(const p of perspectives.filter(p=>[...curatedSelection,...projectAccounts].includes(p.id))) {
      const figure=page.locator(`[data-perspective="${p.id}"]`);
-     const quote=await figure.locator('blockquote').innerText();
+     const details=figure.locator('details');
+     if(await details.count()) {
+      assert.equal(await details.evaluate(d=>d.open),false);
+      await details.locator('summary').focus();
+      await page.keyboard.press('Enter');
+      assert.equal(await details.evaluate(d=>d.open),true,p.id+': full recommendation opens from the keyboard');
+     }
+     const quote=await figure.locator('blockquote').allInnerTexts().then(t=>t.join('\n'));
      for(const text of p.full_original_text||[p.approved_excerpt]) assert.ok(quote.includes(text),p.id+': original quotation');
      assert.equal(await figure.locator('.perspective-author').innerText(),p.author_name);
-     assert.equal(await figure.locator('a').first().getAttribute('href'),p.source_url);
+     if(p.source_url) assert.equal(await figure.locator('a').first().getAttribute('href'),p.source_url);
     }
     await page.locator('.perspective-index a').last().click();
-    assert.ok(page.url().endsWith('#p-sander-gansen'));
+    assert.ok(page.url().endsWith('#p-olivier-stoullig'));
    } else {
     assert.equal(await page.locator('.case-figure img').count(),12);
     await page.locator('.case-figure img').evaluateAll(async imgs=>{
