@@ -1,0 +1,78 @@
+{
+ "note": "Verification snapshot for People & Perspectives. Not rendered. Registry texts are copied verbatim from the canonical nizzar.com recommendation registry; William Entriken's text is owner-supplied (October 2026 instruction) and has no registry record.",
+ "registry": {
+  "repo": "qtmbg/nizzar-com",
+  "path": "content/work/recommendations.json",
+  "commit": "b90f26de37f7bc2604606eea1794de07832080f8",
+  "registry_sha256": "dd273bc54145c7e19195040a94c20d9a213d8ecd31398adcea0cf68d51fbc359"
+ },
+ "records": {
+  "georg-bak-2026-10-07": {
+   "name": "Georg Bak",
+   "title": "ART ADVISOR | Crypto + Blockchain Art | NFT | Metaverse | Web3 Digital Art | Generative Art | Vintage Computer Art (1960s) | Photography | NFT Investment | Art Brokerage 20th / 21st Century Modern & Contemporary Art",
+   "relationship": "Georg worked with Nizzar but they were at different companies",
+   "lang": "en",
+   "source": "linkedin",
+   "source_url": "https://www.linkedin.com/in/nizzar/details/recommendations/?detailScreenTabIndex=0",
+   "source_url_type": "recommendations_section",
+   "source_verified": true,
+   "full_text_verified": true,
+   "full_original_text": "It was always a great pleasure to work with Nizzar. He is very professional, creative and a great communicator. His profound knowledge in AI, NFTs and Web3 is very valuable."
+  },
+  "mike-mongo-2026-10-15": {
+   "name": "Mike Mongo",
+   "title": "Astronaut Teacher, Author, Founder of Astronaut Job Camp",
+   "relationship": "Mike worked with Nizzar over the years, socially and professionally",
+   "lang": "en",
+   "source": "linkedin",
+   "source_url": "https://www.linkedin.com/in/nizzar/details/recommendations/?detailScreenTabIndex=0",
+   "source_url_type": "recommendations_section",
+   "source_verified": true,
+   "full_text_verified": true,
+   "full_original_text": "Building teams means having people on the team who people trust, love, and can depend on. In a nutshell, Nizzar embodies all of those qualities. Getting to work with Nizzar over the years, seeing him engage socially as well as professionally, it is a pleasure to get to endorse someone whose company has made for some of the best professional experiences of mine and other peers’ lives. May I live long enough to get to work with Nizzar again!"
+  },
+  "jake-hirsch-allen-2026-10-10": {
+   "name": "Jake Hirsch-Allen",
+   "title": "I connect people and ideas to create social and economic impact. I build public private partnerships to fight inequality.",
+   "relationship": "Jake worked with Nizzar on the same team",
+   "lang": "en",
+   "source": "linkedin",
+   "source_url": "https://www.linkedin.com/in/nizzar/details/recommendations/?detailScreenTabIndex=0",
+   "source_url_type": "recommendations_section",
+   "source_verified": true,
+   "full_text_verified": true,
+   "full_original_text": "I got to know Nizzar during the BananaConf years, at a time when Web3 was moving incredibly fast and it was often difficult to separate genuine shifts in technology, culture and community from the noise around them.\n\nWhat stood out to me about Nizzar was his ability to see beyond the technology itself. He understood that what made these new ecosystems interesting was the combination of people, identity, culture, community and business, and he had a rare ability to connect those dimensions.\n\nThrough BananaConf and the broader ecosystem around it, I saw him bring together people who would not necessarily have found each other otherwise, turn online relationships into real-world collaborations and experiences, and help create the conditions for ideas and communities to become something tangible.\n\nNizzar is also unusually comfortable moving between worlds. He can speak with founders, technologists, creatives, investors and community builders while keeping sight of the larger strategic question: what actually matters here, and what is worth building?\n\nLooking back, what I value most about working with Nizzar was not simply his knowledge of Web3 at that moment. It was his curiosity, strategic instinct and ability to recognize meaningful change early, understand the human dynamics underneath it, and connect the right people and ideas around it. Those qualities extend well beyond Web3, and I would gladly work with him again."
+  },
+  "mo-el-sayed-2026-10-09": {
+   "name": "Mo El-Sayed",
+   "title": "Head of Brand Development // Curator at Ledger",
+   "relationship": "Mo worked with Nizzar but they were at different companies",
+   "lang": "en",
+   "source": "linkedin",
+   "source_url": "https://www.linkedin.com/in/nizzar/details/recommendations/?detailScreenTabIndex=0",
+   "source_url_type": "recommendations_section",
+   "source_verified": true,
+   "full_text_verified": true,
+   "full_original_text": "I met Nizzar in 2022 through NFT communities. What stood out was his ability to bring people together and build meaningful connections. He communicates clearly and warmly, listens thoughtfully, and understands what makes people want to be part of a community.\n\nNizzar has a strong understanding of marketing and branding, grounded in the human relationships that give a brand its meaning. I’ve always appreciated his perspective, his warmth, and the care he brings to conversations."
+  },
+  "olivier-stoullig-2026-10-11": {
+   "name": "Olivier Stoullig",
+   "title": "Chief Industrial Policy Officer at African Development Bank Group",
+   "relationship": "Olivier managed Nizzar directly",
+   "lang": "en",
+   "source": "linkedin",
+   "source_url": "https://www.linkedin.com/in/nizzar/details/recommendations/?detailScreenTabIndex=0",
+   "source_url_type": "recommendations_section",
+   "source_verified": true,
+   "full_text_verified": true,
+   "full_original_text": "I had the pleasure of working with Nizzar during his time as Cluster Coordinator in Marrakech, and I can confidently recommend him as an outstanding professional.\n\nNizzar is a dynamic, results-oriented individual who combines strong business acumen with exceptional communication and interpersonal skills. He has a natural ability to build relationships, engage with diverse stakeholders, and bring people together around shared objectives.\n\nWhat particularly sets Nizzar apart is his positive energy, emotional intelligence, and ability to navigate complex situations with confidence and diplomacy. He is proactive, resourceful, and genuinely skilled at creating connections and turning opportunities into tangible results.\n\nBeyond his professional capabilities, Nizzar is a pleasure to work with: approachable, enthusiastic, and always willing to go the extra mile.\n\nI would highly recommend him to any organization looking for a talented professional with strong leadership potential, excellent people skills, and a sharp business mindset."
+  }
+ },
+ "owner_supplied": {
+  "william-entriken": {
+   "name": "William Entriken",
+   "lang": "en",
+   "full_original_text": "I worked with Nizzar on BananaConf events, running 2022–2024. He is a ball of energy and I have seen him take ownership of making guests feel welcome, ensuring programming is smooth and getting in front of sponsors/stakeholders to make the production a success. This is a large, high-paced multimodal event including: talks, workshops, entrepreneurship, dancing, bananas, art installations and government policymaking... all in a rapidly changing industry. I look fondly on our time working together and hope to have another opportunity again!"
+  }
+ }
+}
