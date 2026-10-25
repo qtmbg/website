@@ -168,3 +168,23 @@ The owner approved a new selection criterion and six people, in this order: Will
 - **Professional descriptions** were checked on 24 October 2026 against public sources: EIP-721 author list; The Art Newspaper (12 June 2024) and the Phillips Ex Machina release (31 May 2022) for Georg Bak; Penguin Random House and SaxaVord for Mike Mongo; dais.ca and Maytree for Jake Hirsch-Allen (the LinkedIn role is past); Ledger's podcast feed (September 2026) for Mo El-Sayed; AfDB project documents and UNIDO's 2015 cluster progress report for Olivier Stoullig. Deliberately not claimed: "Curator" (Mo El-Sayed), "Commercial Astronaut" (Mike Mongo), any auction-house employment (Georg Bak).
 - **Relationship lines** restate the LinkedIn relationship field and the recommendation itself. ERC-721 is professional context only; William's recommendation concerns BananaConf, 2022–2024. No recommendation is presented as an endorsement by Ledger, the African Development Bank Group or any other organisation, and none endorses BrandOS.
 - **Preservation.** The five previous records remain in `src/perspectives.mjs`. Françoise Rapp's complete account stays on `/people` as a project account at `#p-francoise-rapp`, the anchor the homepage and the Rapp & Esen case link to; both of those pages are unchanged. The homepage selection (Françoise Rapp, Leslie Lentz, Hanane El Aafifi) is unchanged.
+
+---
+
+## Closure — 25 October 2026: People & Perspectives
+
+**PEOPLE & PERSPECTIVES — APPROVED, DEPLOYED, CANONICAL AND CLOSED.**
+
+The accepted release is PR #15, merge commit `5188ac6`. Its definitive selection and order are William Entriken, Georg Bak, Mike Mongo, Jake Hirsch-Allen, Mo El-Sayed and Olivier Stoullig. Françoise Rapp's separate Project account stays as released.
+
+William Entriken is a canonical editorial selection. His absence from historical recommendation registries is intentional and does not affect his approved status. Nizzar Ben Chekroune supplied his recommendation directly and approved it for publication. That decision is the source of authority.
+
+The source hierarchy for this and all future work:
+
+1. **Editorial canon:** decisions Nizzar explicitly validates. These are authoritative.
+2. **Evidence registry:** documents, recommendations and supporting sources, such as the nizzar.com registry. It supports editorial decisions and never overrides them. Absence from it does not downgrade a canonical decision.
+3. **Production state:** the content actually deployed.
+
+`tests/fixtures/people-sources.json` is a test snapshot of the approved texts, not a competing canonical registry.
+
+Do not reopen this subject unless Nizzar explicitly requests a change or a verified production regression requires correction.
