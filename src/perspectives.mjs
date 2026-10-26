@@ -139,6 +139,20 @@ export const perspectives = [
     // Owner-supplied original (October 2026); no registry record or public permalink.
     source_platform: 'Owner-supplied',
     source_verified: true,
+    // His own self-portrait (EXIF Artist: William Entriken, 2018), released by him
+    // under CC BY 4.0 at source_url. Cropped to 4:5 and resized; no retouching.
+    portrait: {
+      src: '/portraits/william-entriken',
+      widths: [160, 240, 320],
+      width: 320,
+      height: 400,
+      source_url: 'https://phor.net/self-portraits',
+      original_url: 'https://phor.net/assets/portraits/william-suit.jpg',
+      credit: 'William Entriken',
+      license: 'CC BY 4.0',
+      license_url: 'https://creativecommons.org/licenses/by/4.0/',
+      changes: 'cropped'
+    },
     display_locations: ['people'],
     category: 'curated'
   },
@@ -305,6 +319,21 @@ ${rel ? `<span class="field-hint">${esc(rel)}</span>` : ''}
 </figure>`;
 }
 
+// A portrait is published only with a verified reuse licence; a profile without
+// one keeps the text-only header. Intrinsic dimensions reserve the space.
+function profilePortrait(p, lang) {
+  const fr = lang === 'fr';
+  const {src, widths, width, height} = p.portrait;
+  const srcset = widths.map(w => `${src}-${w}.webp ${w}w`).join(', ');
+  return `<img class="profile-portrait" src="${esc(`${src}-${widths[1]}.webp`)}" srcset="${esc(srcset)}" sizes="(max-width:599.98px) 80px, 104px" width="${width}" height="${height}" alt="${esc(`${fr ? 'Portrait de' : 'Portrait of'} ${p.author_name}`)}" loading="lazy" decoding="async">`;
+}
+
+function portraitCredit(p, lang) {
+  const fr = lang === 'fr';
+  const c = p.portrait;
+  return `<span class="field-hint profile-credit">${fr ? 'Portrait :' : 'Portrait:'} <a href="${esc(c.source_url)}" target="_blank" rel="noopener noreferrer">${esc(c.credit)}</a>, <a href="${esc(c.license_url)}" target="_blank" rel="noopener noreferrer license">${esc(c.license)}</a>${c.changes === 'cropped' ? (fr ? ', recadré' : ', cropped') : ''}.</span>`;
+}
+
 // A curated profile reads person → why they matter → what they experienced
 // with Nizzar → their words. The excerpt leads; the full original stays one
 // native disclosure away, so it works with keyboard and screen readers.
@@ -313,15 +342,25 @@ function profileArticle(p, i, lang) {
   const t = (en, f) => (fr ? f : en);
   const anchor = anchorId(p.id);
   const full = p.full_original_text.map(x => `<p>${esc(x)}</p>`).join('');
-  const source = p.source_platform === 'LinkedIn'
+  const source = (p.source_platform === 'LinkedIn'
     ? `<a class="text-link" href="${esc(p.source_url)}" target="_blank" rel="noopener noreferrer">${t('LinkedIn · recommendations section ↗', 'LinkedIn · section des recommandations ↗')}</a><span class="field-hint">${t('Section link, not an individual permalink. Sign-in may be required.', 'Lien vers la section, pas vers une recommandation individuelle. Connexion parfois nécessaire.')}</span>`
-    : `<span class="field-hint">${t('Original recommendation, provided by Nizzar Ben Chekroune.', 'Recommandation originale, transmise par Nizzar Ben Chekroune.')}</span>`;
-  return `<article class="perspective profile" id="${anchor}" data-perspective="${esc(p.id)}" aria-labelledby="${anchor}-name">
-<header class="profile-head">
-<p class="perspective-lens">${String(i + 1).padStart(2, '0')} · ${esc(fr ? p.territory_fr : p.territory_en)}</p>
+    : `<span class="field-hint">${t('Original recommendation, provided by Nizzar Ben Chekroune.', 'Recommandation originale, transmise par Nizzar Ben Chekroune.')}</span>`)
+    + (p.portrait ? portraitCredit(p, lang) : '');
+  const identity = `<p class="perspective-lens">${String(i + 1).padStart(2, '0')} · ${esc(fr ? p.territory_fr : p.territory_en)}</p>
 <h2 class="perspective-author" id="${anchor}-name">${esc(p.author_name)}</h2>
-<p class="perspective-role">${esc(fr ? p.author_title_fr : p.author_title)}</p>
-</header>
+<p class="perspective-role">${esc(fr ? p.author_title_fr : p.author_title)}</p>`;
+  const head = p.portrait
+    ? `<header class="profile-head has-portrait">
+${profilePortrait(p, lang)}
+<div class="profile-id">
+${identity}
+</div>
+</header>`
+    : `<header class="profile-head">
+${identity}
+</header>`;
+  return `<article class="perspective profile" id="${anchor}" data-perspective="${esc(p.id)}" aria-labelledby="${anchor}-name">
+${head}
 <p class="profile-context">${esc(fr ? p.profile_fr : p.profile_en)}</p>
 <p class="profile-relationship"><span class="field-hint">${t('With Nizzar', 'Avec Nizzar')}</span> ${esc(fr ? p.relationship_fr : p.relationship_en)}</p>
 <figure class="profile-quote">

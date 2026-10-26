@@ -188,3 +188,24 @@ The source hierarchy for this and all future work:
 `tests/fixtures/people-sources.json` is a test snapshot of the approved texts, not a competing canonical registry.
 
 Do not reopen this subject unless Nizzar explicitly requests a change or a verified production regression requires correction.
+
+---
+
+## Addendum — 26 October 2026: People & Perspectives portraits
+
+Opened at Nizzar's explicit request, for portraits only. Selection, order, quotations, titles and source links are unchanged; the test suite and a record-by-record comparison with `main` confirm it.
+
+A portrait is published only when its reuse licence is verifiable from the rights holder. Appearing publicly online is not a licence. A person without one keeps the text-only header; no substitute, generated or stock image is used.
+
+| Person | Published | Source | Licence basis |
+|---|---|---|---|
+| William Entriken | Yes, `public/portraits/william-entriken-{160,240,320}.webp` | Self-portrait, https://phor.net/self-portraits (original `assets/portraits/william-suit.jpg`, EXIF Artist William Entriken, 2018) | CC BY 4.0, stated by him on that page. Credited on the page; cropped to 4:5 and resized, no retouching. |
+| Georg Bak | No | No portrait with a stated reuse licence found | Needs his permission or a press image he provides |
+| Mike Mongo | No | Photographs on mikemongo.com carry no licence or press-use statement | Needs his permission |
+| Jake Hirsch-Allen | No | Headshot on dais.ca; The Dais media kit states no reuse terms | Needs his or The Dais's permission |
+| Mo El-Sayed | No | No portrait with a stated reuse licence found | Needs his permission |
+| Olivier Stoullig | No | No portrait with a stated reuse licence found | Needs his permission |
+
+Wikimedia Commons was searched for all six (26 October 2026); only William Entriken has a file, a third-party upload of the same CC BY 4.0 self-portrait. The original on his own site is used as the source.
+
+To add a portrait later, add a `portrait` record to the person in `src/perspectives.mjs` with its source, licence and credit, and place the 4:5 WebP files in `public/portraits/`. The test `portraits appear only with a recorded reuse licence…` lists the licensed people and must be updated with the evidence.

@@ -484,6 +484,12 @@ html:not(.js) .widget-calendar .cal-hint{display:block}
 .perspective-index a span{color:var(--ink-45);font-variant-numeric:tabular-nums}
 .profile{gap:16px}
 .profile-head{display:grid;gap:8px}
+/* A licensed portrait sits beside the name, in support of the words, never above them. */
+.profile-head.has-portrait{grid-template-columns:104px minmax(0,1fr);column-gap:20px;align-items:end}
+.profile-id{display:grid;gap:8px;min-width:0}
+.profile-portrait{display:block;width:104px;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:12px;background:var(--soft);box-shadow:0 0 0 1px var(--ink-10)}
+.profile-credit a{color:inherit}
+@media(max-width:599.98px){.profile-head.has-portrait{grid-template-columns:80px minmax(0,1fr);column-gap:16px}.profile-portrait{width:80px;border-radius:10px}}
 .profile .perspective-author{margin:0;font-size:26px;line-height:1.2;letter-spacing:-.015em}
 .profile .perspective-role{font-size:15px;line-height:1.45;color:var(--ink-70)}
 .profile-context{font-size:16px;line-height:1.6;color:var(--ink-85)}
