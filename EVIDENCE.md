@@ -195,17 +195,17 @@ Do not reopen this subject unless Nizzar explicitly requests a change or a verif
 
 Opened at Nizzar's explicit request, for portraits only. Selection, order, quotations, titles and source links are unchanged; the test suite and a record-by-record comparison with `main` confirm it.
 
-A portrait is published only when its reuse licence is verifiable from the rights holder. Appearing publicly online is not a licence. A person without one keeps the text-only header; no substitute, generated or stock image is used.
+Each portrait is the person's own published photograph, checked against the named profile it comes from. No generated, stock or substitute image is used, and nothing is retouched: crops are 4:5 and resized, metadata stripped. Only William Entriken's portrait carries an open licence. For the others no reuse licence could be verified, and Nizzar directed on 26 October 2026 that their LinkedIn photograph be used where no other source was found. That direction, not a licence, is the basis recorded as `basis: 'owner-direction'` in `src/perspectives.mjs`. Where the person's employer or publisher shows the same or an official photograph at higher resolution, that source is used.
 
-| Person | Published | Source | Licence basis |
+| Person | Published | Source | Basis |
 |---|---|---|---|
-| William Entriken | Yes, `public/portraits/william-entriken-{160,240,320}.webp` | Self-portrait, https://phor.net/self-portraits (original `assets/portraits/william-suit.jpg`, EXIF Artist William Entriken, 2018) | CC BY 4.0, stated by him on that page. Credited on the page; cropped to 4:5 and resized, no retouching. |
-| Georg Bak | No | No portrait with a stated reuse licence found | Needs his permission or a press image he provides |
-| Mike Mongo | No | Photographs on mikemongo.com carry no licence or press-use statement | Needs his permission |
-| Jake Hirsch-Allen | No | Headshot on dais.ca; The Dais media kit states no reuse terms | Needs his or The Dais's permission |
-| Mo El-Sayed | No | No portrait with a stated reuse licence found | Needs his permission |
-| Olivier Stoullig | No | No portrait with a stated reuse licence found | Needs his permission |
+| William Entriken | Yes, 160/240/320 | His self-portrait at https://phor.net/self-portraits (`william-suit.jpg`, EXIF Artist William Entriken, 2018) | CC BY 4.0, stated by him; credited on the page, "cropped" noted |
+| Georg Bak | Yes, 160 | His LinkedIn profile photo, https://www.linkedin.com/in/artadvisorgeorgbak/ (profile headed "Georg Bak, DIGITAL ART ADVISOR - ArtMeta") | Owner direction. 200 × 200 at source, so no larger file exists |
+| Mike Mongo | Yes, 160/240/320 | His author photo on Penguin Random House, https://www.penguinrandomhouse.com/authors/2145209/mike-mongo/; full-size file from his NSS ISDC 2017 speaker page (filename credits "Marrero"). His LinkedIn image is an illustration, not a photograph | Owner direction |
+| Jake Hirsch-Allen | Yes, 160/240/320 | His headshot on The Dais team page, https://dais.ca/team/jake-hirsch-allen/, the same photograph as his LinkedIn profile | Owner direction |
+| Mo El-Sayed | Yes, 160 | His LinkedIn profile photo, https://www.linkedin.com/in/mohsen-el-sayed/ (profile headed "Mo El-Sayed - Ledger") | Owner direction. 200 × 200 at source |
+| Olivier Stoullig | **No** | His LinkedIn profile (`olivier-stoullig-61524423`) is behind LinkedIn's sign-in wall for unauthenticated requests; no other photograph of him was found | Text-only header until a photograph is supplied |
 
-Wikimedia Commons was searched for all six (26 October 2026); only William Entriken has a file, a third-party upload of the same CC BY 4.0 self-portrait. The original on his own site is used as the source.
+Wikimedia Commons was searched for all six; only William Entriken has a file, a third-party upload of the same self-portrait. Source files were retrieved on 26 October 2026.
 
-To add a portrait later, add a `portrait` record to the person in `src/perspectives.mjs` with its source, licence and credit, and place the 4:5 WebP files in `public/portraits/`. The test `portraits appear only with a recorded reuse licence…` lists the licensed people and must be updated with the evidence.
+To add or replace a portrait, add a `portrait` record to the person in `src/perspectives.mjs` (source, credit, basis, and licence if any), put the 4:5 WebP files in `public/portraits/`, and update the expected list in the portrait test.

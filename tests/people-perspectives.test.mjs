@@ -140,15 +140,23 @@ test('the five previous recommendations remain preserved as source records',()=>
  assert.deepEqual(byId.get('francoise-rapp-2026-10-15').related_projects,['rapp-esen']);
 });
 
-test('portraits appear only with a recorded reuse licence, reserve their space and credit the source',()=>{
- const LICENSED={'william-entriken':{license:'CC BY 4.0',source_url:'https://phor.net/self-portraits'}};
+test('portraits are the people’s own photographs, with a recorded basis, reserved space and a credit',()=>{
+ const EXPECTED={
+  'william-entriken':{basis:'licence',source_url:'https://phor.net/self-portraits'},
+  'georg-bak-2026-10-07':{basis:'owner-direction',source_url:'https://www.linkedin.com/in/artadvisorgeorgbak/'},
+  'mike-mongo-2026-10-15':{basis:'owner-direction',source_url:'https://www.penguinrandomhouse.com/authors/2145209/mike-mongo/'},
+  'jake-hirsch-allen-2026-10-10':{basis:'owner-direction',source_url:'https://dais.ca/team/jake-hirsch-allen/'},
+  'mo-el-sayed-2026-10-09':{basis:'owner-direction',source_url:'https://www.linkedin.com/in/mohsen-el-sayed/'}
+ };
  for(const id of curatedSelection){
   const c=byId.get(id).portrait;
-  if(!LICENSED[id]){assert.equal(c,undefined,id+': no portrait without a verified licence');continue;}
-  assert.equal(c.license,LICENSED[id].license);
-  assert.equal(c.source_url,LICENSED[id].source_url);
-  assert.ok(c.credit&&c.license_url&&c.original_url,id);
+  if(!EXPECTED[id]){assert.equal(c,undefined,id+': no portrait until one is sourced');continue;}
+  assert.equal(c.basis,EXPECTED[id].basis,id);
+  assert.equal(c.source_url,EXPECTED[id].source_url,id);
+  assert.ok(c.credit,id);
+  if(c.basis==='licence')assert.ok(c.license&&c.license_url,id+': licence recorded');
   assert.equal(c.width*5,c.height*4,id+': 4:5');
+  assert.equal(c.width,Math.max(...c.widths),id+': intrinsic size is the largest file');
   for(const w of c.widths){
    const file=readFileSync(new URL(`../public${c.src}-${w}.webp`,import.meta.url));
    assert.equal(file.toString('ascii',8,12),'WEBP',`${id} ${w}`);
@@ -164,7 +172,10 @@ test('portraits appear only with a recorded reuse licence, reserve their space a
    assert.ok(img.includes(`width="${c.width}" height="${c.height}"`),id+': intrinsic size');
    assert.ok(img.includes('loading="lazy"')&&img.includes('decoding="async"'),id);
    assert.ok(img.includes(`alt="${lang==='fr'?'Portrait de':'Portrait of'} ${esc(name)}"`),id+': alt');
-   assert.ok(block.includes(`href="${c.license_url}"`)&&block.includes(`href="${c.source_url}"`),id+': credit');
+   const src=img.match(/ src="([^"]+)"/)[1];
+   assert.ok(c.widths.some(w=>src===`${c.src}-${w}.webp`),id+': fallback src exists');
+   assert.ok(block.includes(`href="${c.source_url}"`),id+': credit');
+   if(c.license_url)assert.ok(block.includes(`href="${c.license_url}"`),id+': licence link');
    assert.ok(block.indexOf('<img')<block.indexOf(`id="${anchorOf(id)}-name"`),id+': portrait leads the name');
   }
  }
