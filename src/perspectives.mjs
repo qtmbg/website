@@ -139,6 +139,21 @@ export const perspectives = [
     // Owner-supplied original (October 2026); no registry record or public permalink.
     source_platform: 'Owner-supplied',
     source_verified: true,
+    // His own self-portrait (EXIF Artist: William Entriken, 2018), released by him
+    // under CC BY 4.0 at source_url. Cropped to 4:5 and resized; no retouching.
+    portrait: {
+      src: '/portraits/william-entriken',
+      widths: [160, 240, 320],
+      width: 320,
+      height: 400,
+      source_url: 'https://phor.net/self-portraits',
+      original_url: 'https://phor.net/assets/portraits/william-suit.jpg',
+      credit: 'William Entriken',
+      license: 'CC BY 4.0',
+      license_url: 'https://creativecommons.org/licenses/by/4.0/',
+      basis: 'licence',
+      changes: 'cropped'
+    },
     display_locations: ['people'],
     category: 'curated'
   },
@@ -164,6 +179,16 @@ export const perspectives = [
     full_source: NIZZAR_FULL,
     source_verified: true,
     date: '2026-10-07',
+    // The photo he uses on his own LinkedIn profile, 200 × 200 at source.
+    portrait: {
+      src: '/portraits/georg-bak',
+      widths: [160],
+      width: 160,
+      height: 200,
+      source_url: 'https://www.linkedin.com/in/artadvisorgeorgbak/',
+      credit: 'LinkedIn',
+      basis: 'owner-direction'
+    },
     display_locations: ['people'],
     category: 'curated'
   },
@@ -189,6 +214,18 @@ export const perspectives = [
     full_source: NIZZAR_FULL,
     source_verified: true,
     date: '2026-10-15',
+    // His publisher's author photo; the full-size file is the one he supplied
+    // as a speaker to the National Space Society (ISDC 2017).
+    portrait: {
+      src: '/portraits/mike-mongo',
+      widths: [160, 240, 320],
+      width: 320,
+      height: 400,
+      source_url: 'https://www.penguinrandomhouse.com/authors/2145209/mike-mongo/',
+      original_url: 'https://isdc2017.nss.org/wordpress/wp-content/uploads/2017/05/Astronaut-Teacher-Mike-Mongo-The-Astronaut-Instruction-Manual.Marrero-headshot.jpg',
+      credit: 'Penguin Random House',
+      basis: 'owner-direction'
+    },
     display_locations: ['people'],
     category: 'curated'
   },
@@ -218,6 +255,17 @@ export const perspectives = [
     full_source: NIZZAR_FULL,
     source_verified: true,
     date: '2026-10-10',
+    // His headshot on The Dais team page, the same photograph as his LinkedIn profile.
+    portrait: {
+      src: '/portraits/jake-hirsch-allen',
+      widths: [160, 240, 320],
+      width: 320,
+      height: 400,
+      source_url: 'https://dais.ca/team/jake-hirsch-allen/',
+      original_url: 'https://dais.ca/wp-content/uploads/2026/06/Jake-Hirsch-Allen.jpg',
+      credit: 'The Dais',
+      basis: 'owner-direction'
+    },
     display_locations: ['people'],
     category: 'curated'
   },
@@ -244,6 +292,16 @@ export const perspectives = [
     full_source: NIZZAR_FULL,
     source_verified: true,
     date: '2026-10-09',
+    // The photo he uses on his own LinkedIn profile, 200 × 200 at source.
+    portrait: {
+      src: '/portraits/mo-el-sayed',
+      widths: [160],
+      width: 160,
+      height: 200,
+      source_url: 'https://www.linkedin.com/in/mohsen-el-sayed/',
+      credit: 'LinkedIn',
+      basis: 'owner-direction'
+    },
     display_locations: ['people'],
     category: 'curated'
   },
@@ -305,6 +363,27 @@ ${rel ? `<span class="field-hint">${esc(rel)}</span>` : ''}
 </figure>`;
 }
 
+// A portrait is the person's own published photograph, never a substitute; a
+// profile without one keeps the text-only header. basis records why it may be
+// shown: an open licence, or the owner's direction (EVIDENCE.md, 26 October
+// 2026). Intrinsic dimensions reserve the space before the image loads.
+function profilePortrait(p, lang) {
+  const fr = lang === 'fr';
+  const {src, widths, width, height} = p.portrait;
+  const srcset = widths.map(w => `${src}-${w}.webp ${w}w`).join(', ');
+  const fallback = widths[Math.min(1, widths.length - 1)];
+  return `<img class="profile-portrait" src="${esc(`${src}-${fallback}.webp`)}" srcset="${esc(srcset)}" sizes="(max-width:599.98px) 80px, 104px" width="${width}" height="${height}" alt="${esc(`${fr ? 'Portrait de' : 'Portrait of'} ${p.author_name}`)}" loading="lazy" decoding="async">`;
+}
+
+function portraitCredit(p, lang) {
+  const fr = lang === 'fr';
+  const c = p.portrait;
+  const licence = c.license
+    ? `, <a href="${esc(c.license_url)}" target="_blank" rel="noopener noreferrer license">${esc(c.license)}</a>${c.changes === 'cropped' ? (fr ? ', recadré' : ', cropped') : ''}`
+    : '';
+  return `<span class="field-hint profile-credit">${fr ? 'Portrait :' : 'Portrait:'} <a href="${esc(c.source_url)}" target="_blank" rel="noopener noreferrer">${esc(c.credit)}</a>${licence}.</span>`;
+}
+
 // A curated profile reads person → why they matter → what they experienced
 // with Nizzar → their words. The excerpt leads; the full original stays one
 // native disclosure away, so it works with keyboard and screen readers.
@@ -313,15 +392,25 @@ function profileArticle(p, i, lang) {
   const t = (en, f) => (fr ? f : en);
   const anchor = anchorId(p.id);
   const full = p.full_original_text.map(x => `<p>${esc(x)}</p>`).join('');
-  const source = p.source_platform === 'LinkedIn'
+  const source = (p.source_platform === 'LinkedIn'
     ? `<a class="text-link" href="${esc(p.source_url)}" target="_blank" rel="noopener noreferrer">${t('LinkedIn · recommendations section ↗', 'LinkedIn · section des recommandations ↗')}</a><span class="field-hint">${t('Section link, not an individual permalink. Sign-in may be required.', 'Lien vers la section, pas vers une recommandation individuelle. Connexion parfois nécessaire.')}</span>`
-    : `<span class="field-hint">${t('Original recommendation, provided by Nizzar Ben Chekroune.', 'Recommandation originale, transmise par Nizzar Ben Chekroune.')}</span>`;
-  return `<article class="perspective profile" id="${anchor}" data-perspective="${esc(p.id)}" aria-labelledby="${anchor}-name">
-<header class="profile-head">
-<p class="perspective-lens">${String(i + 1).padStart(2, '0')} · ${esc(fr ? p.territory_fr : p.territory_en)}</p>
+    : `<span class="field-hint">${t('Original recommendation, provided by Nizzar Ben Chekroune.', 'Recommandation originale, transmise par Nizzar Ben Chekroune.')}</span>`)
+    + (p.portrait ? portraitCredit(p, lang) : '');
+  const identity = `<p class="perspective-lens">${String(i + 1).padStart(2, '0')} · ${esc(fr ? p.territory_fr : p.territory_en)}</p>
 <h2 class="perspective-author" id="${anchor}-name">${esc(p.author_name)}</h2>
-<p class="perspective-role">${esc(fr ? p.author_title_fr : p.author_title)}</p>
-</header>
+<p class="perspective-role">${esc(fr ? p.author_title_fr : p.author_title)}</p>`;
+  const head = p.portrait
+    ? `<header class="profile-head has-portrait">
+${profilePortrait(p, lang)}
+<div class="profile-id">
+${identity}
+</div>
+</header>`
+    : `<header class="profile-head">
+${identity}
+</header>`;
+  return `<article class="perspective profile" id="${anchor}" data-perspective="${esc(p.id)}" aria-labelledby="${anchor}-name">
+${head}
 <p class="profile-context">${esc(fr ? p.profile_fr : p.profile_en)}</p>
 <p class="profile-relationship"><span class="field-hint">${t('With Nizzar', 'Avec Nizzar')}</span> ${esc(fr ? p.relationship_fr : p.relationship_en)}</p>
 <figure class="profile-quote">
