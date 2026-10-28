@@ -343,7 +343,6 @@ function perspectiveFigure(p, lang) {
   const fr = lang === 'fr';
   const t = (en, f) => (fr ? f : en);
   const lens = fr ? p.lens_fr : p.lens_en;
-  const rel = fr ? p.relationship_fr : p.relationship_en;
   const body = p.full_original_text
     ? p.full_original_text.map(x => `<p>${esc(x)}</p>`).join('')
     : `<p>“${esc(p.approved_excerpt)}”</p>`;
@@ -357,7 +356,6 @@ ${lens ? `<p class="perspective-lens">${esc(lens)}</p>` : ''}
 <figcaption>
 <span class="perspective-author">${esc(p.author_name)}</span>
 <span class="perspective-role">${esc(p.author_title)}${p.organization ? ' · ' + esc(p.organization) : ''}</span>
-${rel ? `<span class="field-hint">${esc(rel)}</span>` : ''}
 <span class="perspective-links">${links}</span>
 </figcaption>
 </figure>`;
@@ -384,8 +382,9 @@ function portraitCredit(p, lang) {
   return `<span class="field-hint profile-credit">${fr ? 'Portrait :' : 'Portrait:'} <a href="${esc(c.source_url)}" target="_blank" rel="noopener noreferrer">${esc(c.credit)}</a>${licence}.</span>`;
 }
 
-// A curated profile reads person → why they matter → what they experienced
-// with Nizzar → their words. The excerpt leads; the full original stays one
+// A curated profile reads person → why they matter → their words. The
+// relationship fields stay in the record but are not shown (owner, 28 October
+// 2026). The excerpt leads; the full original stays one
 // native disclosure away, so it works with keyboard and screen readers.
 function profileArticle(p, i, lang) {
   const fr = lang === 'fr';
@@ -412,7 +411,6 @@ ${identity}
   return `<article class="perspective profile" id="${anchor}" data-perspective="${esc(p.id)}" aria-labelledby="${anchor}-name">
 ${head}
 <p class="profile-context">${esc(fr ? p.profile_fr : p.profile_en)}</p>
-<p class="profile-relationship"><span class="field-hint">${t('With Nizzar', 'Avec Nizzar')}</span> ${esc(fr ? p.relationship_fr : p.relationship_en)}</p>
 <figure class="profile-quote">
 <blockquote lang="${esc(p.original_language)}"><p>“${esc(p.approved_excerpt)}”</p></blockquote>
 <details class="profile-full">
