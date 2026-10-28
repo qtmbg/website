@@ -493,8 +493,6 @@ html:not(.js) .widget-calendar .cal-hint{display:block}
 .profile .perspective-author{margin:0;font-size:26px;line-height:1.2;letter-spacing:-.015em}
 .profile .perspective-role{font-size:15px;line-height:1.45;color:var(--ink-70)}
 .profile-context{font-size:16px;line-height:1.6;color:var(--ink-85)}
-.profile-relationship{font-size:15px;line-height:1.6;color:var(--ink-70)}
-.profile-relationship .field-hint{display:block;margin-bottom:2px;font-size:11px;line-height:1.5;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-45)}
 .profile-quote{margin:4px 0 0;display:grid;gap:14px;padding-top:20px;border-top:1px solid var(--ink-10)}
 .profile-full summary{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;line-height:1.5;font-weight:600;color:var(--blue);list-style:none}
 .profile-full summary::-webkit-details-marker{display:none}

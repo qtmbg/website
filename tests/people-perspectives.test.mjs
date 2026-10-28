@@ -51,7 +51,7 @@ test('William Entriken quotes the owner-supplied original exactly and stays fram
   const block=articlesOf(render('/people',lang))[0][0];
   assert.ok(block.includes(`<p>${esc(WILLIAM)}</p>`));
   assert.ok(block.includes('BananaConf'));
-  assert.ok(block.includes(lang==='fr'?'de 2022 à 2024':'2022–2024'));
+  assert.ok(block.includes('2022–2024'));
   assert.doesNotMatch(block,/BrandOS|Quantum Branding|client|linkedin\.com/i);
  }
 });
@@ -181,3 +181,14 @@ test('portraits are the people’s own photographs, with a recorded basis, reser
  }
 });
 const anchorOf=id=>'p-'+id.replace(/-\d{4}-\d{2}-\d{2}$/,'');
+
+test('relationship lines are kept in the records but not shown',()=>{
+ for(const lang of ['en','fr']){
+  const html=render('/people',lang);
+  assert.doesNotMatch(html,/profile-relationship|With Nizzar<|Avec Nizzar</);
+  for(const p of perspectives){
+   const rel=lang==='fr'?p.relationship_fr:p.relationship_en;
+   if(rel)assert.ok(!html.includes(esc(rel)),p.id);
+  }
+ }
+});
