@@ -379,7 +379,16 @@ function portraitCredit(p, lang) {
   const licence = c.license
     ? `, <a href="${esc(c.license_url)}" target="_blank" rel="noopener noreferrer license">${esc(c.license)}</a>${c.changes === 'cropped' ? (fr ? ', recadré' : ', cropped') : ''}`
     : '';
-  return `<span class="field-hint profile-credit">${fr ? 'Portrait :' : 'Portrait:'} <a href="${esc(c.source_url)}" target="_blank" rel="noopener noreferrer">${esc(c.credit)}</a>${licence}.</span>`;
+  return `${esc(p.author_name)}${fr ? ' : ' : ': '}<a href="${esc(c.source_url)}" target="_blank" rel="noopener noreferrer">${esc(c.credit)}</a>${licence}`;
+}
+
+// Portrait credits live on /notes, not under the quotations (owner, 29 October 2026).
+export function portraitCredits(lang = 'en') {
+  const fr = lang === 'fr';
+  const credited = curatedSelection.map(id => byId.get(id)).filter(p => p?.portrait);
+  return credited.length
+    ? `<p>${esc(fr ? 'Portraits de Rencontres & regards' : 'People & Perspectives portraits')}. ${credited.map(p => portraitCredit(p, lang)).join(' · ')}.</p>`
+    : '';
 }
 
 // A curated profile reads person → why they matter → their words. The
@@ -391,10 +400,9 @@ function profileArticle(p, i, lang) {
   const t = (en, f) => (fr ? f : en);
   const anchor = anchorId(p.id);
   const full = p.full_original_text.map(x => `<p>${esc(x)}</p>`).join('');
-  const source = (p.source_platform === 'LinkedIn'
-    ? `<a class="text-link" href="${esc(p.source_url)}" target="_blank" rel="noopener noreferrer">${t('LinkedIn · recommendations section ↗', 'LinkedIn · section des recommandations ↗')}</a>`
-    : `<span class="field-hint">${t('Original recommendation, provided by Nizzar Ben Chekroune.', 'Recommandation originale, transmise par Nizzar Ben Chekroune.')}</span>`)
-    + (p.portrait ? portraitCredit(p, lang) : '');
+  const source = p.source_url
+    ? `<figcaption class="perspective-links"><a class="text-link" href="${esc(p.source_url)}" target="_blank" rel="noopener noreferrer">${t('LinkedIn · recommendations section ↗', 'LinkedIn · section des recommandations ↗')}</a></figcaption>`
+    : '';
   const identity = `<p class="perspective-lens">${String(i + 1).padStart(2, '0')} · ${esc(fr ? p.territory_fr : p.territory_en)}</p>
 <h2 class="perspective-author" id="${anchor}-name">${esc(p.author_name)}</h2>
 <p class="perspective-role">${esc(fr ? p.author_title_fr : p.author_title)}</p>`;
@@ -417,7 +425,7 @@ ${head}
 <summary>${t('Read the full recommendation', 'Lire la recommandation complète')}</summary>
 <blockquote lang="${esc(p.original_language)}">${full}</blockquote>
 </details>
-<figcaption class="perspective-links">${source}</figcaption>
+${source}
 </figure>
 </article>`;
 }
@@ -436,7 +444,7 @@ export function peoplePanel(ids, lang = 'en', accountIds = []) {
     ? `<nav class="perspective-index" aria-label="${t('The people', 'Les personnes')}">${chosen.map((p, i) => `<a href="#${anchorId(p.id)}"><span aria-hidden="true">${String(i + 1).padStart(2, '0')}</span> ${esc(p.author_name)}</a>`).join('')}</nav>`
     : '';
   const projects = accounts.length
-    ? `<section class="people-accounts" aria-labelledby="people-accounts-title"><h2 id="people-accounts-title">${t('Project accounts', 'Témoignages de projet')}</h2><p class="field-hint">${t('A client’s account of a specific engagement, kept with the work it describes.', 'Le témoignage d’une cliente sur une mission précise, rattaché au travail qu’il décrit.')}</p>${accounts.map(p => perspectiveFigure(p, lang)).join('')}</section>`
+    ? `<section class="people-accounts" aria-labelledby="people-accounts-title"><h2 id="people-accounts-title">${t('Project accounts', 'Témoignages de projet')}</h2>${accounts.map(p => perspectiveFigure(p, lang)).join('')}</section>`
     : '';
   return `${index}<div class="people-stream">${chosen.map((p, i) => profileArticle(p, i, lang)).join('')}</div>${projects}`;
 }

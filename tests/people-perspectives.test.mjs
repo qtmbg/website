@@ -85,7 +85,6 @@ test('profiles make no institutional endorsement or employment claims',()=>{
   assert.doesNotMatch(of('georg-bak-2026-10-07'),/Sotheby|employee of Phillips|salarié/i);
   assert.doesNotMatch(of('mike-mongo-2026-10-15'),/NASA|astronaut training with Nizzar|Commercial Astronaut/i);
   for(const [block] of found)assert.doesNotMatch(block,/BrandOS/);
-  assert.ok(html.includes(lang==='fr'?'n’engage pas les organisations citées':'does not speak for the organisations named'));
  }
 });
 
@@ -174,8 +173,10 @@ test('portraits are the people’s own photographs, with a recorded basis, reser
    assert.ok(img.includes(`alt="${lang==='fr'?'Portrait de':'Portrait of'} ${esc(name)}"`),id+': alt');
    const src=img.match(/ src="([^"]+)"/)[1];
    assert.ok(c.widths.some(w=>src===`${c.src}-${w}.webp`),id+': fallback src exists');
-   assert.ok(block.includes(`href="${c.source_url}"`),id+': credit');
-   if(c.license_url)assert.ok(block.includes(`href="${c.license_url}"`),id+': licence link');
+   const notes=render('/notes',lang);
+   assert.ok(notes.includes(`href="${c.source_url}"`),id+': credit on /notes');
+   if(c.license_url)assert.ok(notes.includes(`href="${c.license_url}"`),id+': licence link on /notes');
+   assert.ok(!block.includes(`href="${c.source_url}"`)||c.source_url===byId.get(id).source_url,id+': no credit under the quote');
    assert.ok(block.indexOf('<img')<block.indexOf(`id="${anchorOf(id)}-name"`),id+': portrait leads the name');
   }
  }
@@ -201,4 +202,11 @@ test('quotation cards keep the LinkedIn link without dates, relationships or the
  const html=render('/work/selvaggi','en');
  assert.ok(html.includes('LinkedIn · recommendations section ↗'));
  assert.ok(!html.includes('Selvaggi Built client · website and social media engagement'));
+});
+
+test('quotations carry only the person and the source link, without disclaimers',()=>{
+ for(const lang of ['en','fr'])for(const path of ['/people','/practice','/work','/work/selvaggi','/work/rapp-esen','/']){
+  const html=render(path,lang);
+  assert.doesNotMatch(html,/Excerpt · original|Extrait · citation|provided by Nizzar|transmise par Nizzar|does not speak for|n’engage pas les organisations|kept with the work it describes|rattaché au travail|Portrait:|Portrait :/,lang+path);
+ }
 });
