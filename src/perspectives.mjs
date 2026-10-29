@@ -392,7 +392,7 @@ function profileArticle(p, i, lang) {
   const anchor = anchorId(p.id);
   const full = p.full_original_text.map(x => `<p>${esc(x)}</p>`).join('');
   const source = (p.source_platform === 'LinkedIn'
-    ? `<a class="text-link" href="${esc(p.source_url)}" target="_blank" rel="noopener noreferrer">${t('LinkedIn · recommendations section ↗', 'LinkedIn · section des recommandations ↗')}</a><span class="field-hint">${t('Section link, not an individual permalink. Sign-in may be required.', 'Lien vers la section, pas vers une recommandation individuelle. Connexion parfois nécessaire.')}</span>`
+    ? `<a class="text-link" href="${esc(p.source_url)}" target="_blank" rel="noopener noreferrer">${t('LinkedIn · recommendations section ↗', 'LinkedIn · section des recommandations ↗')}</a>`
     : `<span class="field-hint">${t('Original recommendation, provided by Nizzar Ben Chekroune.', 'Recommandation originale, transmise par Nizzar Ben Chekroune.')}</span>`)
     + (p.portrait ? portraitCredit(p, lang) : '');
   const identity = `<p class="perspective-lens">${String(i + 1).padStart(2, '0')} · ${esc(fr ? p.territory_fr : p.territory_en)}</p>

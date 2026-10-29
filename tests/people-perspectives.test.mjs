@@ -192,3 +192,13 @@ test('relationship lines are kept in the records but not shown',()=>{
   }
  }
 });
+
+test('quotation cards keep the LinkedIn link without dates, relationships or the permalink note',()=>{
+ for(const lang of ['en','fr'])for(const path of ['/people','/practice','/work','/work/selvaggi']){
+  const html=render(path,lang);
+  assert.doesNotMatch(html,/Profile headline observed|Présentation du profil|Section link|Lien vers la section|not an individual permalink/,lang+path);
+ }
+ const html=render('/work/selvaggi','en');
+ assert.ok(html.includes('LinkedIn · recommendations section ↗'));
+ assert.ok(!html.includes('Selvaggi Built client · website and social media engagement'));
+});
