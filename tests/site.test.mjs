@@ -127,7 +127,8 @@ test('the US catalog has four matching price points and public images', async ()
     assert.ok(row?.includes(`/start#${id},`), `${id} catalog destination`);
     assert.ok(row.includes(`${price}.00 USD,`), `${id} catalog price`);
     assert.ok(row.endsWith(',true,false,false'), `${id} catalog flags`);
-    assert.ok((await stat(path.join(dist, 'catalog', `${id}.png`))).size > 1000, `${id} catalog image`);
+    assert.ok(row.includes(`/catalog/${id}-illustration.jpg,`), `${id} catalog image URL`);
+    assert.ok((await stat(path.join(dist, 'catalog', `${id}-illustration.jpg`))).size > 1000, `${id} catalog image`);
   }
 });
 

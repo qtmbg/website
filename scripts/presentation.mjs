@@ -217,7 +217,6 @@ function folderStack(html, label, split) {
 /* ---------------------------------------------------------------- present */
 
 const territoryGlyphs = ['brand', 'megaphone', 'cursor', 'spark', 'cap', 'chart'];
-const formatGlyphs = ['search', 'search', 'chat', 'sun', 'handshake'];
 
 export function present(page) {
   const { basePath, lang } = page;
@@ -316,12 +315,8 @@ export function present(page) {
   }
 
   if (basePath === '/start') {
-    let i = 0;
-    html = html.replace(/<div class="format-list">[\s\S]*?<\/section>/, list => list.replace(/<article(?: id="[a-z-]+")?>/g, article => {
-      const glyph = formatGlyphs[i++];
-      return `${article}<div class="format-object" aria-hidden="true"><span class="app-icon tone-${i} glyph-${glyph}"></span></div>`;
-    }));
-    if (i !== formatGlyphs.length) throw new Error(`Expected ${formatGlyphs.length} formats; found ${i}`);
+    html = html.replace(/<div class="format-list">[\s\S]*?<\/section>/, list => replaceOnce(list, '<article>',
+      '<article><div class="format-object" aria-hidden="true"><span class="app-icon tone-5 glyph-handshake"></span></div>', 'custom engagement icon'));
   }
 
   if (basePath === '/notes') {
