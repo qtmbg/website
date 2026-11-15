@@ -91,7 +91,12 @@ export function makePages(articles){
    id: 'ai-opportunity-day', name: t('AI Opportunity Day', 'Journée d’opportunités IA'), price: t('€7,500', '7 500 €'),
    description: t('A working day for leadership teams. I prepare using examples from your company so the team can decide where AI can make a practical difference.', 'Une journée de travail pour les équipes de direction. Je prépare la séance à partir d’exemples de votre entreprise afin que l’équipe puisse choisir les usages de l’IA qui peuvent apporter un bénéfice concret.'),
    outcome: t('You leave with an AI Opportunity Map and a 90-day action plan.', 'Vous repartez avec une cartographie des opportunités IA et un plan d’action à 90 jours.'),
-   action: t('Request a date', 'Demander une date')
+   action: t('Request a date', 'Demander une date'),
+   variant: `<div id="ai-opportunity-day-remote">
+    <p>${t('US remote workshop', 'Atelier à distance pour les États-Unis')} <strong>$8,500 USD</strong></p>
+    <p>${t('One leadership team, preparation, one remote working day and the written plan. Date confirmed by agreement.', 'Une équipe de direction, un travail préparatoire, une journée à distance et le plan écrit. Date à convenir.')}</p>
+    <p><a class="text-link" href="mailto:${contactEmail}?subject=AI%20Opportunity%20Day%20US">${t('Request a US workshop date', 'Demander une date pour l’atelier aux États-Unis')}</a></p>
+   </div>`
   },
   {
    id: 'ai-working-session', name: t('AI Working Session', 'Session de travail IA'), price: t('From €3,500', 'À partir de 3 500 €'),
@@ -104,7 +109,7 @@ export function makePages(articles){
   <div><h3>${offer.name}</h3><p><strong>${offer.price}</strong></p></div>
   <div class="prose"><p>${offer.description}</p><p>${offer.outcome}</p>
   <p><a class="text-link" href="mailto:${contactEmail}?subject=${encodeURIComponent(offer.name)}">${offer.action}</a></p>
-  ${offer.proof ? `<p>${offer.proof}</p>` : ''}</div>
+  ${offer.proof ? `<p>${offer.proof}</p>` : ''}${offer.variant ?? ''}</div>
  </article>`).join('');
  const [engagement] = formats;
  add('/start', t('Let’s talk.', 'Parlons-en.'),

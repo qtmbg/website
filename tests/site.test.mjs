@@ -115,6 +115,16 @@ test('start shows the three scoped offers, their published prices and a relevant
   }
 });
 
+test('the US discovery listing matches the published remote workshop offer', async () => {
+  const listing = await readFile(path.join(dist, 'catalog', 'quantum-branding-us.csv'), 'utf8');
+  assert.match(listing, /8500\.00 USD/);
+  assert.match(listing, /https:\/\/thequantumbranding\.com\/start#ai-opportunity-day-remote/);
+  assert.match(listing, /false,false\s*$/);
+  const page = await read('/start');
+  assert.match(page, /id="ai-opportunity-day-remote"[\s\S]*?<strong>\$8,500 USD<\/strong>/);
+  assert.ok((await stat(path.join(dist, 'catalog', 'ai-opportunity-day-us.png'))).size > 1000);
+});
+
 /* ---------------------------------------------------------------- contact */
 
 test('the contact address is visible and functional across the site', async () => {
