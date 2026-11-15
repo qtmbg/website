@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { articles } from '../src/articles.mjs';
 import { preloadPicture } from '../src/archive/render.mjs';
 import { makePages } from '../src/pages.mjs';
+import { discoveryFeed } from '../src/offers.mjs';
 import { searchTitle, searchDescription } from '../src/search-titles.mjs';
 import { contactEmail, esc, method, origin, route, territories } from '../src/shared.mjs';
 import { ancestors, canonical, crumbLabels, ogSlug, routeSection, routeSlug } from './meta.mjs';
@@ -454,6 +455,8 @@ const desktopCss = await readFile(path.join(root, 'assets', 'desktop.css'));
 const { code: compactCss } = transformCss({ filename: 'desktop.css', code: desktopCss, minify: true });
 await writeFile(path.join(dist, 'assets', 'desktop.css'), compactCss);
 await copyIfPresent(path.join(root, 'public'), dist);
+await mkdir(path.join(dist, 'catalog'), { recursive: true });
+await writeFile(path.join(dist, 'catalog', 'quantum-branding-us.csv'), discoveryFeed());
 await cp(path.join(root, 'src', 'shared.mjs'), path.join(dist, 'assets', 'shared.mjs'));
 
 // Downloadable method diagram, one per language
