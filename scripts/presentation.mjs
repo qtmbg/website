@@ -217,7 +217,7 @@ function folderStack(html, label, split) {
 /* ---------------------------------------------------------------- present */
 
 const territoryGlyphs = ['brand', 'megaphone', 'cursor', 'spark', 'cap', 'chart'];
-const formatGlyphs = ['handshake', 'search', 'sun', 'chat'];
+const formatGlyphs = ['search', 'search', 'chat', 'sun', 'handshake'];
 
 export function present(page) {
   const { basePath, lang } = page;
@@ -321,7 +321,7 @@ export function present(page) {
       const glyph = formatGlyphs[i++];
       return `${article}<div class="format-object" aria-hidden="true"><span class="app-icon tone-${i} glyph-${glyph}"></span></div>`;
     }));
-    if (i !== 4) throw new Error(`Expected four formats; found ${i}`);
+    if (i !== formatGlyphs.length) throw new Error(`Expected ${formatGlyphs.length} formats; found ${i}`);
   }
 
   if (basePath === '/notes') {

@@ -98,20 +98,36 @@ test('both brochures exist, are real PDFs and carry no price', async () => {
   }
 });
 
-test('start shows the three scoped offers, their published prices and a relevant next step', async () => {
+test('start shows the fixed-scope offers, their regional prices and an inquiry link', async () => {
   const offers = [
-    ['quantum-diagnosis', 'From €7,500', 'À partir de 7 500 €'],
-    ['ai-opportunity-day', '€7,500', '7 500 €'],
-    ['ai-working-session', 'From €3,500', 'À partir de 3 500 €']
+    ['positioning-review', '€490', '490 €', '$590 USD'],
+    ['quantum-diagnosis', '€1,950', '1 950 €', '$2,250 USD'],
+    ['ai-working-session', '€950', '950 €', '$1,100 USD'],
+    ['ai-opportunity-day', '€2,950', '2 950 €', '$3,500 USD']
   ];
   for (const [route, lang] of [['/start', 'en'], ['/fr/start', 'fr']]) {
     const page = await read(route);
-    for (const [id, en, fr] of offers) {
+    assert.ok(page.indexOf('id="positioning-review"') < page.indexOf('id="quantum-diagnosis"'));
+    for (const [id, en, fr, usd] of offers) {
       const card = page.match(new RegExp(`<article id="${id}">([\\s\\S]*?)</article>`))?.[1];
       assert.ok(card?.includes(`<strong>${lang === 'fr' ? fr : en}</strong>`), `${route} price for ${id}`);
+      assert.ok(card.includes(`<strong>${usd}</strong>`), `${route} US price for ${id}`);
       assert.ok(card.includes(`mailto:${contactEmail}?subject=`), `${route} contact for ${id}`);
     }
     assert.ok(page.includes('work/selvaggi'), `${route} proof for diagnosis`);
+  }
+});
+
+test('the US catalog has four matching price points and public images', async () => {
+  const lines = (await readFile(path.join(dist, 'catalog', 'quantum-branding-us.csv'), 'utf8')).trim().split('\n');
+  assert.equal(lines.length, 5);
+  const prices = [['positioning-review', 590], ['quantum-diagnosis', 2250], ['ai-working-session', 1100], ['ai-opportunity-day', 3500]];
+  for (const [id, price] of prices) {
+    const row = lines.find(line => line.startsWith(`qb-${id}-remote,`));
+    assert.ok(row?.includes(`/start#${id},`), `${id} catalog destination`);
+    assert.ok(row.includes(`${price}.00 USD,`), `${id} catalog price`);
+    assert.ok(row.endsWith(',true,false,false'), `${id} catalog flags`);
+    assert.ok((await stat(path.join(dist, 'catalog', `${id}.png`))).size > 1000, `${id} catalog image`);
   }
 });
 
