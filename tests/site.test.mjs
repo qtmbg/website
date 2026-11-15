@@ -58,7 +58,7 @@ test('every case, essay and instrument has its own address in both languages', a
 
 /* ------------------------------------------------------------- no pricing */
 
-test('no pricing appears in public output; canonical evidence remains internal', async () => {
+test('published pricing is limited to the English and French start pages', async () => {
   const banned = [
     /€/, /\bEUR\b/, /\bUSD\b/, /\$\s?\d/, /\bMAD\s?\d/,
     /\bfrom\s+[€$£]\s?\d[\d,.\s]*\b/i,
@@ -72,6 +72,7 @@ test('no pricing appears in public output; canonical evidence remains internal',
     path.join(root, 'index.html')
   ];
   for (const file of files) {
+    if (['start.html', path.join('fr', 'start.html')].includes(path.relative(dist, file))) continue;
     const text = await readFile(file, 'utf8');
     const archive = /^work(?:[/.]|$)|^fr[\/]work(?:[/.]|$)/.test(path.relative(dist, file));
     const patterns = archive ? banned.slice(5) : banned;
@@ -97,9 +98,21 @@ test('both brochures exist, are real PDFs and carry no price', async () => {
   }
 });
 
-test('the site says how scope and price are settled instead of showing a scale', async () => {
-  assert.match(await read('/start'), /Scope and price are defined after we talk/);
-  assert.match(await read('/fr/start'), /Le périmètre et le prix sont définis après un échange/);
+test('start shows the three scoped offers, their published prices and a relevant next step', async () => {
+  const offers = [
+    ['quantum-diagnosis', 'From €7,500', 'À partir de 7 500 €'],
+    ['ai-opportunity-day', '€7,500', '7 500 €'],
+    ['ai-working-session', 'From €3,500', 'À partir de 3 500 €']
+  ];
+  for (const [route, lang] of [['/start', 'en'], ['/fr/start', 'fr']]) {
+    const page = await read(route);
+    for (const [id, en, fr] of offers) {
+      const card = page.match(new RegExp(`<article id="${id}">([\\s\\S]*?)</article>`))?.[1];
+      assert.ok(card?.includes(`<strong>${lang === 'fr' ? fr : en}</strong>`), `${route} price for ${id}`);
+      assert.ok(card.includes(`mailto:${contactEmail}?subject=`), `${route} contact for ${id}`);
+    }
+    assert.ok(page.includes('work/selvaggi'), `${route} proof for diagnosis`);
+  }
 });
 
 /* ---------------------------------------------------------------- contact */

@@ -317,9 +317,9 @@ export function present(page) {
 
   if (basePath === '/start') {
     let i = 0;
-    html = html.replace(/<div class="format-list">([\s\S]*?)<\/div>/, list => list.replace(/<article>/g, () => {
+    html = html.replace(/<div class="format-list">[\s\S]*?<\/section>/, list => list.replace(/<article(?: id="[a-z-]+")?>/g, article => {
       const glyph = formatGlyphs[i++];
-      return `<article><div class="format-object" aria-hidden="true"><span class="app-icon tone-${i} glyph-${glyph}"></span></div>`;
+      return `${article}<div class="format-object" aria-hidden="true"><span class="app-icon tone-${i} glyph-${glyph}"></span></div>`;
     }));
     if (i !== 4) throw new Error(`Expected four formats; found ${i}`);
   }
