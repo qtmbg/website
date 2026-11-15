@@ -867,6 +867,10 @@ body[data-page="start"] .section>p:first-child .text-link{margin:0 0 0 6px}
 @media (hover:hover){.contact-line a:hover{color:var(--blue)}}
 body[data-page="start"] .brief-actions{justify-content:center;margin:24px 0 72px}
 .format-list p+p{margin-top:8px;color:var(--ink-85);font-weight:500}
+.format-list .offer-art{height:auto;aspect-ratio:4/3;overflow:hidden;background:#f4f6f8}
+.offer-art img{display:block;width:100%;height:100%;object-fit:cover}
+.format-list .offer-promise{color:var(--ink);font-weight:600;margin-block:8px 12px}
+@media(max-width:520px){body .format-list{grid-template-columns:1fr}}
 .founder-split{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)!important}
 .founder-visual-column{display:grid;gap:24px;align-content:start}
 .founder-portrait-figure{margin:0;width:min(100%,320px);border-radius:16px;overflow:hidden;box-shadow:0 0 0 1px var(--ink-10),0 18px 50px rgb(27 37 43/.14)}

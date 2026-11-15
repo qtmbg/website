@@ -9,7 +9,7 @@ import {projects} from './archive/projects.mjs';
 import {finder,pillars,timeline,index as archiveIndex,projectBody,wall} from './archive/render.mjs';
 import {practiceWork,proofBody,keepBody,migratedNotice,copyFor,recordFor,lensOf,nizzarCase} from './archive/practice.mjs';
 import {NIZZAR_WORK} from './archive/lens.mjs';
-import {offers} from './offers.mjs';
+import {offers, offerImage} from './offers.mjs';
 export function makePages(articles){
  const pages=[];
  for(const lang of ['en','fr']){
@@ -83,7 +83,9 @@ export function makePages(articles){
  const number = new Intl.NumberFormat('en-US');
  const frenchNumber = new Intl.NumberFormat('fr-FR');
  const offerCards = offers.map(offer => `<article id="${offer.id}">
+  <div class="format-object offer-art"><img src="${offerImage(offer.id)}" width="1000" height="750" alt="" loading="lazy" decoding="async"></div>
   <div><h3>${esc(offer.name[lang])}</h3>
+  <p class="offer-promise">${esc(offer.promise[lang])}</p>
   <p><strong>${t(`€${number.format(offer.eur)}`, `${frenchNumber.format(offer.eur)} €`)}</strong></p>
   <p>${t('US clients', 'Clients aux États-Unis')} · <strong>$${number.format(offer.usd)} USD</strong></p></div>
   <div class="prose"><p>${esc(offer.scope[lang])}</p><p>${esc(offer.outcome[lang])}</p>
