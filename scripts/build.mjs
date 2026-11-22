@@ -69,6 +69,7 @@ function footer(lang) {
 <p class="footer-author">Quantum Branding<br>Nizzar Ben Chekroune</p>
 <nav aria-label="${t('Footer navigation', 'Navigation de pied de page')}">${links}</nav>
 <p>${t('The independent practice of Nizzar Ben Chekroune. In English and French.', 'La pratique indépendante de Nizzar Ben Chekroune. En anglais et en français.')}<br><a href="mailto:${contactEmail}">${contactEmail}</a></p>
+<p><a href="https://quantumbranding.ai/what-is-quantum-branding">${t('What is Quantum Branding', 'Qu’est-ce que Quantum Branding')}</a> · <a href="https://quantumbranding.ai/mri">${t('Brand MRI, the brand diagnostic by Quantum Branding', 'Brand MRI, le diagnostic de marque de Quantum Branding')}</a> · <a href="https://quantumbranding.ai/blog/brand-diagnostic-tool">${t('Brand diagnostic tool, compared', 'Outil de diagnostic de marque, comparatif')}</a> · <a href="https://nizzar.com/signal">${t('SIGNAL, the daily curation on AI and brands', 'SIGNAL, la curation quotidienne sur l’IA et les marques')}</a></p>
 <p><a href="https://nizzar.com">nizzar.com</a> · <a href="https://quantumbranding.ai">BrandOS</a><br><small>© ${new Date().getFullYear()} Quantum Branding · <a href="${route('/notes', lang)}">${t('Notes & sources', 'Notes et sources')}</a></small></p>
 </footer>`;
 }
@@ -105,8 +106,10 @@ const person = {
     'https://nizzar.com',
     'https://www.linkedin.com/in/nizzar',
     'https://www.instagram.com/thenizzar',
+    'https://thenizzar.substack.com/',
     'https://www.imdb.com/name/nm8517643/',
-    'https://sessionize.com/nizzar/'
+    'https://sessionize.com/nizzar/',
+    'https://quantumbranding.ai'
   ],
   // Press and juries are coverage of the person, not the person.
   subjectOf: {
@@ -132,8 +135,37 @@ const practice = {
   // answers for. Each term is a territory already stated on /practice.
   knowsAbout: territories.map(([en]) => en),
   slogan: 'See what is true. Decide what matters. Make it real.',
-  sameAs: ['https://www.linkedin.com/company/thequantumbranding/'],
-  owns: { '@id': 'https://quantumbranding.ai/#software' }
+  sameAs: [
+    'https://www.linkedin.com/company/thequantumbranding/',
+    'https://quantumbranding.ai',
+    'https://nizzar.com',
+    'https://x.com/quantumbranding'
+  ],
+  owns: [
+    { '@id': 'https://quantumbranding.ai/#software' },
+    { '@id': 'https://quantumbranding.ai/mri#product' }
+  ]
+};
+
+// SIGNAL is the practice's daily publication and podcast: one entity, locked
+// @id on nizzar.com, authored by the person, published by the practice.
+const signal = {
+  '@type': ['CreativeWorkSeries', 'PodcastSeries'],
+  '@id': 'https://nizzar.com/signal#publication',
+  name: 'SIGNAL',
+  url: 'https://nizzar.com/signal',
+  description: 'SIGNAL is a daily curation. The noise filtered. The signal kept. A daily podcast and curation of AI, brands, business and culture, in English and French.',
+  inLanguage: ['en', 'fr'],
+  author: { '@id': PERSON_ID },
+  editor: { '@id': PERSON_ID },
+  publisher: { '@id': ORG_ID },
+  sameAs: [
+    'https://open.spotify.com/show/7jRF8SDhxOVUTSmWs2vp8g',
+    'https://open.spotify.com/show/664MyOZ9Gswe0r3EJzDTyK',
+    'https://podcasts.apple.com/us/podcast/signal-ai-brands-business-culture/id6818072638',
+    'https://podcasts.apple.com/us/podcast/signal-ia-marques-business-culture/id6818073414',
+    'https://thenizzar.substack.com/'
+  ]
 };
 
 const website = {
@@ -194,7 +226,7 @@ function services(lang) {
 function jsonLd(page) {
   const { basePath, lang, title, description, type } = page;
   const url = canonical(basePath, lang);
-  const graph = [practice, person, website];
+  const graph = [practice, person, website, signal];
 
   const main = {
     '@type': type,
