@@ -107,6 +107,7 @@ const person = {
     'https://www.linkedin.com/in/nizzar',
     'https://www.instagram.com/thenizzar',
     'https://thenizzar.substack.com/',
+    'https://www.youtube.com/@NizzarBenchekroune',
     'https://www.imdb.com/name/nm8517643/',
     'https://sessionize.com/nizzar/',
     'https://quantumbranding.ai'
@@ -164,7 +165,8 @@ const signal = {
     'https://open.spotify.com/show/664MyOZ9Gswe0r3EJzDTyK',
     'https://podcasts.apple.com/us/podcast/signal-ai-brands-business-culture/id6818072638',
     'https://podcasts.apple.com/us/podcast/signal-ia-marques-business-culture/id6818073414',
-    'https://thenizzar.substack.com/'
+    'https://thenizzar.substack.com/',
+    'https://www.youtube.com/@NizzarBenchekroune'
   ]
 };
 
