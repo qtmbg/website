@@ -362,6 +362,7 @@ function document_(page, pages) {
 <html lang="${lang}">
 <head>
 <meta charset="utf-8">
+<meta name="facebook-domain-verification" content="0q1uxye1wgmpt6braqmobjjifbrcxv">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(fullTitle)}</title>
 <meta name="description" content="${esc(desc)}">
